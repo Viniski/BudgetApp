@@ -3,13 +3,7 @@ import { BrowserRouter as Router, Routes, NavLink, Route} from "react-router-dom
 
 function Nav(){
     return (
-    <nav style={{
-        backgroundColor: "yellow",
-        height: "50px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-    }}>
+    <nav>
         <ul>
             <li><NavLink to="/">Strona główna</NavLink></li>
             <li><NavLink to="/dochody">Dochody</NavLink></li>

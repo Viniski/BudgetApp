@@ -1,19 +1,20 @@
-import './App.css';
-import {BrowserRouter as Router} from 'react-router-dom';
-
-import Header from './component/Header/Header';
-import Nav from './component/Nav/Nav';
-import Page from './component/Page/Page';
+import "./styles/main.scss"
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import HomePage from "./pages/Home/HomePage";
+import IncomePage from "./pages/Income/IncomePage";
+import ExpensePage from "./pages/Expense/ExpenePage";
 
 function App() {
   return (
-    <div className="background">
+    <>
       <Router>
-        <Header/>
-        <Nav/>
-        <Page/>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dochody" element={<IncomePage />} />
+          <Route path="/wydatki" element={<ExpensePage />} />
+        </Routes>
       </Router>
-    </div>
+    </>
   );
 }
 
