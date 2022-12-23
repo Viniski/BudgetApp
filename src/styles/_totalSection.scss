@@ -1,0 +1,99 @@
+.totalSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 2vh;
+}
+
+.totalCard {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  width: 92vw;
+  height: 16vh;
+  border-radius: 5px;
+  background-color: white;
+
+  h2 {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: gray;
+  }
+
+  p {
+    width: 100%;
+    font-weight: bold;
+    font-size: 28px;
+  }
+}
+
+.expenseCard,
+.incomeCard {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 44vw;
+  height: 14vh;
+  margin-top: 2vh;
+  border-radius: 5px;
+  background-color: white;
+
+  &__incomeIcon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    fill: green;
+    background-color: lightgreen;
+  }
+
+  &__expenseIcon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    fill: red;
+    background-color: lightcoral;
+  }
+
+  h2 {
+    margin-top: 30%;
+    //bug
+    width: 100%;
+    padding: 0 5%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+  }
+
+  p {
+    width: 100%;
+    padding: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+  }
+}
+
+.expenseCard.mainCard,
+.incomeCard.mainCard {
+  width: 90vw;
+  height: 18vh;
+
+  h2 {
+    margin-top: 15%;
+    font-size: 18px;
+    //bug
+  }
+
+  p {
+    font-size: 28px;
+  }
+}

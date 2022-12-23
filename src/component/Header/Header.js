@@ -5,7 +5,7 @@ function Header(props) {
     <header>
       {props?.page === "home" ? (
         <>
-        <button className="menu active">
+        <button className="menuButton active">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -16,7 +16,7 @@ function Header(props) {
             />
           </svg>
           </button>
-          <button className="menu disactive">
+          <button className="menuButton disactive">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -29,7 +29,7 @@ function Header(props) {
         </button>
         </>
       ) : (
-        <button className="goBackIcon">
+        <button className="goBackButton">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path
               fill-rule="evenodd"
@@ -39,7 +39,7 @@ function Header(props) {
         </button>
       )}
       <h1>{props.title}</h1>
-      <button className="themeColor">
+      <button className="themeButton">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"

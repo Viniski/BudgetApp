@@ -1,0 +1,28 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 10vh;
+    background-color: white;
+
+    .themeButton {
+      background: white;
+    
+      svg {
+        width: 36px;
+        height: 36px;
+      }
+    }
+    
+    
+    .menuButton {
+      background: white;
+    
+      svg {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+  }

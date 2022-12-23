@@ -8,7 +8,9 @@ function ExpensePage() {
   return (
     <>
       <Header title="Wydatki" />
-      <ExpenseCard />
+      <section className="totalSection">
+      <ExpenseCard className="mainCard"/>
+      </section>
       <section className="transactionSection">
         <TransactionSectionHeader title="Wszystkie przychody"/>
         <TransactionCard />

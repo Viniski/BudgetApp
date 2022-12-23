@@ -7,8 +7,10 @@ import AddButton from "../../component/AddButton/AddButton";
 function IncomePage() {
   return (
     <>
-      <Header title="Przychody"/>
-      <IncomeCard />
+      <Header title="Dochody"/>
+      <section className="totalSection">
+      <IncomeCard className="mainCard"/>
+      </section>
       <section className="transactionSection">
         <TransactionSectionHeader title="Wszystkie dochody"/>
         <TransactionCard />

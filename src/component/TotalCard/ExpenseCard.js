@@ -1,6 +1,6 @@
-function ExpenseCard() {
+function ExpenseCard(props) {
   return (
-    <div className="expenseCard">
+    <div className={`expenseCard ${props?.className}`}>
       <div className="incomeCard__expenseIcon">
       <svg
         xmlns="http://www.w3.org/2000/svg"
