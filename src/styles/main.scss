@@ -132,9 +132,12 @@
 
 header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100vw;
   height: 10vh;
   background-color: white;
+  
 }
 
 .totalSection {
@@ -145,15 +148,15 @@ header {
 }
 
 .transactionSection {
-  padding: 3vh 0;
+  padding: 4vh 0;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: center;
 
   h3 {
-    width: 88vw;
     text-align: start;
+    padding: 0 8px;
   }
 }
 
@@ -183,4 +186,67 @@ header {
   width: 22px;
   height: 22px;
 }
+
+.themeColor {
+  background: white;
+
+  svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+.menu {
+  background: white;
+
+  svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.themeColor, .menu, .goBackIcon {
+  padding: 0 16px;
+}
+
+.active {
+   display: block;
+}
+
+.disactive {
+  display: none;
+}
+
+.goBackIcon {
+    background: white;
+  
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+}
+
+h1 {
+  text-align: center;
+}
+
+.filterButton {
+  background-color: $grayBackground;
+  padding: 0 8px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.transactionSection__header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: space-between;
+}
+
+
 

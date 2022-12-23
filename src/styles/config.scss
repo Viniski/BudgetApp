@@ -1,3 +1,5 @@
+$grayBackground:  rgb(250, 249, 250);
+
 * {
     margin: 0;
     padding: 0;
@@ -11,11 +13,15 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: rgb(250, 249, 250);
+    background-color: $grayBackground;
   
   }
   
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
+  }
+
+  button {
+    border: 0;
   }
