@@ -11,7 +11,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  //background-color: gray;
   background-color: rgb(250, 249, 250);
+
 }
 
 code {
@@ -21,9 +23,16 @@ code {
 
 .transactionCard {
   display: flex;
-  background-color: white;
   width: 90vw;
   height: 12vh;
+  margin-top: 1vh;
+  border-radius: 5px;
+  background-color: white;
+  align-items: center;
+  
+  &:first-child {
+    margin-top: 8vh;
+  }
 
   &_ammount {
     width: 20vw;
@@ -33,32 +42,93 @@ code {
     width: 50vw;
   }
 
-  &_button {
+  &_buttons {
     width: 20vw;
+    display: flex;
+    justify-content: space-evenly;
   }
 }
 
 .totalCard {
   display: flex;
-  background-color: white;
-  width: 90vw;
+  width: 92vw;
   height: 16vh;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .expenseCard {
   display: flex;
-  background-color: white;
-  width: 40vw;
+  width: 44vw;
   height: 14vh;
+  margin-top: 2vh;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .incomeCard {
   display: flex;
-  background-color: white;
-  width: 40vw;
+  width: 44vw;
   height: 14vh;
+  margin-top: 2vh;
+  border-radius: 5px;
+  background-color: white;
+
+  h2 {
+    width: 80%;
+  }
 }
 
 header {
   display: flex;
+  width: 100vw;
+  height: 10vh;
+  background-color: white;
 }
+
+.totalSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 2vh;
+}
+
+.transactionSection {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.addButton {
+  position: fixed;
+  bottom: 7vw;
+  right: 7vw;
+  border: 0;
+  border-radius: 50%;
+  background-color: white;
+  fill: rgb(1, 75, 188);
+  width: 54px;
+  height: 54px;
+}
+
+.trashButton {
+  border: 0;
+  background-color: white;
+  fill: red;
+  width: 20px;
+  height: 20px;
+}
+
+.editButton {
+  border: 0;
+  background-color: white;
+  width: 20px;
+  height: 20px;
+}
+
