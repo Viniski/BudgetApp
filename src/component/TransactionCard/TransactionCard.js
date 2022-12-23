@@ -1,14 +1,14 @@
-function TransactionCard() {
+function TransactionCard(props) {
   return (
     <div className="transactionCard">
-      <div className="transactionCard_ammount">
-        <span>+30$</span>
+      <div className="transactionCard__ammount">
+        <span className={props.transactionType}>+30$</span>
       </div>
-      <div className="transactionCard_description">
-        <p>Pizza</p>
-        <p>Food</p>
+      <div className="transactionCard__description">
+        <p className="title">Pizza z rukolą i sosem vinegre</p>
+        <p className="category">Jedzenie</p>
       </div>
-      <div className="transactionCard_buttons">
+      <div className="transactionCard__buttons">
         <button className="trashButton">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,6 @@ function TransactionCard() {
           />
         </svg>
         </button>
-        
       </div>
     </div>
   );

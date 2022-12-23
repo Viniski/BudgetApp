@@ -1,8 +1,8 @@
 function TotalCard() {
     return (
       <div className="totalCard">
-        <h2>Bilans przychodów/wydatków/transakcji</h2>
-        <p>2050 PLN</p>
+        <h2>Bilans transakcji</h2>
+        <p>+1000 PLN</p>
       </div>
     );
   }

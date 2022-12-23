@@ -1,7 +1,9 @@
+import Header from "../../component/Header/Header";
+
 function EditPage() {
     return (
       <>
-        <p>Edit Page</p>
+      <Header title="Szczegóły transakcji"/>
       </>
     );
   }

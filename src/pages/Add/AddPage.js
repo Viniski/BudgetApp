@@ -1,7 +1,9 @@
+import Header from "../../component/Header/Header";
+
 function AddPage() {
   return (
     <>
-      <p>Add Page</p>
+     <Header title="Dodaj transakcje"/>
     </>
   );
 }

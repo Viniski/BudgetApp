@@ -1,25 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  //background-color: gray;
-  background-color: rgb(250, 249, 250);
-
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+@import "config";
 
 .transactionCard {
   display: flex;
@@ -30,19 +9,46 @@ code {
   background-color: white;
   align-items: center;
   
-  &:first-child {
-    margin-top: 8vh;
+  &:first-of-type {
+    margin-top: 2vh;
   }
 
-  &_ammount {
+  &__ammount {
     width: 20vw;
+    font-size: 20px;
+    font-weight: bold;
+
+    .income {
+      color: green;
+    }
+
+    .expense {
+      color: red;
+    }
+
   }
 
-  &_description {
+  &__description {
     width: 50vw;
+    padding: 0 5vw;
+  
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
-  &_buttons {
+  .category {
+    text-transform: uppercase;
+    font-size: 15px;
+    color: gray;
+  }
+  
+  }
+
+  &__buttons {
     width: 20vw;
     display: flex;
     justify-content: space-evenly;
@@ -51,31 +57,76 @@ code {
 
 .totalCard {
   display: flex;
+  flex-wrap: wrap;
+  text-align: center;
   width: 92vw;
   height: 16vh;
   border-radius: 5px;
   background-color: white;
-}
-
-.expenseCard {
-  display: flex;
-  width: 44vw;
-  height: 14vh;
-  margin-top: 2vh;
-  border-radius: 5px;
-  background-color: white;
-}
-
-.incomeCard {
-  display: flex;
-  width: 44vw;
-  height: 14vh;
-  margin-top: 2vh;
-  border-radius: 5px;
-  background-color: white;
+  align-items: center;
 
   h2 {
-    width: 80%;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: gray;
+  }
+
+  p {
+    width: 100%;
+    font-weight: bold;
+    font-size: 28px;
+  }
+}
+
+.expenseCard, .incomeCard {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 44vw;
+  height: 14vh;
+  margin-top: 2vh;
+  border-radius: 5px;
+  background-color: white;
+
+  &__incomeIcon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    fill: green;
+    background-color: lightgreen;
+    border-radius: 50%;
+  }
+
+  &__expenseIcon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    fill: red;
+    background-color: lightcoral;
+    border-radius: 50%;
+  }
+
+  h2 {
+    margin-top: 30%;
+    //bug
+    width: 100%;
+    padding: 0 5%;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: gray;
+  }
+
+  p {
+    width: 100%;
+    padding: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
   }
 }
 
@@ -94,15 +145,16 @@ header {
 }
 
 .transactionSection {
+  padding: 3vh 0;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: center;
-}
 
-h2 {
-  font-size: 16px;
-  font-weight: normal;
+  h3 {
+    width: 88vw;
+    text-align: start;
+  }
 }
 
 .addButton {
@@ -113,22 +165,22 @@ h2 {
   border-radius: 50%;
   background-color: white;
   fill: rgb(1, 75, 188);
-  width: 54px;
-  height: 54px;
+  width: 58px;
+  height: 58px;
 }
 
 .trashButton {
   border: 0;
   background-color: white;
   fill: red;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 .editButton {
   border: 0;
   background-color: white;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 

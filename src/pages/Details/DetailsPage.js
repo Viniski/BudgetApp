@@ -1,5 +1,9 @@
+import Header from "../../component/Header/Header";
+
 function DetailsPage () {
-    return ( <>Details Page</>)
+    return ( <>
+     <Header title="Szczegóły transakcji"/>
+    </>)
 }
 
 export default DetailsPage;

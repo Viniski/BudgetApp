@@ -1,9 +1,10 @@
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
+import Header from "../../component/Header/Header";
 
 function ExpensePage() {
     return (
       <>
-        <p>Expense Page</p>
+      <Header title="Szczegóły transakcji"/>
         <section className="transactionSection">
         <TransactionCard />
         <TransactionCard />

@@ -1,7 +1,9 @@
+import Header from "../../component/Header/Header";
+
 function FilterPage() {
     return (
       <>
-        <p>Filter Page</p>
+      <Header title="Szczegóły transakcji"/>
       </>
     );
   }
