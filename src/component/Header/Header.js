@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Header(props) {
+  const navigate = useNavigate();
   return (
     <header>
       {props?.page === "home" ? (
@@ -29,7 +31,7 @@ function Header(props) {
         </button>
         </>
       ) : (
-        <button className="goBackButton">
+        <button onClick={() => navigate(-1)} className="goBackButton">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path
               fill-rule="evenodd"

@@ -1,0 +1,439 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #faf9fa;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+button {
+  border: 0;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100vw;
+  height: 10vh;
+  background-color: white;
+}
+
+header .themeButton {
+  background: white;
+}
+
+header .themeButton svg {
+  width: 36px;
+  height: 36px;
+}
+
+header .menuButton {
+  background: white;
+}
+
+header .menuButton svg {
+  width: 36px;
+  height: 36px;
+}
+
+.addButton {
+  position: fixed;
+  bottom: 7vw;
+  right: 7vw;
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 50%;
+  fill: #014bbc;
+  background-color: white;
+}
+
+.totalSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 2vh;
+}
+
+.totalCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 92vw;
+  height: 16vh;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.totalCard h2 {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: gray;
+}
+
+.totalCard p {
+  width: 100%;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.expenseCard,
+.incomeCard {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 44vw;
+  height: 14vh;
+  margin-top: 2vh;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.expenseCard__incomeIcon,
+.incomeCard__incomeIcon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  fill: green;
+  background-color: lightgreen;
+}
+
+.expenseCard__expenseIcon,
+.incomeCard__expenseIcon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  fill: red;
+  background-color: lightcoral;
+}
+
+.expenseCard h2,
+.incomeCard h2 {
+  margin-top: 30%;
+  width: 100%;
+  padding: 0 5%;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+}
+
+.expenseCard p,
+.incomeCard p {
+  width: 100%;
+  padding: 5%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.expenseCard.mainCard,
+.incomeCard.mainCard {
+  width: 90vw;
+  height: 18vh;
+}
+
+.expenseCard.mainCard h2,
+.incomeCard.mainCard h2 {
+  margin-top: 15%;
+  font-size: 18px;
+}
+
+.expenseCard.mainCard p,
+.incomeCard.mainCard p {
+  font-size: 28px;
+}
+
+.transactionSection {
+  padding: 4vh 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.transactionSection h3 {
+  text-align: start;
+  padding: 0 8px;
+}
+
+.transactionSection__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 90%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.transactionCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90vw;
+  height: 12vh;
+  margin-top: 1vh;
+  border-radius: 5px;
+  background-color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.transactionCard:first-of-type {
+  margin-top: 2vh;
+}
+
+.transactionCard__ammount {
+  width: 20vw;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.transactionCard__ammount .income {
+  color: green;
+}
+
+.transactionCard__ammount .expense {
+  color: red;
+}
+
+.transactionCard__description {
+  width: 50vw;
+  padding: 0 5vw;
+}
+
+.transactionCard__description .title {
+  font-weight: bold;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.transactionCard__description .category {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: gray;
+}
+
+.transactionCard__buttons {
+  width: 20vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.trashButton {
+  width: 22px;
+  height: 22px;
+  border: 0;
+  fill: red;
+  background-color: white;
+}
+
+.editButton {
+  width: 22px;
+  height: 22px;
+  border: 0;
+  background-color: white;
+}
+
+.active {
+  display: block;
+}
+
+.disactive {
+  display: none;
+}
+
+.goBackButton {
+  background: white;
+}
+
+.goBackButton svg {
+  width: 36px;
+  height: 36px;
+}
+
+.filterButton {
+  background-color: #faf9fa;
+  padding: 0 8px;
+}
+
+.filterButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+.themeButton,
+.menuButton,
+.goBackButton {
+  padding: 0 16px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.detailsSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 75vh;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  padding: 5vh 0;
+}
+
+.detailsInfo {
+  width: 80vw;
+}
+
+.detailsInfo__category {
+  font-size: 14px;
+  padding: 7px 0;
+  color: gray;
+}
+
+.detailsInfo__value {
+  font-size: 18px;
+  padding: 9px 0;
+}
+
+.detailsButton {
+  height: 10vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.detailsButton button {
+  width: 126px;
+  height: 48px;
+  border-radius: 5px;
+  background-color: #014bbc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.detailsButton button span {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: white;
+}
+
+.detailsButton button svg {
+  height: 24px;
+  width: 24px;
+  fill: white;
+  color: white;
+}
+
+.input {
+  width: 80vw;
+  height: 6vh;
+  padding: 5px 16px;
+  border: 0;
+  border-bottom: solid 2px gray;
+}
+
+.inputsSection {
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: space-evenly;
+      align-content: space-evenly;
+}
+
+.transactionOptions {
+  text-transform: uppercase;
+  margin: auto;
+  width: 226px;
+  height: 48px;
+  color: white;
+  background-color: #014bbc;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=main.css.map */

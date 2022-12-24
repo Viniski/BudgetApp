@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import TotalCard from "../../component/TotalCard/TotalCard";
 import ExpenseCard from "../../component/TotalCard/ExpenseCard";
@@ -16,12 +17,14 @@ function HomePage() {
         <IncomeCard />
       </section>
       <section className="transactionSection">
-        <TransactionSectionHeader title="Ostatnie transakcje"/>
+        <TransactionSectionHeader title="Ostatnie transakcje" />
         <TransactionCard transactionType="income" />
         <TransactionCard transactionType="income" />
         <TransactionCard transactionType="expense" />
       </section>
-      <AddButton />
+      <Link to="/dodaj-transakcje">
+        <AddButton />
+      </Link>
     </>
   );
 }
