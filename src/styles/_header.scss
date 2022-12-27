@@ -1,28 +1,57 @@
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 10vh;
+  background-color: white;
+
+  h1 {
+    text-align: center;
+    font-size: 26px;
+  }
+
+  .themeButton {
+    background: white;
+
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  .menuButton {
+    background: white;
+
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
+
+.active {
+  display: block;
+}
+
+.disactive {
+  display: none;
+}
+
+nav {
+  width: 100vw;
+  background-color: white;
+
+  .list__item {
+    display: block;
+    height: 5vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-    height: 10vh;
-    background-color: white;
-
-    .themeButton {
-      background: white;
-    
-      svg {
-        width: 36px;
-        height: 36px;
-      }
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    &:hover {
+      background-color: $grayBackground;
     }
-    
-    
-    .menuButton {
-      background: white;
-    
-      svg {
-        width: 36px;
-        height: 36px;
-      }
-    }
-
   }
+}

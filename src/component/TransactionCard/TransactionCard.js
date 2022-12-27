@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 function TransactionCard(props) {
   return (
+    <Link to={`/transakcje/${"523"}`}>
     <div className="transactionCard">
       <div className="transactionCard__ammount">
         <span className={props.transactionType}>+30$</span>
@@ -35,6 +36,7 @@ function TransactionCard(props) {
         </Link>
       </div>
     </div>
+    </Link>
   );
 }
 

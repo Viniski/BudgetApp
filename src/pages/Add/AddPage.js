@@ -1,9 +1,11 @@
+import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import Header from "../../component/Header/Header";
 import Input from "../../component/Input/Input";
 import SelectTypeInput from "../../component/Input/SelectTypeInput";
 import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
 
 function AddPage() {
+  useWebsiteTitle('Dodaj transakcje | BudgetApp by Viniski')
   return (
     <>
       <Header title="Dodaj transakcje" />

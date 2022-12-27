@@ -1,3 +1,4 @@
+import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import Header from "../../component/Header/Header";
 import ExpenseCard from "../../component/TotalCard/ExpenseCard";
@@ -5,6 +6,7 @@ import TransactionSectionHeader from "../../component/TransactionSectionHeader/T
 import AddButton from "../../component/AddButton/AddButton";
 
 function ExpensePage() {
+  useWebsiteTitle('Wydatki | BudgetApp by Viniski')
   return (
     <>
       <Header title="Wydatki" />

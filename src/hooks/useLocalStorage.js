@@ -7,7 +7,7 @@ function useLocalStorage(key, defaultValue) {
         return storageValue ? JSON.parse(storageValue) : defaultValue;
       }
     )
-
+      
     // if (typeof defaultValue === "function") {
     //     return defaultValue()
     //   } else {

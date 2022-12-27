@@ -1,9 +1,11 @@
+import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import Header from "../../component/Header/Header";
 import Input from "../../component/Input/Input";
 import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
 import SelectTypeInput from "../../component/Input/SelectTypeInput";
 
 function EditPage() {
+  useWebsiteTitle('Edytuj transakcje | BudgetApp by Viniski')
     return (
       <>
       <Header title="Edytuj transakcje" />

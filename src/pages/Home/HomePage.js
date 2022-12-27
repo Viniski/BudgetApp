@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import TotalCard from "../../component/TotalCard/TotalCard";
 import ExpenseCard from "../../component/TotalCard/ExpenseCard";
@@ -8,6 +9,8 @@ import Header from "../../component/Header/Header";
 import TransactionSectionHeader from "../../component/TransactionSectionHeader/TransactionSectionHeader";
 
 function HomePage() {
+  useWebsiteTitle('BudgetApp by Viniski')
+
   return (
     <>
       <Header page="home" title="Strona główna" />

@@ -37,6 +37,11 @@ header {
   background-color: white;
 }
 
+header h1 {
+  text-align: center;
+  font-size: 18px;
+}
+
 header .themeButton {
   background: white;
 }
@@ -321,10 +326,6 @@ header .menuButton svg {
 .menuButton,
 .goBackButton {
   padding: 0 16px;
-}
-
-h1 {
-  text-align: center;
 }
 
 .detailsSection {
