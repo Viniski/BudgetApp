@@ -10,16 +10,16 @@ function IncomePage() {
   return (
     <>
       <Header title="Dochody"/>
-      <section className="totalSection">
-      <IncomeCard className="mainCard"/>
+      <section className="cards">
+      <IncomeCard className="cards__income--main-card"/>
       </section>
-      <section className="transactionSection">
+      <section className="transaction-section">
         <TransactionSectionHeader title="Wszystkie dochody"/>
-        <TransactionCard />
-        <TransactionCard />
-        <TransactionCard />
-        <TransactionCard />
-        <TransactionCard />
+        <TransactionCard transactionType="income"/>
+        <TransactionCard transactionType="income"/>
+        <TransactionCard transactionType="income"/>
+        <TransactionCard transactionType="income"/>
+        <TransactionCard transactionType="income"/>
       </section>
       <AddButton />
     </>

@@ -1,56 +1,66 @@
-.detailsSection {
-    display: flex;
-    height: 75vh;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    align-content: space-around;
-    padding: 5vh 0;
+.details-section {
+  display: flex;
+  height: 75vh;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: space-around;
+  padding: 5vh 0;
+}
+
+.details-div {
+  width: 80vw;
+
+  &__category {
+    font-size: 14px;
+    padding: 7px 0;
+    color: gray;
   }
-  
-  .detailsInfo {
-    width: 80vw;
-  
-    &__category {
+
+  &__value {
+    font-size: 18px;
+    padding: 9px 0;
+  }
+}
+
+.button-details {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  button {
+    width: 126px;
+    height: 48px;
+    border-radius: 5px;
+    background-color: $blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    span {
+      text-transform: uppercase;
       font-size: 14px;
-      padding: 7px 0;
-      color: gray;
+      color: $color;
     }
-  
-    &__value {
-      font-size: 18px;
-      padding: 9px 0;
+
+    svg {
+      height: 24px;
+      width: 24px;
+      fill: $color;
     }
   }
-  
-  .detailsButton {
-    height: 10vh;
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  
+
+  &--dark {
     button {
-      width: 126px;
-      height: 48px;
-      border-radius: 5px;
-      background-color: rgb(1, 75, 188);
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-  
       span {
-        text-transform: uppercase;
-        font-size: 14px;
-        color: white;
+        color: $background;
       }
-  
+
       svg {
-        height: 24px;
-        width: 24px;
-        fill: white;
-        color: white;
+        fill: $background;
       }
     }
   }
-  
+}

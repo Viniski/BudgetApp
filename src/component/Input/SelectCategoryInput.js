@@ -1,6 +1,6 @@
 const SelectCategoryInput = () => {
   return (
-    <select className="input">
+    <select className="inputs-section__input inputs-section__input--dark">
       <option value="" disabled selected hidden>Kategoria</option>
       <option value="fixed">Koszty stałe</option>
       <option value="food">Jedzenie</option>

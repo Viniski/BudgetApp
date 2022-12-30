@@ -1,32 +1,47 @@
-$grayBackground:  rgb(250, 249, 250);
 $blue: rgb(1, 75, 188);
+$grayBackground: rgb(250, 249, 250);
+$grayBackground-dark: rgb(50, 49, 50) ;
+$background: rgb(255, 255, 255);
+$background-dark: rgb(20, 20, 20);
+$color: rgb(0, 0, 0);
+$color-dark: rgb(255, 255, 255);
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: $grayBackground;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  button {
-    border: 0;
-  }
+body {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color;
+  background-color: $grayBackground;
+}
 
-  a, a:hover, a:visited {
-    text-decoration: none;
-    color: black;
-  }
+.body-dark {
+  height: 100%;
+  //bug
+  color: $color-dark;
+  background-color: $background-dark;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+button {
+  border: 0;
+}
+
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: $color;
+}

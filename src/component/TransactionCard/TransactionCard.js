@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 function TransactionCard(props) {
   return (
     <Link to={`/transakcje/${"523"}`}>
-    <div className="transactionCard">
-      <div className="transactionCard__ammount">
+    <div className="transaction-section__card transaction-section__card--dark">
+      <div className="card__ammount card__ammount--dark">
         <span className={props.transactionType}>+30$</span>
       </div>
-      <div className="transactionCard__description">
-        <p className="title">Pizza z rukolą i sosem vinegre</p>
-        <p className="category">Jedzenie</p>
+      <div className="card__description">
+        <p className="card__title card__title--dark">Pizza z rukolą i sosem vinegre</p>
+        <p className="card__category">Jedzenie</p>
       </div>
-      <div className="transactionCard__buttons">
-        <button className="trashButton">
+      <div className="card__buttons">
+        <button className="card__button-trash card__button-trash--dark">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -21,7 +21,7 @@ function TransactionCard(props) {
         </svg>
         </button>
         <Link to={`/edytuj-transakcje/${"523"}`}>
-        <button className="editButton">
+        <button className="card__button-edit card__button-edit--dark">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"

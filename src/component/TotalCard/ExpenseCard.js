@@ -1,7 +1,7 @@
 function ExpenseCard(props) {
   return (
-    <div className={`expenseCard ${props?.className}`}>
-      <div className="incomeCard__expenseIcon">
+    <div className={`cards__expense ${props?.className} cards__expense--dark`}>
+      <div className="cards__expense-icon">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"

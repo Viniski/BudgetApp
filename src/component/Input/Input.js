@@ -6,7 +6,7 @@ const Input = (props) => {
           value={props?.value}
           onKeyDown={(e) => props?.onKeyDown(e)}
           onChange={(e) => props?.onChange(e.target.value)}
-          className="input"
+          className="inputs-section__input inputs-section__input--dark"
         />
     );
   };

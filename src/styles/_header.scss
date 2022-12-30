@@ -1,18 +1,28 @@
-header {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100vw;
   height: 10vh;
-  background-color: white;
+  padding: 0 14px;
+  background-color: $background;
+
+  &--dark {
+    background-color: $grayBackground-dark;
+  }
 
   h1 {
     text-align: center;
     font-size: 26px;
   }
 
-  .themeButton {
-    background: white;
+  &__button-theme {
+    background: $background;
+
+    &--dark {
+      background: $grayBackground-dark;
+      fill: $background;
+    }
 
     svg {
       width: 36px;
@@ -20,9 +30,32 @@ header {
     }
   }
 
-  .menuButton {
-    background: white;
+  &__button-menu {
+    background: $background;
 
+    &--dark {
+      background: $grayBackground-dark;
+      fill: $background;
+    }
+
+    &--disactive {
+      display: none;
+    }
+
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  &__button-back {
+    background: $background;
+
+    &--dark {
+      background: $grayBackground-dark;
+      fill: $background;
+    }
+  
     svg {
       width: 36px;
       height: 36px;
@@ -30,28 +63,3 @@ header {
   }
 }
 
-.active {
-  display: block;
-}
-
-.disactive {
-  display: none;
-}
-
-nav {
-  width: 100vw;
-  background-color: white;
-
-  .list__item {
-    display: block;
-    height: 5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 18px;
-    &:hover {
-      background-color: $grayBackground;
-    }
-  }
-}

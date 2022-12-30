@@ -1,9 +1,8 @@
 function TransactionSectionHeader(props) {
     return (
-        <>
-        <div className="transactionSection__header">
+        <div className="transaction-section__header">
           <h3>{props.title}</h3>
-          <button className="filterButton">
+          <button className="transaction-section__button-filter transaction-section__button-filter--dark">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -13,7 +12,6 @@ function TransactionSectionHeader(props) {
           </button>
 
         </div>
-        </>
     )
 }
 

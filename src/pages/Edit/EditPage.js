@@ -9,14 +9,14 @@ function EditPage() {
     return (
       <>
       <Header title="Edytuj transakcje" />
-      <section className="inputsSection">
+      <section className="inputs-section">
         <Input type="text" placeholder="Tytuł" value="Pizza z rulolą i sosem vinegre"/>
         <Input type="text" placeholder="Wartość" value="30$"/>
         <Input type="date" />
         <SelectTypeInput/>
         <SelectCategoryInput/>
         <Input type="text" placeholder="Notatki" value="Pyszne byli!"/>
-        <button className="transactionOptions">Edytuj transakcje</button>
+        <button className="button-options button-options--dark">Edytuj transakcje</button>
       </section>
     </>
     );

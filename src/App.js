@@ -10,7 +10,8 @@ import FilterPage from "./pages/Filter/FilterPage";
 
 function App() {
   return (
-    <>
+    //tu będzie zmienna z stanu (dark albo light albo tylko DARK)
+    <body className="body-dark">
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -25,7 +26,7 @@ function App() {
           <Route path="/filtruj-wydatki" element={<FilterPage />} />
         </Routes>
       </Router>
-    </>
+    </body>
   );
 }
 

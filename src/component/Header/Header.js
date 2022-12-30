@@ -1,26 +1,32 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import Nav from "../../component/Header/Nav/Nav";
 
 function Header(props) {
   const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
 
-  const toogleIsClicked = () => {
+  const handleMenuClick = () => {
     setIsClicked(!isClicked);
   };
 
+  const handleThemeClick = () => {
+    console.log("theme click")
+  }
+
   return (
     <>
-      <header>
+      <header className="header header--dark">
         {props?.page === "home" ? (
           <>
             <button
               className={
-                isClicked ? `menuButton disactive` : `menuButton active`
+                isClicked
+                  ? `header__button-menu--disactive`
+                  : `header__button-menu header__button-menu--dark`
               }
-              onClick={toogleIsClicked}
+              onClick={handleMenuClick}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                 <path
@@ -31,9 +37,11 @@ function Header(props) {
             </button>
             <button
               className={
-                isClicked ? `menuButton active` : `menuButton disactive`
+                isClicked
+                  ? `header__button-menu header__button-menu--dark`
+                  : `header__button-menu--disactive`
               }
-              onClick={toogleIsClicked}
+              onClick={handleMenuClick}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                 <path
@@ -44,7 +52,10 @@ function Header(props) {
             </button>
           </>
         ) : (
-          <button onClick={() => navigate(-1)} className="goBackButton">
+          <button
+            onClick={() => navigate(-1)}
+            className="header__button-back header__button-back--dark"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
               <path
                 fillRule="evenodd"
@@ -54,27 +65,16 @@ function Header(props) {
           </button>
         )}
         <h1>{props.title}</h1>
-        <button className="themeButton">
+        <button
+          onClick={handleThemeClick}
+          className="header__button-theme header__button-theme--dark"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z" />
           </svg>
         </button>
       </header>
-      {isClicked ? (
-        <nav>
-          <ul>
-            <NavLink to="/dochody">
-              <li className="list__item">Dochody</li>
-            </NavLink>
-            <NavLink to="/wydatki">
-              <li className="list__item">Wydatki</li>
-            </NavLink>
-            <NavLink to="/dodaj-transakcje">
-              <li className="list__item">Dodaj transakcje</li>
-            </NavLink>
-          </ul>
-        </nav>
-      ) : null}
+      {isClicked ? <Nav /> : null}
     </>
   );
 }

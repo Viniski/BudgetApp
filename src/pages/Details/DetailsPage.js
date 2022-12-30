@@ -7,7 +7,7 @@ function DetailsPage () {
   useWebsiteTitle('Szczegóły transakcji | BudgetApp by Viniski')
     return ( <>
      <Header title="Szczegóły transakcji"/>
-     <section className="detailsSection">
+     <section className="details-section">
      <DetailsDiv category="Tytuł" value="Pizza z rukolą i sosem vinegre"/>
      <DetailsDiv category="Wartość" value="30$"/>
      <DetailsDiv category="Typ" value="Wydatek"/>
@@ -15,7 +15,7 @@ function DetailsPage () {
      <DetailsDiv category="Data" value="Ndz, 18.12.2022 13:34"/>
      <DetailsDiv category="Notatki" value="Pyszne byli!"/>
      </section>
-     <section className="detailsButton">
+     <section className="button-details button-details--dark">
         <button>
             <span>Usuń</span>
             <svg

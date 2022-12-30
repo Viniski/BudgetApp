@@ -11,7 +11,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: black;
   background-color: #faf9fa;
+}
+
+.body-dark {
+  height: 100%;
+  color: white;
+  background-color: #141414;
 }
 
 code {
@@ -22,7 +29,14 @@ button {
   border: 0;
 }
 
-header {
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,27 +51,64 @@ header {
   background-color: white;
 }
 
-header h1 {
+.header-dark {
+  background-color: #141414;
+}
+
+.header h1 {
   text-align: center;
+  font-size: 26px;
+}
+
+.header .themeButton {
+  background: white;
+}
+
+.header .themeButton svg {
+  width: 36px;
+  height: 36px;
+}
+
+.header .menuButton {
+  background: white;
+}
+
+.header .menuButton svg {
+  width: 36px;
+  height: 36px;
+}
+
+.active {
+  display: block;
+}
+
+.disactive {
+  display: none;
+}
+
+nav {
+  width: 100vw;
+  background-color: white;
+}
+
+nav .list__item {
+  display: block;
+  height: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
   font-size: 18px;
 }
 
-header .themeButton {
-  background: white;
-}
-
-header .themeButton svg {
-  width: 36px;
-  height: 36px;
-}
-
-header .menuButton {
-  background: white;
-}
-
-header .menuButton svg {
-  width: 36px;
-  height: 36px;
+nav .list__item:hover {
+  background-color: #faf9fa;
 }
 
 .addButton {
@@ -72,7 +123,7 @@ header .menuButton svg {
   background-color: white;
 }
 
-.totalSection {
+.cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,7 +135,7 @@ header .menuButton svg {
   margin-top: 2vh;
 }
 
-.totalCard {
+.cards__total {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,24 +148,29 @@ header .menuButton svg {
   width: 92vw;
   height: 16vh;
   border-radius: 5px;
+  color: black;
   background-color: white;
 }
 
-.totalCard h2 {
+.cards__total--dark {
+  color: white;
+  background-color: #323132;
+}
+
+.cards__h2 {
   width: 100%;
   text-transform: uppercase;
   font-size: 18px;
   color: gray;
 }
 
-.totalCard p {
+.cards__p {
   width: 100%;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 32px;
 }
 
-.expenseCard,
-.incomeCard {
+.cards__income, .cards__expense {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -128,8 +184,43 @@ header .menuButton svg {
   background-color: white;
 }
 
-.expenseCard__incomeIcon,
-.incomeCard__incomeIcon {
+.cards__income--dark, .cards__expense--dark {
+  background-color: #323132;
+}
+
+.cards__income--main-card, .cards__expense--main-card {
+  width: 90vw;
+  height: 18vh;
+}
+
+.cards__income--main-card h2, .cards__expense--main-card h2 {
+  margin-top: 15%;
+  font-size: 18px;
+}
+
+.cards__income--main-card p, .cards__expense--main-card p {
+  font-size: 28px;
+}
+
+.cards__income h2, .cards__expense h2 {
+  margin-top: 30%;
+  width: 100%;
+  padding: 0 5%;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+}
+
+.cards__income p, .cards__expense p {
+  width: 100%;
+  padding: 5%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.cards__income-icon {
   position: absolute;
   top: 14px;
   right: 14px;
@@ -140,8 +231,7 @@ header .menuButton svg {
   background-color: lightgreen;
 }
 
-.expenseCard__expenseIcon,
-.incomeCard__expenseIcon {
+.cards__expense-icon {
   position: absolute;
   top: 14px;
   right: 14px;
@@ -150,43 +240,6 @@ header .menuButton svg {
   border-radius: 50%;
   fill: red;
   background-color: lightcoral;
-}
-
-.expenseCard h2,
-.incomeCard h2 {
-  margin-top: 30%;
-  width: 100%;
-  padding: 0 5%;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 14px;
-  color: gray;
-}
-
-.expenseCard p,
-.incomeCard p {
-  width: 100%;
-  padding: 5%;
-  text-align: center;
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.expenseCard.mainCard,
-.incomeCard.mainCard {
-  width: 90vw;
-  height: 18vh;
-}
-
-.expenseCard.mainCard h2,
-.incomeCard.mainCard h2 {
-  margin-top: 15%;
-  font-size: 18px;
-}
-
-.expenseCard.mainCard p,
-.incomeCard.mainCard p {
-  font-size: 28px;
 }
 
 .transactionSection {
@@ -295,14 +348,6 @@ header .menuButton svg {
   background-color: white;
 }
 
-.active {
-  display: block;
-}
-
-.disactive {
-  display: none;
-}
-
 .goBackButton {
   background: white;
 }
@@ -393,14 +438,18 @@ header .menuButton svg {
 .detailsButton button span {
   text-transform: uppercase;
   font-size: 14px;
+  color: black;
+}
+
+.detailsButton button span-dark {
   color: white;
 }
 
 .detailsButton button svg {
   height: 24px;
   width: 24px;
-  fill: white;
-  color: white;
+  fill: black;
+  color: black;
 }
 
 .input {
@@ -433,7 +482,7 @@ header .menuButton svg {
   margin: auto;
   width: 226px;
   height: 48px;
-  color: white;
+  color: black;
   background-color: #014bbc;
   border-radius: 5px;
 }

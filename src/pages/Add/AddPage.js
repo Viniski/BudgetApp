@@ -9,14 +9,14 @@ function AddPage() {
   return (
     <>
       <Header title="Dodaj transakcje" />
-      <section className="inputsSection">
+      <section className="inputs-section">
         <Input type="text" placeholder="Tytuł"/>
         <Input type="text" placeholder="Wartość"/>
         <Input type="date" />
         <SelectTypeInput/>
         <SelectCategoryInput/>
         <Input type="text" placeholder="Notatki"/>
-        <button className="transactionOptions">Dodaj transakcje</button>
+        <button className="button-options button-options--dark">Dodaj transakcje</button>
       </section>
     </>
   );

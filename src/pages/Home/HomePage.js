@@ -13,13 +13,13 @@ function HomePage() {
 
   return (
     <>
-      <Header page="home" title="Strona główna" />
-      <section className="totalSection">
-        <TotalCard />
-        <ExpenseCard />
-        <IncomeCard />
+      <Header page="home" title="Strona główna"/>
+      <section className="cards">
+        <TotalCard/>
+        <ExpenseCard/>
+        <IncomeCard/>
       </section>
-      <section className="transactionSection">
+      <section className="transaction-section">
         <TransactionSectionHeader title="Ostatnie transakcje" />
         <TransactionCard transactionType="income" />
         <TransactionCard transactionType="income" />

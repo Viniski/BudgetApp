@@ -10,16 +10,16 @@ function ExpensePage() {
   return (
     <>
       <Header title="Wydatki" />
-      <section className="totalSection">
-      <ExpenseCard className="mainCard"/>
+      <section className="cards">
+      <ExpenseCard className="cards__expense--main-card"/>
       </section>
-      <section className="transactionSection">
+      <section className="transaction-section">
         <TransactionSectionHeader title="Wszystkie przychody"/>
-        <TransactionCard />
-        <TransactionCard />
-        <TransactionCard />
-        <TransactionCard />
-        <TransactionCard />
+        <TransactionCard transactionType="expense"/>
+        <TransactionCard transactionType="expense"/>
+        <TransactionCard transactionType="expense"/>
+        <TransactionCard transactionType="expense"/>
+        <TransactionCard transactionType="expense"/>
       </section>
       <AddButton />
     </>
