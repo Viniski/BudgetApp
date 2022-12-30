@@ -16,7 +16,7 @@ function AddPage() {
         <SelectTypeInput/>
         <SelectCategoryInput/>
         <Input type="text" placeholder="Notatki"/>
-        <button className="button-options button-options--dark">Dodaj transakcje</button>
+        <button className="button-options">Dodaj transakcje</button>
       </section>
     </>
   );

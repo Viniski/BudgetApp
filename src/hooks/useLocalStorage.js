@@ -7,13 +7,7 @@ function useLocalStorage(key, defaultValue) {
         return storageValue ? JSON.parse(storageValue) : defaultValue;
       }
     )
-      
-    // if (typeof defaultValue === "function") {
-    //     return defaultValue()
-    //   } else {
-    //     return defaultValue
-    //   }
-    
+   
     const setValue = val => {
         setState(val);
         window.localStorage.setItem(key, JSON.stringify(val))

@@ -1,8 +1,12 @@
+import { useSelector } from "react-redux";
+
 function TransactionSectionHeader(props) {
+  const theme = useSelector((state) => state.theme.theme);
+  const themeDark = theme === "dark";
     return (
         <div className="transaction-section__header">
           <h3>{props.title}</h3>
-          <button className="transaction-section__button-filter transaction-section__button-filter--dark">
+          <button className={`transaction-section__button-filter ${themeDark && `transaction-section__button-filter--dark`}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"

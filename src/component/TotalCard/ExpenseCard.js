@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
+
 function ExpenseCard(props) {
+  const theme = useSelector((state) => state.theme.theme);
+  const themeDark = theme === "dark";
   return (
-    <div className={`cards__expense ${props?.className} cards__expense--dark`}>
+    <div className={`cards__expense ${props?.className} ${themeDark && `cards__expense--dark`}`}>
       <div className="cards__expense-icon">
       <svg
         xmlns="http://www.w3.org/2000/svg"

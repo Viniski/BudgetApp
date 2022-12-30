@@ -1,18 +1,21 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function TransactionCard(props) {
+  const theme = useSelector((state) => state.theme.theme);
+  const themeDark = theme === "dark";
   return (
     <Link to={`/transakcje/${"523"}`}>
-    <div className="transaction-section__card transaction-section__card--dark">
-      <div className="card__ammount card__ammount--dark">
+    <div className={`transaction-section__card ${themeDark && `transaction-section__card--dark`}`}>
+      <div className={`card__ammount ${themeDark && `card__ammount--dark`}`}>
         <span className={props.transactionType}>+30$</span>
       </div>
       <div className="card__description">
-        <p className="card__title card__title--dark">Pizza z rukolą i sosem vinegre</p>
+        <p className={`card__title ${themeDark && `card__title--dark`}`}>Pizza z rukolą i sosem vinegre</p>
         <p className="card__category">Jedzenie</p>
       </div>
       <div className="card__buttons">
-        <button className="card__button-trash card__button-trash--dark">
+        <button className={`card__button-trash ${themeDark && `card__button-trash--dark`}`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -21,7 +24,7 @@ function TransactionCard(props) {
         </svg>
         </button>
         <Link to={`/edytuj-transakcje/${"523"}`}>
-        <button className="card__button-edit card__button-edit--dark">
+        <button className={`card__button-edit ${themeDark && `card__button-edit--dark`}`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"

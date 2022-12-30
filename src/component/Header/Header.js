@@ -1,10 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { toogle } from "../../redux/themeSlice";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import Nav from "../../component/Header/Nav/Nav";
 
 function Header(props) {
   const [isClicked, setIsClicked] = useState(false);
+  const theme = useSelector((state) => state.theme.theme);
+  const themeDark = theme === "dark";
+  const dispatch = useDispatch();
+  const [localStorage, setLocalStorage] = useLocalStorage("theme");
   const navigate = useNavigate();
 
   const handleMenuClick = () => {
@@ -12,19 +19,20 @@ function Header(props) {
   };
 
   const handleThemeClick = () => {
-    console.log("theme click")
-  }
+    dispatch(toogle());
+    setLocalStorage(theme === "light" ? "dark" : "light");
+  };
 
   return (
     <>
-      <header className="header header--dark">
+      <header className={`header ${themeDark && `header--dark`}`}>
         {props?.page === "home" ? (
           <>
             <button
               className={
                 isClicked
                   ? `header__button-menu--disactive`
-                  : `header__button-menu header__button-menu--dark`
+                  : `header__button-menu ${themeDark && `header__button-menu--dark`}`
               }
               onClick={handleMenuClick}
             >
@@ -38,7 +46,7 @@ function Header(props) {
             <button
               className={
                 isClicked
-                  ? `header__button-menu header__button-menu--dark`
+                  ? `header__button-menu ${themeDark && `header__button-menu--dark`}`
                   : `header__button-menu--disactive`
               }
               onClick={handleMenuClick}
@@ -54,7 +62,7 @@ function Header(props) {
         ) : (
           <button
             onClick={() => navigate(-1)}
-            className="header__button-back header__button-back--dark"
+            className={`header__button-back ${themeDark && `header__button-back--dark`}`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
               <path
@@ -67,7 +75,7 @@ function Header(props) {
         <h1>{props.title}</h1>
         <button
           onClick={handleThemeClick}
-          className="header__button-theme header__button-theme--dark"
+          className={`header__button-theme ${themeDark && `header__button-theme--dark`}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z" />

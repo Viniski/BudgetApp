@@ -16,7 +16,7 @@ function EditPage() {
         <SelectTypeInput/>
         <SelectCategoryInput/>
         <Input type="text" placeholder="Notatki" value="Pyszne byli!"/>
-        <button className="button-options button-options--dark">Edytuj transakcje</button>
+        <button className="button-options">Edytuj transakcje</button>
       </section>
     </>
     );
