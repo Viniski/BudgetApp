@@ -20,12 +20,12 @@ function HomePage() {
         <IncomeCard/>
       </section>
       <section className="transaction-section">
-        <TransactionSectionHeader title="Ostatnie transakcje" />
+        <TransactionSectionHeader title="Ostatnie transakcje" type="transakcje"/>
         <TransactionCard transactionType="income" />
         <TransactionCard transactionType="income" />
         <TransactionCard transactionType="expense" />
       </section>
-      <Link to="/dodaj-transakcje">
+      <Link to="/wybierz-transakcje">
         <AddButton />
       </Link>
     </>

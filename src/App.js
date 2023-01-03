@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import HomePage from "./pages/Home/HomePage";
 import IncomePage from "./pages/Income/IncomePage";
 import ExpensePage from "./pages/Expense/ExpenePage";
+import SelectAddTypePage from "./pages/Add/SelectAddTypePage";
 import AddPage from "./pages/Add/AddPage";
 import DetailsPage from "./pages/Details/DetailsPage";
 import EditPage from "./pages/Edit/EditPage";
@@ -22,14 +23,16 @@ function App() {
           <Route path="/wydatki" element={<ExpensePage />} />
           <Route path="/transakcje/:id" element={<DetailsPage />} />
           {/* to nie będzie działać nie ze strony głównej - jak w rm.pl, do poprawy */}
-          <Route path="/dodaj-transakcje" element={<AddPage />} />
+          <Route path="/dodaj-transakcje" element={<SelectAddTypePage />} />
+          <Route path="/dodaj-dochód" element={<AddPage type="income" title="dochód"/>} />
+          <Route path="/dodaj-wydatek" element={<AddPage type="expense" title="wydatek"/>} />
           <Route path="/edytuj-transakcje/:id" element={<EditPage />} />
           <Route
             path="/filtruj-transakcje"
-            element={<FilterPage type="all" />}
+            element={<FilterPage type="all" title="transakcje" />}
           />
-          <Route path="/filtruj-dochody" element={<FilterPage type="income" />} />
-          <Route path="/filtruj-wydatki" element={<FilterPage type="expense" />} />
+          <Route path="/filtruj-dochody" element={<FilterPage type="income" title="dochody" />} />
+          <Route path="/filtruj-wydatki" element={<FilterPage type="expense" title="wydatki" />} />
         </Routes>
       </Router>
     </body>

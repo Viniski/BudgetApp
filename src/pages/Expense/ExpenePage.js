@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import Header from "../../component/Header/Header";
@@ -14,14 +15,16 @@ function ExpensePage() {
       <ExpenseCard className="cards__expense--main-card"/>
       </section>
       <section className="transaction-section">
-        <TransactionSectionHeader title="Wszystkie przychody"/>
+        <TransactionSectionHeader title="Wszystkie przychody" type="wydatki"/>
         <TransactionCard transactionType="expense"/>
         <TransactionCard transactionType="expense"/>
         <TransactionCard transactionType="expense"/>
         <TransactionCard transactionType="expense"/>
         <TransactionCard transactionType="expense"/>
       </section>
-      <AddButton />
+      <Link to="/dodaj-wydatek">
+        <AddButton />
+      </Link>
     </>
   );
 }

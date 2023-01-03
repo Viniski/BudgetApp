@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import Header from "../../component/Header/Header";
@@ -14,14 +15,16 @@ function IncomePage() {
       <IncomeCard className="cards__income--main-card"/>
       </section>
       <section className="transaction-section">
-        <TransactionSectionHeader title="Wszystkie dochody"/>
+        <TransactionSectionHeader title="Wszystkie dochody" type="dochody"/>
         <TransactionCard transactionType="income"/>
         <TransactionCard transactionType="income"/>
         <TransactionCard transactionType="income"/>
         <TransactionCard transactionType="income"/>
         <TransactionCard transactionType="income"/>
       </section>
-      <AddButton />
+      <Link to="/dodaj-dochód">
+        <AddButton />
+      </Link>
     </>
   );
 }
