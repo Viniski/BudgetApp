@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import Header from "../../component/Header/Header";
@@ -7,20 +8,23 @@ import TransactionSectionHeader from "../../component/TransactionSectionHeader/T
 import AddButton from "../../component/AddButton/AddButton";
 
 function ExpensePage() {
-  useWebsiteTitle('Wydatki | BudgetApp by Viniski')
+  const transactions = useSelector((state) => state.transactions);
+  console.log(transactions)
+  const expenseTransactions = transactions.filter(
+    (el) => el.type === "expense"
+  );
+  useWebsiteTitle("Wydatki | BudgetApp by Viniski");
   return (
     <>
       <Header title="Wydatki" />
       <section className="cards">
-      <ExpenseCard className="cards__expense--main-card"/>
+        <ExpenseCard className="cards__expense--main-card" />
       </section>
       <section className="transaction-section">
-        <TransactionSectionHeader title="Wszystkie przychody" type="wydatki"/>
-        <TransactionCard transactionType="expense"/>
-        <TransactionCard transactionType="expense"/>
-        <TransactionCard transactionType="expense"/>
-        <TransactionCard transactionType="expense"/>
-        <TransactionCard transactionType="expense"/>
+        <TransactionSectionHeader title="Wszystkie przychody" type="wydatki" />
+        {expenseTransactions.map((transaction) => (
+          <TransactionCard key={transaction.id} data={transaction} />
+        ))}
       </section>
       <Link to="/dodaj-wydatek">
         <AddButton />

@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import Header from "../../component/Header/Header";
 import DetailsDiv from "../../component/DetailsDiv/DetailsDiv";
 
 function DetailsPage() {
   useWebsiteTitle("Szczegóły transakcji | BudgetApp by Viniski");
+  const { id }= useParams();
+
   return (
     <>
       <Header title="Szczegóły transakcji" />
