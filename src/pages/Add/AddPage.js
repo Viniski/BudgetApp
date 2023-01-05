@@ -13,19 +13,18 @@ function AddPage({ type, name }) {
   const [title, setTitle] = useState({ value: "", valid: false });
   const [category, setCategory] = useState({ value: "", valid: false });
   const today = formatDate(new Date());
-  const [date, setDate] = useState({ value: today, valid: false });
-  //z datą też tu są problemy, validacja poczaątkowa
+  const [date, setDate] = useState({ value: today, valid: true });
   const [note, setNote] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const validButton = Boolean(
+  const invalidButton = Boolean(
     [amount.valid, title.valid, category.valid, date.valid].filter(
       (valid) => valid === false
     ).length
   );
 
-  console.log(date, validButton);
+  console.log(invalidButton);
 
   const getRandomNumber = () => Math.floor(Math.random() * 1000000);
 
@@ -50,7 +49,7 @@ function AddPage({ type, name }) {
     <>
       <Header title={`Dodaj ${name}`} />
       <section className="inputs-section">
-      <Input
+        <Input
           type="text"
           placeholder="Tytuł"
           value={title.value}
@@ -82,7 +81,7 @@ function AddPage({ type, name }) {
         <button
           onClick={handleAddTransaction}
           className="button-options"
-          disabled={validButton}
+          disabled={invalidButton}
         >{`Dodaj ${name}`}</button>
       </section>
     </>

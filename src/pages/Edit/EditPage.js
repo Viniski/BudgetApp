@@ -7,65 +7,101 @@ import Header from "../../component/Header/Header";
 import Input from "../../component/Input/Input";
 import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
 import SelectTypeInput from "../../component/Input/SelectTypeInput";
-import { useEffect } from "react";
 
 function EditPage() {
   const { id } = useParams();
-  const transaction = useSelector((state) => state.transactions.filter((transaction) => transaction.id === Number(id))[0]);  
-  const [amount, setAmount] = useState({ value: transaction.amount, valid: false });
-  const [title, setTitle] = useState({ value: transaction.title, valid: false });
-  const [category, setCategory] = useState({ value: transaction.category, valid: false });
-  const [type, setType] = useState({ value: transaction.type, valid: false });
-  const [date, setDate] = useState({ value: transaction.date, valid: false });
-  //tutaj walidacja category i type w zasadzie niepotrzebna :)
+  const transaction = useSelector(
+    (state) =>
+      state.transactions.filter(
+        (transaction) => transaction.id === Number(id)
+      )[0]
+  );
+
+  const [amount, setAmount] = useState({
+    value: transaction.amount,
+    valid: true,
+  });
+  const [title, setTitle] = useState({
+    value: transaction.title,
+    valid: true,
+  });
+  const [category, setCategory] = useState(transaction.category);
+  const [type, setType] = useState(transaction.type);
+  const [date, setDate] = useState({
+    value: transaction.date,
+    valid: true,
+  });
   const [note, setNote] = useState(transaction.note);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const validButton = Boolean(
-    [amount.valid, title.valid, category.valid, type.valid, date.valid].filter(
-      (valid) => valid === false
-    ).length
+  const invalidButton = Boolean(
+    [amount.valid, title.valid, date.valid].filter((valid) => valid === false)
+      .length
   );
 
-  console.log(validButton);
+  console.log(invalidButton, [amount.valid, title.valid, date.valid]);
 
   const handleEditButton = () => {
     console.log("działam");
-    // const editTransaction = {
-    //   amount: type === "expense" ? `-${amount.value} $` : `+${amount.value} $`,
-    //   category,
-    //   date,
-    //   id,//to samo! ogólnie to będę zmieniał cały obiekt jakby
-    //   note,
-    //   title,
-    //   type,
-    // };
-    // console.log(editTransaction);
-    // dispatch(edit(editTransaction));
-    // navigate("/");
-  }
+    const editTransaction = {
+      amount: type === "expense" ? `-${amount.value} $` : `+${amount.value} $`,
+      category,
+      date: date.value,
+      id: Number(id),
+      note,
+      title: title.value,
+      type,
+    };
+    console.log(editTransaction);
+    dispatch(edit(editTransaction));
+    navigate("/");
+  };
 
-  useWebsiteTitle('Edytuj transakcje | BudgetApp by Viniski')
-    return (
-      <>
+  useWebsiteTitle("Edytuj transakcje | BudgetApp by Viniski");
+
+  return (
+    <>
       <Header title="Edytuj transakcje" />
       <section className="inputs-section">
-        <Input type="text" placeholder="Tytuł" value={title.value}
-          onChange={(value) => setTitle({ value, valid: Boolean(value) })}/>
-        <Input type="text" placeholder="Wartość" value={amount.value}
-          onChange={(value) => setAmount({ value, valid: Boolean(value) })}/>
-        <Input type="date" value={date.value}
-          onChange={(value) => setDate({ value, valid: Boolean(value) })}/>
-        <SelectTypeInput value={type.value} onChange={(value) => setType({ value, valid: Boolean(value) })}/>
-        <SelectCategoryInput value={category.value}
-          onChange={(value) => setCategory({ value, valid: Boolean(value) })}/>
-        <Input type="text" placeholder="Notatki" value={note}
-          onChange={(value) => setNote(value)}/>
-        <button onClick={handleEditButton} className="button-options">Edytuj transakcje</button>
+        <Input
+          type="text"
+          placeholder="Tytuł"
+          value={title.value}
+          onChange={(value) => setTitle({ value, valid: Boolean(value) })}
+        />
+        <Input
+          type="text"
+          placeholder="Wartość"
+          value={amount.value}
+          onChange={(value) => setAmount({ value, valid: Boolean(value) })}
+        />
+        <Input
+          type="date"
+          value={date.value}
+          onChange={(value) => setDate({ value, valid: Boolean(value) })}
+        />
+        <SelectTypeInput value={type} onChange={(value) => setType(value)} />
+        <SelectCategoryInput
+          value={category}
+          onChange={(value) => setCategory(value)}
+        />
+        <Input
+          type="text"
+          placeholder="Notatki"
+          value={note}
+          onChange={(value) => setNote(value)}
+        />
+        <button
+          onClick={handleEditButton}
+          disabled={invalidButton}
+          className="button-options"
+        >
+          Edytuj transakcje
+        </button>
       </section>
     </>
-    );
-  }
-  
-  export default EditPage;
+  );
+}
+
+export default EditPage;

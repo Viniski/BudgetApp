@@ -67,10 +67,8 @@ export const transactionsSlice = createSlice({
       state.push(action.payload);
     },
     edit(state, action) {
-      const transaction = state.find((el) => el.id === action.payload.id);
-      if (transaction) {
-        transaction = action.payload;
-      }
+      let index = state.findIndex((tranasaction) => tranasaction.id === action.payload.id);
+      state[index] = action.payload;
     },
     remove(state, action) {
       return state.filter(

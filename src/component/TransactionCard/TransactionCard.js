@@ -19,7 +19,6 @@ function TransactionCard({ data }) {
         <Link to={`/transakcje/${data.id}`}>
         <div className={`card__ammount ${themeDark && `card__ammount--dark`}`}>
           <span className={data.type}>{data.amount}</span>
-          {/* ten plus minus muszę ogarnąć - przy tworzeniu będę uzupełaniał dane!*/}
         </div>
         </Link>
         <Link to={`/transakcje/${data.id}`}>
