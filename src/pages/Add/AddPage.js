@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { add } from "../../redux/transactionsSlice";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
@@ -8,32 +9,40 @@ import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
 import { formatDate } from "../../component/helpers/formatDate";
 
 function AddPage({ type, name }) {
-  const [amount, setAmount] = useState("");
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
+  const [amount, setAmount] = useState({ value: "", valid: false });
+  const [title, setTitle] = useState({ value: "", valid: false });
+  const [category, setCategory] = useState({ value: "", valid: false });
   const today = formatDate(new Date());
-  const [date, setDate] = useState(today);
+  const [date, setDate] = useState({ value: today, valid: false });
   const [note, setNote] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const validButton = Boolean(
+    [amount.valid, title.valid, category.valid, date.valid].filter(
+      (valid) => valid === false
+    ).length
+  );
+
+  console.log(date, validButton);
 
   const getRandomNumber = () => Math.floor(Math.random() * 1000000);
 
   const handleAddTransaction = () => {
     console.log("dodaj");
     const newTransaction = {
-      amount,
+      amount: type === "expense" ? `-${amount} $` : `+${amount} $`,
       category,
       date,
       id: getRandomNumber(),
       note,
       title,
       type,
-    }
+    };
     console.log(newTransaction);
     dispatch(add(newTransaction));
+    navigate("/");
   };
-
-  // console.log(date, amount, title, category, note);
 
   useWebsiteTitle("Dodaj transakcje | BudgetApp by Viniski");
   return (
@@ -43,18 +52,18 @@ function AddPage({ type, name }) {
         <Input
           type="number"
           placeholder="Wartość"
-          value={amount}
-          onChange={(value) => setAmount(value)}
+          value={amount.value}
+          onChange={(value) => setAmount({ value, valid: Boolean(value) })}
         />
         <Input
           type="text"
           placeholder="Tytuł"
-          value={title}
+          value={title.value}
           onChange={(value) => setTitle(value)}
         />
         <SelectCategoryInput
           type={type}
-          value={note}
+          value={category.value}
           onChange={(value) => setCategory(value)}
         />
         <Input
@@ -72,6 +81,7 @@ function AddPage({ type, name }) {
         <button
           onClick={handleAddTransaction}
           className="button-options"
+          disabled={validButton}
         >{`Dodaj ${name}`}</button>
       </section>
     </>
