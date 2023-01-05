@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { remove } from "../../redux/transactionsSlice";
 
 function TransactionCard({ data }) {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
-  console.log(data);
-  const deleteTransaction = () => {
-    console.log("usuwam transakcję" + data.id)
+  const dispatch = useDispatch();
+
+  const handleDeleteTransaction = () => {
+    dispatch(remove(data.id));
   }
 
   return (
@@ -30,7 +32,7 @@ function TransactionCard({ data }) {
         </div>
         </Link>
         <div className="card__buttons">
-          <button onClick={deleteTransaction}
+          <button onClick={handleDeleteTransaction}
             className={`card__button-trash ${
               themeDark && `card__button-trash--dark`
             }`}

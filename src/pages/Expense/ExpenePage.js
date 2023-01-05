@@ -25,6 +25,7 @@ function ExpensePage() {
         {expenseTransactions.map((transaction) => (
           <TransactionCard key={transaction.id} data={transaction} />
         ))}
+        {!expenseTransactions.lenght && "Nie masz żadnych transakcji"}
       </section>
       <Link to="/dodaj-wydatek">
         <AddButton />

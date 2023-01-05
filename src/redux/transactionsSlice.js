@@ -72,7 +72,7 @@ export const transactionsSlice = createSlice({
     },
     remove(state, action) {
       return state.filter(
-        (tranasaction) => tranasaction.id !== action.payload.id
+        (tranasaction) => tranasaction.id !== action.payload
       );
     },
   },
