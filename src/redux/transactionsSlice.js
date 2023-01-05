@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+//initial state ma być pobierany z localSotrage :O widzę juz błąd bo hook poza komponentem...
+//wygląda na to, że na początku będzie pusty a w app go dispatchuje i zaktualizuje :) (może być potrzebny loadingIcon nawet)
 
-const initialState = [{
+const initialState = [
+  {
     id: 53252355,
     type: "expense",
     date: "2022-12-13",
@@ -8,8 +11,8 @@ const initialState = [{
     title: "Obiad w restauracji",
     category: "food",
     note: "Było całkiem smaczne, wróc tu",
-},
-{
+  },
+  {
     id: 53252332,
     type: "expense",
     date: "2022-11-27",
@@ -17,8 +20,8 @@ const initialState = [{
     title: "Czynsz + media",
     category: "fixed",
     note: "",
-},
-{
+  },
+  {
     id: 53252311,
     type: "expense",
     date: "2022-12-04",
@@ -26,8 +29,8 @@ const initialState = [{
     title: "Paliwo na orlenie",
     category: "transport",
     note: "Spalanie ostatnio 6.5L/100km",
-},
-{
+  },
+  {
     id: 53552335,
     type: "income",
     date: "2022-10-11",
@@ -35,8 +38,8 @@ const initialState = [{
     title: "Wypłata",
     category: "income",
     note: "",
-},
-{
+  },
+  {
     id: 74529154,
     type: "expense",
     date: "2023-01-02",
@@ -44,16 +47,16 @@ const initialState = [{
     title: "Mandat MKS",
     category: "other",
     note: "",
-},
-{
-    id: 57214398,  
+  },
+  {
+    id: 57214398,
     type: "income",
     date: "2022-11-20",
     amount: "350",
     title: "Dodatkowa praca",
     category: "income-extra",
     note: "Zlecenie dla klienta",
-},
+  },
 ];
 
 export const transactionsSlice = createSlice({
@@ -64,16 +67,18 @@ export const transactionsSlice = createSlice({
       state.push(action.payload);
     },
     edit(state, action) {
-      const transaction = state.find((el) => el.id === action.payload.id)
+      const transaction = state.find((el) => el.id === action.payload.id);
       if (transaction) {
-        transaction = action.payload
+        transaction = action.payload;
       }
     },
-    remove (state, action) {
-      return state.filter(tranasaction => tranasaction.id !== action.payload.id);
+    remove(state, action) {
+      return state.filter(
+        (tranasaction) => tranasaction.id !== action.payload.id
+      );
     },
   },
 });
 
-export const { toogle } = transactionsSlice.actions;
+export const { add, edit, remove } = transactionsSlice.actions;
 export default transactionsSlice.reducer;

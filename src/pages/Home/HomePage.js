@@ -31,7 +31,7 @@ function HomePage() {
           <TransactionCard key={transaction.id} data={transaction} />
         ))}
       </section>
-      <Link to="/wybierz-transakcje">
+      <Link to="/dodaj-transakcje">
         <AddButton />
       </Link>
     </>

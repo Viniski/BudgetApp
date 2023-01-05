@@ -10,7 +10,7 @@ export const themeSlice = createSlice({
   reducers: {
     toogle: (state) => {
       state.theme = state.theme === "light" ? "dark" : "light";
-    },
+    },//braketsy, tworzące ciało funcji ważne
   },
 });
 

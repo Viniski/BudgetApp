@@ -6,7 +6,7 @@ import { toogle } from "../../redux/themeSlice";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import Nav from "../../component/Header/Nav/Nav";
 
-function Header(props) {
+function Header({title, page}) {
   const [isClicked, setIsClicked] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
@@ -26,7 +26,16 @@ function Header(props) {
   return (
     <>
       <header className={`header ${themeDark && `header--dark`}`}>
-        {props?.page === "home" ? (
+        {page === "home" ? (
+          //page tu jest undefined jak wyciągam z obiektu, nie robi się bład jak gdyby nie było props.fss --> nie muszę opcinal chinig itp --> git opcja --> CLEAN CODE!!
+          //in fact, props are the only argument to your component
+          // function Profile(props) {
+          //   return (
+          //     <div className="card">
+          //       <Avatar {...props} />
+          //     </div>
+          //   );
+          // }
           <>
             <button
               className={
@@ -72,7 +81,7 @@ function Header(props) {
             </svg>
           </button>
         )}
-        <h1>{props.title}</h1>
+        <h1>{title}</h1>
         <button
           onClick={handleThemeClick}
           className={`header__button-theme ${themeDark && `header__button-theme--dark`}`}

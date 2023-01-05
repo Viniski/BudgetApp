@@ -24,8 +24,8 @@ function App() {
           <Route path="/transakcje/:id" element={<DetailsPage />} />
           {/* to nie będzie działać nie ze strony głównej - jak w rm.pl, do poprawy */}
           <Route path="/dodaj-transakcje" element={<SelectAddTypePage />} />
-          <Route path="/dodaj-dochód" element={<AddPage type="income" title="dochód"/>} />
-          <Route path="/dodaj-wydatek" element={<AddPage type="expense" title="wydatek"/>} />
+          <Route path="/dodaj-dochód" element={<AddPage type="income" name="dochód"/>} />
+          <Route path="/dodaj-wydatek" element={<AddPage type="expense" name="wydatek"/>} />
           <Route path="/edytuj-transakcje/:id" element={<EditPage />} />
           <Route
             path="/filtruj-transakcje"
