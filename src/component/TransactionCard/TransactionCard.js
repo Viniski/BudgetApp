@@ -4,28 +4,32 @@ import { useSelector } from "react-redux";
 function TransactionCard({ data }) {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
-
+  console.log(data);
   const deleteTransaction = () => {
     console.log("usuwam transakcję" + data.id)
   }
 
   return (
-    <Link to={`/transakcje/${data.id}`}>
+    <>
       <div
         className={`transaction-section__card ${
           themeDark && `transaction-section__card--dark`
         }`}
       >
+        <Link to={`/transakcje/${data.id}`}>
         <div className={`card__ammount ${themeDark && `card__ammount--dark`}`}>
           <span className={data.type}>{data.amount}</span>
           {/* ten plus minus muszę ogarnąć - przy tworzeniu będę uzupełaniał dane!*/}
         </div>
+        </Link>
+        <Link to={`/transakcje/${data.id}`}>
         <div className="card__description">
           <p className={`card__title ${themeDark && `card__title--dark`}`}>
             {data.title}
           </p>
           <p className="card__category">{data.category}</p>
         </div>
+        </Link>
         <div className="card__buttons">
           <button onClick={deleteTransaction}
             className={`card__button-trash ${
@@ -50,10 +54,10 @@ function TransactionCard({ data }) {
                 />
               </svg>
             </button>
-          </Link>
+            </Link>
         </div>
       </div>
-    </Link>
+    </>
   );
 }
 

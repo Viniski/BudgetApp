@@ -37,6 +37,7 @@ code {
 
 button {
   border: 0;
+  cursor: pointer;
 }
 
 a,
@@ -44,4 +45,5 @@ a:hover,
 a:visited {
   text-decoration: none;
   color: $color;
+  cursor: pointer;
 }

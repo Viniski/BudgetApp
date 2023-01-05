@@ -14,6 +14,7 @@ function AddPage({ type, name }) {
   const [category, setCategory] = useState({ value: "", valid: false });
   const today = formatDate(new Date());
   const [date, setDate] = useState({ value: today, valid: false });
+  //z datą też tu są problemy, validacja poczaątkowa
   const [note, setNote] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,12 +32,12 @@ function AddPage({ type, name }) {
   const handleAddTransaction = () => {
     console.log("dodaj");
     const newTransaction = {
-      amount: type === "expense" ? `-${amount} $` : `+${amount} $`,
-      category,
-      date,
+      amount: type === "expense" ? `-${amount.value} $` : `+${amount.value} $`,
+      category: category.value,
+      date: date.value,
       id: getRandomNumber(),
       note,
-      title,
+      title: title.value,
       type,
     };
     console.log(newTransaction);
@@ -49,28 +50,28 @@ function AddPage({ type, name }) {
     <>
       <Header title={`Dodaj ${name}`} />
       <section className="inputs-section">
+      <Input
+          type="text"
+          placeholder="Tytuł"
+          value={title.value}
+          onChange={(value) => setTitle({ value, valid: Boolean(value) })}
+        />
         <Input
           type="number"
           placeholder="Wartość"
           value={amount.value}
           onChange={(value) => setAmount({ value, valid: Boolean(value) })}
         />
-        <Input
-          type="text"
-          placeholder="Tytuł"
-          value={title.value}
-          onChange={(value) => setTitle(value)}
-        />
         <SelectCategoryInput
           type={type}
           value={category.value}
-          onChange={(value) => setCategory(value)}
+          onChange={(value) => setCategory({ value, valid: Boolean(value) })}
         />
         <Input
           type="date"
           max={today}
-          value={date}
-          onChange={(value) => setDate(value)}
+          value={date.value}
+          onChange={(value) => setDate({ value, valid: Boolean(value) })}
         />
         <Input
           type="text"

@@ -6,7 +6,7 @@ const SelectCategoryInput = (props) => {
   return (
     <select
       onChange={(e) => props.onChange(e.target.value)}
-      defaultValue=""
+      defaultValue={props.value || ""}
       className={`inputs-section__input ${
         themeDark && `inputs-section__input--dark`
       }`}
