@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../../redux/transactionsSlice";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 function TransactionCard({ data }) {
   const theme = useSelector((state) => state.theme.theme);
+  const state = useSelector((state) => state.transactions);
   const themeDark = theme === "dark";
   const dispatch = useDispatch();
+  const [localSotrage, setLocalStorage] = useLocalStorage("transactions");
 
   const handleDeleteTransaction = () => {
     dispatch(remove(data.id));
-  }
+    const newState = state.filter((tranasaction) => tranasaction.id !== data.id);
+    setLocalStorage(newState);
+  };
 
   return (
     <>
@@ -19,20 +24,23 @@ function TransactionCard({ data }) {
         }`}
       >
         <Link to={`/transakcje/${data.id}`}>
-        <div className={`card__ammount ${themeDark && `card__ammount--dark`}`}>
-          <span className={data.type}>{data.amount}</span>
-        </div>
+          <div
+            className={`card__ammount ${themeDark && `card__ammount--dark`}`}
+          >
+            <span className={data.type}>{data.type === "expense" ? `-${amount.value} $` : `+${amount.value} $`}</span>
+          </div>
         </Link>
         <Link to={`/transakcje/${data.id}`}>
-        <div className="card__description">
-          <p className={`card__title ${themeDark && `card__title--dark`}`}>
-            {data.title}
-          </p>
-          <p className="card__category">{data.category}</p>
-        </div>
+          <div className="card__description">
+            <p className={`card__title ${themeDark && `card__title--dark`}`}>
+              {data.title}
+            </p>
+            <p className="card__category">{data.category}</p>
+          </div>
         </Link>
         <div className="card__buttons">
-          <button onClick={handleDeleteTransaction}
+          <button
+            onClick={handleDeleteTransaction}
             className={`card__button-trash ${
               themeDark && `card__button-trash--dark`
             }`}
@@ -55,7 +63,7 @@ function TransactionCard({ data }) {
                 />
               </svg>
             </button>
-            </Link>
+          </Link>
         </div>
       </div>
     </>

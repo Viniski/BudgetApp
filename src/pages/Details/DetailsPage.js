@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { remove } from "../../redux/transactionsSlice";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import Header from "../../component/Header/Header";
 import DetailsDiv from "../../component/DetailsDiv/DetailsDiv";
@@ -8,8 +9,25 @@ import DetailsDiv from "../../component/DetailsDiv/DetailsDiv";
 function DetailsPage() {
   useWebsiteTitle("Szczegóły transakcji | BudgetApp by Viniski");
   const { id } = useParams();
-  const tranasaction = useSelector((state) => state.transactions.filter((transaction) => transaction.id === Number(id))[0]);
+  const tranasaction = useSelector(
+    (state) =>
+      state.transactions.filter(
+        (transaction) => transaction.id === Number(id)
+      )[0]
+  );
+  const state = useSelector((state) => state.transactions);
   console.log(tranasaction);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const [localSotrage, setLocalStorage] = useLocalStorage("transactions");
+
+  const handleDeleteTransaction = () => {
+    dispatch(remove(Number(id)));
+    const newState = state.filter((tranasaction) => tranasaction.id !== Number(id));
+    setLocalStorage(newState);
+    navigate("/");
+  };
 
   return (
     <>
@@ -17,13 +35,16 @@ function DetailsPage() {
       <section className="details-section">
         <DetailsDiv category="Tytuł" value={tranasaction.title} />
         <DetailsDiv category="Wartość" value={tranasaction.amount} />
-        <DetailsDiv category="Typ" value={tranasaction.type === "income" ? "Przychód" : "Wydatek"} />
+        <DetailsDiv
+          category="Typ"
+          value={tranasaction.type === "income" ? "Przychód" : "Wydatek"}
+        />
         <DetailsDiv category="Kategoria" value={tranasaction.category} />
         <DetailsDiv category="Data" value={tranasaction.date} />
         <DetailsDiv category="Notatki" value={tranasaction.note} />
       </section>
       <section className="button-details">
-        <button>
+        <button onClick={handleDeleteTransaction}>
           <span>Usuń</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />

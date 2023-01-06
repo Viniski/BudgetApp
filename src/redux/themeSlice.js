@@ -10,9 +10,12 @@ export const themeSlice = createSlice({
   reducers: {
     toogle: (state) => {
       state.theme = state.theme === "light" ? "dark" : "light";
-    },//braketsy, tworzące ciało funcji ważne
+    },
+    updateTheme(state, action) {
+      state = action.payload;
+    },
   },
 });
 
-export const { toogle } = themeSlice.actions;
+export const { toogle, updateTheme } = themeSlice.actions;
 export default themeSlice.reducer;

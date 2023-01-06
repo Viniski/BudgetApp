@@ -4,6 +4,7 @@ const data = [{
     amount: "24",
     title: "Obiad w restauracji",
     category: "food",
+    id: 3454319,
     note: "Było całkiem smaczne, wróc tu",
 },
 {
@@ -12,12 +13,14 @@ const data = [{
     amount: "2300",
     title: "Czynsz + media",
     category: "fixed",
+    id: 79879,
     note: "",
 },
 {
     type: "expense",
     date: "2022-12-04",
     amount: "200",
+    id: 2415235,
     title: "Paliwo na orlenie",
     category: "transport",
     note: "Spalanie ostatnio 6.5L/100km",
@@ -28,6 +31,7 @@ const data = [{
     amount: "4000",
     title: "Wypłata",
     category: "income",
+    id: 325235,
     note: "",
 },
 {
@@ -36,6 +40,7 @@ const data = [{
     amount: "123",
     title: "Mandat MKS",
     category: "other",
+    id: 532325,
     note: "",
 },
 {
@@ -44,6 +49,7 @@ const data = [{
     amount: "350",
     title: "Dodatkowa praca",
     category: "income-extra",
+    id: 08532,
     note: "Zlecenie dla klienta",
 },
 ];

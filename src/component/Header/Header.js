@@ -27,15 +27,6 @@ function Header({title, page}) {
     <>
       <header className={`header ${themeDark && `header--dark`}`}>
         {page === "home" ? (
-          //page tu jest undefined jak wyciągam z obiektu, nie robi się bład jak gdyby nie było props.fss --> nie muszę opcinal chinig itp --> git opcja --> CLEAN CODE!!
-          //in fact, props are the only argument to your component
-          // function Profile(props) {
-          //   return (
-          //     <div className="card">
-          //       <Avatar {...props} />
-          //     </div>
-          //   );
-          // }
           <>
             <button
               className={

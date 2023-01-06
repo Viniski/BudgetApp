@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../redux/transactionsSlice";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import Header from "../../component/Header/Header";
 import Input from "../../component/Input/Input";
 import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
 import { formatDate } from "../../component/helpers/formatDate";
 
 function AddPage({ type, name }) {
+  const state = useSelector((state) => state.transactions);
+
   const [amount, setAmount] = useState({ value: "", valid: false });
   const [title, setTitle] = useState({ value: "", valid: false });
   const [category, setCategory] = useState({ value: "", valid: false });
@@ -17,6 +20,7 @@ function AddPage({ type, name }) {
   const [note, setNote] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [localSotrage, setLocalStorage] = useLocalStorage("transactions");
 
   const invalidButton = Boolean(
     [amount.valid, title.valid, category.valid, date.valid].filter(
@@ -24,14 +28,12 @@ function AddPage({ type, name }) {
     ).length
   );
 
-  console.log(invalidButton);
-
   const getRandomNumber = () => Math.floor(Math.random() * 1000000);
 
   const handleAddTransaction = () => {
     console.log("dodaj");
     const newTransaction = {
-      amount: type === "expense" ? `-${amount.value} $` : `+${amount.value} $`,
+      amount: amount.value,
       category: category.value,
       date: date.value,
       id: getRandomNumber(),
@@ -39,8 +41,10 @@ function AddPage({ type, name }) {
       title: title.value,
       type,
     };
-    console.log(newTransaction);
     dispatch(add(newTransaction));
+    const newState = [...state].push(newTransaction);
+    //bo push to mutująca operacja i nie mogę jej wykonać na stanie przecież!!!!!! :D 
+    setLocalStorage(newState);
     navigate("/");
   };
 
