@@ -14,6 +14,7 @@ function ExpensePage() {
     (el) => el.type === "expense"
   );
   useWebsiteTitle("Wydatki | BudgetApp by Viniski");
+
   return (
     <>
       <Header title="Wydatki" />
@@ -21,11 +22,11 @@ function ExpensePage() {
         <ExpenseCard className="cards__expense--main-card" />
       </section>
       <section className="transaction-section">
-        <TransactionSectionHeader title="Wszystkie przychody" type="wydatki" />
+        <TransactionSectionHeader type="wydatki" />
         {expenseTransactions.map((transaction) => (
           <TransactionCard key={transaction.id} data={transaction} />
         ))}
-        {!expenseTransactions.lenght && "Nie masz żadnych transakcji"}
+        {!expenseTransactions.length && "Nie masz żadnych transakcji"}
       </section>
       <Link to="/dodaj-wydatek">
         <AddButton />

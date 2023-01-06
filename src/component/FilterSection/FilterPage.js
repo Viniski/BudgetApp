@@ -1,29 +1,24 @@
 import { useState } from "react";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import Header from "../../component/Header/Header";
-import Input from "../../component/Input/Input";
-import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
+import Header from "../Header/Header";
+import Input from "../Input/Input";
+import SelectCategoryInput from "../Input/SelectCategoryInput";
+import { formatDate } from "../helpers/formatDate";
 
-function FilterPage(props) {
+function FilterPage({title, type}) {
   const [startDate, setStartDate] = useState("");
-  function formatDate(date) {
-    let month = "" + (date.getMonth() + 1);
-    let day = "" + date.getDate();
-    let year = date.getFullYear();
-
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-
-    return [year, month, day].join("-");
-  }
   const today = formatDate(new Date());
   const [endDate, setEndDate] = useState(today);
 
-  console.log(props.type);
+  const handleFilterButton = () => {
+    console.log("filtruj" + type);
+  }
+
+  console.log(type);
   useWebsiteTitle("Filtruj transakcje | BudgetApp by Viniski");
   return (
     <>
-      <Header title={`Filtruj ${props.title}`} />
+      <Header title={`Filtruj ${title}`} />
       <section className="inputs-section">
         <Input type="number" placeholder="Od" />
         <Input type="number" placeholder="Do" />
@@ -38,8 +33,8 @@ function FilterPage(props) {
           value={endDate}
           onChange={(value) => setEndDate(value)}
         />
-        <SelectCategoryInput />
-        <button className="button-options">{`Filtruj ${props.title}`}</button>
+        <SelectCategoryInput type={type}/>
+        <button onClick={handleFilterButton} className="button-options">{`Filtruj ${title}`}</button>
       </section>
     </>
   );

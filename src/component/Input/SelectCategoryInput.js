@@ -11,7 +11,20 @@ const SelectCategoryInput = (props) => {
         themeDark && `inputs-section__input--dark`
       }`}
     >
-      {props.type === "expense" ? (
+      {props.type === "all" ? (
+        <>
+          <option value="" disabled hidden>
+            Kategoria
+          </option>
+          <option value="Dochód stały">Dochód stały</option>
+          <option value="Dochód dodatkowy">Dochód dodatkowy</option>
+          <option value="Koszty stałe">Koszty stałe</option>
+          <option value="Jedzenie">Jedzenie</option>
+          <option value="Transport">Transport</option>
+          <option value="Rozrywka">Rozrywka</option>
+          <option value="Inne">Inne</option>
+        </>
+      ) : props.type === "expense" ? (
         <>
           <option value="" disabled hidden>
             Kategoria

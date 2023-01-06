@@ -18,10 +18,11 @@ function IncomePage() {
         <IncomeCard className="cards__income--main-card" />
       </section>
       <section className="transaction-section">
-        <TransactionSectionHeader title="Wszystkie dochody" type="dochody" />
+        <TransactionSectionHeader type="dochody" />
         {incomeTransactions.map((transaction) => (
           <TransactionCard key={transaction.id} data={transaction} />
         ))}
+        {!incomeTransactions.length && "Nie masz żadnych transakcji"}
       </section>
       <Link to="/dodaj-dochód">
         <AddButton />

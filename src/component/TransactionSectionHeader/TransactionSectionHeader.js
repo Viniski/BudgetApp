@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-function TransactionSectionHeader(props) {
+function TransactionSectionHeader({type}) {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
     return (
         <div className="transaction-section__header">
-          <h3>{`Twoje ${props.type}`}</h3>
-          <Link to={`/filtruj-${props.type}`}>
+          <h3>{`Twoje ${type}`}</h3>
+          <Link to={`/filtruj-${type}`}>
           <button className={`transaction-section__button-filter ${themeDark && `transaction-section__button-filter--dark`}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

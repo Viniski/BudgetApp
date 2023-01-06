@@ -11,7 +11,7 @@ import SelectAddTypePage from "./pages/Add/SelectAddTypePage";
 import AddPage from "./pages/Add/AddPage";
 import DetailsPage from "./pages/Details/DetailsPage";
 import EditPage from "./pages/Edit/EditPage";
-import FilterPage from "./pages/Filter/FilterPage";
+import FilterPage from "./component/FilterSection/FilterPage";
 import "./styles/main.scss";
 
 function App() {

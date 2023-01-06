@@ -27,7 +27,7 @@ function TransactionCard({ data }) {
           <div
             className={`card__ammount ${themeDark && `card__ammount--dark`}`}
           >
-            <span className={data.type}>{data.type === "expense" ? `-${amount.value} $` : `+${amount.value} $`}</span>
+            <span className={data.type}>{data.type === "expense" ? `-${data.amount} $` : `+${data.amount} $`}</span>
           </div>
         </Link>
         <Link to={`/transakcje/${data.id}`}>
