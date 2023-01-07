@@ -10,9 +10,14 @@ const Input = (props) => {
           value={props?.value}
           max={props?.max}
           onChange={(e) => props.onChange(e.target.value)}
-          className={`inputs-section__input ${themeDark && `inputs-section__input--dark`}`}
+          className={`inputs-${props.className}__input ${themeDark && `inputs-${props.className}__input--dark`}`}
         />
     );
   };
+
+  Input.defaultProps = {
+    className: "section"
+  }
+
 
 export default Input;

@@ -7,8 +7,8 @@ const SelectCategoryInput = (props) => {
     <select
       onChange={(e) => props.onChange(e.target.value)}
       defaultValue={props.value || ""}
-      className={`inputs-section__input ${
-        themeDark && `inputs-section__input--dark`
+      className={`inputs-${props.className}__input ${
+        themeDark && `inputs-${props.className}__input--dark`
       }`}
     >
       {props.type === "all" ? (
@@ -48,5 +48,9 @@ const SelectCategoryInput = (props) => {
     </select>
   );
 };
+
+SelectCategoryInput.defaultProps = {
+  className: "section"
+}
 
 export default SelectCategoryInput;

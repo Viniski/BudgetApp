@@ -8,10 +8,38 @@
 
   &__input {
     width: 80vw;
-    height: 6vh;
+    height: 12vh;
     padding: 5px 16px;
     border: 0;
     border-bottom: solid 2px gray;
+
+    &--dark {
+      background: $grayBackground-dark;
+      color: $background;
+      color-scheme: dark;
+    }
+  }
+}
+
+.inputs-filter {
+  margin: 25px 0;
+  width: 90vw;
+  height: 40vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: space-evenly;
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 10px 0;
+
+  &__input {
+    width: 60vw;
+    height: 5vh;
+    padding: 4px 14px;
+    border: 0;
+    border-bottom: solid 1px gray;
 
     &--dark {
       background: $grayBackground-dark;

@@ -11,7 +11,7 @@ import SelectAddTypePage from "./pages/Add/SelectAddTypePage";
 import AddPage from "./pages/Add/AddPage";
 import DetailsPage from "./pages/Details/DetailsPage";
 import EditPage from "./pages/Edit/EditPage";
-import FilterPage from "./component/FilterSection/FilterPage";
+// import FilterPage from "./component/FilterSection/FilterPage";
 import "./styles/main.scss";
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
             element={<AddPage type="expense" name="wydatek" />}
           />
           <Route path="/edytuj-transakcje/:id" element={<EditPage />} />
-          <Route
+          {/* <Route
             path="/filtruj-transakcje"
             element={<FilterPage type="all" title="transakcje" />}
           />
@@ -48,7 +48,7 @@ function App() {
           <Route
             path="/filtruj-wydatki"
             element={<FilterPage type="expense" title="wydatki" />}
-          />
+          /> */}
         </Routes>
       </Router>
     </body>

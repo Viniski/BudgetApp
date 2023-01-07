@@ -9,7 +9,7 @@ function Pagination({ cardNumber, paginate, perPage }) {
   console.log(paginationPages, arrayPagination);
 
   return <div>
-    {arrayPagination.map((number) => (
+    {arrayPagination.length < 2 ? null : arrayPagination.map((number) => (
           <button className="sus" onClick={() => paginate(number)}>{number}</button>
         ))}
   </div>;

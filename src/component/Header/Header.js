@@ -82,7 +82,7 @@ function Header({title, page}) {
           </svg>
         </button>
       </header>
-      {isClicked ? <Nav /> : null}
+      {isClicked && <Nav />}
     </>
   );
 }
