@@ -8,17 +8,12 @@ import IncomeCard from "../../component/TotalCard/IncomeCard";
 import TransactionSectionHeader from "../../component/TransactionSectionHeader/TransactionSectionHeader";
 import Pagination from "../../component/Pagination/Pagination";
 import AddButton from "../../component/AddButton/AddButton";
+import TransactionSection from "../../component/TransactionsSection/TransactionsSection";
 
 function IncomePage() {
-  const transactions = useSelector((state) => state.transactions);
-  const incomeTransactions = transactions.filter((el) => el.type === "income");
+  // const incomeTransactions = transactions.filter((el) => el.type === "income");
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const startIndex = (currentPage-1)*5;
-  const endIndex = (currentPage*5)-1;
-  const transactionOnPage = incomeTransactions.slice(startIndex, endIndex+1); 
-
-  const paginate = (number) => setCurrentPage(number);
+  // const transactionOnPage = incomeTransactions.slice(startIndex, endIndex+1); 
 
   useWebsiteTitle("Dochody | BudgetApp by Viniski");
   return (
@@ -27,14 +22,15 @@ function IncomePage() {
       <section className="cards">
         <IncomeCard className="cards__income--main-card" />
       </section>
-      <section className="transaction-section">
+      <TransactionSection type="income"/>
+      {/* <section className="transaction-section">
         <TransactionSectionHeader type="dochody" />
         {transactionOnPage.map((transaction) => (
           <TransactionCard key={transaction.id} data={transaction} />
         ))}
         {!incomeTransactions.length && "Nie masz żadnych transakcji"}
         <Pagination cardNumber={incomeTransactions.length} perPage={5} paginate={paginate} />
-      </section>
+      </section> */}
       <Link to="/dodaj-dochód">
         <AddButton />
       </Link>
