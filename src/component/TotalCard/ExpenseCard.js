@@ -3,6 +3,19 @@ import { useSelector } from "react-redux";
 function ExpenseCard(props) {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
+  const transactions = useSelector((state) => state.transactions);
+
+  const calculateExpenseTransaction = () => {
+    const expense = transactions.filter((el) => el.type === "expense");
+    let totalExpense = 0;
+
+    for (let i = 0; i < expense.length; i++) {
+      totalExpense -= Number(expense[i].amount);
+    }
+
+    return totalExpense;
+  }
+
   return (
     <div className={`cards__expense ${props?.className} ${themeDark && `cards__expense--dark`}`}>
       <div className="cards__expense-icon">
@@ -17,7 +30,7 @@ function ExpenseCard(props) {
       </svg>
       </div>
       <h2>Bilans wydatków</h2>
-      <p>-1050 PLN</p>
+      <p>{calculateExpenseTransaction()} PLN</p>
     </div>
   );
 }

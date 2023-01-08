@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import TotalCard from "../../component/TotalCard/TotalCard";
 import ExpenseCard from "../../component/TotalCard/ExpenseCard";

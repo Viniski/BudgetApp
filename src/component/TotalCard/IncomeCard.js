@@ -3,6 +3,19 @@ import { useSelector } from "react-redux";
 function IncomeCard(props) {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
+  const transactions = useSelector((state) => state.transactions);
+
+  const calculateIncomeTransaction = () => {
+    const income = transactions.filter((el) => el.type === "income");
+    let totalIncome = 0;
+
+    for (let i = 0; i < income.length; i++) {
+      totalIncome += Number(income[i].amount);
+    }
+
+    return totalIncome;
+  }
+
   return (
     <div className={`cards__income ${props?.className} ${themeDark && `cards__income--dark`}`}>
       <div className="cards__income-icon">
@@ -16,7 +29,7 @@ function IncomeCard(props) {
         />
       </svg>
       </div>
-      <h2>Bilans przychodów</h2>
+      <h2>{calculateIncomeTransaction()} PLN</h2>
       <p>+2050 PLN</p>
     </div>
   );
