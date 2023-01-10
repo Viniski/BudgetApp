@@ -31,7 +31,7 @@ function AddPage({ type, name }) {
   const getRandomNumber = () => Math.floor(Math.random() * 1000000);
 
   const handleAddTransaction = () => {
-    console.log("dodaj");
+    console.log("dodaj", amount.value, typeof(amount.value));
     const newTransaction = {
       amount: amount.value,
       category: category.value,

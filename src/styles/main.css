@@ -27,6 +27,7 @@ code {
 
 button {
   border: 0;
+  cursor: pointer;
 }
 
 a,
@@ -34,6 +35,7 @@ a:hover,
 a:visited {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .header {
@@ -48,11 +50,12 @@ a:visited {
           justify-content: space-between;
   width: 100vw;
   height: 10vh;
+  padding: 0 14px;
   background-color: white;
 }
 
-.header-dark {
-  background-color: #141414;
+.header--dark {
+  background-color: #323132;
 }
 
 .header h1 {
@@ -60,38 +63,58 @@ a:visited {
   font-size: 26px;
 }
 
-.header .themeButton {
+.header__button-theme {
   background: white;
 }
 
-.header .themeButton svg {
+.header__button-theme--dark {
+  background: #323132;
+  fill: white;
+}
+
+.header__button-theme svg {
   width: 36px;
   height: 36px;
 }
 
-.header .menuButton {
+.header__button-menu {
   background: white;
 }
 
-.header .menuButton svg {
-  width: 36px;
-  height: 36px;
+.header__button-menu--dark {
+  background: #323132;
+  fill: white;
 }
 
-.active {
-  display: block;
-}
-
-.disactive {
+.header__button-menu--disactive {
   display: none;
 }
 
-nav {
+.header__button-menu svg {
+  width: 36px;
+  height: 36px;
+}
+
+.header__button-back {
+  background: white;
+}
+
+.header__button-back--dark {
+  background: #323132;
+  fill: white;
+}
+
+.header__button-back svg {
+  width: 36px;
+  height: 36px;
+}
+
+.navigation {
   width: 100vw;
   background-color: white;
 }
 
-nav .list__item {
+.navigation .navigation__item {
   display: block;
   height: 5vh;
   display: -webkit-box;
@@ -107,11 +130,20 @@ nav .list__item {
   font-size: 18px;
 }
 
-nav .list__item:hover {
+.navigation .navigation__item:hover {
   background-color: #faf9fa;
 }
 
-.addButton {
+.navigation .navigation__item--dark {
+  background-color: #323132;
+  color: white;
+}
+
+.navigation .navigation__item--dark:hover {
+  background-color: black;
+}
+
+.button-add {
   position: fixed;
   bottom: 7vw;
   right: 7vw;
@@ -123,6 +155,24 @@ nav .list__item:hover {
   background-color: white;
 }
 
+.button-options {
+  text-transform: uppercase;
+  margin: auto;
+  width: 226px;
+  height: 48px;
+  color: white;
+  background-color: #014bbc;
+  border-radius: 5px;
+}
+
+.sus {
+  width: 70px;
+  height: 70px;
+  background-color: yellow;
+  font-size: 50px;
+  margin-left: 20vw;
+}
+
 .cards {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -132,7 +182,6 @@ nav .list__item:hover {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-top: 2vh;
 }
 
 .cards__total {
@@ -147,6 +196,7 @@ nav .list__item:hover {
           align-items: center;
   width: 92vw;
   height: 16vh;
+  margin-top: 2vh;
   border-radius: 5px;
   color: black;
   background-color: white;
@@ -184,24 +234,6 @@ nav .list__item:hover {
   background-color: white;
 }
 
-.cards__income--dark, .cards__expense--dark {
-  background-color: #323132;
-}
-
-.cards__income--main-card, .cards__expense--main-card {
-  width: 90vw;
-  height: 18vh;
-}
-
-.cards__income--main-card h2, .cards__expense--main-card h2 {
-  margin-top: 15%;
-  font-size: 18px;
-}
-
-.cards__income--main-card p, .cards__expense--main-card p {
-  font-size: 28px;
-}
-
 .cards__income h2, .cards__expense h2 {
   margin-top: 30%;
   width: 100%;
@@ -220,12 +252,30 @@ nav .list__item:hover {
   font-size: 22px;
 }
 
+.cards__income--dark, .cards__expense--dark {
+  background-color: #323132;
+}
+
+.cards__income--main-card, .cards__expense--main-card {
+  width: 90vw;
+  height: 18vh;
+}
+
+.cards__income--main-card h2, .cards__expense--main-card h2 {
+  margin-top: 15%;
+  font-size: 18px;
+}
+
+.cards__income--main-card p, .cards__expense--main-card p {
+  font-size: 28px;
+}
+
 .cards__income-icon {
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   fill: green;
   background-color: lightgreen;
@@ -235,14 +285,14 @@ nav .list__item:hover {
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   fill: red;
   background-color: lightcoral;
 }
 
-.transactionSection {
+.transaction-section {
   padding: 4vh 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -255,12 +305,12 @@ nav .list__item:hover {
           justify-content: center;
 }
 
-.transactionSection h3 {
+.transaction-section h3 {
   text-align: start;
   padding: 0 8px;
 }
 
-.transactionSection__header {
+.transaction-section__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -272,7 +322,26 @@ nav .list__item:hover {
           justify-content: space-between;
 }
 
-.transactionCard {
+.transaction-section__button-filter {
+  background-color: #faf9fa;
+  padding: 0 8px;
+}
+
+.transaction-section__button-filter--dark {
+  background: #141414;
+  fill: white;
+}
+
+.transaction-section__button-filter--disactive {
+  display: none;
+}
+
+.transaction-section__button-filter svg {
+  width: 24px;
+  height: 24px;
+}
+
+.transaction-section__card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -286,30 +355,42 @@ nav .list__item:hover {
           align-items: center;
 }
 
-.transactionCard:first-of-type {
+.transaction-section__card--dark {
+  background-color: #323132;
+}
+
+.transaction-section__card:first-of-type {
   margin-top: 2vh;
 }
 
-.transactionCard__ammount {
+.card__ammount {
   width: 20vw;
   font-size: 20px;
   font-weight: bold;
 }
 
-.transactionCard__ammount .income {
+.card__ammount .income {
   color: green;
 }
 
-.transactionCard__ammount .expense {
+.card__ammount--dark {
+  background-color: #323132;
+}
+
+.card__ammount--dark .income {
+  color: lightgreen;
+}
+
+.card__ammount .expense {
   color: red;
 }
 
-.transactionCard__description {
+.card__description {
   width: 50vw;
   padding: 0 5vw;
 }
 
-.transactionCard__description .title {
+.card__title {
   font-weight: bold;
   font-size: 18px;
   overflow: hidden;
@@ -317,13 +398,17 @@ nav .list__item:hover {
   text-overflow: ellipsis;
 }
 
-.transactionCard__description .category {
+.card__title--dark {
+  color: white;
+}
+
+.card__category {
   text-transform: uppercase;
   font-size: 15px;
   color: gray;
 }
 
-.transactionCard__buttons {
+.card__buttons {
   width: 20vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -333,7 +418,7 @@ nav .list__item:hover {
           justify-content: space-evenly;
 }
 
-.trashButton {
+.card__button-trash {
   width: 22px;
   height: 22px;
   border: 0;
@@ -341,39 +426,23 @@ nav .list__item:hover {
   background-color: white;
 }
 
-.editButton {
+.card__button-trash--dark {
+  background: #323132;
+}
+
+.card__button-edit {
   width: 22px;
   height: 22px;
   border: 0;
   background-color: white;
 }
 
-.goBackButton {
-  background: white;
+.card__button-edit--dark {
+  fill: white;
+  background: #323132;
 }
 
-.goBackButton svg {
-  width: 36px;
-  height: 36px;
-}
-
-.filterButton {
-  background-color: #faf9fa;
-  padding: 0 8px;
-}
-
-.filterButton svg {
-  width: 24px;
-  height: 24px;
-}
-
-.themeButton,
-.menuButton,
-.goBackButton {
-  padding: 0 16px;
-}
-
-.detailsSection {
+.details-section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -391,22 +460,22 @@ nav .list__item:hover {
   padding: 5vh 0;
 }
 
-.detailsInfo {
+.details-div {
   width: 80vw;
 }
 
-.detailsInfo__category {
+.details-div__category {
   font-size: 14px;
   padding: 7px 0;
   color: gray;
 }
 
-.detailsInfo__value {
+.details-div__value {
   font-size: 18px;
   padding: 9px 0;
 }
 
-.detailsButton {
+.button-details {
   height: 10vh;
   width: 100vw;
   display: -webkit-box;
@@ -419,7 +488,7 @@ nav .list__item:hover {
           align-items: center;
 }
 
-.detailsButton button {
+.button-details button {
   width: 126px;
   height: 48px;
   border-radius: 5px;
@@ -435,32 +504,27 @@ nav .list__item:hover {
           justify-content: space-evenly;
 }
 
-.detailsButton button span {
+.button-details button span {
   text-transform: uppercase;
   font-size: 14px;
-  color: black;
-}
-
-.detailsButton button span-dark {
   color: white;
 }
 
-.detailsButton button svg {
+.button-details button svg {
   height: 24px;
   width: 24px;
-  fill: black;
-  color: black;
+  fill: white;
 }
 
-.input {
-  width: 80vw;
-  height: 6vh;
-  padding: 5px 16px;
-  border: 0;
-  border-bottom: solid 2px gray;
+.button-details--dark button span {
+  color: white;
 }
 
-.inputsSection {
+.button-details--dark button svg {
+  fill: white;
+}
+
+.inputs-section {
   height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -477,13 +541,53 @@ nav .list__item:hover {
       align-content: space-evenly;
 }
 
-.transactionOptions {
-  text-transform: uppercase;
-  margin: auto;
-  width: 226px;
-  height: 48px;
-  color: black;
-  background-color: #014bbc;
+.inputs-section__input {
+  width: 80vw;
+  height: 6vh;
+  padding: 5px 16px;
+  border: 0;
+  border-bottom: solid 2px gray;
+}
+
+.inputs-section__input--dark {
+  background: #323132;
+  color: white;
+  color-scheme: dark;
+}
+
+.inputs-filter {
+  margin: 25px 0;
+  width: 90vw;
+  height: 40vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: space-evenly;
+      align-content: space-evenly;
+  border: 2px solid gray;
   border-radius: 5px;
+  padding: 10px 0;
+}
+
+.inputs-filter__input {
+  width: 60vw;
+  height: 5vh;
+  padding: 4px 14px;
+  border: 0;
+  border-bottom: solid 1px gray;
+}
+
+.inputs-filter__input--dark {
+  background: #323132;
+  color: white;
+  color-scheme: dark;
 }
 /*# sourceMappingURL=main.css.map */
