@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import FilterSection from "../FilterSection/FilterSection";
-import FilterButton from "../Buttons/FilterButton";
-import CloseFilterButton from "../Buttons/CloseFilterButton";
 import Pagination from "../../component/Pagination/Pagination";
 
 function TransactionSection({ type }) {
@@ -28,19 +26,11 @@ function TransactionSection({ type }) {
 
   const [transactions, setTransactions] = useState(getTransactions());
 
-  const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
-
-  const [isClicked, setIsClicked] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = 5;
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = currentPage * perPage - 1;
   let transactionOnPage = transactions.slice(startIndex, endIndex + 1);
-
-  const handleFilterButton = () => {
-    setIsClicked(!isClicked);
-  };
 
   const getCategoryToDelete = (selectedCategory) => {
     let arrayAllCategories = [
@@ -113,34 +103,12 @@ function TransactionSection({ type }) {
     <>
       <section className="transaction-section">
         <div className="transaction-section__header">
-          <h3>{`Twoje transakcje`}</h3>
-          <FilterButton
-            onClick={handleFilterButton}
-            className={
-              isClicked
-                ? `transaction-section__button-filter--disactive`
-                : `transaction-section__button-filter ${
-                    themeDark && `transaction-section__button-filter--dark`
-                  }`
-            }
-          />
-          <CloseFilterButton
-            onClick={handleFilterButton}
-            className={
-              isClicked
-                ? `transaction-section__button-filter ${
-                    themeDark && `transaction-section__button-filter--dark`
-                  }`
-                : `transaction-section__button-filter--disactive`
-            }
-          />
-          {isClicked && (
+          <h3>{`Twoje transakcje`}</h3>   
             <FilterSection
               type={type}
               title="wydatki"
               onFilter={handleFilter}
             />
-          )}
         </div>
         {transactionOnPage.map((transaction) => (
           <TransactionCard key={transaction.id} data={transaction} />

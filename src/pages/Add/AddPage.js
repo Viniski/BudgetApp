@@ -7,7 +7,7 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 import Header from "../../component/Header/Header";
 import Input from "../../component/Input/Input";
 import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
-import { formatDate } from "../../component/helpers/formatDate";
+import { formatDate } from "../../helpers/formatDate";
 
 function AddPage({ type, name }) {
   const state = useSelector((state) => state.transactions);

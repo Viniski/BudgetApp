@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 const CheckboxCategoryInput = ({ type, value, onChange }) => {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
-  console.log("value", value, value.find((x) => x === "Dochód stały") || "");
+  // console.log("value", value, value.find((x) => x === "Dochód stały") || "");
   //A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component
   return (
     <>
