@@ -8,11 +8,15 @@ function Pagination({ cardNumber, paginate, perPage }) {
 
   console.log(paginationPages, arrayPagination);
 
-  return <div>
+  return <div className="transaction-section__pagination">
     {arrayPagination.length < 2 ? null : arrayPagination.map((number) => (
-          <button key={number} className="sus" onClick={() => paginate(number)}>{number}</button>
+          <button key={number} className="button-pagination" onClick={() => paginate(number)}>{number}</button>
         ))}
   </div>;
 }
 
 export default Pagination;
+
+//${
+//  themeDark && `transaction-section__pagination--dark`
+//}

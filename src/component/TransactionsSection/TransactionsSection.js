@@ -6,6 +6,8 @@ import Pagination from "../../component/Pagination/Pagination";
 
 function TransactionSection({ type }) {
   let stateTransactions = useSelector((state) => state.transactions);
+  const theme = useSelector((state) => state.theme.theme);
+  const themeDark = theme === "dark";
 
   const getTransactions = () => {
     //why with arg - undefined?
@@ -114,13 +116,17 @@ function TransactionSection({ type }) {
           <TransactionCard key={transaction.id} data={transaction} />
         ))}
         {!transactions.length &&
-          "Nie masz żadnych transakcji LUB brak transakcji dla podanych kryteriów "}
-      </section>
-      <Pagination
+          <p className={`transaction-section__paragraph ${
+            themeDark && `transaction-section__paragraph--dark`
+          }`}>Brak transakcji</p> 
+        }
+        <Pagination
         cardNumber={transactions.length}
         perPage={perPage}
         paginate={paginate}
       />
+      </section>
+      
     </>
   );
 }

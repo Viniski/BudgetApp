@@ -30,8 +30,6 @@
       display: none;
     }
 
-
-
     svg {
       width: 24px;
       height: 24px;
@@ -54,6 +52,20 @@
     &:first-of-type {
       margin-top: 2vh;
     }
+  }
+
+  &__paragraph {
+    margin-top: 2vh;
+    font-size: 18px;
+  }
+
+  &__pagination {
+    width: 100vw;
+    margin: 0 25vw;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 }
 
