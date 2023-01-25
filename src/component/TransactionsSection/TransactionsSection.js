@@ -102,7 +102,6 @@ function TransactionSection({ type }) {
   const paginate = (number) => setCurrentPage(number);
 
   return (
-    <>
       <section className="transaction-section">
         <div className="transaction-section__header">
           <h3>{`Twoje transakcje`}</h3>   
@@ -126,8 +125,6 @@ function TransactionSection({ type }) {
         paginate={paginate}
       />
       </section>
-      
-    </>
   );
 }
 

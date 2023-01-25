@@ -28,3 +28,14 @@
   background-color: $background;
   cursor: pointer;
 }
+
+.button-filters {
+  text-transform: uppercase;
+  margin: auto;
+  width: 226px;
+  height: 48px;
+  color: $blue;
+  // background-color: $background;
+  // border: 2px solid $blue;
+  border-radius: 5px;
+}

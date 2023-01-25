@@ -8,6 +8,7 @@
   h3 {
     text-align: start;
     padding: 0 8px;
+    font-size: 22px;
   }
 
   &__header {
@@ -15,6 +16,19 @@
     flex-wrap: wrap;
     width: 90%;
     justify-content: space-between;
+  }
+
+  &__active-criteria {
+    display: flex;
+    text-align: start;
+    margin-top: 16px;
+
+    p {
+      padding: 0 8px;
+      color: $grayBackground-dark;
+      font-size: 18px;
+      font-weight: bold;
+    }
   }
 
   &__button-filter {

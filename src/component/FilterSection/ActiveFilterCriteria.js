@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { formatDate } from "../../helpers/formatDate";
+import CloseFilterButton from "../Buttons/CloseFilterButton";
 
 function ActiveFilterCriteria({ criteria, onFilter, type }) {
   const maxAmount = criteria.maxAmount;
@@ -14,49 +15,61 @@ function ActiveFilterCriteria({ criteria, onFilter, type }) {
     return selectedCategory.length !== categoryNumber;
   };
 
-  const handleFilterCriteriaButtons = (para) => {
-    //tu będę miał znów miał kryteria i przekazywał je go głównego komponentu
-  };
-
   const handleDeleteFilterCriteriaButton = (para) => {
+    console.log("hej, usuwam Cię");
     //tu będę miał znów miał kryteria i przekazywał je go głównego komponentu
   };
 
   return (
     <section>
       {minAmount && (
-        <button
-          onClick={() => console.log("hello")}
-          className="button-options"
-        >{`Od: ${minAmount} PLN`}</button>
+        <div className="transaction-section__active-criteria">
+          <p>Od: ${minAmount} PLN</p>
+          <CloseFilterButton
+            className="card__button-trash"
+            onClick={handleDeleteFilterCriteriaButton}
+          />
+        </div>
       )}
 
       {maxAmount && (
-        <button
-          onClick={() => console.log("hello")}
-          className="button-options"
-        >{`Do: ${maxAmount} PLN`}</button>
+        <div className="transaction-section__active-criteria">
+          <p>Do: ${maxAmount} PLN</p>
+          <CloseFilterButton
+            className="card__button-trash"
+            onClick={handleDeleteFilterCriteriaButton}
+          />
+        </div>
       )}
 
       {startDate && (
-        <button
-          onClick={() => console.log("hello")}
-          className="button-options"
-        >{`Od: ${startDate}`}</button>
+        <div className="transaction-section__active-criteria">
+          <p>Od: ${startDate}</p>
+          <CloseFilterButton
+            className="card__button-trash"
+            onClick={handleDeleteFilterCriteriaButton}
+          />
+        </div>
       )}
 
       {endDate && (
-        <button
-          onClick={() => console.log("hello")}
-          className="button-options"
-        >{`Do: ${endDate}`}</button>
+        <div className="transaction-section__active-criteria">
+          <p>Do: ${endDate}</p>
+          <CloseFilterButton
+            className="card__button-trash"
+            onClick={handleDeleteFilterCriteriaButton}
+          />
+        </div>
       )}
 
       {isCategoryButtonIsActive() && (
-        <button
-          onClick={() => console.log("hello")}
-          className="button-options"
-        >{`Kategorie: ${selectedCategory.length}`}</button>
+        <div className="transaction-section__active-criteria">
+          <p>Kategorie: ${selectedCategory.length}</p>
+          <CloseFilterButton
+            className="card__button-trash"
+            onClick={handleDeleteFilterCriteriaButton}
+          />
+        </div>
       )}
     </section>
   );
