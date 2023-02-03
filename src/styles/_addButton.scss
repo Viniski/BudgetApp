@@ -27,6 +27,11 @@
   font-size: 28px;
   background-color: $background;
   cursor: pointer;
+
+  &--dark {
+    background-color: $grayBackground-dark;
+    color: $background;
+  }
 }
 
 .button-filters {

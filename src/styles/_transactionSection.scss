@@ -22,12 +22,28 @@
     display: flex;
     text-align: start;
     margin-top: 16px;
+    color: $grayBackground-dark;
+  }
 
-    p {
+  &__active-criteria-paragraph {
       padding: 0 8px;
-      color: $grayBackground-dark;
       font-size: 18px;
       font-weight: bold;
+
+      &--dark {
+        color: $color-dark;
+      }
+  }
+
+  &__button-delete-criteria {
+    width: 22px;
+    height: 22px;
+    border: 0;
+    fill: red;
+    background-color: $background;
+
+    &--dark {
+      background: $background-dark;
     }
   }
 

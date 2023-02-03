@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import Input from "../Input/Input";
 import CheckboxCategoryInput from "../Input/CheckboxCategoryInput";
 import ActiveFilterCriteria from "./ActiveFilterCriteria";
@@ -7,9 +6,7 @@ import { formatDate } from "../../helpers/formatDate";
 import FilterButton from "../Buttons/FilterButton";
 import CloseFilterButton from "../Buttons/CloseFilterButton";
 
-function FilterSection({ type, title, onFilter }) {
-  const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
+function FilterSection({ type, title, onFilter, themeDark }) {
   const [minAmount, setMinAmount] = useState("");
   const [maxAmount, setMaxAmount] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -151,6 +148,7 @@ function FilterSection({ type, title, onFilter }) {
         type={type}
         criteria={filterSectionState.activeCriteria}
         onFilter={handleFilterButton}
+        themeDark={themeDark}
       />
     </>
   );

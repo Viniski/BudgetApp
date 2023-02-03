@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { formatDate } from "../../helpers/formatDate";
 import CloseFilterButton from "../Buttons/CloseFilterButton";
 
-function ActiveFilterCriteria({ criteria, onFilter, type }) {
+function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
   const maxAmount = criteria.maxAmount;
   const minAmount = criteria.minAmount;
   const endDate = criteria.endDate;
@@ -24,9 +22,18 @@ function ActiveFilterCriteria({ criteria, onFilter, type }) {
     <section>
       {minAmount && (
         <div className="transaction-section__active-criteria">
-          <p>Od: ${minAmount} PLN</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Od: ${minAmount} PLN
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
             onClick={handleDeleteFilterCriteriaButton}
           />
         </div>
@@ -34,9 +41,18 @@ function ActiveFilterCriteria({ criteria, onFilter, type }) {
 
       {maxAmount && (
         <div className="transaction-section__active-criteria">
-          <p>Do: ${maxAmount} PLN</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Do: ${maxAmount} PLN
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
             onClick={handleDeleteFilterCriteriaButton}
           />
         </div>
@@ -44,9 +60,18 @@ function ActiveFilterCriteria({ criteria, onFilter, type }) {
 
       {startDate && (
         <div className="transaction-section__active-criteria">
-          <p>Od: ${startDate}</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Od: ${startDate}
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
             onClick={handleDeleteFilterCriteriaButton}
           />
         </div>
@@ -54,9 +79,18 @@ function ActiveFilterCriteria({ criteria, onFilter, type }) {
 
       {endDate && (
         <div className="transaction-section__active-criteria">
-          <p>Do: ${endDate}</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Do: ${endDate}
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
             onClick={handleDeleteFilterCriteriaButton}
           />
         </div>
@@ -64,9 +98,18 @@ function ActiveFilterCriteria({ criteria, onFilter, type }) {
 
       {isCategoryButtonIsActive() && (
         <div className="transaction-section__active-criteria">
-          <p>Kategorie: ${selectedCategory.length}</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Kategorie: ${selectedCategory.length}
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
             onClick={handleDeleteFilterCriteriaButton}
           />
         </div>

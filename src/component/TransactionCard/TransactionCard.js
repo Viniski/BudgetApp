@@ -5,10 +5,8 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 import DeleteButton from "../Buttons/DeleteButton";
 import EditButton from "../Buttons/EditButton";
 
-function TransactionCard({ data }) {
-  const theme = useSelector((state) => state.theme.theme);
+function TransactionCard({ data, themeDark }) {
   const state = useSelector((state) => state.transactions);
-  const themeDark = theme === "dark";
   const dispatch = useDispatch();
   const [localSotrage, setLocalStorage] = useLocalStorage("transactions");
 

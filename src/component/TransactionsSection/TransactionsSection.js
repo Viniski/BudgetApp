@@ -109,10 +109,11 @@ function TransactionSection({ type }) {
               type={type}
               title="wydatki"
               onFilter={handleFilter}
+              themeDark={themeDark}
             />
         </div>
         {transactionOnPage.map((transaction) => (
-          <TransactionCard key={transaction.id} data={transaction} />
+          <TransactionCard key={transaction.id} data={transaction} themeDark={themeDark}/>
         ))}
         {!transactions.length &&
           <p className={`transaction-section__paragraph ${
@@ -123,6 +124,7 @@ function TransactionSection({ type }) {
         cardNumber={transactions.length}
         perPage={perPage}
         paginate={paginate}
+        themeDark={themeDark}
       />
       </section>
   );

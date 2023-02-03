@@ -1,4 +1,4 @@
-function Pagination({ cardNumber, paginate, perPage }) {
+function Pagination({ cardNumber, paginate, perPage, themeDark }) {
   const paginationPages = Math.ceil(cardNumber / perPage);
   const arrayPagination = [];
 
@@ -10,13 +10,12 @@ function Pagination({ cardNumber, paginate, perPage }) {
 
   return <div className="transaction-section__pagination">
     {arrayPagination.length < 2 ? null : arrayPagination.map((number) => (
-          <button key={number} className="button-pagination" onClick={() => paginate(number)}>{number}</button>
+          <button key={number} className={`button-pagination ${
+            themeDark && `button-pagination--dark`
+          }`} onClick={() => paginate(number)}>{number}</button>
         ))}
   </div>;
 }
 
 export default Pagination;
 
-//${
-//  themeDark && `transaction-section__pagination--dark`
-//}
