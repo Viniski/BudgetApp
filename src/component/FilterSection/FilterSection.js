@@ -24,7 +24,10 @@ function FilterSection({ type, title, onFilter }) {
     "Rozrywka",
     "Inne",
   ]);
-  // TU JEST BŁĄD Z TĄ TABLICĄ BO SĄ TEŻ STRONY INCOME I EXPENSE!!!
+  // TU JEST BŁĄD Z TĄ TABLICĄ BO SĄ TEŻ STRONY INCOME I EXPENSE!!! woo...
+  //widok jest git (inputy) ale potem problem...
+  //bo ogólnie jak przełączam -> to kategorie powinny znikać.. no właśnie xd
+  //trzy komponenty albo nwm ale optymalne rozwiązanie tak jak wcześniej było
   const objectToFilter = {
     minAmount,
     maxAmount,

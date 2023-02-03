@@ -4,6 +4,8 @@ import FilterSection from "../FilterSection/FilterSection";
 import FilterButton from "../Buttons/FilterButton";
 import CloseFilterButton from "../Buttons/CloseFilterButton";
 
+//NIEUŻYWANY
+
 function TransactionSectionHeader({ type }) {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
