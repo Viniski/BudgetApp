@@ -1,11 +1,11 @@
 import CloseFilterButton from "../Buttons/CloseFilterButton";
 
 function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
+  console.log(criteria);
   const maxAmount = criteria.maxAmount;
   const minAmount = criteria.minAmount;
   const endDate = criteria.endDate;
   const startDate = criteria.startDate;
-  //selectedCategory będzie trudniejsze
   const selectedCategory = criteria.selectedCategory;
 
   const isCategoryButtonIsActive = () => {
@@ -13,9 +13,8 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
     return selectedCategory.length !== categoryNumber;
   };
 
-  const handleDeleteFilterCriteriaButton = (para) => {
-    console.log("hej, usuwam Cię");
-    //tu będę miał znów miał kryteria i przekazywał je go głównego komponentu
+  const handleDeleteFilterCriteriaButton = (criteria) => {
+    onFilter(criteria);
   };
 
   return (
@@ -34,7 +33,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
             className={`transaction-section__button-delete-criteria ${
               themeDark && `transaction-section__button-delete-criteria--dark`
             }`}
-            onClick={handleDeleteFilterCriteriaButton}
+            onClick={() => handleDeleteFilterCriteriaButton("minAmount")}
           />
         </div>
       )}
@@ -53,7 +52,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
             className={`transaction-section__button-delete-criteria ${
               themeDark && `transaction-section__button-delete-criteria--dark`
             }`}
-            onClick={handleDeleteFilterCriteriaButton}
+            onClick={() => handleDeleteFilterCriteriaButton("maxAmount")}
           />
         </div>
       )}
@@ -72,7 +71,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
             className={`transaction-section__button-delete-criteria ${
               themeDark && `transaction-section__button-delete-criteria--dark`
             }`}
-            onClick={handleDeleteFilterCriteriaButton}
+            onClick={() => handleDeleteFilterCriteriaButton("startDate")}
           />
         </div>
       )}
@@ -91,7 +90,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
             className={`transaction-section__button-delete-criteria ${
               themeDark && `transaction-section__button-delete-criteria--dark`
             }`}
-            onClick={handleDeleteFilterCriteriaButton}
+            onClick={() => handleDeleteFilterCriteriaButton("endDate")}
           />
         </div>
       )}
@@ -110,7 +109,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
             className={`transaction-section__button-delete-criteria ${
               themeDark && `transaction-section__button-delete-criteria--dark`
             }`}
-            onClick={handleDeleteFilterCriteriaButton}
+            onClick={() => handleDeleteFilterCriteriaButton("selectedCategory")}
           />
         </div>
       )}

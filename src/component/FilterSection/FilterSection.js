@@ -11,27 +11,29 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   const [maxAmount, setMaxAmount] = useState("");
   const [startDate, setStartDate] = useState("");
   const today = formatDate(new Date());
-  const [endDate, setEndDate] = useState(today);
-  const [selectedCategory, setSelectedCategory] = useState([
-    "Dochód stały",
-    "Dochód dodatkowy",
-    "Koszty stałe",
-    "Jedzenie",
-    "Transport",
-    "Rozrywka",
-    "Inne",
-  ]);
-  // TU JEST BŁĄD Z TĄ TABLICĄ BO SĄ TEŻ STRONY INCOME I EXPENSE!!! woo...
-  //widok jest git (inputy) ale potem problem...
-  //bo ogólnie jak przełączam -> to kategorie powinny znikać.. no właśnie xd
-  //trzy komponenty albo nwm ale optymalne rozwiązanie tak jak wcześniej było
-  const objectToFilter = {
-    minAmount,
-    maxAmount,
-    startDate,
-    endDate,
-    selectedCategory,
+  const [endDate, setEndDate] = useState("");
+  console.log("render");
+
+  const getSelectedCategory = () => {
+    return type === "all"
+      ? [
+          "Dochód stały",
+          "Dochód dodatkowy",
+          "Koszty stałe",
+          "Jedzenie",
+          "Transport",
+          "Rozrywka",
+          "Inne",
+        ]
+      : type === "expense"
+      ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
+      : ["Dochód stały", "Dochód dodatkowy", "Inne"];
   };
+
+  const [selectedCategory, setSelectedCategory] = useState(
+    getSelectedCategory()
+  );
+
   const [filterSectionState, setFilterSectionState] = useState({
     isFormActive: false,
     activeCriteria: {
@@ -42,6 +44,16 @@ function FilterSection({ type, title, onFilter, themeDark }) {
       selectedCategory,
     },
   });
+
+  const objectToFilter = {
+    minAmount,
+    maxAmount,
+    startDate,
+    endDate,
+    selectedCategory,
+  };
+
+  console.log(objectToFilter);
 
   const toogleFilterButton = () => {
     setFilterSectionState({
@@ -74,8 +86,106 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   //w tym momęcie jest to: objectToFilter :)
   //i taka forma ma zostać, jest dobrze czytany przez funkcję filtrującą, tak napiszę komponent wyżej, że też to będzie czytał :)
   const handleFilterButton = (params) => {
-    onFilter(params);
+    //zamiana kolejności
+    console.log(params);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
+    onFilter(params);
+  };
+
+  const handleDeleteCriteria = (params) => {
+    console.log(params);
+    onFilter(params);
+  };
+
+  const deleteFilterCriteria = (criteriaToDelete) => {
+    console.log("usuwam - filterSection " + criteriaToDelete);
+    switch (criteriaToDelete) {
+      case "minAmount":
+        console.log("minAmount");
+        handleDeleteCriteria({
+          minAmount: "",
+          maxAmount,
+          startDate,
+          endDate,
+          selectedCategory,
+        });
+        setMinAmount("");
+        break;
+      case "maxAmount":
+        console.log("maxAmount");
+        handleDeleteCriteria({
+          minAmount,
+          maxAmount: "",
+          startDate,
+          endDate,
+          selectedCategory,
+        });
+        setMaxAmount("");
+        break;
+      case "startDate":
+        console.log("startDate");
+        handleDeleteCriteria({
+          minAmount,
+          maxAmount,
+          startDate: "",
+          endDate,
+          selectedCategory,
+        });
+        setStartDate("");
+        break;
+      case "endDate":
+        console.log("endDate");
+        handleDeleteCriteria({
+          minAmount,
+          maxAmount,
+          startDate,
+          endDate: "",
+          selectedCategory,
+        });
+        setEndDate("");
+        break;
+      case "selectedCategory":
+        console.log("selectedCategory");
+        handleDeleteCriteria({
+          minAmount,
+          maxAmount,
+          startDate,
+          endDate,
+          selectedCategory:
+            type === "all"
+              ? [
+                  "Dochód stały",
+                  "Dochód dodatkowy",
+                  "Koszty stałe",
+                  "Jedzenie",
+                  "Transport",
+                  "Rozrywka",
+                  "Inne",
+                ]
+              : type === "expense"
+              ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
+              : ["Dochód stały", "Dochód dodatkowy", "Inne"],
+        });
+        setSelectedCategory(
+          type === "all"
+            ? [
+                "Dochód stały",
+                "Dochód dodatkowy",
+                "Koszty stałe",
+                "Jedzenie",
+                "Transport",
+                "Rozrywka",
+                "Inne",
+              ]
+            : type === "expense"
+            ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
+            : ["Dochód stały", "Dochód dodatkowy", "Inne"]
+        );
+        break;
+      default:
+        console.log("to nie powinno wyskoczyć xD");
+        break;
+    }
   };
 
   return (
@@ -137,9 +247,7 @@ function FilterSection({ type, title, onFilter, themeDark }) {
             className="filter"
           />
           <button
-            onClick={() =>
-              handleFilterButton(objectToFilter)
-            }
+            onClick={() => handleFilterButton(objectToFilter)}
             className="button-options"
           >{`Filtruj ${title}`}</button>
         </section>
@@ -147,7 +255,7 @@ function FilterSection({ type, title, onFilter, themeDark }) {
       <ActiveFilterCriteria
         type={type}
         criteria={filterSectionState.activeCriteria}
-        onFilter={handleFilterButton}
+        onFilter={deleteFilterCriteria}
         themeDark={themeDark}
       />
     </>
