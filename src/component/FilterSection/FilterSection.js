@@ -5,8 +5,13 @@ import ActiveFilterCriteria from "./ActiveFilterCriteria";
 import { formatDate } from "../../helpers/formatDate";
 import FilterButton from "../Buttons/FilterButton";
 import CloseFilterButton from "../Buttons/CloseFilterButton";
+import createFilterUrl from "../../helpers/createFilterUrl";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function FilterSection({ type, title, onFilter, themeDark }) {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [minAmount, setMinAmount] = useState("");
   const [maxAmount, setMaxAmount] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -82,18 +87,20 @@ function FilterSection({ type, title, onFilter, themeDark }) {
     }
   };
 
-  //params musi być ARRAY i musi być czytannie przez funkcję filtrującą niżej i komponent wyżej
   //w tym momęcie jest to: objectToFilter :)
   //i taka forma ma zostać, jest dobrze czytany przez funkcję filtrującą, tak napiszę komponent wyżej, że też to będzie czytał :)
   const handleFilterButton = (params) => {
-    //zamiana kolejności
     console.log(params);
+    const newUrl = createFilterUrl(location.pathname, params);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
-    onFilter(params);
+    navigate(newUrl);
+    //onFilter(params);
   };
 
   const handleDeleteCriteria = (params) => {
-    console.log(params);
+    const newUrl = createFilterUrl(location.pathname, params);
+    setFilterSectionState({ activeCriteria: params, isFormActive: false });
+    navigate(newUrl);
     onFilter(params);
   };
 

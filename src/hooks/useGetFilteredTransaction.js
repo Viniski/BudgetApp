@@ -25,7 +25,6 @@ export const useGetFilteredTransaction = (newTransactions, parameters) => {
   const endDate = parameters.endDate;
   const startDate = parameters.startDate;
   const selectedCategory = parameters.selectedCategory;
-  //const selectedCategory = parameters.selectedCategory;
   console.log("start", newTransactions, minAmount, maxAmount, endDate, startDate, selectedCategory);
 
   if (minAmount) {

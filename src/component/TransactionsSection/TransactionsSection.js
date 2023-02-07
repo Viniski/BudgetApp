@@ -5,13 +5,14 @@ import { useSelector } from "react-redux";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import FilterSection from "../FilterSection/FilterSection";
 import Pagination from "../../component/Pagination/Pagination";
-
 import { useGetFilteredTransaction } from "../../hooks/useGetFilteredTransaction";
+import { useLocation } from "react-router-dom";
+import createPaginationUrl from "../../helpers/createPaginationUrl";
 
 function TransactionSection({ type }) {
   const navigate = useNavigate();
-  //let typeURL = 
-
+  const location = useLocation();
+  console.log(location.pathname, location.search);
 
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
@@ -20,11 +21,12 @@ function TransactionSection({ type }) {
 
   const getParamsToFilterFromURL = () => {
     const objectParams = {
+      page: searchParams.get("strona"),
       minAmount: searchParams.get("min"),
       maxAmount: searchParams.get("max"),
       endDate: searchParams.get("do"),
       startDate: searchParams.get("od"),
-      selectedCategory: searchParams.get("delete_category")?.split(',') || [],
+      selectedCategory: searchParams.get("delete_category")?.split(',') || [],//category bo obmyślenia
     }
 
     console.log(objectParams);
@@ -60,9 +62,13 @@ function TransactionSection({ type }) {
   const endIndex = currentPage * perPage - 1;
   let transactionOnPage = transactions.slice(startIndex, endIndex + 1);
 
+  const handleFilter = () => {
+    console.log('ok');
+  }
+
   const paginate = (number) => {
-    //dochody, wydatki...
-    // navigate(?min=20&max=8400&od=2005-05-12&do=2023-05-12&delete_category=Dochód%20stały,Dochód%20dodatkowy)
+    const newUrl = createPaginationUrl(location.pathname, getParamsToFilterFromURL(), number);
+    navigate(newUrl);
   };
 
   return (
@@ -73,6 +79,7 @@ function TransactionSection({ type }) {
           type={type}
           title="wydatki"
           themeDark={themeDark}
+          onFilter={handleFilter}
         />
       </div>
       {transactionOnPage.map((transaction) => (

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toogle } from "../../redux/themeSlice";
-import useLocalStorage from "../../hooks/useLocalStorage";
+//import useLocalStorage from "../../hooks/useLocalStorage";
 import Nav from "../../component/Header/Nav/Nav";
 import UndoButton from "../Buttons/UndoButton";
 import OpenMenuButton from "../Buttons/OpenMenuButton";
@@ -15,7 +15,7 @@ function Header({ title, page }) {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";//tutaj zostaje mi false w klasach, może lepiej null czy pusty string - dobra praktyka - i don't know
   const dispatch = useDispatch();
-  const [localStorage, setLocalStorage] = useLocalStorage("theme");
+  //const [localStorage, setLocalStorage] = useLocalStorage("theme");
   const navigate = useNavigate();
 
   const handleMenuClick = () => {
@@ -24,7 +24,7 @@ function Header({ title, page }) {
 
   const handleThemeClick = () => {
     dispatch(toogle());
-    setLocalStorage(theme === "light" ? "dark" : "light");
+    //setLocalStorage(theme === "light" ? "dark" : "light");
   };
 
   return (
@@ -55,7 +55,7 @@ function Header({ title, page }) {
           </>
         ) : (
           <UndoButton
-            onClick={() => navigate(-1)}
+            onClick={() => navigate(-1)}//no to do zmiany choć teoretycznie będzie działało dobrze, może zostać :)
             className={`header__button-back ${
               themeDark && `header__button-back--dark`
             }`}

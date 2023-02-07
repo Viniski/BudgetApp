@@ -76,11 +76,8 @@ export const transactionsSlice = createSlice({
     remove(state, action) {
       return state.filter((tranasaction) => tranasaction.id !== action.payload);
     },
-    update(state, action) {//to mi nie trza - to było do local storage CHYBA
-      state = action.payload;
-    },
   },
 });
 
-export const { add, edit, remove, update } = transactionsSlice.actions;
+export const { add, edit, remove } = transactionsSlice.actions;
 export default transactionsSlice.reducer;
