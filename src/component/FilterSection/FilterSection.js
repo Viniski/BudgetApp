@@ -15,7 +15,7 @@ import createFilterUrl from "../../helpers/createFilterUrl";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-function FilterSection({ type, title, onFilter, themeDark }) {
+function FilterSection({ type, title, criteria, themeDark }) {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -24,10 +24,9 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   const [startDate, setStartDate] = useState("");
   const today = formatDate(new Date());
   const [endDate, setEndDate] = useState("");
-  console.log("render", location.pathname);
 
   const getSelectedCategory = () => {
-    return type === "all"
+    return location.pathname === "/"
       ? [
           "Dochód stały",
           "Dochód dodatkowy",
@@ -37,7 +36,7 @@ function FilterSection({ type, title, onFilter, themeDark }) {
           "Rozrywka",
           "Inne",
         ]
-      : type === "expense"
+      : location.pathname === "/wydatki"
       ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
       : ["Dochód stały", "Dochód dodatkowy", "Inne"];
   };
@@ -77,7 +76,6 @@ function FilterSection({ type, title, onFilter, themeDark }) {
     selectedCategory: getCategoryToDelete(selectedCategory),
   };
 
-  console.log("objectToFilter", objectToFilter);
 
   const toogleFilterButton = () => {
     setFilterSectionState({
@@ -104,14 +102,12 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   //w tym momęcie jest to: objectToFilter :)
   //i taka forma ma zostać, jest dobrze czytany przez funkcję filtrującą, tak napiszę komponent wyżej, że też to będzie czytał :)
   const handleFilterButton = (params) => {
-    console.log("params", params);
     const newUrl = createFilterUrl(location.pathname, params);
-    console.log(newUrl);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
     dispatch(
       location.pathname === "/"
         ? updateHomeURL(newUrl)
-        : type === "/wydatki"
+        : location.pathname === "/wydatki"
         ? updateExpenseURL(newUrl)
         : updateIncomeURL(newUrl)
     );
@@ -120,14 +116,12 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   };
 
   const handleDeleteCriteria = (params) => {
-    console.log("params", params);
     const newUrl = createFilterUrl(location.pathname, params);
-    console.log(newUrl);
     setFilterSectionState({ activeCriteria: params, isFormActive: false }); //why?
     dispatch(
       location.pathname === "/"
         ? updateHomeURL(newUrl)
-        : type === "/wydatki"
+        : location.pathname === "/wydatki"
         ? updateExpenseURL(newUrl)
         : updateIncomeURL(newUrl)
     );
@@ -136,61 +130,55 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   };
 
   const deleteFilterCriteria = (criteriaToDelete) => {
-    console.log("usuwam - filterSection " + criteriaToDelete);
     switch (criteriaToDelete) {
       case "minAmount":
-        console.log("minAmount");
         handleDeleteCriteria({
           minAmount: "",
           maxAmount,
           startDate,
           endDate,
-          selectedCategory,
+          selectedCategory: getCategoryToDelete(selectedCategory),
         });
         setMinAmount("");
         break;
       case "maxAmount":
-        console.log("maxAmount");
         handleDeleteCriteria({
           minAmount,
           maxAmount: "",
           startDate,
           endDate,
-          selectedCategory,
+          selectedCategory: getCategoryToDelete(selectedCategory),
         });
         setMaxAmount("");
         break;
       case "startDate":
-        console.log("startDate");
         handleDeleteCriteria({
           minAmount,
           maxAmount,
           startDate: "",
           endDate,
-          selectedCategory,
+          selectedCategory: getCategoryToDelete(selectedCategory),
         });
         setStartDate("");
         break;
       case "endDate":
-        console.log("endDate");
         handleDeleteCriteria({
           minAmount,
           maxAmount,
           startDate,
           endDate: "",
-          selectedCategory,
+          selectedCategory: getCategoryToDelete(selectedCategory),
         });
         setEndDate("");
         break;
       case "selectedCategory":
-        console.log("selectedCategory");
         handleDeleteCriteria({
           minAmount,
           maxAmount,
           startDate,
           endDate,
           selectedCategory: getCategoryToDelete(
-            type === "all"
+            location.pathname === "/"
               ? [
                   "Dochód stały",
                   "Dochód dodatkowy",
@@ -200,13 +188,13 @@ function FilterSection({ type, title, onFilter, themeDark }) {
                   "Rozrywka",
                   "Inne",
                 ]
-              : type === "expense"
+              : location.pathname === "/wydatki"
               ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
               : ["Dochód stały", "Dochód dodatkowy", "Inne"]
           ),
         });
         setSelectedCategory(
-          type === "all"
+          location.pathname === "/"
             ? [
                 "Dochód stały",
                 "Dochód dodatkowy",
@@ -216,16 +204,16 @@ function FilterSection({ type, title, onFilter, themeDark }) {
                 "Rozrywka",
                 "Inne",
               ]
-            : type === "expense"
+            : location.pathname === "/wydatki"
             ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
             : ["Dochód stały", "Dochód dodatkowy", "Inne"]
         );
         break;
       default:
-        console.log("to nie powinno wyskoczyć xD");
         break;
     }
   };
+
 
   return (
     <>
@@ -293,7 +281,7 @@ function FilterSection({ type, title, onFilter, themeDark }) {
       )}
       <ActiveFilterCriteria
         type={type}
-        criteria={filterSectionState.activeCriteria}
+        criteria={criteria}
         onFilter={deleteFilterCriteria}
         themeDark={themeDark}
       />

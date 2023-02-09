@@ -1,7 +1,6 @@
 import CloseFilterButton from "../Buttons/CloseFilterButton";
 
 function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
-  console.log(criteria);
   const maxAmount = criteria.maxAmount;
   const minAmount = criteria.minAmount;
   const endDate = criteria.endDate;
@@ -9,13 +8,22 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
   const selectedCategory = criteria.selectedCategory;
 
   const isCategoryButtonIsActive = () => {
-    const categoryNumber = type === "all" ? 7 : type === "expense" ? 5 : 3;
-    return selectedCategory.length !== categoryNumber;
+    console.log(selectedCategory.length);
+    return selectedCategory.length ? true : false;
+    // const categoryNumber = type === "all" ? 7 : type === "expense" ? 5 : 3;
+    // return selectedCategory.length !== categoryNumber;
   };
 
   const handleDeleteFilterCriteriaButton = (criteria) => {
     onFilter(criteria);
   };
+
+  const categoryNumber =
+    type === "all"
+      ? 7 - selectedCategory.length
+      : type === "expense"
+      ? 5 - selectedCategory.length
+      : 3 - selectedCategory.length;
 
   return (
     <section>
@@ -65,7 +73,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
-            Od: ${startDate}
+            Od: {startDate}
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
@@ -84,7 +92,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
-            Do: ${endDate}
+            Do: {endDate}
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
@@ -103,7 +111,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
-            Kategorie: ${selectedCategory.length}
+            Kategorie: {categoryNumber}
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${

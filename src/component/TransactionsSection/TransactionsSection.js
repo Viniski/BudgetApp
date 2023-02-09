@@ -14,7 +14,6 @@ function TransactionSection({ type }) {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
-  console.log(location.pathname, location.search);
 
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
@@ -30,8 +29,6 @@ function TransactionSection({ type }) {
       startDate: searchParams.get("od"),
       selectedCategory: searchParams.get("delete_category")?.split(',') || [],//category bo obmyślenia
     }
-
-    console.log(objectParams);
 
     return objectParams;
   };
@@ -64,10 +61,6 @@ function TransactionSection({ type }) {
   const endIndex = currentPage * perPage - 1;
   let transactionOnPage = transactions.slice(startIndex, endIndex + 1);
 
-  const handleFilter = () => {
-    console.log('ok');
-  }
-
   const paginate = (number) => {
     const newUrl = createPaginationUrl(location.pathname, getParamsToFilterFromURL(), number);
     dispatch(
@@ -88,7 +81,7 @@ function TransactionSection({ type }) {
           type={type}
           title="wydatki"
           themeDark={themeDark}
-          //onFilter={handleFilter}
+          criteria={getParamsToFilterFromURL()}
         />
       </div>
       {transactionOnPage.map((transaction) => (

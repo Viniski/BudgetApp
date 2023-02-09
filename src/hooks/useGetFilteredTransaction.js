@@ -1,39 +1,9 @@
-// const getCategoryToDelete = (selectedCategory) => {
-//   //i don't need it, because I have category to delete now
-//   let arrayCategories = [
-//     "Dochód stały",
-//     "Dochód dodatkowy",
-//     "Koszty stałe",
-//     "Jedzenie",
-//     "Transport",
-//     "Rozrywka",
-//     "Inne",
-//   ];
-
-//   for (let i = 0; i < selectedCategory.length; i++) {
-//     arrayCategories = arrayCategories.filter(
-//       (element) => element !== selectedCategory[i]
-//     );
-//   }
-
-//   return [...arrayCategories];
-//};
-
 export const useGetFilteredTransaction = (newTransactions, parameters) => {
   const minAmount = parameters.minAmount;
   const maxAmount = parameters.maxAmount;
   const endDate = parameters.endDate;
   const startDate = parameters.startDate;
   const selectedCategory = parameters.selectedCategory;
-  console.log(
-    "start",
-    newTransactions,
-    minAmount,
-    maxAmount,
-    endDate,
-    startDate,
-    selectedCategory
-  );
 
   if (minAmount) {
     newTransactions = newTransactions.filter(
@@ -67,6 +37,5 @@ export const useGetFilteredTransaction = (newTransactions, parameters) => {
     }
   }
 
-  console.log("end", newTransactions);
   return newTransactions;
 };
