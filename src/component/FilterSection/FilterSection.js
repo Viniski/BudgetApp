@@ -50,15 +50,27 @@ function FilterSection({ type, title, onFilter, themeDark }) {
     },
   });
 
+  const getCategoryToDelete = (selectedCategory) => {
+    let arrayAllCategories = getSelectedCategory();
+
+    for (let i = 0; i < selectedCategory.length; i++) {
+      arrayAllCategories = arrayAllCategories.filter(
+        (element) => element !== selectedCategory[i]
+      );
+    }
+
+    return [...arrayAllCategories];
+  };
+
   const objectToFilter = {
     minAmount,
     maxAmount,
     startDate,
     endDate,
-    selectedCategory,
+    selectedCategory: getCategoryToDelete(selectedCategory),
   };
 
-  console.log(objectToFilter);
+  console.log("objectToFilter", objectToFilter);
 
   const toogleFilterButton = () => {
     setFilterSectionState({
@@ -70,19 +82,14 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   const changeCheckboxInput = (e) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
-    console.log(value, isChecked);
 
     if (isChecked) {
-      console.log(selectedCategory, isChecked);
       const newSelectedCategory = [...selectedCategory, value];
-      console.log(newSelectedCategory);
       setSelectedCategory(newSelectedCategory);
     } else {
-      console.log(selectedCategory, isChecked);
       const newSelectedCategory = selectedCategory.filter(
         (category) => category !== value
       );
-      console.log(newSelectedCategory);
       setSelectedCategory(newSelectedCategory);
     }
   };
@@ -90,7 +97,7 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   //w tym momęcie jest to: objectToFilter :)
   //i taka forma ma zostać, jest dobrze czytany przez funkcję filtrującą, tak napiszę komponent wyżej, że też to będzie czytał :)
   const handleFilterButton = (params) => {
-    console.log(params);
+    console.log("params", params);
     const newUrl = createFilterUrl(location.pathname, params);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
     navigate(newUrl);
@@ -98,10 +105,11 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   };
 
   const handleDeleteCriteria = (params) => {
+    console.log("params", params)
     const newUrl = createFilterUrl(location.pathname, params);
-    setFilterSectionState({ activeCriteria: params, isFormActive: false });
+    setFilterSectionState({ activeCriteria: params, isFormActive: false }); //why?
     navigate(newUrl);
-    onFilter(params);
+    //onFilter(params);
   };
 
   const deleteFilterCriteria = (criteriaToDelete) => {
@@ -158,7 +166,7 @@ function FilterSection({ type, title, onFilter, themeDark }) {
           maxAmount,
           startDate,
           endDate,
-          selectedCategory:
+          selectedCategory: getCategoryToDelete(
             type === "all"
               ? [
                   "Dochód stały",
@@ -171,7 +179,8 @@ function FilterSection({ type, title, onFilter, themeDark }) {
                 ]
               : type === "expense"
               ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
-              : ["Dochód stały", "Dochód dodatkowy", "Inne"],
+              : ["Dochód stały", "Dochód dodatkowy", "Inne"]
+          ),
         });
         setSelectedCategory(
           type === "all"

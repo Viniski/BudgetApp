@@ -79,7 +79,7 @@ function TransactionSection({ type }) {
           type={type}
           title="wydatki"
           themeDark={themeDark}
-          onFilter={handleFilter}
+          //onFilter={handleFilter}
         />
       </div>
       {transactionOnPage.map((transaction) => (

@@ -35,13 +35,14 @@ export function createSearch(objectParams) {
       search += `?do=${objectParams.endDate}`;
     }
   }
-  // if (objectParams.selectedCategory) {
-  //   if (search) {
-  //       search += `&delete_category=${objectParams.selectedCategory}`;
-  //     } else {
-  //       search += `?delete_category=${objectParams.selectedCategory}`;
-  //     }
-  // }
+  if (objectParams.selectedCategory.length > 0) {
+    console.log("the function works", objectParams.selectedCategory.length)
+    if (search) {
+        search += `&delete_category=${objectParams.selectedCategory.map(el => el)}`;
+      } else {
+        search += `?delete_category=${objectParams.selectedCategory.map(el => el)}`;
+      }
+  }
   console.log(search);
   return search;
 }

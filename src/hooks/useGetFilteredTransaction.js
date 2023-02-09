@@ -1,23 +1,23 @@
+// const getCategoryToDelete = (selectedCategory) => {
+//   //i don't need it, because I have category to delete now
+//   let arrayCategories = [
+//     "Dochód stały",
+//     "Dochód dodatkowy",
+//     "Koszty stałe",
+//     "Jedzenie",
+//     "Transport",
+//     "Rozrywka",
+//     "Inne",
+//   ];
 
-const getCategoryToDelete = (selectedCategory) => {
-    let arrayCategories = [
-      "Dochód stały",
-      "Dochód dodatkowy",
-      "Koszty stałe",
-      "Jedzenie",
-      "Transport",
-      "Rozrywka",
-      "Inne",
-    ];
-  
-    for (let i = 0; i < selectedCategory.length; i++) {
-      arrayCategories = arrayCategories.filter(
-        (element) => element !== selectedCategory[i]
-      );
-    }
-  
-    return [...arrayCategories];
-  };
+//   for (let i = 0; i < selectedCategory.length; i++) {
+//     arrayCategories = arrayCategories.filter(
+//       (element) => element !== selectedCategory[i]
+//     );
+//   }
+
+//   return [...arrayCategories];
+//};
 
 export const useGetFilteredTransaction = (newTransactions, parameters) => {
   const minAmount = parameters.minAmount;
@@ -25,7 +25,15 @@ export const useGetFilteredTransaction = (newTransactions, parameters) => {
   const endDate = parameters.endDate;
   const startDate = parameters.startDate;
   const selectedCategory = parameters.selectedCategory;
-  console.log("start", newTransactions, minAmount, maxAmount, endDate, startDate, selectedCategory);
+  console.log(
+    "start",
+    newTransactions,
+    minAmount,
+    maxAmount,
+    endDate,
+    startDate,
+    selectedCategory
+  );
 
   if (minAmount) {
     newTransactions = newTransactions.filter(
@@ -45,21 +53,20 @@ export const useGetFilteredTransaction = (newTransactions, parameters) => {
     );
   }
 
-//   if (startDate) {
-//     newTransactions = newTransactions.filter(
-//       (el) => new Date(el.date) >= new Date(startDate)
-//     );
-//  }
+  if (startDate) {
+    newTransactions = newTransactions.filter(
+      (el) => new Date(el.date) >= new Date(startDate)
+    );
+  }
 
-//   let arrayCategoryToDelete = getCategoryToDelete(selectedCategory);
-
-//   for (let i = 0; i < arrayCategoryToDelete.length; i++) {
-//     newTransactions = newTransactions.filter(
-//       (element) => element.category !== arrayCategoryToDelete[i]
-//     );
-//   }
+  if (selectedCategory.length > 0) {
+    for (let i = 0; i < selectedCategory.length; i++) {
+      newTransactions = newTransactions.filter(
+        (element) => element.category !== selectedCategory[i]
+      );
+    }
+  }
 
   console.log("end", newTransactions);
   return newTransactions;
 };
-
