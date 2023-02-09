@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updateTheme } from "./redux/themeSlice";
-import { update } from "./redux/transactionsSlice";
-import useLocalStorage from "./hooks/useLocalStorage";
 import HomePage from "./pages/Home/HomePage";
 import IncomePage from "./pages/Income/IncomePage";
 import ExpensePage from "./pages/Expense/ExpenePage";
@@ -36,18 +33,6 @@ function App() {
             element={<AddPage type="expense" name="wydatek" />}
           />
           <Route path="/edytuj-transakcje/:id" element={<EditPage />} />
-          {/* <Route
-            path="/filtruj-transakcje"
-            element={<FilterPage type="all" title="transakcje" />}
-          />
-          <Route
-            path="/filtruj-dochody"
-            element={<FilterPage type="income" title="dochody" />}
-          />
-          <Route
-            path="/filtruj-wydatki"
-            element={<FilterPage type="expense" title="wydatki" />}
-          /> */}
         </Routes>
       </Router>
     </body>
