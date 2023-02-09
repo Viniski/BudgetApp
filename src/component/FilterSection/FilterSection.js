@@ -1,4 +1,10 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  updateHomeURL,
+  updateExpenseURL,
+  updateIncomeURL,
+} from "../../redux/urlSlice";
 import Input from "../Input/Input";
 import CheckboxCategoryInput from "../Input/CheckboxCategoryInput";
 import ActiveFilterCriteria from "./ActiveFilterCriteria";
@@ -12,12 +18,13 @@ import { useLocation } from "react-router-dom";
 function FilterSection({ type, title, onFilter, themeDark }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const [minAmount, setMinAmount] = useState("");
   const [maxAmount, setMaxAmount] = useState("");
   const [startDate, setStartDate] = useState("");
   const today = formatDate(new Date());
   const [endDate, setEndDate] = useState("");
-  console.log("render");
+  console.log("render", location.pathname);
 
   const getSelectedCategory = () => {
     return type === "all"
@@ -99,15 +106,31 @@ function FilterSection({ type, title, onFilter, themeDark }) {
   const handleFilterButton = (params) => {
     console.log("params", params);
     const newUrl = createFilterUrl(location.pathname, params);
+    console.log(newUrl);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
+    dispatch(
+      location.pathname === "/"
+        ? updateHomeURL(newUrl)
+        : type === "/wydatki"
+        ? updateExpenseURL(newUrl)
+        : updateIncomeURL(newUrl)
+    );
     navigate(newUrl);
     //onFilter(params);
   };
 
   const handleDeleteCriteria = (params) => {
-    console.log("params", params)
+    console.log("params", params);
     const newUrl = createFilterUrl(location.pathname, params);
+    console.log(newUrl);
     setFilterSectionState({ activeCriteria: params, isFormActive: false }); //why?
+    dispatch(
+      location.pathname === "/"
+        ? updateHomeURL(newUrl)
+        : type === "/wydatki"
+        ? updateExpenseURL(newUrl)
+        : updateIncomeURL(newUrl)
+    );
     navigate(newUrl);
     //onFilter(params);
   };

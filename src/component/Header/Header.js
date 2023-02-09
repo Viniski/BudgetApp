@@ -13,8 +13,9 @@ import ThemeButton from "../Buttons/ThemeButton";
 function Header({ title, page }) {
   const [isClicked, setIsClicked] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";//tutaj zostaje mi false w klasach, może lepiej null czy pusty string - dobra praktyka - i don't know
+  const themeDark = theme === "dark"; //tutaj zostaje mi false w klasach, może lepiej null czy pusty string - dobra praktyka - i don't know
   const dispatch = useDispatch();
+  const homeUrl = useSelector((state) => state.url.homeLink);
   //const [localStorage, setLocalStorage] = useLocalStorage("theme");
   const navigate = useNavigate();
 
@@ -55,17 +56,19 @@ function Header({ title, page }) {
           </>
         ) : (
           <UndoButton
-            onClick={() => navigate(-1)}//no to do zmiany choć teoretycznie będzie działało dobrze, może zostać :)
+            onClick={() => navigate(homeUrl)}
             className={`header__button-back ${
               themeDark && `header__button-back--dark`
             }`}
           />
         )}
         <h1>{title}</h1>
-          <ThemeButton onClick={handleThemeClick}
+        <ThemeButton
+          onClick={handleThemeClick}
           className={`header__button-theme ${
             themeDark && `header__button-theme--dark`
-          }`}/>
+          }`}
+        />
       </header>
       {isClicked && <Nav />}
     </>

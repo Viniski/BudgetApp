@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateHomeURL, updateExpenseURL, updateIncomeURL } from "../../redux/urlSlice";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import FilterSection from "../FilterSection/FilterSection";
 import Pagination from "../../component/Pagination/Pagination";
@@ -12,6 +13,7 @@ import createPaginationUrl from "../../helpers/createPaginationUrl";
 function TransactionSection({ type }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   console.log(location.pathname, location.search);
 
   const theme = useSelector((state) => state.theme.theme);
@@ -68,6 +70,13 @@ function TransactionSection({ type }) {
 
   const paginate = (number) => {
     const newUrl = createPaginationUrl(location.pathname, getParamsToFilterFromURL(), number);
+    dispatch(
+      location.pathname === "/"
+        ? updateHomeURL(newUrl)
+        : type === "/wydatki"
+        ? updateExpenseURL(newUrl)
+        : updateIncomeURL(newUrl)
+    );
     navigate(newUrl);
   };
 
