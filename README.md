@@ -1,5 +1,45 @@
 # THIS APP IS UNDER DEVELOPMENT
 
+# Budget App by Viniski
+
+A complete budget application written in React.js.
+
+## Descriptions
+
+A budget app with all the useful features. Ability to add, edit and delete transactions. Several categories of expenses and income. Possibility to filter expenses, income and all transactions by amount, date and categories.
+
+Data on new transactions and the selected color theme (dark or light mode) are saved in localStorage, while filtering parameters are saved in the url address. So you can share selected, filtered transactions with your friends.
+
+## Technical
+
+This project was bootstrapped with Create React App. The Context API was used to manage the state, using additionally useState and useReducer. The design of the application was independently designed. The CSS module was chosen to style the application due to the encapsulation of the CSS classes of the components. The application is adapted to display on screens with different resolutions. Validation of registration and login forms without the use of external libraries has been written. The axios library and the fetch API were used to connect to the API. The routing was built using the react-router library. Environment variables used. I know that the downside is the lack of tests, but I plan to include them in the next project I'm working on.
+
+## Built With
+
+- React.js
+- Create-react-app
+- SASS
+- BEM metodology
+- React-Router
+- Redux Toolkit
+- Redux-Persist
+
+## Demo
+
+THIS APP IS UNDER DEVELOPMENT
+
+#### If you want running on your computer:
+
+```zsh
+npm install
+npm run start
+```
+
+## License
+
+This project is licensed under the MIT License.
+All texts are the property of realmadryt.pl all photos and images are the property of Getty Images.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

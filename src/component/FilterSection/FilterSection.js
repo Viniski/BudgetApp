@@ -99,7 +99,7 @@ function FilterSection({ type, title, criteria, themeDark }) {
     }
   };
 
-  //w tym momęcie jest to: objectToFilter :)
+  //w tym momencie jest to: objectToFilter :)
   //i taka forma ma zostać, jest dobrze czytany przez funkcję filtrującą, tak napiszę komponent wyżej, że też to będzie czytał :)
   const handleFilterButton = (params) => {
     const newUrl = createFilterUrl(location.pathname, params);
