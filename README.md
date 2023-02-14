@@ -12,7 +12,7 @@ Data on new transactions and the selected color theme (dark or light mode) are s
 
 ## Technical
 
-This project was bootstrapped with Create React App. The Context API was used to manage the state, using additionally useState and useReducer. The design of the application was independently designed. The CSS module was chosen to style the application due to the encapsulation of the CSS classes of the components. The application is adapted to display on screens with different resolutions. Validation of registration and login forms without the use of external libraries has been written. The axios library and the fetch API were used to connect to the API. The routing was built using the react-router library. Environment variables used. I know that the downside is the lack of tests, but I plan to include them in the next project I'm working on.
+This project was bootstrapped with Create React App. The Redux was used to manage the state. The appearance of the application was inspired by a design found on the Internet, and then improved. The SASS preprocessor was used, efforts were made to maintain the BEM methodology. The mobile first approach was used.
 
 ## Built With
 
@@ -23,6 +23,8 @@ This project was bootstrapped with Create React App. The Context API was used to
 - React-Router
 - Redux Toolkit
 - Redux-Persist
+- JEST
+- React Testing Library
 
 ## Demo
 

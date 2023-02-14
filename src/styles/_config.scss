@@ -13,6 +13,7 @@ $color-dark: rgb(255, 255, 255);
 }
 
 body {
+  min-height: 100vh;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -24,8 +25,7 @@ body {
 }
 
 .body-dark {
-  height: 100%;
-  //bug
+  min-height: 100vh;
   color: $color-dark;
   background-color: $background-dark;
 }

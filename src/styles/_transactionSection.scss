@@ -26,13 +26,13 @@
   }
 
   &__active-criteria-paragraph {
-      padding: 0 8px;
-      font-size: 18px;
-      font-weight: bold;
+    padding: 0 8px;
+    font-size: 18px;
+    font-weight: bold;
 
-      &--dark {
-        color: $color-dark;
-      }
+    &--dark {
+      color: $color-dark;
+    }
   }
 
   &__button-delete-criteria {
@@ -108,50 +108,49 @@
     .income {
       color: green;
     }
-    
+
     &--dark {
       background-color: $grayBackground-dark;
-    
+
       .income {
         color: lightgreen;
       }
     }
-  
+
     .expense {
       color: red;
     }
   }
-  
+
   &__description {
     width: 50vw;
     padding: 0 5vw;
   }
 
-    &__title {
-      font-weight: bold;
-      font-size: 18px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    
+  &__title {
+    font-weight: bold;
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
     &--dark {
-      color: $background;  
+      color: $background;
     }
-    }
-  
-    &__category {
-      text-transform: uppercase;
-      font-size: 15px;
-      color: gray;
-    }
-  
-  
+  }
+
+  &__category {
+    text-transform: uppercase;
+    font-size: 15px;
+    color: gray;
+  }
+
   &__buttons {
     width: 20vw;
     display: flex;
     justify-content: space-evenly;
   }
-  
+
   &__button-trash {
     width: 22px;
     height: 22px;
@@ -160,10 +159,10 @@
     background-color: $background;
 
     &--dark {
-      background: $grayBackground-dark;  
+      background: $grayBackground-dark;
     }
   }
-  
+
   &__button-edit {
     width: 22px;
     height: 22px;
@@ -172,8 +171,29 @@
 
     &--dark {
       fill: $background;
-      background: $grayBackground-dark;  
+      background: $grayBackground-dark;
     }
   }
 }
 
+@media (min-width: 1024px) {
+  .transaction-section {
+    &__card {
+      width: 70vw;
+    }
+  }
+
+  .card {
+    &__ammount {
+      width: 15vw;
+    }
+
+    &__description {
+      width: 40vw;
+    }
+
+    &__buttons {
+      width: 15vw;
+    }
+  }
+}

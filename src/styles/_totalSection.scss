@@ -45,25 +45,6 @@
     border-radius: 5px;
     background-color: $background;
 
-    h2 {
-      margin-top: 30%;
-      //bug
-      width: 100%;
-      padding: 0 5%;
-      text-transform: uppercase;
-      text-align: center;
-      font-size: 14px;
-      color: gray;
-    }
-
-    p {
-      width: 100%;
-      padding: 5%;
-      text-align: center;
-      font-weight: bold;
-      font-size: 22px;
-    }
-
     &--dark {
       background-color: $grayBackground-dark;
     }
@@ -82,6 +63,26 @@
         font-size: 28px;
       }
     }
+  }
+
+  &__income-h2,
+  &__expense-h2 {
+    margin-top: 30%;
+    width: 100%;
+    padding: 0 5%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+  }
+
+  &__income-p,
+  &__expense-p {
+    width: 100%;
+    padding: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
   }
 
   &__income-icon {
@@ -104,5 +105,58 @@
     border-radius: 50%;
     fill: red;
     background-color: lightcoral;
+  }
+}
+
+@media (min-width: 500px) {
+  .cards {
+    &__income-h2,
+    &__expense-h2 {
+      margin-top: 20%;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .cards {
+    &__income-h2,
+    &__expense-h2 {
+      margin-top: 15%;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .cards {
+    &__income-h2,
+    &__expense-h2 {
+      margin-top: 10%;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards {
+    &__total {
+      width: 70vw;
+    }
+
+    &__income,
+    &__expense {
+      width: 33.5vw;
+    }
+
+    &__income-h2,
+    &__expense-h2 {
+      margin-top: 3%;
+    }
+
+    &__income {
+      margin-right: 12vw;
+    }
+
+    &__expense {
+      margin-left: 12vw;
+    }
   }
 }

@@ -55,7 +55,7 @@
       background: $grayBackground-dark;
       fill: $background;
     }
-  
+
     svg {
       width: 36px;
       height: 36px;
@@ -63,3 +63,8 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .header {
+    padding: 0 48px;
+  }
+}
