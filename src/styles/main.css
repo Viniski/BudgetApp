@@ -6,6 +6,7 @@
 }
 
 body {
+  min-height: 100vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -16,7 +17,7 @@ body {
 }
 
 .body-dark {
-  height: 100%;
+  min-height: 100vh;
   color: white;
   background-color: #141414;
 }
@@ -109,6 +110,12 @@ a:visited {
   height: 36px;
 }
 
+@media (min-width: 1024px) {
+  .header {
+    padding: 0 48px;
+  }
+}
+
 .navigation {
   width: 100vw;
   background-color: white;
@@ -165,12 +172,34 @@ a:visited {
   border-radius: 5px;
 }
 
-.sus {
-  width: 70px;
-  height: 70px;
-  background-color: yellow;
-  font-size: 50px;
-  margin-left: 20vw;
+.button-pagination {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  font-size: 28px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.button-pagination--dark {
+  background-color: #323132;
+  color: white;
+}
+
+.button-filters {
+  text-transform: uppercase;
+  margin: auto;
+  width: 226px;
+  height: 48px;
+  color: #014bbc;
+  border-radius: 5px;
+}
+
+@media (min-width: 1024px) {
+  .button-add {
+    bottom: 2vw;
+    right: 2vw;
+  }
 }
 
 .cards {
@@ -234,24 +263,6 @@ a:visited {
   background-color: white;
 }
 
-.cards__income h2, .cards__expense h2 {
-  margin-top: 30%;
-  width: 100%;
-  padding: 0 5%;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 14px;
-  color: gray;
-}
-
-.cards__income p, .cards__expense p {
-  width: 100%;
-  padding: 5%;
-  text-align: center;
-  font-weight: bold;
-  font-size: 22px;
-}
-
 .cards__income--dark, .cards__expense--dark {
   background-color: #323132;
 }
@@ -268,6 +279,24 @@ a:visited {
 
 .cards__income--main-card p, .cards__expense--main-card p {
   font-size: 28px;
+}
+
+.cards__income-h2, .cards__expense-h2 {
+  margin-top: 30%;
+  width: 100%;
+  padding: 0 5%;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+}
+
+.cards__income-p, .cards__expense-p {
+  width: 100%;
+  padding: 5%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
 }
 
 .cards__income-icon {
@@ -292,6 +321,42 @@ a:visited {
   background-color: lightcoral;
 }
 
+@media (min-width: 500px) {
+  .cards__income-h2, .cards__expense-h2 {
+    margin-top: 20%;
+  }
+}
+
+@media (min-width: 600px) {
+  .cards__income-h2, .cards__expense-h2 {
+    margin-top: 15%;
+  }
+}
+
+@media (min-width: 800px) {
+  .cards__income-h2, .cards__expense-h2 {
+    margin-top: 10%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards__total {
+    width: 70vw;
+  }
+  .cards__income, .cards__expense {
+    width: 33.5vw;
+  }
+  .cards__income-h2, .cards__expense-h2 {
+    margin-top: 3%;
+  }
+  .cards__income {
+    margin-right: 12vw;
+  }
+  .cards__expense {
+    margin-left: 12vw;
+  }
+}
+
 .transaction-section {
   padding: 4vh 0;
   display: -webkit-box;
@@ -305,21 +370,52 @@ a:visited {
           justify-content: center;
 }
 
-.transaction-section h3 {
-  text-align: start;
-  padding: 0 8px;
+.transaction-section__title {
+  width: 55%;
+  margin-left: 5%;
 }
 
-.transaction-section__header {
+.transaction-section__title h3 {
+  text-align: start;
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.transaction-section__filterButton {
+  width: 35%;
+  margin-right: 5%;
+  text-align: end;
+}
+
+.transaction-section__active-criteria {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 90%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  text-align: start;
+  margin-top: 16px;
+  color: #323132;
+}
+
+.transaction-section__active-criteria-paragraph {
+  padding: 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.transaction-section__active-criteria-paragraph--dark {
+  color: white;
+}
+
+.transaction-section__button-delete-criteria {
+  width: 22px;
+  height: 22px;
+  border: 0;
+  fill: red;
+  background-color: #faf9fa;
+}
+
+.transaction-section__button-delete-criteria--dark {
+  background: #141414;
 }
 
 .transaction-section__button-filter {
@@ -361,6 +457,26 @@ a:visited {
 
 .transaction-section__card:first-of-type {
   margin-top: 2vh;
+}
+
+.transaction-section__paragraph {
+  margin-top: 2vh;
+  font-size: 18px;
+}
+
+.transaction-section__pagination {
+  width: 100vw;
+  margin: 0 25vw;
+  margin-top: 2vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .card__ammount {
@@ -440,6 +556,29 @@ a:visited {
 .card__button-edit--dark {
   fill: white;
   background: #323132;
+}
+
+@media (min-width: 1024px) {
+  .transaction-section__card {
+    width: 70vw;
+  }
+  .transaction-section__title {
+    width: 45%;
+    margin-left: 15%;
+  }
+  .transaction-section__filterButton {
+    width: 25%;
+    margin-right: 15%;
+  }
+  .card__ammount {
+    width: 15vw;
+  }
+  .card__description {
+    width: 40vw;
+  }
+  .card__buttons {
+    width: 15vw;
+  }
 }
 
 .details-section {

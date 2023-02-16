@@ -76,7 +76,6 @@ function FilterSection({ type, title, criteria, themeDark }) {
     selectedCategory: getCategoryToDelete(selectedCategory),
   };
 
-
   const toogleFilterButton = () => {
     setFilterSectionState({
       ...filterSectionState,
@@ -214,29 +213,34 @@ function FilterSection({ type, title, criteria, themeDark }) {
     }
   };
 
-
   return (
     <>
-      <FilterButton
-        onClick={toogleFilterButton}
-        className={
-          filterSectionState.isFormActive
-            ? `transaction-section__button-filter--disactive`
-            : `transaction-section__button-filter ${
-                themeDark && `transaction-section__button-filter--dark`
-              }`
-        }
-      />
-      <CloseFilterButton
-        onClick={toogleFilterButton}
-        className={
-          filterSectionState.isFormActive
-            ? `transaction-section__button-filter ${
-                themeDark && `transaction-section__button-filter--dark`
-              }`
-            : `transaction-section__button-filter--disactive`
-        }
-      />
+      {/* <div className="transaction-section"></div> */}
+      <div className="transaction-section__title">
+        <h3>{`Twoje transakcje`}</h3>
+      </div>
+      <div className="transaction-section__filterButton">
+        <FilterButton
+          onClick={toogleFilterButton}
+          className={
+            filterSectionState.isFormActive
+              ? `transaction-section__button-filter--disactive`
+              : `transaction-section__button-filter ${
+                  themeDark && `transaction-section__button-filter--dark`
+                }`
+          }
+        />
+        <CloseFilterButton
+          onClick={toogleFilterButton}
+          className={
+            filterSectionState.isFormActive
+              ? `transaction-section__button-filter ${
+                  themeDark && `transaction-section__button-filter--dark`
+                }`
+              : `transaction-section__button-filter--disactive`
+          }
+        />
+      </div>
       {filterSectionState.isFormActive && (
         <section className="inputs-filter">
           <Input

@@ -75,15 +75,12 @@ function TransactionSection({ type }) {
 
   return (
     <section className="transaction-section">
-      <div className="transaction-section__header">
-        <h3>{`Twoje transakcje`}</h3>
         <FilterSection
           type={type}
           title="wydatki"
           themeDark={themeDark}
           criteria={getParamsToFilterFromURL()}
         />
-      </div>
       {transactionOnPage.map((transaction) => (
         <TransactionCard
           key={transaction.id}

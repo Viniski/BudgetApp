@@ -5,6 +5,36 @@ import FilterButton from "../Buttons/FilterButton";
 import CloseFilterButton from "../Buttons/CloseFilterButton";
 
 //NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY
+//NIEUŻYWANY//NIEUŻYWANY
+
 
 function TransactionSectionHeader({ type }) {
   const theme = useSelector((state) => state.theme.theme);
@@ -17,28 +47,34 @@ function TransactionSectionHeader({ type }) {
 
   return (
     <>
-      <div className="transaction-section__header">
-        <h3>{`Twoje ${type}`}</h3>
+        <div className="transaction-section__title">
+          <h3>{`Twoje ${type}`}</h3>
+        </div>
+        <div className="transaction-section__filterButton">
         <FilterButton
           onClick={handleFilterButton}
           className={
             isClicked
               ? `transaction-section__button-filter--disactive`
-              : `transaction-section__button-filter ${themeDark && `transaction-section__button-filter--dark`
-              }`
+              : `transaction-section__button-filter ${
+                  themeDark && `transaction-section__button-filter--dark`
+                }`
           }
         />
         <CloseFilterButton
           onClick={handleFilterButton}
           className={
             isClicked
-              ? `transaction-section__button-filter ${themeDark && `transaction-section__button-filter--dark`
-              }`
+              ? `transaction-section__button-filter ${
+                  themeDark && `transaction-section__button-filter--dark`
+                }`
               : `transaction-section__button-filter--disactive`
           }
         />
-      </div>
-      {isClicked && <FilterSection type="expense" title="wydatki" />}
+        </div>
+      {isClicked && (
+          <FilterSection type="expense" title="wydatki" />
+      )}
     </>
   );
 }
