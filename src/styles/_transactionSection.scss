@@ -25,18 +25,17 @@
     text-align: end;
   }
 
-  // &__header {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   width: 90%;
-  //   justify-content: space-between;
-  // }
-
   &__active-criteria {
+    width: 90vw;
+    margin-left: 2%;
     display: flex;
     text-align: start;
     margin-top: 16px;
     color: $grayBackground-dark;
+
+    &:last-child {
+      margin-bottom: 6px;
+    }
   }
 
   &__active-criteria-paragraph {
@@ -99,6 +98,7 @@
   }
 
   &__paragraph {
+    width: 90vw;
     margin-top: 2vh;
     font-size: 18px;
   }
@@ -128,5 +128,9 @@
       width: 25%;
       margin-right: 15%;
     }
+
+    &__active-criteria {
+      width: 70vw;
+    }  
   }
 }

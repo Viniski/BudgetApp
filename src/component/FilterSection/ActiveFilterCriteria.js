@@ -10,8 +10,6 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
   const isCategoryButtonIsActive = () => {
     console.log(selectedCategory.length);
     return selectedCategory.length ? true : false;
-    // const categoryNumber = type === "all" ? 7 : type === "expense" ? 5 : 3;
-    // return selectedCategory.length !== categoryNumber;
   };
 
   const handleDeleteFilterCriteriaButton = (criteria) => {
