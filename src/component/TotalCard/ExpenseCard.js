@@ -29,8 +29,8 @@ function ExpenseCard(props) {
         />
       </svg>
       </div>
-      <h2 className="cards__expense-h2">Bilans wydatków</h2>
-      <p className="cards__expense-p">{calculateExpenseTransaction()} PLN</p>
+      <h2 className="cards__h2">Bilans wydatków</h2>
+      <p className="cards__p">{calculateExpenseTransaction()} PLN</p>
     </div>
   );
 }

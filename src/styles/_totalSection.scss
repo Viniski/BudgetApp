@@ -1,14 +1,16 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  width: 90vw;
+  margin: auto;
 
   &__total {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
     align-items: center;
-    width: 92vw;
+    width: 100%;
+    margin: auto;
     height: 16vh;
     margin-top: 2vh;
     border-radius: 5px;
@@ -38,8 +40,10 @@
   &__expense {
     position: relative;
     display: flex;
+    text-align: center;
+    align-items: center;
     flex-wrap: wrap;
-    width: 44vw;
+    width: 47.5%;
     height: 14vh;
     margin-top: 2vh;
     border-radius: 5px;
@@ -50,39 +54,30 @@
     }
 
     &--main-card {
-      width: 90vw;
+      width: 100%;
       height: 18vh;
+    }
 
-      h2 {
-        margin-top: 15%;
-        font-size: 18px;
-        //bug
-      }
-
-      p {
-        font-size: 28px;
-      }
+    h2 {
+      width: 100%;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: gray;
+    }
+  
+    p {
+      width: 100%;
+      font-weight: bold;
+      font-size: 24px;
     }
   }
+  
+  &__expense {
+    margin-right: 5%;
 
-  &__income-h2,
-  &__expense-h2 {
-    margin-top: 30%;
-    width: 100%;
-    padding: 0 5%;
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 14px;
-    color: gray;
-  }
-
-  &__income-p,
-  &__expense-p {
-    width: 100%;
-    padding: 5%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 22px;
+    &--main-card {
+      margin-right: 0;
+    }
   }
 
   &__income-icon {
@@ -108,55 +103,45 @@
   }
 }
 
-@media (min-width: 500px) {
-  .cards {
-    &__income-h2,
-    &__expense-h2 {
-      margin-top: 20%;
-    }
-  }
-}
-
-@media (min-width: 600px) {
-  .cards {
-    &__income-h2,
-    &__expense-h2 {
-      margin-top: 15%;
-    }
-  }
-}
-
-@media (min-width: 800px) {
-  .cards {
-    &__income-h2,
-    &__expense-h2 {
-      margin-top: 10%;
-    }
-  }
-}
-
 @media (min-width: 1024px) {
   .cards {
+    width: 70vw;
+    margin: auto;
+
     &__total {
-      width: 70vw;
+      width: 100%;
     }
 
     &__income,
     &__expense {
-      width: 33.5vw;
-    }
-
-    &__income-h2,
-    &__expense-h2 {
-      margin-top: 3%;
-    }
-
-    &__income {
-      margin-right: 12vw;
+      width: 47.5%;
     }
 
     &__expense {
-      margin-left: 12vw;
+      margin-right: 5%;
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    &__income,
+    &__expense {
+  
+      h2 {
+        margin-top: 46px;
+        width: 100%;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: gray;
+      }
+    
+      p {
+        width: 100%;
+        font-weight: bold;
+        font-size: 24px;
+      }
+    }
+  
   }
 }

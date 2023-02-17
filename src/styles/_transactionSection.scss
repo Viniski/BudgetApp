@@ -104,8 +104,8 @@
   }
 
   &__pagination {
-    width: 100vw;
-    margin: 0 25vw;
+    width: 90vw;
+    // margin: 0 5vw;
     margin-top: 2vh;
     display: flex;
     align-items: center;
@@ -131,6 +131,15 @@
 
     &__active-criteria {
       width: 70vw;
-    }  
+    }
+
+    &__pagination {
+      width: 70vw;
+      margin-top: 2vh;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
+    }
   }
 }

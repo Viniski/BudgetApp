@@ -29,8 +29,8 @@ function IncomeCard(props) {
         />
       </svg>
       </div>
-      <h2 className="cards__income-h2">Bilans dochodów</h2>
-      <p className="cards__income-p">{calculateIncomeTransaction()} PLN</p>
+      <h2>Bilans dochodów</h2>
+      <p>{calculateIncomeTransaction()} PLN</p>
     </div>
   );
 }
