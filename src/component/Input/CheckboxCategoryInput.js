@@ -1,15 +1,16 @@
 import { useSelector } from "react-redux";
 
-const CheckboxCategoryInput = ({ type, value, onChange }) => {
+const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark";
   // console.log("value", value, value.find((x) => x === "Dochód stały") || "");
-  //A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component
+  //A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, 
+  //which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component
   return (
     <>
       {type === "all" ? (
         <>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Dochód stały"
@@ -18,7 +19,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Dochód stały
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Dochód dodatkowy"
@@ -27,7 +28,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Dochód dodatkowy
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Koszty stałe"
@@ -36,7 +37,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Koszty stałe
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Jedzenie"
@@ -45,7 +46,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Jedzenie
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Transport"
@@ -54,7 +55,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Transport
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Rozrywka"
@@ -63,7 +64,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Rozrywka
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Inne"
@@ -75,7 +76,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
         </>
       ) : type === "expense" ? (
         <>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Koszty stałe"
@@ -84,7 +85,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Koszty stałe
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Jedzenie"
@@ -93,17 +94,16 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Jedzenie
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Transport"
-              
               checked={value.find((x) => x === "Transport") || ""}
               onChange={(e) => onChange(e)}
             />
             Transport
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Rozrywka"
@@ -112,7 +112,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Rozrywka
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Inne"
@@ -124,7 +124,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
         </>
       ) : (
         <>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Dochód stały"
@@ -133,7 +133,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Dochód stały
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Dochód dodatkowy"
@@ -142,7 +142,7 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
             />
             Dochód dodatkowy
           </label>
-          <label>
+          <label className={className}>
             <input
               type="checkbox"
               value="Inne"
@@ -156,5 +156,9 @@ const CheckboxCategoryInput = ({ type, value, onChange }) => {
     </>
   );
 };
+
+CheckboxCategoryInput.defaultProps = {
+  className: "section"
+}
 
 export default CheckboxCategoryInput;

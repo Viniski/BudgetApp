@@ -1,0 +1,92 @@
+.card {
+  &__ammount {
+    width: 20vw;
+    font-size: 20px;
+    font-weight: bold;
+
+    .income {
+      color: green;
+    }
+
+    &--dark {
+      background-color: $grayBackground-dark;
+
+      .income {
+        color: lightgreen;
+      }
+    }
+
+    .expense {
+      color: red;
+    }
+  }
+
+  &__description {
+    width: 50vw;
+    padding: 0 5vw;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &--dark {
+      color: $background;
+    }
+  }
+
+  &__category {
+    text-transform: uppercase;
+    font-size: 15px;
+    color: gray;
+  }
+
+  &__buttons {
+    width: 20vw;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__button-trash {
+    width: 22px;
+    height: 22px;
+    border: 0;
+    fill: red;
+    background-color: $background;
+
+    &--dark {
+      background: $grayBackground-dark;
+    }
+  }
+
+  &__button-edit {
+    width: 22px;
+    height: 22px;
+    border: 0;
+    background-color: $background;
+
+    &--dark {
+      fill: $background;
+      background: $grayBackground-dark;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    &__ammount {
+      width: 15vw;
+    }
+
+    &__description {
+      width: 40vw;
+    }
+
+    &__buttons {
+      width: 15vw;
+    }
+  }
+}

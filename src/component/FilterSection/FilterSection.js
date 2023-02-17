@@ -275,7 +275,7 @@ function FilterSection({ type, title, criteria, themeDark }) {
             value={selectedCategory}
             onChange={changeCheckboxInput}
             type={type}
-            className="filter"
+            className="inputs-filter__label"
           />
           <button
             onClick={() => handleFilterButton(objectToFilter)}
