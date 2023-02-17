@@ -10,6 +10,15 @@
   background-color: $background;
 }
 
+.select-container {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
 .button-options {
   text-transform: uppercase;
   margin: 12px auto;
