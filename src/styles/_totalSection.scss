@@ -107,19 +107,6 @@
   .cards {
     width: 70vw;
     margin: auto;
-
-    &__total {
-      width: 100%;
-    }
-
-    &__income,
-    &__expense {
-      width: 47.5%;
-    }
-
-    &__expense {
-      margin-right: 5%;
-    }
   }
 }
 

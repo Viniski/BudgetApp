@@ -20,13 +20,13 @@
 }
 
 .button-options {
-  text-transform: uppercase;
   margin: 12px auto;
   width: 226px;
   height: 48px;
   color: $background;
   background-color: $blue;
   border-radius: 5px;
+  text-transform: uppercase;
 }
 
 .button-pagination {
@@ -44,12 +44,12 @@
 }
 
 .button-filters {
-  text-transform: uppercase;
-  margin: auto;
   width: 226px;
   height: 48px;
+  margin: auto;
   color: $blue;
   border-radius: 5px;
+  text-transform: uppercase;
 }
 
 @media (min-width: 1024px) {
