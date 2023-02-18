@@ -2,7 +2,8 @@ import { useSelector } from "react-redux";
 
 const SelectCategoryInput = (props) => {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
+  const themeDark = theme === "dark" ? true : ""; 
+
   return (
     <select
       onChange={(e) => props.onChange(e.target.value)}

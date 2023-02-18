@@ -98,8 +98,6 @@ function FilterSection({ type, title, criteria, themeDark }) {
     }
   };
 
-  //w tym momencie jest to: objectToFilter :)
-  //i taka forma ma zostać, jest dobrze czytany przez funkcję filtrującą, tak napiszę komponent wyżej, że też to będzie czytał :)
   const handleFilterButton = (params) => {
     const newUrl = createFilterUrl(location.pathname, params);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
@@ -111,7 +109,6 @@ function FilterSection({ type, title, criteria, themeDark }) {
         : updateIncomeURL(newUrl)
     );
     navigate(newUrl);
-    //onFilter(params);
   };
 
   const handleDeleteCriteria = (params) => {
@@ -125,7 +122,6 @@ function FilterSection({ type, title, criteria, themeDark }) {
         : updateIncomeURL(newUrl)
     );
     navigate(newUrl);
-    //onFilter(params);
   };
 
   const deleteFilterCriteria = (criteriaToDelete) => {
@@ -215,7 +211,6 @@ function FilterSection({ type, title, criteria, themeDark }) {
 
   return (
     <>
-      {/* <div className="transaction-section"></div> */}
       <div className="transaction-section__title">
         <h3>{`Twoje transakcje`}</h3>
       </div>

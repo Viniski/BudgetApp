@@ -2,7 +2,8 @@ import { useSelector } from "react-redux";
 
 const Input = (props) => {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
+  const themeDark = theme === "dark" ? true : ""; 
+
     return (
         <input
           placeholder={props?.placeholder}

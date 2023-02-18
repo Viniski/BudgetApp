@@ -10,9 +10,6 @@ function TransactionCard({ data, themeDark }) {
 
   const handleDeleteTransaction = () => {
     dispatch(remove(data.id));
-    const newState = state.filter(
-      (tranasaction) => tranasaction.id !== data.id
-    );
   };
 
   return (

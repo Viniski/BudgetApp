@@ -6,8 +6,6 @@ function Pagination({ cardNumber, paginate, perPage, themeDark }) {
     arrayPagination.push(i);
   }
 
-  console.log(paginationPages, arrayPagination);
-
   return <div className="transaction-section__pagination">
     {arrayPagination.length < 2 ? null : arrayPagination.map((number) => (
           <button key={number} className={`button-pagination ${

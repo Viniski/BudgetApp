@@ -1,7 +1,6 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../../redux/transactionsSlice";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import Header from "../../component/Header/Header";
 import DetailsDiv from "../../component/DetailsDiv/DetailsDiv";
@@ -20,12 +19,9 @@ function DetailsPage() {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const [localSotrage, setLocalStorage] = useLocalStorage("transactions");
 
   const handleDeleteTransaction = () => {
     dispatch(remove(Number(id)));
-    const newState = state.filter((tranasaction) => tranasaction.id !== Number(id));
-    setLocalStorage(newState);
     navigate("/");
   };
 

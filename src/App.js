@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import HomePage from "./pages/Home/HomePage";
 import IncomePage from "./pages/Income/IncomePage";
 import ExpensePage from "./pages/Expense/ExpenePage";
@@ -13,7 +12,7 @@ import "./styles/main.scss";
 
 function App() {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
+  const themeDark = theme === "dark" ? true : "";
 
   return (
     <body className={themeDark && `body-dark`}>

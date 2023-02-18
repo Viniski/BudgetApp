@@ -8,7 +8,6 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
   const selectedCategory = criteria.selectedCategory;
 
   const isCategoryButtonIsActive = () => {
-    console.log(selectedCategory.length);
     return selectedCategory.length ? true : false;
   };
 

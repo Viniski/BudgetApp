@@ -1,8 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// initial state ma być pobierany z localSotrage :O
-// widzę juz błąd bo hook poza komponentem...
-// wygląda na to, że na początku będzie pusty a w app go dispatchuje i zaktualizuje :)
-// (może być potrzebny loadingIcon nawet)
 
 const initialState = [{
   type: "expense",

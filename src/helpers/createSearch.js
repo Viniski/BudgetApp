@@ -36,13 +36,11 @@ export function createSearch(objectParams) {
     }
   }
   if (objectParams.selectedCategory.length > 0) {
-    console.log("the function works", objectParams.selectedCategory.length)
     if (search) {
         search += `&delete_category=${objectParams.selectedCategory.map(el => el)}`;
       } else {
         search += `?delete_category=${objectParams.selectedCategory.map(el => el)}`;
       }
   }
-  console.log(search);
   return search;
 }

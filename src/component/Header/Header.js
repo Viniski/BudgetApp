@@ -12,13 +12,10 @@ import ThemeButton from "../Buttons/ThemeButton";
 function Header({ title, page }) {
   const [isClicked, setIsClicked] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark"; 
-  //const themeDark = theme === "dark" ? true : ""; 
-  //tutaj zostaje mi false w klasach, może lepiej null czy pusty string - dobra praktyka - i don't know
+  const themeDark = theme === "dark" ? true : ""; 
   const homeUrl = useSelector((state) => state.url.homeLink);
   const dispatch = useDispatch();
   const location = useLocation();
-  const prevLocation = useLocation(-1);
   const navigate = useNavigate();
 
   const handleMenuClick = () => {

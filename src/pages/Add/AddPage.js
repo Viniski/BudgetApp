@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../redux/transactionsSlice";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import Header from "../../component/Header/Header";
 import Input from "../../component/Input/Input";
 import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
@@ -20,7 +19,6 @@ function AddPage({ type, name }) {
   const [note, setNote] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [localSotrage, setLocalStorage] = useLocalStorage("transactions");
 
   const invalidButton = Boolean(
     [amount.valid, title.valid, category.valid, date.valid].filter(
@@ -42,9 +40,6 @@ function AddPage({ type, name }) {
       type,
     };
     dispatch(add(newTransaction));
-    const newState = [...state].push(newTransaction);
-    //bo push to mutująca operacja i nie mogę jej wykonać na stanie przecież!!!!!! :D 
-    setLocalStorage(newState);
     navigate("/");
   };
 

@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateHomeURL, updateExpenseURL, updateIncomeURL } from "../../redux/urlSlice";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
@@ -16,7 +14,7 @@ function TransactionSection({ type }) {
   const dispatch = useDispatch();
 
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
+  const themeDark = theme === "dark" ? true : "";
 
   const [searchParams] = useSearchParams();
 
@@ -27,7 +25,7 @@ function TransactionSection({ type }) {
       maxAmount: searchParams.get("max"),
       endDate: searchParams.get("do"),
       startDate: searchParams.get("od"),
-      selectedCategory: searchParams.get("delete_category")?.split(',') || [],//category bo obmyślenia
+      selectedCategory: searchParams.get("delete_category")?.split(',') || [],
     }
 
     return objectParams;

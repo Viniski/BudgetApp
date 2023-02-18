@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 
 function TotalCard() {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
+  const themeDark = theme === "dark" ? true : ""; 
   const transactions = useSelector((state) => state.transactions);
-  console.log(transactions);
+
 
   const calculateTotalTransaction = () => {
     const income = transactions.filter((el) => el.type === "income");
