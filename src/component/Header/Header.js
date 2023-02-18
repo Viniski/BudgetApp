@@ -1,9 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toogle } from "../../redux/themeSlice";
-//import useLocalStorage from "../../hooks/useLocalStorage";
 import Nav from "../../component/Header/Nav/Nav";
 import UndoButton from "../Buttons/UndoButton";
 import OpenMenuButton from "../Buttons/OpenMenuButton";
@@ -13,10 +12,13 @@ import ThemeButton from "../Buttons/ThemeButton";
 function Header({ title, page }) {
   const [isClicked, setIsClicked] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark"; //tutaj zostaje mi false w klasach, może lepiej null czy pusty string - dobra praktyka - i don't know
-  const dispatch = useDispatch();
+  const themeDark = theme === "dark"; 
+  //const themeDark = theme === "dark" ? true : ""; 
+  //tutaj zostaje mi false w klasach, może lepiej null czy pusty string - dobra praktyka - i don't know
   const homeUrl = useSelector((state) => state.url.homeLink);
-  //const [localStorage, setLocalStorage] = useLocalStorage("theme");
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const prevLocation = useLocation(-1);
   const navigate = useNavigate();
 
   const handleMenuClick = () => {
@@ -25,8 +27,13 @@ function Header({ title, page }) {
 
   const handleThemeClick = () => {
     dispatch(toogle());
-    //setLocalStorage(theme === "light" ? "dark" : "light");
   };
+
+  const getUndoPage = () => {
+    if (location.pathname === "/dochody" || location.pathname === "/wydatki") {
+      return homeUrl;
+    } else return -1    
+  }
 
   return (
     <>
@@ -56,7 +63,7 @@ function Header({ title, page }) {
           </>
         ) : (
           <UndoButton
-            onClick={() => navigate(homeUrl)}
+            onClick={() => navigate(getUndoPage())}
             className={`header__button-back ${
               themeDark && `header__button-back--dark`
             }`}

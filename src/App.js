@@ -8,6 +8,7 @@ import SelectAddTypePage from "./pages/Add/SelectAddTypePage";
 import AddPage from "./pages/Add/AddPage";
 import DetailsPage from "./pages/Details/DetailsPage";
 import EditPage from "./pages/Edit/EditPage";
+import NotFound from "./pages/NotFound/NotFound";
 import "./styles/main.scss";
 
 function App() {
@@ -22,7 +23,6 @@ function App() {
           <Route path="/dochody" element={<IncomePage />} />
           <Route path="/wydatki" element={<ExpensePage />} />
           <Route path="/transakcje/:id" element={<DetailsPage />} />
-          {/* to nie będzie działać nie ze strony głównej - jak w rm.pl, do poprawy */}
           <Route path="/dodaj-transakcje" element={<SelectAddTypePage />} />
           <Route
             path="/dodaj-dochód"
@@ -33,6 +33,7 @@ function App() {
             element={<AddPage type="expense" name="wydatek" />}
           />
           <Route path="/edytuj-transakcje/:id" element={<EditPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </body>

@@ -5,20 +5,17 @@ import IncomeCard from "../../component/TotalCard/IncomeCard";
 import AddButton from "../../component/AddButton/AddButton";
 import TransactionSection from "../../component/TransactionsSection/TransactionsSection";
 
-function IncomePage() {
-  useWebsiteTitle("Dochody | BudgetApp by Viniski");
+function NotFound () {
+  useWebsiteTitle("Błąd | BudgetApp by Viniski");
   return (
     <>
       <Header title="Dochody" />
-      <section className="cards">
-        <IncomeCard className="cards__income--main-card" />
+      <section>
+        <h1>404</h1>
+        <p>ups! chyba coś poszło nie tak...</p>
       </section>
-      <TransactionSection type="income"/>
-      <Link to="/dodaj-dochód">
-        <AddButton />
-      </Link>
     </>
   );
 }
 
-export default IncomePage;
+export default NotFound;

@@ -33,7 +33,6 @@ function TransactionSection({ type }) {
     return objectParams;
   };
 
-  //?strona=1&min=20&max=3400&od=2005-05-12&do=2023-05-12&delete_category=Dochód stały,Dochód dodatkowy
   let stateTransactions = useSelector((state) => state.transactions);
   const getTransactions = () => {
     if (type === "expense") {
