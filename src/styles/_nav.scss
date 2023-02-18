@@ -1,28 +1,27 @@
 .navigation {
-    width: 100vw;
-    background-color: $background;
-  
-    .navigation__item {
-      display: block;
-      height: 5vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 18px;
+  width: 100vw;
+  background-color: $background;
 
-      &:hover {
-        background-color: $grayBackground;
-      }
+  .navigation__item {
+    display: block;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+
+    &:hover {
+      background-color: $grayBackground;
+    }
 
     &--dark {
-        background-color: $grayBackground-dark;
-        color: $background;  
-    
-        &:hover {
-            background-color: $color;
-          }
-    }  
+      background-color: $grayBackground-dark;
+      color: $background;
 
+      &:hover {
+        background-color: $color;
+      }
     }
   }
+}
