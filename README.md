@@ -3,6 +3,7 @@
 # Budget App by Viniski
 
 A complete budget application written in React.js.
+(Tests under development).
 
 ## Descriptions
 
