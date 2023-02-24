@@ -13,7 +13,7 @@ describe("Header name", () => {
         <App />
       </Provider>
     );
-    const header = screen.getByRole("heading", { name:  "Strona główna"});
+    const header = screen.getByRole("heading", { name: "Strona główna" });
     expect(header).toBeInTheDocument();
   });
 });

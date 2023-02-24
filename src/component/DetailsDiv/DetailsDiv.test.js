@@ -8,7 +8,7 @@ describe("Details div", () => {
 
   it("should render same text passed into category prop", () => {
     render(
-      <DetailsDiv category={expectedCategory} value={expectedValue}/>
+    <DetailsDiv category={expectedCategory} value={expectedValue} />
     );
     const category = screen.getByText("Transport");
     expect(category).toBeInTheDocument();
@@ -16,7 +16,7 @@ describe("Details div", () => {
 
   it("should render the value in details div given in props", () => {
     render(
-      <DetailsDiv category={expectedCategory} value={expectedValue}/>
+    <DetailsDiv category={expectedCategory} value={expectedValue} />
     );
     const value = screen.getByText("100");
     expect(value).toBeInTheDocument();
