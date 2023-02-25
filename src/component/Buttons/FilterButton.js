@@ -1,6 +1,7 @@
 const FilterButton = ({ onClick, className }) => {
     return (
       <button
+      data-testid="filter-button"
         onClick={() => {
           onClick();
         }}
