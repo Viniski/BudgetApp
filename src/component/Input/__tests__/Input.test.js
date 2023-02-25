@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
-import Input from "./Input";
+import Input from "../Input";
 import { Provider } from "react-redux";
-import store from "../../redux/store";
+import store from "../../../redux/store";
 
 const mockedOnChange = jest.fn();
 

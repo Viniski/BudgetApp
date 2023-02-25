@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import App from "../../App";
+import App from "../../../App";
 import { Provider } from "react-redux";
-import store from "../../redux/store";
+import store from "../../../redux/store";
 
 describe("Header name", () => {
   const expectedTitle = "Strona główna";

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toogle } from "../../redux/themeSlice";
-import Nav from "../../component/Header/Nav/Nav";
+import Nav from "../Nav/Nav";
 import UndoButton from "../Buttons/UndoButton";
 import OpenMenuButton from "../Buttons/OpenMenuButton";
 import CloseMenuButton from "../Buttons/CloseMenuButton";
