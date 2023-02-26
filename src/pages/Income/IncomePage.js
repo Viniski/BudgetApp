@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import Header from "../../component/Header/Header";
 import IncomeCard from "../../component/TotalCard/IncomeCard";
-import AddButton from "../../component/AddButton/AddButton";
+import AddButton from "../../component/Buttons/AddButton";
 import TransactionSection from "../../component/TransactionsSection/TransactionsSection";
 
 function IncomePage() {

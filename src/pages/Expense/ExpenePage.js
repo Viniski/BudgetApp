@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import Header from "../../component/Header/Header";
 import ExpenseCard from "../../component/TotalCard/ExpenseCard";
-import AddButton from "../../component/AddButton/AddButton";
+import AddButton from "../../component/Buttons/AddButton";
 import TransactionSection from "../../component/TransactionsSection/TransactionsSection";
 
 function ExpensePage() {

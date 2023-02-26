@@ -3,7 +3,7 @@ import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import TotalCard from "../../component/TotalCard/TotalCard";
 import ExpenseCard from "../../component/TotalCard/ExpenseCard";
 import IncomeCard from "../../component/TotalCard/IncomeCard";
-import AddButton from "../../component/AddButton/AddButton";
+import AddButton from "../../component/Buttons/AddButton";
 import Header from "../../component/Header/Header";
 import TransactionSection from "../../component/TransactionsSection/TransactionsSection";
 
