@@ -1,8 +1,4 @@
-import { useSelector } from "react-redux";
-
 const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
-  const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : ""; 
   return (
     <>
       {type === "all" ? (

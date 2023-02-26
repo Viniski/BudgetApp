@@ -29,6 +29,8 @@ function Header({ title, page }) {
   const getUndoPage = () => {
     if (location.pathname === "/dochody" || location.pathname === "/wydatki") {
       return homeUrl;
+    } else if (title === "Nie znaleziono strony") {
+      return homeUrl;
     } else return -1    
   }
 

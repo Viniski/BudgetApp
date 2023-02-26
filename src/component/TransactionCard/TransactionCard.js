@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { remove } from "../../redux/transactionsSlice";
 import DeleteButton from "../Buttons/DeleteButton";
 import EditButton from "../Buttons/EditButton";
 
 function TransactionCard({ data, themeDark }) {
-  const state = useSelector((state) => state.transactions);
   const dispatch = useDispatch();
 
   const handleDeleteTransaction = () => {
