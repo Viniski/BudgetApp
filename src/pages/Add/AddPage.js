@@ -9,8 +9,6 @@ import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
 import { formatDate } from "../../helpers/formatDate";
 
 function AddPage({ type, name }) {
-  const state = useSelector((state) => state.transactions);
-
   const [amount, setAmount] = useState({ value: "", valid: false });
   const [title, setTitle] = useState({ value: "", valid: false });
   const [category, setCategory] = useState({ value: "", valid: false });

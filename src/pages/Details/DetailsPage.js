@@ -14,7 +14,6 @@ function DetailsPage() {
         (transaction) => transaction.id === Number(id)
       )[0]
   );
-  const state = useSelector((state) => state.transactions);
   console.log(tranasaction);
   const navigate = useNavigate();
 

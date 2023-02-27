@@ -2,9 +2,8 @@ import { useSelector } from "react-redux";
 
 function TotalCard() {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : ""; 
+  const themeDark = theme === "dark" ? true : "";
   const transactions = useSelector((state) => state.transactions);
-
 
   const calculateTotalTransaction = () => {
     const income = transactions.filter((el) => el.type === "income");
@@ -20,16 +19,14 @@ function TotalCard() {
     }
 
     return totalAmount;
-  }
+  };
 
-  calculateTotalTransaction();
+  return (
+    <div className={`cards__total ${themeDark && `cards__total--dark`}`}>
+      <h2 className="cards__h2">Bilans transakcji</h2>
+      <p className="cards__p">{calculateTotalTransaction()} PLN</p>
+    </div>
+  );
+}
 
-    return (
-      <div className={`cards__total ${themeDark && `cards__total--dark`}`}>
-        <h2 className="cards__h2">Bilans transakcji</h2>
-        <p className="cards__p">{calculateTotalTransaction()} PLN</p>
-      </div>
-    );
-  }
-  
-  export default TotalCard;
+export default TotalCard;

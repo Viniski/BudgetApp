@@ -3,14 +3,14 @@ import React from "react";
 import TransactionCard from "../TransactionCard";
 import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "../../../redux/store";
+import mockStore from "../../../__mocks__/mockStore/store"
 
 const MockTransactionCard = () => {
   const route = "/";
 
   return (
     <MemoryRouter initialEntries={[route]}>
-      <Provider store={store}>
+      <Provider store={mockStore}>
         <TransactionCard
           themeDark={false}
           data={{

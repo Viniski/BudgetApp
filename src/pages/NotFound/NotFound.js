@@ -12,7 +12,7 @@ function NotFound() {
     <>
       <Header title="Nie znaleziono strony" />
       <section className="wrapper-404">
-        <h1 className="title-huge">404</h1>
+        <h2 className="title-huge">404</h2>
         <p>Ups!! chyba coś poszło nie tak...</p>
         <Link to="/">
           <p className={`link ${themeDark && `link--dark`}`}>
