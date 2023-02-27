@@ -10,7 +10,7 @@ Data on new transactions and the selected color theme (dark or light mode) are s
 
 ## :wrench: Technical
 
-This project was bootstrapped with Create React App. The Redux Toolkit was used to manage the state. The appearance of the application was inspired by a design found on the Internet, and then improved. The SASS preprocessor was used, efforts were made to maintain the BEM methodology. The mobile first approach was used. Fully adapted to different screen resolutions. The app has a dark and light mode. Saving data in a cookie using react-persist. React Testing Library and JEST was used to test the application (currently being developed).
+This project was bootstrapped with Create React App. The Redux Toolkit was used to manage the state. The appearance of the application was inspired by a design found on the Internet, and then improved. The SASS preprocessor was used, efforts were made to maintain the BEM methodology. The mobile first approach was used. Fully adapted to different screen resolutions. The app has a dark and light mode. Saving data in a cookie using react-persist. React Testing Library and JEST was used to test the application. Many unit and integration tests have been written.
 
 ## :computer: Built With
 
