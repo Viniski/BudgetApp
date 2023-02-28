@@ -18,7 +18,7 @@ const MockedFilterSection = () => {
   );
 };
 
-describe("Filter section", () => {
+describe("Transaction section", () => {
   it("should open a filter inputs section after click filter button", () => {
     render(<MockedFilterSection criteria={{}} />);
     const buttonElement = screen.getByTestId("filter-button");
@@ -27,5 +27,23 @@ describe("Filter section", () => {
     const inputElementMax = screen.getByPlaceholderText(/do/i);
     expect(inputElementMin).toBeInTheDocument();
     expect(inputElementMax).toBeInTheDocument();
+  });
+});
+
+describe("", () => {
+  it("should add criteria to page after submit a filter form", () => {
+    render(<MockedFilterSection criteria={{}} />);
+    const buttonElement = screen.getByTestId("filter-button");
+    fireEvent.click(buttonElement);
+
+    const input = screen.getByPlaceholderText(/od/i);
+    const submitButton = screen.getByText(/Filtruj wydatki/i);
+
+    fireEvent.change(input, { target: {value: 100 }});
+    fireEvent.click(submitButton);
+
+    const activeCriteria = screen.getByText("Od: $100 PLN");
+    expect(activeCriteria).toBeInTheDocument();
+
   });
 });
