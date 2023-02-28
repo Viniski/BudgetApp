@@ -42,8 +42,7 @@ describe("", () => {
     fireEvent.change(input, { target: {value: 100 }});
     fireEvent.click(submitButton);
 
-    const activeCriteria = screen.getByText("Od: $100 PLN");
+    const activeCriteria = screen.getByText("Kwota od: 100 PLN");
     expect(activeCriteria).toBeInTheDocument();
-
   });
 });

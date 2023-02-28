@@ -240,18 +240,19 @@ function FilterSection({ type, title, criteria, themeDark }) {
         <section className="inputs-filter">
           <Input
             type="number"
-            placeholder="Od"
+            placeholder="Kwota minimalna"
             value={minAmount}
             onChange={(value) => setMinAmount(value)}
             className="filter"
           />
           <Input
             type="number"
-            placeholder="Do"
+            placeholder="Kwota maksymalna"
             value={maxAmount}
             onChange={(value) => setMaxAmount(value)}
             className="filter"
           />
+          <label className="inputs-filter__labelDate">Okres od:</label>
           <Input
             type="date"
             max={today}
@@ -259,6 +260,7 @@ function FilterSection({ type, title, criteria, themeDark }) {
             onChange={(value) => setStartDate(value)}
             className="filter"
           />
+          <label className="inputs-filter__labelDate">Okres do:</label>
           <Input
             type="date"
             max={today}

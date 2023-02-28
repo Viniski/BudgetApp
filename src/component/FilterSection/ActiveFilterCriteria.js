@@ -32,7 +32,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
-            Od: ${minAmount} PLN
+            Kwota minimalna: {minAmount} PLN
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
@@ -51,7 +51,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
-            Do: ${maxAmount} PLN
+            Kwota maksymalna: {maxAmount} PLN
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
@@ -70,7 +70,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
-            Od: {startDate}
+            Okres od: {startDate}
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
@@ -89,7 +89,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
-            Do: {endDate}
+            Okres do: {endDate}
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
@@ -108,7 +108,7 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
-            Kategorie: {categoryNumber}
+            Liczba kategorii: {categoryNumber}
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${

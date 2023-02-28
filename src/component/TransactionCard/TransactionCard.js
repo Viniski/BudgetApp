@@ -23,8 +23,8 @@ function TransactionCard({ data, themeDark }) {
           >
             <span className={data.type}>
               {data.type === "expense"
-                ? `-${data.amount} $`
-                : `+${data.amount} $`}
+                ? `-${data.amount}`
+                : `+${data.amount}`}
             </span>
           </div>
         </Link>

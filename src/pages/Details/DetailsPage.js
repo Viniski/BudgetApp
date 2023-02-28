@@ -29,7 +29,7 @@ function DetailsPage() {
       <Header title="Szczegóły transakcji" />
       <section className="details-section">
         <DetailsDiv category="Tytuł" value={tranasaction.title} />
-        <DetailsDiv category="Wartość" value={tranasaction.amount} />
+        <DetailsDiv category="Wartość" value={`${tranasaction.amount} PLN`} />
         <DetailsDiv
           category="Typ"
           value={tranasaction.type === "income" ? "Przychód" : "Wydatek"}

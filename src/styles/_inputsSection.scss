@@ -47,6 +47,7 @@
     &:first-child {
       margin-top: 12px;
     }
+
     &--dark {
       background: $grayBackground-dark;
       color: $background;
@@ -61,6 +62,12 @@
     input {
       margin-right: 4px;
     }
+  }
+
+  &__labelDate {
+    width: 60vw;
+    padding: 0 14px;
+    text-align: left;
   }
 }
 
