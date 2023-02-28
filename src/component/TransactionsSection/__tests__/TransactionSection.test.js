@@ -23,8 +23,8 @@ describe("Transaction section", () => {
     render(<MockedFilterSection criteria={{}} />);
     const buttonElement = screen.getByTestId("filter-button");
     fireEvent.click(buttonElement);
-    const inputElementMin = screen.getByPlaceholderText(/od/i);
-    const inputElementMax = screen.getByPlaceholderText(/do/i);
+    const inputElementMin = screen.getByPlaceholderText(/Kwota minimalna/i);
+    const inputElementMax = screen.getByPlaceholderText(/Kwota maksymalna/i);
     expect(inputElementMin).toBeInTheDocument();
     expect(inputElementMax).toBeInTheDocument();
   });
@@ -36,13 +36,13 @@ describe("", () => {
     const buttonElement = screen.getByTestId("filter-button");
     fireEvent.click(buttonElement);
 
-    const input = screen.getByPlaceholderText(/od/i);
+    const input = screen.getByPlaceholderText(/Kwota minimalna/i);
     const submitButton = screen.getByText(/Filtruj wydatki/i);
 
     fireEvent.change(input, { target: {value: 100 }});
     fireEvent.click(submitButton);
 
-    const activeCriteria = screen.getByText("Kwota od: 100 PLN");
+    const activeCriteria = screen.getByText("Kwota minimalna: 100 PLN");
     expect(activeCriteria).toBeInTheDocument();
   });
 });
