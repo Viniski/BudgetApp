@@ -5,14 +5,21 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import store from "../../../redux/store";
 
+const MockHeader = () => {
+  return(
+    <Provider store={store}>
+      <MemoryRouter>
+        <Header title="Strona główna" page="home" />
+      </MemoryRouter>
+    </Provider>
+  )
+}
+
 describe("Header name", () => {
+
   it("should render the header name given in title props", () => {
     render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <Header title="Strona główna" page="home" />
-        </MemoryRouter>
-      </Provider>
+      <MockHeader/>
     );
     const header = screen.getByRole("heading", { name: "Strona główna" });
     expect(header).toBeInTheDocument();
@@ -22,11 +29,7 @@ describe("Header name", () => {
 describe("Header nav", () => {
   test("inicialy on home page nav is hide ", () => {
     render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <Header title="Strona główna" page="home" />
-        </MemoryRouter>
-      </Provider>
+      <MockHeader/>
     );
 
     const navLink = screen.queryByText("Dochody");
@@ -35,11 +38,7 @@ describe("Header nav", () => {
 
   test("it nav is expands when the button is clicked on home page", () => {
     render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <Header title="Strona główna" page="home" />
-        </MemoryRouter>
-      </Provider>
+      <MockHeader/>
     );
     const button = screen.getByTestId("open-menu-button");
     fireEvent.click(button);
@@ -49,11 +48,7 @@ describe("Header nav", () => {
 
   test("it nav is hides when the button is clicked twice on home page", () => {
     render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <Header title="Strona główna" page="home" />
-        </MemoryRouter>
-      </Provider>
+      <MockHeader/>
     );
     const openButton = screen.getByTestId("open-menu-button");
     fireEvent.click(openButton);
