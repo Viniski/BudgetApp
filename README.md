@@ -26,7 +26,7 @@ This project was bootstrapped with Create React App. The Redux Toolkit was used 
 
 ## :rocket: Demo
 
-https://beamish-melba-19fd67.netlify.app/
+https://budgetappbyviniski.netlify.app
 
 Unfortunately, Netifly which I used for deployment is on the public suffix list, which prevents cookies from working properly. Therefore, saving changes to the list of transactions, active filters and theme colors to the browser's memory is not supported.
 
