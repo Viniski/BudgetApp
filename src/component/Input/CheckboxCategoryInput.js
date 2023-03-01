@@ -3,7 +3,8 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
     <>
       {type === "all" ? (
         <>
-          <label className={className}>
+          <div className={className}>
+          <label >
             <input
               type="checkbox"
               value="Dochód stały"
@@ -12,7 +13,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Dochód stały
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Dochód dodatkowy"
@@ -21,7 +24,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Dochód dodatkowy
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Koszty stałe"
@@ -30,7 +35,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Koszty stałe
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Jedzenie"
@@ -39,7 +46,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Jedzenie
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Transport"
@@ -48,7 +57,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Transport
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Rozrywka"
@@ -57,7 +68,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Rozrywka
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Inne"
@@ -66,10 +79,12 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Inne
           </label>
+          </div>
         </>
       ) : type === "expense" ? (
         <>
-          <label className={className}>
+        <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Koszty stałe"
@@ -78,7 +93,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Koszty stałe
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Jedzenie"
@@ -87,7 +104,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Jedzenie
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Transport"
@@ -96,7 +115,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Transport
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Rozrywka"
@@ -105,7 +126,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Rozrywka
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Inne"
@@ -114,10 +137,12 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Inne
           </label>
+          </div>
         </>
       ) : (
         <>
-          <label className={className}>
+        <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Dochód stały"
@@ -126,7 +151,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Dochód stały
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Dochód dodatkowy"
@@ -135,7 +162,9 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Dochód dodatkowy
           </label>
-          <label className={className}>
+          </div>
+          <div className={className}>
+          <label>
             <input
               type="checkbox"
               value="Inne"
@@ -144,6 +173,7 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
             />
             Inne
           </label>
+          </div>
         </>
       )}
     </>

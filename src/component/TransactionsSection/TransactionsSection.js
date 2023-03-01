@@ -8,7 +8,7 @@ import { useGetFilteredTransaction } from "../../hooks/useGetFilteredTransaction
 import { useLocation } from "react-router-dom";
 import createPaginationUrl from "../../helpers/createPaginationUrl";
 
-function TransactionSection({ type }) {
+function TransactionSection({ type, title }) {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -74,7 +74,7 @@ function TransactionSection({ type }) {
     <section className="transaction-section">
         <FilterSection
           type={type}
-          title="wydatki"
+          title={title}
           themeDark={themeDark}
           criteria={getParamsToFilterFromURL()}
         />

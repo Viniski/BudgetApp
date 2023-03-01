@@ -14,7 +14,7 @@ function ExpensePage() {
       <section className="cards">
         <ExpenseCard className="cards__expense--main-card" />
       </section>
-      <TransactionSection type="expense"/>
+      <TransactionSection type="expense" title="wydatki"/>
       <Link to="/dodaj-wydatek">
         <AddButton />
       </Link>

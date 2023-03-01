@@ -18,7 +18,7 @@ function HomePage() {
         <ExpenseCard />
         <IncomeCard />
       </section>
-        <TransactionSection type="all"/>
+        <TransactionSection type="all" title="transakcje"/>
       <Link to="/dodaj-transakcje">
         <AddButton />
       </Link>

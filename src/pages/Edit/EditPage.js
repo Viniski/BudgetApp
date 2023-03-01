@@ -77,7 +77,7 @@ function EditPage() {
           value={date.value}
           onChange={(value) => setDate({ value, valid: Boolean(value) })}
         />
-        <SelectTypeInput value={type} onChange={(value) => setType(value)} />
+        <SelectTypeInput value={type} onChange={(value) => setType(value)}/>
         <SelectCategoryInput
           value={category}
           onChange={(value) => setCategory(value)}

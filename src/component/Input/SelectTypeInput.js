@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-const SelectTypeInput = (onChange, value, className) => {
+const SelectTypeInput = (onChange, value) => {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark" ? true : "";
 
@@ -8,11 +8,10 @@ const SelectTypeInput = (onChange, value, className) => {
     <select
       onChange={(e) => onChange(e.target.value)}
       defaultValue={value || ""}
-      className={`inputs-${className}__input ${
-        themeDark && `inputs-${className}__input--dark`
+      className={`inputs-section__input ${
+        themeDark && `inputs-section__input--dark`
       }`}
       data-testid="select-type-input"
-
     >
       <option value="" disabled hidden>
         Typ
@@ -21,10 +20,6 @@ const SelectTypeInput = (onChange, value, className) => {
       <option value="expense">Wydatek</option>
     </select>
   );
-};
-
-SelectTypeInput.defaultProps = {
-  className: "section",
 };
 
 export default SelectTypeInput;
