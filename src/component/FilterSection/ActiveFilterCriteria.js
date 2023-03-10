@@ -1,73 +1,120 @@
-import { useState } from "react";
-import { formatDate } from "../../helpers/formatDate";
 import CloseFilterButton from "../Buttons/CloseFilterButton";
 
-function ActiveFilterCriteria({ criteria, onFilter, type }) {
+function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
   const maxAmount = criteria.maxAmount;
   const minAmount = criteria.minAmount;
   const endDate = criteria.endDate;
   const startDate = criteria.startDate;
-  //selectedCategory będzie trudniejsze
   const selectedCategory = criteria.selectedCategory;
 
   const isCategoryButtonIsActive = () => {
-    const categoryNumber = type === "all" ? 7 : type === "expense" ? 5 : 3;
-    return selectedCategory.length !== categoryNumber;
+    return selectedCategory.length ? true : false;
   };
 
-  const handleDeleteFilterCriteriaButton = (para) => {
-    console.log("hej, usuwam Cię");
-    //tu będę miał znów miał kryteria i przekazywał je go głównego komponentu
+  const handleDeleteFilterCriteriaButton = (criteria) => {
+    onFilter(criteria);
   };
+
+  const categoryNumber =
+    type === "all"
+      ? 7 - selectedCategory.length
+      : type === "expense"
+      ? 5 - selectedCategory.length
+      : 3 - selectedCategory.length;
 
   return (
     <section>
       {minAmount && (
         <div className="transaction-section__active-criteria">
-          <p>Od: ${minAmount} PLN</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Kwota minimalna: {minAmount} PLN
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
-            onClick={handleDeleteFilterCriteriaButton}
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
+            onClick={() => handleDeleteFilterCriteriaButton("minAmount")}
           />
         </div>
       )}
 
       {maxAmount && (
         <div className="transaction-section__active-criteria">
-          <p>Do: ${maxAmount} PLN</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Kwota maksymalna: {maxAmount} PLN
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
-            onClick={handleDeleteFilterCriteriaButton}
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
+            onClick={() => handleDeleteFilterCriteriaButton("maxAmount")}
           />
         </div>
       )}
 
       {startDate && (
         <div className="transaction-section__active-criteria">
-          <p>Od: ${startDate}</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Okres od: {startDate}
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
-            onClick={handleDeleteFilterCriteriaButton}
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
+            onClick={() => handleDeleteFilterCriteriaButton("startDate")}
           />
         </div>
       )}
 
       {endDate && (
         <div className="transaction-section__active-criteria">
-          <p>Do: ${endDate}</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Okres do: {endDate}
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
-            onClick={handleDeleteFilterCriteriaButton}
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
+            onClick={() => handleDeleteFilterCriteriaButton("endDate")}
           />
         </div>
       )}
 
       {isCategoryButtonIsActive() && (
         <div className="transaction-section__active-criteria">
-          <p>Kategorie: ${selectedCategory.length}</p>
+          <p
+            className={`transaction-section__active-criteria-paragraph ${
+              themeDark &&
+              `transaction-section__active-criteria-paragraph--dark`
+            }`}
+          >
+            Liczba kategorii: {categoryNumber}
+          </p>
           <CloseFilterButton
-            className="card__button-trash"
-            onClick={handleDeleteFilterCriteriaButton}
+            className={`transaction-section__button-delete-criteria ${
+              themeDark && `transaction-section__button-delete-criteria--dark`
+            }`}
+            onClick={() => handleDeleteFilterCriteriaButton("selectedCategory")}
           />
         </div>
       )}

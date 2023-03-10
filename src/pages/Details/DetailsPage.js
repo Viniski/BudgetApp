@@ -1,7 +1,6 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../../redux/transactionsSlice";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
 import Header from "../../component/Header/Header";
 import DetailsDiv from "../../component/DetailsDiv/DetailsDiv";
@@ -15,17 +14,13 @@ function DetailsPage() {
         (transaction) => transaction.id === Number(id)
       )[0]
   );
-  const state = useSelector((state) => state.transactions);
   console.log(tranasaction);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const [localSotrage, setLocalStorage] = useLocalStorage("transactions");
 
   const handleDeleteTransaction = () => {
     dispatch(remove(Number(id)));
-    const newState = state.filter((tranasaction) => tranasaction.id !== Number(id));
-    setLocalStorage(newState);
     navigate("/");
   };
 
@@ -34,7 +29,7 @@ function DetailsPage() {
       <Header title="Szczegóły transakcji" />
       <section className="details-section">
         <DetailsDiv category="Tytuł" value={tranasaction.title} />
-        <DetailsDiv category="Wartość" value={tranasaction.amount} />
+        <DetailsDiv category="Wartość" value={`${tranasaction.amount} PLN`} />
         <DetailsDiv
           category="Typ"
           value={tranasaction.type === "income" ? "Przychód" : "Wydatek"}

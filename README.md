@@ -1,4 +1,72 @@
-# THIS APP IS UNDER DEVELOPMENT
+# Budget App by Viniski
+
+A complete budget application written in React.js.
+
+## :sunglasses: Descriptions
+
+A budget app with all the useful features. Ability to add, edit and delete transactions. Several categories of expenses and income. Possibility to filter expenses, income and all transactions by amount, date and categories. Five transactions are displayed on the page, you can go to the next ones using the pagination buttons.
+
+Data on new transactions and the selected color theme (dark or light mode) are saved in localStorage, while filtering parameters are saved in the url address. So you can share selected, filtered transactions with your friends.
+
+## :wrench: Technical
+
+This project was bootstrapped with Create React App. The Redux Toolkit was used to manage the state. The appearance of the application was inspired by a design found on the Internet, and then improved. The SASS preprocessor was used, efforts were made to maintain the BEM methodology. The mobile first approach was used. Fully adapted to different screen resolutions. The app has a dark and light mode. Saving data in a cookie using react-persist. React Testing Library and JEST was used to test the application. Many unit and integration tests have been written.
+
+## :computer: Built With
+
+- React.js
+- Create-react-app
+- SASS
+- BEM metodology
+- React-Router
+- Redux Toolkit
+- Redux-Persist
+- JEST
+- React Testing Library
+
+## :rocket: Demo
+
+https://budgetappbyviniski.netlify.app
+
+Unfortunately, Netifly which I used for deployment is on the public suffix list, which prevents cookies from working properly. Therefore, saving changes to the list of transactions, active filters and theme colors to the browser's memory is not supported.
+
+I encourage you to run the project on your computer, to take advantage of this facility :)
+
+#### If you want running on your computer:
+
+```zsh
+npm install
+npm run start
+```
+
+### Home
+
+![](home.png)
+
+### Home (mobile)
+
+![](home-mobile.png)
+
+### Income (mobile)
+
+![](income-mobile.png)
+
+### Expense
+
+![](expense.png)
+
+### Add Page (mobile)
+
+![](add-mobile.png)
+
+### Edit Page (mobile)
+
+![](edit-mobile.png)
+
+## :page_with_curl: License
+
+This project is licensed under the MIT License.
+All texts are the property of realmadryt.pl all photos and images are the property of Getty Images.
 
 # Getting Started with Create React App
 

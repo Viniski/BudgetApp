@@ -1,0 +1,22 @@
+.wrapper-404 {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+
+.title-huge {
+  width: 100vw;
+  margin-top: 25vh;
+  font-size: 96px;
+}
+
+.link {
+  width: 100vw;
+  margin-top: 12px;
+  cursor: pointer;
+
+  &--dark {
+    color: $color-dark;
+  }
+}

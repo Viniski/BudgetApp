@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import TotalCard from "../../component/TotalCard/TotalCard";
-import ExpenseCard from "../../component/TotalCard/ExpenseCard";
-import IncomeCard from "../../component/TotalCard/IncomeCard";
-import AddButton from "../../component/AddButton/AddButton";
+import TotalCard from "../../component/TotalCards/TotalCard";
+import ExpenseCard from "../../component/TotalCards/ExpenseCard";
+import IncomeCard from "../../component/TotalCards/IncomeCard";
+import AddButton from "../../component/Buttons/AddButton";
 import Header from "../../component/Header/Header";
 import TransactionSection from "../../component/TransactionsSection/TransactionsSection";
 
@@ -18,7 +18,7 @@ function HomePage() {
         <ExpenseCard />
         <IncomeCard />
       </section>
-        <TransactionSection type="all"/>
+      <TransactionSection type="all" title="transakcje" />
       <Link to="/dodaj-transakcje">
         <AddButton />
       </Link>

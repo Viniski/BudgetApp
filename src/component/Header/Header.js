@@ -1,10 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toogle } from "../../redux/themeSlice";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import Nav from "../../component/Header/Nav/Nav";
+import Nav from "../Nav/Nav";
 import UndoButton from "../Buttons/UndoButton";
 import OpenMenuButton from "../Buttons/OpenMenuButton";
 import CloseMenuButton from "../Buttons/CloseMenuButton";
@@ -13,9 +12,10 @@ import ThemeButton from "../Buttons/ThemeButton";
 function Header({ title, page }) {
   const [isClicked, setIsClicked] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";//tutaj zostaje mi false w klasach, może lepiej null czy pusty string - dobra praktyka - i don't know
+  const themeDark = theme === "dark" ? true : "";
+  const homeUrl = useSelector((state) => state.url.homeLink);
   const dispatch = useDispatch();
-  const [localStorage, setLocalStorage] = useLocalStorage("theme");
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleMenuClick = () => {
@@ -24,7 +24,14 @@ function Header({ title, page }) {
 
   const handleThemeClick = () => {
     dispatch(toogle());
-    setLocalStorage(theme === "light" ? "dark" : "light");
+  };
+
+  const getUndoPage = () => {
+    if (location.pathname === "/dochody" || location.pathname === "/wydatki") {
+      return homeUrl;
+    } else if (title === "Nie znaleziono strony") {
+      return homeUrl;
+    } else return -1;
   };
 
   return (
@@ -55,17 +62,19 @@ function Header({ title, page }) {
           </>
         ) : (
           <UndoButton
-            onClick={() => navigate(-1)}
+            onClick={() => navigate(getUndoPage())}
             className={`header__button-back ${
               themeDark && `header__button-back--dark`
             }`}
           />
         )}
         <h1>{title}</h1>
-          <ThemeButton onClick={handleThemeClick}
+        <ThemeButton
+          onClick={handleThemeClick}
           className={`header__button-theme ${
             themeDark && `header__button-theme--dark`
-          }`}/>
+          }`}
+        />
       </header>
       {isClicked && <Nav />}
     </>

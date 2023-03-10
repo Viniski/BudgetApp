@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { edit } from "../../redux/transactionsSlice";
 import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import Header from "../../component/Header/Header";
 import Input from "../../component/Input/Input";
 import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
@@ -11,14 +10,12 @@ import SelectTypeInput from "../../component/Input/SelectTypeInput";
 
 function EditPage() {
   const { id } = useParams();
-  const state = useSelector((state) => state.transactions);
   const transaction = useSelector(
     (state) =>
       state.transactions.filter(
         (transaction) => transaction.id === Number(id)
       )[0]
   );
-  const [localSotrage, setLocalStorage] = useLocalStorage("transactions");
 
   const [amount, setAmount] = useState({
     value: transaction.amount,
@@ -43,10 +40,7 @@ function EditPage() {
       .length
   );
 
-  console.log(invalidButton, [amount.valid, title.valid, date.valid]);
-
   const handleEditButton = () => {
-    console.log("działam");
     const editTransaction = {
       amount: amount.value,
       category,
@@ -56,14 +50,7 @@ function EditPage() {
       title: title.value,
       type,
     };
-    console.log(editTransaction);
     dispatch(edit(editTransaction));
-    const newState = [...state];
-    let index = newState.findIndex(
-      (tranasaction) => tranasaction.id === Number(id)
-    );
-    newState[index] = editTransaction;
-    setLocalStorage(newState);
     navigate("/");
   };
 

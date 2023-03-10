@@ -10,14 +10,23 @@
   background-color: $background;
 }
 
+.select-container {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
 .button-options {
-  text-transform: uppercase;
-  margin: auto;
+  margin: 12px 20vw;
   width: 226px;
   height: 48px;
   color: $background;
   background-color: $blue;
   border-radius: 5px;
+  text-transform: uppercase;
 }
 
 .button-pagination {
@@ -27,15 +36,25 @@
   font-size: 28px;
   background-color: $background;
   cursor: pointer;
+
+  &--dark {
+    background-color: $grayBackground-dark;
+    color: $background;
+  }
 }
 
 .button-filters {
-  text-transform: uppercase;
-  margin: auto;
   width: 226px;
   height: 48px;
+  margin: auto;
   color: $blue;
-  // background-color: $background;
-  // border: 2px solid $blue;
   border-radius: 5px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .button-add {
+    bottom: 2vw;
+    right: 2vw;
+  }
 }

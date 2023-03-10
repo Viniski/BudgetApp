@@ -8,8 +8,10 @@
 
   &__input {
     width: 80vw;
+    overflow-x: hidden;
     height: 6vh;
     padding: 5px 16px;
+    margin: 0 10vw;
     border: 0;
     border-bottom: solid 2px gray;
 
@@ -22,9 +24,10 @@
 }
 
 .inputs-filter {
-  margin: 25px 0;
   width: 90vw;
-  height: 40vh;
+  min-height: 40vh;
+  padding: 8px 0;
+  margin: 1vh 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -32,19 +35,45 @@
   align-content: space-evenly;
   border: 2px solid gray;
   border-radius: 5px;
-  padding: 10px 0;
 
   &__input {
     width: 60vw;
     height: 5vh;
     padding: 4px 14px;
+    margin: 4px 0;
     border: 0;
     border-bottom: solid 1px gray;
+
+    &:first-child {
+      margin-top: 12px;
+    }
 
     &--dark {
       background: $grayBackground-dark;
       color: $background;
       color-scheme: dark;
     }
+  }
+
+  &__label {
+    width: 80vw;
+    margin: 2px 0;
+
+    input {
+      margin-right: 4px;
+    }
+  }
+
+  &__labelDate {
+    width: 60vw;
+    padding: 0 14px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inputs-filter {
+    width: 70vw;
+    margin: 1vh 15vw;
   }
 }

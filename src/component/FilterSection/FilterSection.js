@@ -1,40 +1,50 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import {
+  updateHomeURL,
+  updateExpenseURL,
+  updateIncomeURL,
+} from "../../redux/urlSlice";
 import Input from "../Input/Input";
 import CheckboxCategoryInput from "../Input/CheckboxCategoryInput";
 import ActiveFilterCriteria from "./ActiveFilterCriteria";
 import { formatDate } from "../../helpers/formatDate";
 import FilterButton from "../Buttons/FilterButton";
 import CloseFilterButton from "../Buttons/CloseFilterButton";
+import createFilterUrl from "../../helpers/createFilterUrl";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-function FilterSection({ type, title, onFilter }) {
-  const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
+function FilterSection({ type, title, criteria, themeDark }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const dispatch = useDispatch();
   const [minAmount, setMinAmount] = useState("");
   const [maxAmount, setMaxAmount] = useState("");
   const [startDate, setStartDate] = useState("");
   const today = formatDate(new Date());
-  const [endDate, setEndDate] = useState(today);
-  const [selectedCategory, setSelectedCategory] = useState([
-    "Dochód stały",
-    "Dochód dodatkowy",
-    "Koszty stałe",
-    "Jedzenie",
-    "Transport",
-    "Rozrywka",
-    "Inne",
-  ]);
-  // TU JEST BŁĄD Z TĄ TABLICĄ BO SĄ TEŻ STRONY INCOME I EXPENSE!!! woo...
-  //widok jest git (inputy) ale potem problem...
-  //bo ogólnie jak przełączam -> to kategorie powinny znikać.. no właśnie xd
-  //trzy komponenty albo nwm ale optymalne rozwiązanie tak jak wcześniej było
-  const objectToFilter = {
-    minAmount,
-    maxAmount,
-    startDate,
-    endDate,
-    selectedCategory,
+  const [endDate, setEndDate] = useState("");
+
+  const getSelectedCategory = () => {
+    return location.pathname === "/"
+      ? [
+          "Dochód stały",
+          "Dochód dodatkowy",
+          "Koszty stałe",
+          "Jedzenie",
+          "Transport",
+          "Rozrywka",
+          "Inne",
+        ]
+      : location.pathname === "/wydatki"
+      ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
+      : ["Dochód stały", "Dochód dodatkowy", "Inne"];
   };
+
+  const [selectedCategory, setSelectedCategory] = useState(
+    getSelectedCategory()
+  );
+
   const [filterSectionState, setFilterSectionState] = useState({
     isFormActive: false,
     activeCriteria: {
@@ -46,6 +56,26 @@ function FilterSection({ type, title, onFilter }) {
     },
   });
 
+  const getCategoryToDelete = (selectedCategory) => {
+    let arrayAllCategories = getSelectedCategory();
+
+    for (let i = 0; i < selectedCategory.length; i++) {
+      arrayAllCategories = arrayAllCategories.filter(
+        (element) => element !== selectedCategory[i]
+      );
+    }
+
+    return [...arrayAllCategories];
+  };
+
+  const objectToFilter = {
+    minAmount,
+    maxAmount,
+    startDate,
+    endDate,
+    selectedCategory: getCategoryToDelete(selectedCategory),
+  };
+
   const toogleFilterButton = () => {
     setFilterSectionState({
       ...filterSectionState,
@@ -56,69 +86,173 @@ function FilterSection({ type, title, onFilter }) {
   const changeCheckboxInput = (e) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
-    console.log(value, isChecked);
 
     if (isChecked) {
-      console.log(selectedCategory, isChecked);
       const newSelectedCategory = [...selectedCategory, value];
-      console.log(newSelectedCategory);
       setSelectedCategory(newSelectedCategory);
     } else {
-      console.log(selectedCategory, isChecked);
       const newSelectedCategory = selectedCategory.filter(
         (category) => category !== value
       );
-      console.log(newSelectedCategory);
       setSelectedCategory(newSelectedCategory);
     }
   };
 
-  //params musi być ARRAY i musi być czytannie przez funkcję filtrującą niżej i komponent wyżej
-  //w tym momęcie jest to: objectToFilter :)
-  //i taka forma ma zostać, jest dobrze czytany przez funkcję filtrującą, tak napiszę komponent wyżej, że też to będzie czytał :)
   const handleFilterButton = (params) => {
-    onFilter(params);
+    const newUrl = createFilterUrl(location.pathname, params);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
+    dispatch(
+      location.pathname === "/"
+        ? updateHomeURL(newUrl)
+        : location.pathname === "/wydatki"
+        ? updateExpenseURL(newUrl)
+        : updateIncomeURL(newUrl)
+    );
+    navigate(newUrl);
+  };
+
+  const handleDeleteCriteria = (params) => {
+    const newUrl = createFilterUrl(location.pathname, params);
+    setFilterSectionState({ activeCriteria: params, isFormActive: false }); //why?
+    dispatch(
+      location.pathname === "/"
+        ? updateHomeURL(newUrl)
+        : location.pathname === "/wydatki"
+        ? updateExpenseURL(newUrl)
+        : updateIncomeURL(newUrl)
+    );
+    navigate(newUrl);
+  };
+
+  const deleteFilterCriteria = (criteriaToDelete) => {
+    switch (criteriaToDelete) {
+      case "minAmount":
+        handleDeleteCriteria({
+          minAmount: "",
+          maxAmount,
+          startDate,
+          endDate,
+          selectedCategory: getCategoryToDelete(selectedCategory),
+        });
+        setMinAmount("");
+        break;
+      case "maxAmount":
+        handleDeleteCriteria({
+          minAmount,
+          maxAmount: "",
+          startDate,
+          endDate,
+          selectedCategory: getCategoryToDelete(selectedCategory),
+        });
+        setMaxAmount("");
+        break;
+      case "startDate":
+        handleDeleteCriteria({
+          minAmount,
+          maxAmount,
+          startDate: "",
+          endDate,
+          selectedCategory: getCategoryToDelete(selectedCategory),
+        });
+        setStartDate("");
+        break;
+      case "endDate":
+        handleDeleteCriteria({
+          minAmount,
+          maxAmount,
+          startDate,
+          endDate: "",
+          selectedCategory: getCategoryToDelete(selectedCategory),
+        });
+        setEndDate("");
+        break;
+      case "selectedCategory":
+        handleDeleteCriteria({
+          minAmount,
+          maxAmount,
+          startDate,
+          endDate,
+          selectedCategory: getCategoryToDelete(
+            location.pathname === "/"
+              ? [
+                  "Dochód stały",
+                  "Dochód dodatkowy",
+                  "Koszty stałe",
+                  "Jedzenie",
+                  "Transport",
+                  "Rozrywka",
+                  "Inne",
+                ]
+              : location.pathname === "/wydatki"
+              ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
+              : ["Dochód stały", "Dochód dodatkowy", "Inne"]
+          ),
+        });
+        setSelectedCategory(
+          location.pathname === "/"
+            ? [
+                "Dochód stały",
+                "Dochód dodatkowy",
+                "Koszty stałe",
+                "Jedzenie",
+                "Transport",
+                "Rozrywka",
+                "Inne",
+              ]
+            : location.pathname === "/wydatki"
+            ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
+            : ["Dochód stały", "Dochód dodatkowy", "Inne"]
+        );
+        break;
+      default:
+        break;
+    }
   };
 
   return (
     <>
-      <FilterButton
-        onClick={toogleFilterButton}
-        className={
-          filterSectionState.isFormActive
-            ? `transaction-section__button-filter--disactive`
-            : `transaction-section__button-filter ${
-                themeDark && `transaction-section__button-filter--dark`
-              }`
-        }
-      />
-      <CloseFilterButton
-        onClick={toogleFilterButton}
-        className={
-          filterSectionState.isFormActive
-            ? `transaction-section__button-filter ${
-                themeDark && `transaction-section__button-filter--dark`
-              }`
-            : `transaction-section__button-filter--disactive`
-        }
-      />
+      <div className="transaction-section__title">
+        <h3>{`Twoje transakcje`}</h3>
+      </div>
+      <div className="transaction-section__filterButton">
+        <FilterButton
+          onClick={toogleFilterButton}
+          className={
+            filterSectionState.isFormActive
+              ? `transaction-section__button-filter--disactive`
+              : `transaction-section__button-filter ${
+                  themeDark && `transaction-section__button-filter--dark`
+                }`
+          }
+        />
+        <CloseFilterButton
+          onClick={toogleFilterButton}
+          className={
+            filterSectionState.isFormActive
+              ? `transaction-section__button-filter ${
+                  themeDark && `transaction-section__button-filter--dark`
+                }`
+              : `transaction-section__button-filter--disactive`
+          }
+        />
+      </div>
       {filterSectionState.isFormActive && (
         <section className="inputs-filter">
           <Input
             type="number"
-            placeholder="Od"
+            placeholder="Kwota minimalna"
             value={minAmount}
             onChange={(value) => setMinAmount(value)}
             className="filter"
           />
           <Input
             type="number"
-            placeholder="Do"
+            placeholder="Kwota maksymalna"
             value={maxAmount}
             onChange={(value) => setMaxAmount(value)}
             className="filter"
           />
+          <label className="inputs-filter__labelDate">Okres od:</label>
           <Input
             type="date"
             max={today}
@@ -126,6 +260,7 @@ function FilterSection({ type, title, onFilter }) {
             onChange={(value) => setStartDate(value)}
             className="filter"
           />
+          <label className="inputs-filter__labelDate">Okres do:</label>
           <Input
             type="date"
             max={today}
@@ -137,20 +272,19 @@ function FilterSection({ type, title, onFilter }) {
             value={selectedCategory}
             onChange={changeCheckboxInput}
             type={type}
-            className="filter"
+            className="inputs-filter__label"
           />
           <button
-            onClick={() =>
-              handleFilterButton(objectToFilter)
-            }
+            onClick={() => handleFilterButton(objectToFilter)}
             className="button-options"
           >{`Filtruj ${title}`}</button>
         </section>
       )}
       <ActiveFilterCriteria
         type={type}
-        criteria={filterSectionState.activeCriteria}
-        onFilter={handleFilterButton}
+        criteria={criteria}
+        onFilter={deleteFilterCriteria}
+        themeDark={themeDark}
       />
     </>
   );

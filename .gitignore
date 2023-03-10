@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# config
+.prettierignore
+.eslintrc
+
 # testing
 /coverage
 
@@ -13,7 +17,7 @@
 .eslintrc
 
 # production
-/build
+build/
 
 # misc
 .DS_Store

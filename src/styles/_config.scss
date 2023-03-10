@@ -1,6 +1,6 @@
 $blue: rgb(1, 75, 188);
 $grayBackground: rgb(250, 249, 250);
-$grayBackground-dark: rgb(50, 49, 50) ;
+$grayBackground-dark: rgb(50, 49, 50);
 $background: rgb(255, 255, 255);
 $background-dark: rgb(20, 20, 20);
 $color: rgb(0, 0, 0);
@@ -12,7 +12,24 @@ $color-dark: rgb(255, 255, 255);
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 0.8vw;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $grayBackground-dark;
+  }
+}
+
 body {
+  min-height: 100vh;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -24,8 +41,8 @@ body {
 }
 
 .body-dark {
-  height: 100%;
-  //bug
+  min-height: 100vh;
+  // width: 100vw;
   color: $color-dark;
   background-color: $background-dark;
 }

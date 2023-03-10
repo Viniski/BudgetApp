@@ -3,12 +3,14 @@ import { useSelector } from "react-redux";
 
 function Nav() {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
+  const themeDark = theme === "dark" ? true : "";
+  const incomeUrl = useSelector((state) => state.url.incomeLink);
+  const excomeUrl = useSelector((state) => state.url.expenseLink);
 
   return (
     <nav className="navigation ">
       <ul>
-        <NavLink to="/dochody">
+        <NavLink to={incomeUrl}>
           <li
             className={`navigation__item ${
               themeDark && `navigation__item--dark`
@@ -17,7 +19,7 @@ function Nav() {
             Dochody
           </li>
         </NavLink>
-        <NavLink to="/wydatki">
+        <NavLink to={excomeUrl}>
           <li
             className={`navigation__item ${
               themeDark && `navigation__item--dark`

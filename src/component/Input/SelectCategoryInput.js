@@ -1,17 +1,19 @@
 import { useSelector } from "react-redux";
 
-const SelectCategoryInput = (props) => {
+const SelectCategoryInput = ({ type, onChange, value, className }) => {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark";
+  const themeDark = theme === "dark" ? true : "";
+
   return (
     <select
-      onChange={(e) => props.onChange(e.target.value)}
-      defaultValue={props.value || ""}
-      className={`inputs-${props.className}__input ${
-        themeDark && `inputs-${props.className}__input--dark`
+      onChange={(e) => onChange(e.target.value)}
+      defaultValue={value || ""}
+      className={`inputs-${className}__input ${
+        themeDark && `inputs-${className}__input--dark`
       }`}
+      data-testid="select-category-input"
     >
-      {props.type === "all" ? (
+      {type === "all" ? (
         <>
           <option value="" disabled hidden>
             Kategoria
@@ -24,7 +26,7 @@ const SelectCategoryInput = (props) => {
           <option value="Rozrywka">Rozrywka</option>
           <option value="Inne">Inne</option>
         </>
-      ) : props.type === "expense" ? (
+      ) : type === "expense" ? (
         <>
           <option value="" disabled hidden>
             Kategoria
@@ -50,7 +52,7 @@ const SelectCategoryInput = (props) => {
 };
 
 SelectCategoryInput.defaultProps = {
-  className: "section"
-}
+  className: "section",
+};
 
 export default SelectCategoryInput;
