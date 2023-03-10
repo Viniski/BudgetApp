@@ -1,18 +1,18 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import "@testing-library/jest-dom";
-import TransactionSection from "../TransactionsSection";
+import { TransactionSection } from "./TransactionsSection";
 import { Provider } from "react-redux";
-import store from "../../../redux/store";
+import mockStore from "../../__mocks__/mockStore/store";
 import { MemoryRouter } from "react-router-dom";
 
 const MockedFilterSection = () => {
   const route = "/";
 
   return (
-    <Provider store={store}>
+    <Provider store={mockStore}>
       <MemoryRouter initialEntries={[route]}>
-        <TransactionSection />
+        <TransactionSection type="expense" title="wydatki" />
       </MemoryRouter>
     </Provider>
   );

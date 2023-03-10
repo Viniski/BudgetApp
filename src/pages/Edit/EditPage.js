@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { edit } from "../../redux/transactionsSlice";
-import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import Header from "../../component/Header/Header";
-import Input from "../../component/Input/Input";
-import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
-import SelectTypeInput from "../../component/Input/SelectTypeInput";
+import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
+import { Header } from "../../component/Header/Header";
+import { Input } from "../../component/Input/Input";
+import { SelectCategoryInput } from "../../component/Input/SelectCategoryInput";
+import { SelectTypeInput } from "../../component/Input/SelectTypeInput";
 
-function EditPage() {
+export function EditPage() {
   const { id } = useParams();
   const transaction = useSelector(
     (state) =>
@@ -99,5 +99,3 @@ function EditPage() {
     </>
   );
 }
-
-export default EditPage;

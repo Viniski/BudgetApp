@@ -5,17 +5,17 @@ import {
   updateExpenseURL,
   updateIncomeURL,
 } from "../../redux/urlSlice";
-import Input from "../Input/Input";
-import CheckboxCategoryInput from "../Input/CheckboxCategoryInput";
-import ActiveFilterCriteria from "./ActiveFilterCriteria";
+import { Input } from "../Input/Input";
+import { CheckboxCategoryInput } from "../Input/CheckboxCategoryInput";
+import { ActiveFilterCriteria } from "./ActiveFilterCriteria";
 import { formatDate } from "../../helpers/formatDate";
-import FilterButton from "../Buttons/FilterButton";
-import CloseFilterButton from "../Buttons/CloseFilterButton";
-import createFilterUrl from "../../helpers/createFilterUrl";
+import { FilterButton } from "../Buttons/FilterButton";
+import { CloseFilterButton } from "../Buttons/CloseFilterButton";
+import { createFilterUrl } from "../../helpers/createFilterUrl";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-function FilterSection({ type, title, criteria, themeDark }) {
+export function FilterSection({ type, title, criteria, themeDark }) {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -289,5 +289,3 @@ function FilterSection({ type, title, criteria, themeDark }) {
     </>
   );
 }
-
-export default FilterSection;

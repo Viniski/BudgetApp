@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import SelectAddTypePage from "../SelectAddTypePage";
+import { SelectAddTypePage } from "./SelectAddTypePage";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import mockStore from "../../../__mocks__/mockStore/store";
+import mockStore from "../../__mocks__/mockStore/store";
 
 const MockComponent = () => {
   return (

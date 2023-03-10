@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import DetailsDiv from "../DetailsDiv";
+import { DetailsDiv } from "./DetailsDiv";
 
 describe("Details div", () => {
   const expectedCategory = "Transport";

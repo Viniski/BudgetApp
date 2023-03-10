@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-function ExpenseCard(props) {
+export function ExpenseCard(props) {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark" ? true : "";
   const transactions = useSelector((state) => state.transactions);
@@ -35,5 +35,3 @@ function ExpenseCard(props) {
     </div>
   );
 }
-
-export default ExpenseCard;

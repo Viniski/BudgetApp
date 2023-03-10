@@ -1,4 +1,4 @@
-const EditButton = ({ className }) => {
+export const EditButton = ({ className }) => {
   return (
     <button className={className}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -11,5 +11,3 @@ const EditButton = ({ className }) => {
     </button>
   );
 };
-
-export default EditButton;

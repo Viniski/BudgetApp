@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { add } from "../../redux/transactionsSlice";
-import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import Header from "../../component/Header/Header";
-import Input from "../../component/Input/Input";
-import SelectCategoryInput from "../../component/Input/SelectCategoryInput";
+import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
+import { Header } from "../../component/Header/Header";
+import { Input } from "../../component/Input/Input";
+import { SelectCategoryInput } from "../../component/Input/SelectCategoryInput";
 import { formatDate } from "../../helpers/formatDate";
 
-function AddPage({ type, name }) {
+export function AddPage({ type, name }) {
   const [amount, setAmount] = useState({ value: "", valid: false });
   const [title, setTitle] = useState({ value: "", valid: false });
   const [category, setCategory] = useState({ value: "", valid: false });
@@ -84,5 +84,3 @@ function AddPage({ type, name }) {
     </>
   );
 }
-
-export default AddPage;

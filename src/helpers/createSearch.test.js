@@ -1,4 +1,4 @@
-import { createSearch } from "../createSearch";
+import { createSearch } from "./createSearch";
 
 describe("createSearch function helper", () => {
   it("should return empty string if params object is without any filters criteria", () => {

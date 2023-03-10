@@ -1,4 +1,4 @@
-function DetailsDiv({ category, value }) {
+export function DetailsDiv({ category, value }) {
   return (
     <div className="details-div">
       <p className="details-div__category">{category}</p>
@@ -6,5 +6,3 @@ function DetailsDiv({ category, value }) {
     </div>
   );
 }
-
-export default DetailsDiv;

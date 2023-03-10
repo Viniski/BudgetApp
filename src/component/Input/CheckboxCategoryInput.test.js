@@ -1,15 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
-import CheckboxCategoryInput from "../CheckboxCategoryInput";
+import { CheckboxCategoryInput } from "./CheckboxCategoryInput";
 import { Provider } from "react-redux";
-import store from "../../../redux/store";
+import mockStore from "../../__mocks__/mockStore/store";
 
 const mockedOnChange = jest.fn();
 
 describe("CheckboxInput", () => {
   it("should render checkbox input element", () => {
     render(
-      <Provider store={store}>
+      <Provider store={mockStore}>
         <CheckboxCategoryInput
           type="all"
           onChange={mockedOnChange}

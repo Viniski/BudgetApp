@@ -1,4 +1,4 @@
-export const initialTransactions = [
+export const initialState = [
   {
     type: "expense",
     date: "2022-12-13",
@@ -54,13 +54,3 @@ export const initialTransactions = [
     note: "Zlecenie dla klienta",
   },
 ];
-
-export const initialUrl = {
-  homeLink: "/",
-  expenseLink: "/wydatki",
-  incomeLink: "/dochody",
-};
-
-export const initialTheme = {
-  theme: "light",
-};

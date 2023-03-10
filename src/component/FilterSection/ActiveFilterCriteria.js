@@ -1,6 +1,6 @@
-import CloseFilterButton from "../Buttons/CloseFilterButton";
+import { CloseFilterButton } from "../Buttons/CloseFilterButton";
 
-function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
+export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
   const maxAmount = criteria.maxAmount;
   const minAmount = criteria.minAmount;
   const endDate = criteria.endDate;
@@ -121,5 +121,3 @@ function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
     </section>
   );
 }
-
-export default ActiveFilterCriteria;

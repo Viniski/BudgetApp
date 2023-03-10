@@ -1,4 +1,4 @@
-function Pagination({ cardNumber, paginate, perPage, themeDark }) {
+export function Pagination({ cardNumber, paginate, perPage, themeDark }) {
   const paginationPages = Math.ceil(cardNumber / perPage);
   const arrayPagination = [];
 
@@ -24,5 +24,3 @@ function Pagination({ cardNumber, paginate, perPage, themeDark }) {
     </div>
   );
 }
-
-export default Pagination;

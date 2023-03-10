@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { remove } from "../../redux/transactionsSlice";
-import DeleteButton from "../Buttons/DeleteButton";
-import EditButton from "../Buttons/EditButton";
+import { DeleteButton } from "../Buttons/DeleteButton";
+import { EditButton } from "../Buttons/EditButton";
 
-function TransactionCard({ data, themeDark }) {
+export function TransactionCard({ data, themeDark }) {
   const dispatch = useDispatch();
 
   const handleDeleteTransaction = () => {
@@ -50,5 +50,3 @@ function TransactionCard({ data, themeDark }) {
     </div>
   );
 }
-
-export default TransactionCard;

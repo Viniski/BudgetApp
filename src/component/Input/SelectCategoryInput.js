@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-const SelectCategoryInput = ({ type, onChange, value, className }) => {
+export const SelectCategoryInput = ({ type, onChange, value, className }) => {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark" ? true : "";
 
@@ -54,5 +54,3 @@ const SelectCategoryInput = ({ type, onChange, value, className }) => {
 SelectCategoryInput.defaultProps = {
   className: "section",
 };
-
-export default SelectCategoryInput;

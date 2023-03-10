@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-const SelectTypeInput = (onChange, value) => {
+export const SelectTypeInput = (onChange, value) => {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark" ? true : "";
 
@@ -21,5 +21,3 @@ const SelectTypeInput = (onChange, value) => {
     </select>
   );
 };
-
-export default SelectTypeInput;

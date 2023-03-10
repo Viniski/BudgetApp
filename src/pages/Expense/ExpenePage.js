@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import Header from "../../component/Header/Header";
-import ExpenseCard from "../../component/TotalCards/ExpenseCard";
-import AddButton from "../../component/Buttons/AddButton";
-import TransactionSection from "../../component/TransactionsSection/TransactionsSection";
+import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
+import { Header } from "../../component/Header/Header";
+import { ExpenseCard } from "../../component/TotalCards/ExpenseCard";
+import { AddButton } from "../../component/Buttons/AddButton";
+import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
 
-function ExpensePage() {
+export function ExpensePage() {
   useWebsiteTitle("Wydatki | BudgetApp by Viniski");
 
   return (
@@ -21,5 +21,3 @@ function ExpensePage() {
     </>
   );
 }
-
-export default ExpensePage;

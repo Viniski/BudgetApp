@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import Header from "../../component/Header/Header";
+import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
+import { Header } from "../../component/Header/Header";
 
-function NotFound() {
+export function NotFound() {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark" ? true : "";
 
@@ -23,5 +23,3 @@ function NotFound() {
     </>
   );
 }
-
-export default NotFound;

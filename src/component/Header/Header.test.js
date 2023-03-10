@@ -1,13 +1,13 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import Header from "../Header";
+import { Header } from "./Header";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import store from "../../../redux/store";
+import mockStore from "../../redux/store";
 
 const MockHeader = () => {
   return (
-    <Provider store={store}>
+    <Provider store={mockStore}>
       <MemoryRouter>
         <Header title="Strona główna" page="home" />
       </MemoryRouter>

@@ -1,13 +1,13 @@
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
-import store from "../../../redux/store";
+import mockStore from "../../__mocks__/mockStore/store";
 import React from "react";
-import App from "../../../App";
+import { App } from "../../App";
 
 describe("Title page", () => {
   const MockApp = () => {
     return (
-      <Provider store={store}>
+      <Provider store={mockStore}>
         <App />
       </Provider>
     );

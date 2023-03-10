@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-const Input = (props) => {
+export const Input = (props) => {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark" ? true : "";
 
@@ -21,5 +21,3 @@ const Input = (props) => {
 Input.defaultProps = {
   className: "section",
 };
-
-export default Input;

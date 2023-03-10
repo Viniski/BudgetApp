@@ -1,9 +1,7 @@
-const OpenMenuButton = ({ onClick, className }) => {
+export const OpenMenuButton = ({ onClick, className }) => {
   return (
     <button
-      onClick={() => {
-        onClick();
-      }}
+      onClick={onClick}
       className={className}
       data-testid="open-menu-button"
     >
@@ -16,5 +14,3 @@ const OpenMenuButton = ({ onClick, className }) => {
     </button>
   );
 };
-
-export default OpenMenuButton;

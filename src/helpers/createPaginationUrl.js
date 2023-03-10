@@ -1,6 +1,6 @@
 import { createSearch } from "./createSearch";
 
-export default function createPaginationUrl(pathname, currentParams, number) {
+export function createPaginationUrl(pathname, currentParams, number) {
   let objectParams = currentParams;
   objectParams.page = number;
 

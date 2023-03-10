@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import Header from "../../component/Header/Header";
+import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
+import { Header } from "../../component/Header/Header";
 
-function SelectAddTypePage() {
+export function SelectAddTypePage() {
   useWebsiteTitle("Dodaj transakcje | BudgetApp by Viniski");
   return (
     <>
@@ -18,5 +18,3 @@ function SelectAddTypePage() {
     </>
   );
 }
-
-export default SelectAddTypePage;

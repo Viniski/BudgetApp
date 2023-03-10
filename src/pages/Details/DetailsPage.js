@@ -1,11 +1,11 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../../redux/transactionsSlice";
-import useWebsiteTitle from "../../hooks/useWebstiteTitle";
-import Header from "../../component/Header/Header";
-import DetailsDiv from "../../component/DetailsDiv/DetailsDiv";
+import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
+import { Header } from "../../component/Header/Header";
+import { DetailsDiv } from "../../component/DetailsDiv/DetailsDiv";
 
-function DetailsPage() {
+export function DetailsPage() {
   useWebsiteTitle("Szczegóły transakcji | BudgetApp by Viniski");
   const { id } = useParams();
   const tranasaction = useSelector(
@@ -61,5 +61,3 @@ function DetailsPage() {
     </>
   );
 }
-
-export default DetailsPage;

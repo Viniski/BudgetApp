@@ -1,15 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
-import Input from "../Input";
+import { Input } from "./Input";
 import { Provider } from "react-redux";
-import store from "../../../redux/store";
+import mockStore from "../../__mocks__/mockStore/store";
 
 const mockedOnChange = jest.fn();
 
 describe("Input", () => {
   it("should render input element", () => {
     render(
-      <Provider store={store}>
+      <Provider store={mockStore}>
         <Input type="text" onChange={mockedOnChange} placeholder={"Od"} />
       </Provider>
     );
@@ -19,7 +19,7 @@ describe("Input", () => {
 
   it("should be able to type in input", () => {
     render(
-      <Provider store={store}>
+      <Provider store={mockStore}>
         <Input type="number" onChange={mockedOnChange} placeholder={"Od"} />
       </Provider>
     );
@@ -30,7 +30,7 @@ describe("Input", () => {
 
   it("should not be able to type a string in input of type number", () => {
     render(
-      <Provider store={store}>
+      <Provider store={mockStore}>
         <Input type="number" onChange={mockedOnChange} placeholder={"Od"} />
       </Provider>
     );

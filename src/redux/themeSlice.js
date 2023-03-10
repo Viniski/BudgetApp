@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initialTheme } from "../data/initialState";
+import { initialState } from "../data/InitialTheme";
 
 export const themeSlice = createSlice({
   name: "theme",
-  initialTheme,
+  initialState,
   reducers: {
     toogle: (state) => {
       state.theme = state.theme === "light" ? "dark" : "light";

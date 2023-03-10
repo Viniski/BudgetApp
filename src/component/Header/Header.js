@@ -3,13 +3,13 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toogle } from "../../redux/themeSlice";
-import Nav from "../Nav/Nav";
-import UndoButton from "../Buttons/UndoButton";
-import OpenMenuButton from "../Buttons/OpenMenuButton";
-import CloseMenuButton from "../Buttons/CloseMenuButton";
-import ThemeButton from "../Buttons/ThemeButton";
+import { Nav } from "../Nav/Nav";
+import { UndoButton } from "../Buttons/UndoButton";
+import { OpenMenuButton } from "../Buttons/OpenMenuButton";
+import { CloseMenuButton } from "../Buttons/CloseMenuButton";
+import { ThemeButton } from "../Buttons/ThemeButton";
 
-function Header({ title, page }) {
+export function Header({ title, page }) {
   const [isClicked, setIsClicked] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark" ? true : "";
@@ -80,5 +80,3 @@ function Header({ title, page }) {
     </>
   );
 }
-
-export default Header;

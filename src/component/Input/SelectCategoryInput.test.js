@@ -1,15 +1,15 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import React from "react";
-import SelectCategoryInput from "../SelectCategoryInput";
+import { SelectCategoryInput } from "./SelectCategoryInput";
 import { Provider } from "react-redux";
-import store from "../../../redux/store";
+import mockStore from "../../__mocks__/mockStore/store";
 
 const mockedOnChange = jest.fn();
 
 describe("SelectCategoryInput", () => {
   it("should render select category input element", () => {
     render(
-      <Provider store={store}>
+      <Provider store={mockStore}>
         <SelectCategoryInput type="all" onChange={mockedOnChange} />
       </Provider>
     );

@@ -1,4 +1,4 @@
-const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
+export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
   return (
     <>
       {type === "all" ? (
@@ -183,5 +183,3 @@ const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
 CheckboxCategoryInput.defaultProps = {
   className: "section",
 };
-
-export default CheckboxCategoryInput;

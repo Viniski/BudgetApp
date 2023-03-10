@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-function TotalCard() {
+export function TotalCard() {
   const theme = useSelector((state) => state.theme.theme);
   const themeDark = theme === "dark" ? true : "";
   const transactions = useSelector((state) => state.transactions);
@@ -28,5 +28,3 @@ function TotalCard() {
     </div>
   );
 }
-
-export default TotalCard;

@@ -5,14 +5,14 @@ import {
   updateExpenseURL,
   updateIncomeURL,
 } from "../../redux/urlSlice";
-import TransactionCard from "../../component/TransactionCard/TransactionCard";
-import FilterSection from "../FilterSection/FilterSection";
-import Pagination from "../../component/Pagination/Pagination";
+import { TransactionCard } from "../TransactionCard/TransactionCard";
+import { FilterSection } from "../FilterSection/FilterSection";
+import { Pagination } from "../../component/Pagination/Pagination";
 import { useGetFilteredTransaction } from "../../hooks/useGetFilteredTransaction";
 import { useLocation } from "react-router-dom";
-import createPaginationUrl from "../../helpers/createPaginationUrl";
+import { createPaginationUrl } from "../../helpers/createPaginationUrl";
 
-function TransactionSection({ type, title }) {
+export function TransactionSection({ type, title }) {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -114,5 +114,3 @@ function TransactionSection({ type, title }) {
     </section>
   );
 }
-
-export default TransactionSection;
