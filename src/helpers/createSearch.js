@@ -37,10 +37,14 @@ export function createSearch(objectParams) {
   }
   if (objectParams.selectedCategory.length > 0) {
     if (search) {
-        search += `&delete_category=${objectParams.selectedCategory.map(el => el)}`;
-      } else {
-        search += `?delete_category=${objectParams.selectedCategory.map(el => el)}`;
-      }
+      search += `&delete_category=${objectParams.selectedCategory.map(
+        (el) => el
+      )}`;
+    } else {
+      search += `?delete_category=${objectParams.selectedCategory.map(
+        (el) => el
+      )}`;
+    }
   }
   return search;
 }

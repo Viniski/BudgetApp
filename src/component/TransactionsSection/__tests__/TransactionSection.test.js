@@ -39,7 +39,7 @@ describe("", () => {
     const input = screen.getByPlaceholderText(/Kwota minimalna/i);
     const submitButton = screen.getByText(/Filtruj wydatki/i);
 
-    fireEvent.change(input, { target: {value: 100 }});
+    fireEvent.change(input, { target: { value: 100 } });
     fireEvent.click(submitButton);
 
     const activeCriteria = screen.getByText("Kwota minimalna: 100 PLN");

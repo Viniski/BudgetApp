@@ -9,7 +9,7 @@ const MockComponent = () => {
   return (
     <Provider store={mockStore}>
       <MemoryRouter>
-        <SelectAddTypePage/>
+        <SelectAddTypePage />
       </MemoryRouter>
     </Provider>
   );
@@ -19,14 +19,16 @@ describe("Select add type page", () => {
   test("should display expense button", () => {
     render(<MockComponent />);
 
-    const buttonExpense = screen.getByRole("button", {name: /Dodaj wydatek/i });
+    const buttonExpense = screen.getByRole("button", {
+      name: /Dodaj wydatek/i,
+    });
     expect(buttonExpense).toBeInTheDocument();
   });
 
   test("should display income button", () => {
     render(<MockComponent />);
 
-    const buttonIncome = screen.getByRole("button", {name: /Dodaj dochód/i });
+    const buttonIncome = screen.getByRole("button", { name: /Dodaj dochód/i });
     expect(buttonIncome).toBeInTheDocument();
   });
 

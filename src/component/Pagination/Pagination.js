@@ -6,14 +6,23 @@ function Pagination({ cardNumber, paginate, perPage, themeDark }) {
     arrayPagination.push(i);
   }
 
-  return <div className="transaction-section__pagination">
-    {arrayPagination.length < 2 ? null : arrayPagination.map((number) => (
-          <button key={number} className={`button-pagination ${
-            themeDark && `button-pagination--dark`
-          }`} onClick={() => paginate(number)}>{number}</button>
-        ))}
-  </div>;
+  return (
+    <div className="transaction-section__pagination">
+      {arrayPagination.length < 2
+        ? null
+        : arrayPagination.map((number) => (
+            <button
+              key={number}
+              className={`button-pagination ${
+                themeDark && `button-pagination--dark`
+              }`}
+              onClick={() => paginate(number)}
+            >
+              {number}
+            </button>
+          ))}
+    </div>
+  );
 }
 
 export default Pagination;
-

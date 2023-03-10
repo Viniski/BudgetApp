@@ -7,17 +7,15 @@ import App from "./App";
 
 describe("App - theme light/dark", () => {
   const MockApp = () => {
-    return(
+    return (
       <Provider store={store}>
         <App />
       </Provider>
-    )
-  }
+    );
+  };
 
   it("render app in dark theme when click theme button", () => {
-    render(
-      <MockApp/>
-    );
+    render(<MockApp />);
 
     act(() => {
       const button = screen.getByTestId("theme-button");
@@ -29,9 +27,7 @@ describe("App - theme light/dark", () => {
   });
 
   it("render app in light theme when click theme button in dark theme app", () => {
-    render(
-      <MockApp/>
-    );
+    render(<MockApp />);
 
     act(() => {
       const button = screen.getByTestId("theme-button");

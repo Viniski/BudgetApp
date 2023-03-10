@@ -22,5 +22,6 @@ export const urlSlice = createSlice({
   },
 });
 
-export const { updateHomeURL, updateExpenseURL, updateIncomeURL } = urlSlice.actions;
+export const { updateHomeURL, updateExpenseURL, updateIncomeURL } =
+  urlSlice.actions;
 export default urlSlice.reducer;

@@ -10,9 +10,7 @@ describe("SelectTypeInput", () => {
   it("should render select type input element", () => {
     render(
       <Provider store={store}>
-        <SelectTypeInput
-          onChange={mockedOnChange}
-        />
+        <SelectTypeInput onChange={mockedOnChange} />
       </Provider>
     );
     const selectType = screen.getByTestId("select-type-input");

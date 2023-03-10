@@ -13,7 +13,7 @@ function IncomePage() {
       <section className="cards">
         <IncomeCard className="cards__income--main-card" />
       </section>
-      <TransactionSection type="income" title="dochody"/>
+      <TransactionSection type="income" title="dochody" />
       <Link to="/dodaj-dochód">
         <AddButton />
       </Link>

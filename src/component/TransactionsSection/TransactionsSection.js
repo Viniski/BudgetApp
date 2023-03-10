@@ -1,6 +1,10 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updateHomeURL, updateExpenseURL, updateIncomeURL } from "../../redux/urlSlice";
+import {
+  updateHomeURL,
+  updateExpenseURL,
+  updateIncomeURL,
+} from "../../redux/urlSlice";
 import TransactionCard from "../../component/TransactionCard/TransactionCard";
 import FilterSection from "../FilterSection/FilterSection";
 import Pagination from "../../component/Pagination/Pagination";
@@ -25,8 +29,8 @@ function TransactionSection({ type, title }) {
       maxAmount: searchParams.get("max"),
       endDate: searchParams.get("do"),
       startDate: searchParams.get("od"),
-      selectedCategory: searchParams.get("delete_category")?.split(',') || [],
-    }
+      selectedCategory: searchParams.get("delete_category")?.split(",") || [],
+    };
 
     return objectParams;
   };
@@ -50,16 +54,23 @@ function TransactionSection({ type, title }) {
 
   const stateTransaction = getTransactions();
 
-  const transactions = useGetFilteredTransaction(stateTransaction, getParamsToFilterFromURL());
+  const transactions = useGetFilteredTransaction(
+    stateTransaction,
+    getParamsToFilterFromURL()
+  );
 
-  const currentPage = (searchParams.get("strona") || 1);
+  const currentPage = searchParams.get("strona") || 1;
   const perPage = 5;
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = currentPage * perPage - 1;
   let transactionOnPage = transactions.slice(startIndex, endIndex + 1);
 
   const paginate = (number) => {
-    const newUrl = createPaginationUrl(location.pathname, getParamsToFilterFromURL(), number);
+    const newUrl = createPaginationUrl(
+      location.pathname,
+      getParamsToFilterFromURL(),
+      number
+    );
     dispatch(
       location.pathname === "/"
         ? updateHomeURL(newUrl)
@@ -72,12 +83,12 @@ function TransactionSection({ type, title }) {
 
   return (
     <section className="transaction-section">
-        <FilterSection
-          type={type}
-          title={title}
-          themeDark={themeDark}
-          criteria={getParamsToFilterFromURL()}
-        />
+      <FilterSection
+        type={type}
+        title={title}
+        themeDark={themeDark}
+        criteria={getParamsToFilterFromURL()}
+      />
       {transactionOnPage.map((transaction) => (
         <TransactionCard
           key={transaction.id}

@@ -24,7 +24,7 @@ describe("Input", () => {
       </Provider>
     );
     const input = screen.getByPlaceholderText(/od/i);
-    fireEvent.change(input, { target: {value: 100 }});
+    fireEvent.change(input, { target: { value: 100 } });
     expect(input.value).toBe("100");
   });
 
@@ -35,7 +35,7 @@ describe("Input", () => {
       </Provider>
     );
     const input = screen.getByPlaceholderText(/od/i);
-    fireEvent.change(input, { target: {value: "lorem ipsum" }});
+    fireEvent.change(input, { target: { value: "lorem ipsum" } });
     expect(input.value).toBe("");
   });
 });

@@ -7,16 +7,14 @@ import App from "../../../App";
 
 describe("Nav", () => {
   const MockApp = () => {
-    return(
+    return (
       <Provider store={store}>
         <App />
       </Provider>
-    )
-  }
-  it("navigates income when you click the link in nav", () => {
-    render(
-      <MockApp/>
     );
+  };
+  it("navigates income when you click the link in nav", () => {
+    render(<MockApp />);
 
     const button = screen.getByTestId("open-menu-button");
     fireEvent.click(button);
@@ -31,9 +29,7 @@ describe("Nav", () => {
   });
 
   it("navigates home when you click undo button", () => {
-    render(
-      <MockApp/>
-    );
+    render(<MockApp />);
 
     act(() => {
       const backButton = screen.getByTestId("undo-button");
@@ -45,9 +41,7 @@ describe("Nav", () => {
   });
 
   it("navigates expense when you click the link in nav", () => {
-    render(
-      <MockApp/>
-    );
+    render(<MockApp />);
 
     const button = screen.getByTestId("open-menu-button");
     fireEvent.click(button);

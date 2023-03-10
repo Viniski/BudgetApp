@@ -1,4 +1,4 @@
-function DetailsDiv({category, value}) {
+function DetailsDiv({ category, value }) {
   return (
     <div className="details-div">
       <p className="details-div__category">{category}</p>

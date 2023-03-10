@@ -20,6 +20,8 @@ describe("createSearch function helper", () => {
       endDate: 10,
       selectedCategory: ["przykład"],
     });
-    expect(result).toBe("?min=50&max=1000&od=500&do=10&delete_category=przykład");
+    expect(result).toBe(
+      "?min=50&max=1000&od=500&do=10&delete_category=przykład"
+    );
   });
 });

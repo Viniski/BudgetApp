@@ -8,12 +8,12 @@ function SelectAddTypePage() {
     <>
       <Header title="Dodaj transakcje" />
       <div className="select-container">
-      <Link to="/dodaj-dochód">
-        <button className="button-options">Dodaj dochód</button>
-      </Link>
-      <Link to="/dodaj-wydatek">
-        <button className="button-options">Dodaj wydatek</button>
-      </Link>
+        <Link to="/dodaj-dochód">
+          <button className="button-options">Dodaj dochód</button>
+        </Link>
+        <Link to="/dodaj-wydatek">
+          <button className="button-options">Dodaj wydatek</button>
+        </Link>
       </div>
     </>
   );

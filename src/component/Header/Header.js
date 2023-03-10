@@ -12,7 +12,7 @@ import ThemeButton from "../Buttons/ThemeButton";
 function Header({ title, page }) {
   const [isClicked, setIsClicked] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : ""; 
+  const themeDark = theme === "dark" ? true : "";
   const homeUrl = useSelector((state) => state.url.homeLink);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -31,8 +31,8 @@ function Header({ title, page }) {
       return homeUrl;
     } else if (title === "Nie znaleziono strony") {
       return homeUrl;
-    } else return -1    
-  }
+    } else return -1;
+  };
 
   return (
     <>

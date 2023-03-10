@@ -10,10 +10,7 @@ describe("SelectCategoryInput", () => {
   it("should render select category input element", () => {
     render(
       <Provider store={store}>
-        <SelectCategoryInput
-          type="all"
-          onChange={mockedOnChange}
-        />
+        <SelectCategoryInput type="all" onChange={mockedOnChange} />
       </Provider>
     );
     const selectInput = screen.getByTestId("select-category-input");
