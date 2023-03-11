@@ -8,7 +8,7 @@ import {
 import { TransactionCard } from "../TransactionCard/TransactionCard";
 import { FilterSection } from "../FilterSection/FilterSection";
 import { Pagination } from "../../component/Pagination/Pagination";
-import { useGetFilteredTransaction } from "../../hooks/useGetFilteredTransaction";
+import { getFilteredTransaction } from "../../helpers/getFilteredTransaction";
 import { useLocation } from "react-router-dom";
 import { createPaginationUrl } from "../../helpers/createPaginationUrl";
 
@@ -53,7 +53,7 @@ export function TransactionSection({ type, title }) {
 
   const stateTransaction = getTransactions();
 
-  const transactions = useGetFilteredTransaction(
+  const transactions = getFilteredTransaction(
     stateTransaction,
     getParamsToFilterFromURL()
   );

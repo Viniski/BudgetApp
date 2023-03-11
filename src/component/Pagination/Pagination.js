@@ -1,10 +1,6 @@
 export function Pagination({ cardNumber, paginate, perPage, isDarkTheme }) {
   const paginationPages = Math.ceil(cardNumber / perPage);
-  const arrayPagination = [];
-
-  for (let i = 1; i <= paginationPages; i++) {
-    arrayPagination.push(i);
-  }
+  const arrayPagination = [...Array(paginationPages).keys()].map((i) => i + 1);
 
   return (
     <div className="transaction-section__pagination">

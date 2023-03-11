@@ -1,9 +1,9 @@
-export const useGetFilteredTransaction = (newTransactions, parameters) => {
-  const minAmount = parameters.minAmount;
-  const maxAmount = parameters.maxAmount;
-  const endDate = parameters.endDate;
-  const startDate = parameters.startDate;
-  const selectedCategory = parameters.selectedCategory;
+export const getFilteredTransaction = (newTransactions, parameters) => {
+  const { minAmount } = parameters;
+  const { maxAmount } = parameters;
+  const { endDate } = parameters;
+  const { startDate } = parameters;
+  const { selectedCategory } = parameters;
 
   if (minAmount) {
     newTransactions = newTransactions.filter(
@@ -32,7 +32,7 @@ export const useGetFilteredTransaction = (newTransactions, parameters) => {
   if (selectedCategory.length > 0) {
     for (let i = 0; i < selectedCategory.length; i++) {
       newTransactions = newTransactions.filter(
-        (element) => element.category !== selectedCategory[i]
+        (element, i) => element.category !== selectedCategory[i]
       );
     }
   }
