@@ -2,8 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export function Nav() {
-  const theme = useSelector((state) => state.theme.theme);
-  const isDarkTheme = theme === "dark";
+  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
   const incomeUrl = useSelector((state) => state.url.incomeLink);
   const excomeUrl = useSelector((state) => state.url.expenseLink);
 

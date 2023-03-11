@@ -17,8 +17,7 @@ export function TransactionSection({ type, title }) {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const theme = useSelector((state) => state.theme.theme);
-  const isDarkTheme = theme === "dark";
+  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
 
   const [searchParams] = useSearchParams();
 

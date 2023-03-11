@@ -11,8 +11,7 @@ import { NotFound } from "./pages/NotFound/NotFound";
 import "./styles/main.scss";
 
 export function App() {
-  const theme = useSelector((state) => state.theme.theme);
-  const isDarkTheme = theme === "dark";
+  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
 
   return (
     <body className={isDarkTheme && `body-dark`}>

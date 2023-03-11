@@ -11,8 +11,7 @@ import { ThemeButton } from "../Buttons/ThemeButton";
 
 export function Header({ title }) {
   const [isClicked, setIsClicked] = useState(false);
-  const theme = useSelector((state) => state.theme.theme);
-  const isDarkTheme = theme === "dark";
+  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
   const homeUrl = useSelector((state) => state.url.homeLink);
   const dispatch = useDispatch();
   const location = useLocation();

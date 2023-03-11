@@ -1,3 +1,3 @@
 export const initialState = {
-  theme: "light",
+  isDarkTheme: false,
 };
