@@ -1,49 +1,52 @@
-export function createSearch(objectParams) {
+export function createSearch({
+  page,
+  minAmount,
+  maxAmount,
+  startDate,
+  endDate,
+  selectedCategory,
+}) {
   let search = "";
-  if (objectParams.page) {
+  if (page) {
     if (search) {
-      search += `&strona=${objectParams.page}`;
+      search += `&strona=${page}`;
     } else {
-      search += `?strona=${objectParams.page}`;
+      search += `?strona=${page}`;
     }
   }
-  if (objectParams.minAmount) {
+  if (minAmount) {
     if (search) {
-      search += `&min=${objectParams.minAmount}`;
+      search += `&min=${minAmount}`;
     } else {
-      search += `?min=${objectParams.minAmount}`;
+      search += `?min=${minAmount}`;
     }
   }
-  if (objectParams.maxAmount) {
+  if (maxAmount) {
     if (search) {
-      search += `&max=${objectParams.maxAmount}`;
+      search += `&max=${maxAmount}`;
     } else {
-      search += `?max=${objectParams.maxAmount}`;
+      search += `?max=${maxAmount}`;
     }
   }
-  if (objectParams.startDate) {
+  if (startDate) {
     if (search) {
-      search += `&od=${objectParams.startDate}`;
+      search += `&od=${startDate}`;
     } else {
-      search += `?od=${objectParams.startDate}`;
+      search += `?od=${startDate}`;
     }
   }
-  if (objectParams.endDate) {
+  if (endDate) {
     if (search) {
-      search += `&do=${objectParams.endDate}`;
+      search += `&do=${endDate}`;
     } else {
-      search += `?do=${objectParams.endDate}`;
+      search += `?do=${endDate}`;
     }
   }
-  if (objectParams.selectedCategory.length > 0) {
+  if (selectedCategory.length > 0) {
     if (search) {
-      search += `&delete_category=${objectParams.selectedCategory.map(
-        (el) => el
-      )}`;
+      search += `&delete_category=${selectedCategory.map((el) => el)}`;
     } else {
-      search += `?delete_category=${objectParams.selectedCategory.map(
-        (el) => el
-      )}`;
+      search += `?delete_category=${selectedCategory.map((el) => el)}`;
     }
   }
   return search;
