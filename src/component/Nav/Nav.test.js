@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
 import mockStore from "../../__mocks__/mockStore/store";
@@ -17,11 +18,11 @@ describe("Nav", () => {
     render(<MockApp />);
 
     const button = screen.getByTestId("open-menu-button");
-    fireEvent.click(button);
+    userEvent.click(button);
 
     act(() => {
       const navLink = screen.getByRole("link", { name: "Dochody" });
-      fireEvent.click(navLink);
+      userEvent.click(navLink);
     });
 
     const headerName = screen.getByRole("heading", { name: "Dochody" });
@@ -33,7 +34,7 @@ describe("Nav", () => {
 
     act(() => {
       const backButton = screen.getByTestId("undo-button");
-      fireEvent.click(backButton);
+      userEvent.click(backButton);
     });
 
     const headerName = screen.getByRole("heading", { name: "Strona główna" });
@@ -44,11 +45,11 @@ describe("Nav", () => {
     render(<MockApp />);
 
     const button = screen.getByTestId("open-menu-button");
-    fireEvent.click(button);
+    userEvent.click(button);
 
     act(() => {
       const navLink = screen.getByRole("link", { name: "Wydatki" });
-      fireEvent.click(navLink);
+      userEvent.click(navLink);
     });
 
     const headerName = screen.getByRole("heading", { name: "Wydatki" });

@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import { Header } from "./Header";
 import { Provider } from "react-redux";
@@ -34,7 +35,7 @@ describe("Header nav", () => {
   test("it nav is expands when the button is clicked on home page", () => {
     render(<MockHeader />);
     const button = screen.getByTestId("open-menu-button");
-    fireEvent.click(button);
+    userEvent.click(button);
     const navLink = screen.getByRole("link", { name: "Dochody" });
     expect(navLink).toBeVisible();
   });
@@ -42,9 +43,9 @@ describe("Header nav", () => {
   test("it nav is hides when the button is clicked twice on home page", () => {
     render(<MockHeader />);
     const openButton = screen.getByTestId("open-menu-button");
-    fireEvent.click(openButton);
+    userEvent.click(openButton);
     const closeButton = screen.getByTestId("close-menu-button");
-    fireEvent.click(closeButton);
+    userEvent.click(closeButton);
     const navLink = screen.queryByText("Dochody");
     expect(navLink).toBeNull();
   });

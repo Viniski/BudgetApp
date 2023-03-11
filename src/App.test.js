@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
 import mockStore from "./__mocks__/mockStore/store";
@@ -19,7 +20,7 @@ describe("App - theme light/dark", () => {
 
     act(() => {
       const button = screen.getByTestId("theme-button");
-      fireEvent.click(button);
+      userEvent.click(button);
     });
 
     const element = screen.getByTestId("filter-button");
@@ -31,7 +32,7 @@ describe("App - theme light/dark", () => {
 
     act(() => {
       const button = screen.getByTestId("theme-button");
-      fireEvent.click(button);
+      userEvent.click(button);
     });
 
     const element = screen.getByTestId("filter-button");
