@@ -4,7 +4,7 @@ import { remove } from "../../redux/transactionsSlice";
 import { DeleteButton } from "../Buttons/DeleteButton";
 import { EditButton } from "../Buttons/EditButton";
 
-export function TransactionCard({ data, themeDark }) {
+export function TransactionCard({ data, isDarkTheme }) {
   const dispatch = useDispatch();
 
   const handleDeleteTransaction = () => {
@@ -14,11 +14,13 @@ export function TransactionCard({ data, themeDark }) {
   return (
     <div
       className={`transaction-section__card ${
-        themeDark && `transaction-section__card--dark`
+        isDarkTheme && `transaction-section__card--dark`
       }`}
     >
       <Link to={`/transakcje/${data.id}`}>
-        <div className={`card__ammount ${themeDark && `card__ammount--dark`}`}>
+        <div
+          className={`card__ammount ${isDarkTheme && `card__ammount--dark`}`}
+        >
           <span className={data.type}>
             {data.type === "expense" ? `-${data.amount}` : `+${data.amount}`}
           </span>
@@ -26,7 +28,7 @@ export function TransactionCard({ data, themeDark }) {
       </Link>
       <Link to={`/transakcje/${data.id}`}>
         <div className="card__description">
-          <p className={`card__title ${themeDark && `card__title--dark`}`}>
+          <p className={`card__title ${isDarkTheme && `card__title--dark`}`}>
             {data.title}
           </p>
           <p className="card__category">{data.category}</p>
@@ -36,13 +38,13 @@ export function TransactionCard({ data, themeDark }) {
         <DeleteButton
           onClick={handleDeleteTransaction}
           className={`card__button-trash ${
-            themeDark && `card__button-trash--dark`
+            isDarkTheme && `card__button-trash--dark`
           }`}
         />
         <Link to={`/edytuj-transakcje/${data.id}`}>
           <EditButton
             className={`card__button-edit ${
-              themeDark && `card__button-edit--dark`
+              isDarkTheme && `card__button-edit--dark`
             }`}
           />
         </Link>

@@ -9,10 +9,10 @@ import { OpenMenuButton } from "../Buttons/OpenMenuButton";
 import { CloseMenuButton } from "../Buttons/CloseMenuButton";
 import { ThemeButton } from "../Buttons/ThemeButton";
 
-export function Header({ title, page }) {
+export function Header({ title }) {
   const [isClicked, setIsClicked] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : "";
+  const isDarkTheme = theme === "dark";
   const homeUrl = useSelector((state) => state.url.homeLink);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -36,15 +36,15 @@ export function Header({ title, page }) {
 
   return (
     <>
-      <header className={`header ${themeDark && `header--dark`}`}>
-        {page === "home" ? (
+      <header className={`header ${isDarkTheme && `header--dark`}`}>
+        {location.pathname === "/" ? (
           <>
             <OpenMenuButton
               className={
                 isClicked
                   ? `header__button-menu--disactive`
                   : `header__button-menu ${
-                      themeDark && `header__button-menu--dark`
+                      isDarkTheme && `header__button-menu--dark`
                     }`
               }
               onClick={handleMenuClick}
@@ -53,7 +53,7 @@ export function Header({ title, page }) {
               className={
                 isClicked
                   ? `header__button-menu ${
-                      themeDark && `header__button-menu--dark`
+                      isDarkTheme && `header__button-menu--dark`
                     }`
                   : `header__button-menu--disactive`
               }
@@ -64,7 +64,7 @@ export function Header({ title, page }) {
           <UndoButton
             onClick={() => navigate(getUndoPage())}
             className={`header__button-back ${
-              themeDark && `header__button-back--dark`
+              isDarkTheme && `header__button-back--dark`
             }`}
           />
         )}
@@ -72,7 +72,7 @@ export function Header({ title, page }) {
         <ThemeButton
           onClick={handleThemeClick}
           className={`header__button-theme ${
-            themeDark && `header__button-theme--dark`
+            isDarkTheme && `header__button-theme--dark`
           }`}
         />
       </header>

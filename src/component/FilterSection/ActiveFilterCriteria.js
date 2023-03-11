@@ -1,11 +1,16 @@
 import { CloseFilterButton } from "../Buttons/CloseFilterButton";
 
-export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
-  const maxAmount = criteria.maxAmount;
-  const minAmount = criteria.minAmount;
-  const endDate = criteria.endDate;
-  const startDate = criteria.startDate;
-  const selectedCategory = criteria.selectedCategory;
+export function ActiveFilterCriteria({
+  criteria,
+  onFilter,
+  type,
+  isDarkTheme,
+}) {
+  const { maxAmount } = criteria;
+  const { minAmount } = criteria;
+  const { endDate } = criteria;
+  const { startDate } = criteria;
+  const { selectedCategory } = criteria;
 
   const isCategoryButtonIsActive = () => {
     return selectedCategory.length ? true : false;
@@ -28,7 +33,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
         <div className="transaction-section__active-criteria">
           <p
             className={`transaction-section__active-criteria-paragraph ${
-              themeDark &&
+              isDarkTheme &&
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
@@ -36,7 +41,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
-              themeDark && `transaction-section__button-delete-criteria--dark`
+              isDarkTheme && `transaction-section__button-delete-criteria--dark`
             }`}
             onClick={() => handleDeleteFilterCriteriaButton("minAmount")}
           />
@@ -47,7 +52,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
         <div className="transaction-section__active-criteria">
           <p
             className={`transaction-section__active-criteria-paragraph ${
-              themeDark &&
+              isDarkTheme &&
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
@@ -55,7 +60,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
-              themeDark && `transaction-section__button-delete-criteria--dark`
+              isDarkTheme && `transaction-section__button-delete-criteria--dark`
             }`}
             onClick={() => handleDeleteFilterCriteriaButton("maxAmount")}
           />
@@ -66,7 +71,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
         <div className="transaction-section__active-criteria">
           <p
             className={`transaction-section__active-criteria-paragraph ${
-              themeDark &&
+              isDarkTheme &&
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
@@ -74,7 +79,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
-              themeDark && `transaction-section__button-delete-criteria--dark`
+              isDarkTheme && `transaction-section__button-delete-criteria--dark`
             }`}
             onClick={() => handleDeleteFilterCriteriaButton("startDate")}
           />
@@ -85,7 +90,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
         <div className="transaction-section__active-criteria">
           <p
             className={`transaction-section__active-criteria-paragraph ${
-              themeDark &&
+              isDarkTheme &&
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
@@ -93,7 +98,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
-              themeDark && `transaction-section__button-delete-criteria--dark`
+              isDarkTheme && `transaction-section__button-delete-criteria--dark`
             }`}
             onClick={() => handleDeleteFilterCriteriaButton("endDate")}
           />
@@ -104,7 +109,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
         <div className="transaction-section__active-criteria">
           <p
             className={`transaction-section__active-criteria-paragraph ${
-              themeDark &&
+              isDarkTheme &&
               `transaction-section__active-criteria-paragraph--dark`
             }`}
           >
@@ -112,7 +117,7 @@ export function ActiveFilterCriteria({ criteria, onFilter, type, themeDark }) {
           </p>
           <CloseFilterButton
             className={`transaction-section__button-delete-criteria ${
-              themeDark && `transaction-section__button-delete-criteria--dark`
+              isDarkTheme && `transaction-section__button-delete-criteria--dark`
             }`}
             onClick={() => handleDeleteFilterCriteriaButton("selectedCategory")}
           />

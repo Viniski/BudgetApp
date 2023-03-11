@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 export function IncomeCard(props) {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : "";
+  const isDarkTheme = theme === "dark";
   const transactions = useSelector((state) => state.transactions);
 
   const calculateIncomeTransaction = () => {
@@ -19,7 +19,7 @@ export function IncomeCard(props) {
   return (
     <div
       className={`cards__income ${props?.className} ${
-        themeDark && `cards__income--dark`
+        isDarkTheme && `cards__income--dark`
       }`}
     >
       <div className="cards__income-icon">

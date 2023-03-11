@@ -12,10 +12,10 @@ import "./styles/main.scss";
 
 export function App() {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : "";
+  const isDarkTheme = theme === "dark";
 
   return (
-    <body className={themeDark && `body-dark`}>
+    <body className={isDarkTheme && `body-dark`}>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />

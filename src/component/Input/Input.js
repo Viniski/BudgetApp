@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 export const Input = (props) => {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : "";
+  const isDarkTheme = theme === "dark";
 
   return (
     <input
@@ -12,7 +12,7 @@ export const Input = (props) => {
       max={props?.max}
       onChange={(e) => props.onChange(e.target.value)}
       className={`inputs-${props.className}__input ${
-        themeDark && `inputs-${props.className}__input--dark`
+        isDarkTheme && `inputs-${props.className}__input--dark`
       }`}
     />
   );

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { Header } from "../../component/Header/Header";
-import { DetailsDiv } from "../../component/DetailsDiv/DetailsDiv";
+import { CategoryDetails } from "../../component/CategoryDetails/CategoryDetails";
 
 export function DetailsPage() {
   useWebsiteTitle("Szczegóły transakcji | BudgetApp by Viniski");
@@ -28,15 +28,18 @@ export function DetailsPage() {
     <>
       <Header title="Szczegóły transakcji" />
       <section className="details-section">
-        <DetailsDiv category="Tytuł" value={tranasaction.title} />
-        <DetailsDiv category="Wartość" value={`${tranasaction.amount} PLN`} />
-        <DetailsDiv
+        <CategoryDetails category="Tytuł" value={tranasaction.title} />
+        <CategoryDetails
+          category="Wartość"
+          value={`${tranasaction.amount} PLN`}
+        />
+        <CategoryDetails
           category="Typ"
           value={tranasaction.type === "income" ? "Przychód" : "Wydatek"}
         />
-        <DetailsDiv category="Kategoria" value={tranasaction.category} />
-        <DetailsDiv category="Data" value={tranasaction.date} />
-        <DetailsDiv category="Notatki" value={tranasaction.note} />
+        <CategoryDetails category="Kategoria" value={tranasaction.category} />
+        <CategoryDetails category="Data" value={tranasaction.date} />
+        <CategoryDetails category="Notatki" value={tranasaction.note} />
       </section>
       <section className="button-details">
         <button onClick={handleDeleteTransaction}>

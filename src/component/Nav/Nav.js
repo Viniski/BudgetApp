@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 export function Nav() {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : "";
+  const isDarkTheme = theme === "dark";
   const incomeUrl = useSelector((state) => state.url.incomeLink);
   const excomeUrl = useSelector((state) => state.url.expenseLink);
 
@@ -13,7 +13,7 @@ export function Nav() {
         <NavLink to={incomeUrl}>
           <li
             className={`navigation__item ${
-              themeDark && `navigation__item--dark`
+              isDarkTheme && `navigation__item--dark`
             }`}
           >
             Dochody
@@ -22,7 +22,7 @@ export function Nav() {
         <NavLink to={excomeUrl}>
           <li
             className={`navigation__item ${
-              themeDark && `navigation__item--dark`
+              isDarkTheme && `navigation__item--dark`
             }`}
           >
             Wydatki
@@ -31,7 +31,7 @@ export function Nav() {
         <NavLink to="/dodaj-transakcje">
           <li
             className={`navigation__item ${
-              themeDark && `navigation__item--dark`
+              isDarkTheme && `navigation__item--dark`
             }`}
           >
             Dodaj transakcje

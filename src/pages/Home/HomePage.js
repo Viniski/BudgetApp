@@ -12,7 +12,7 @@ export function HomePage() {
 
   return (
     <>
-      <Header page="home" title="Strona główna" />
+      <Header title="Strona główna" />
       <section className="cards">
         <TotalCard />
         <ExpenseCard />

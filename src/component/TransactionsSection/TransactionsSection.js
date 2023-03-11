@@ -18,7 +18,7 @@ export function TransactionSection({ type, title }) {
   const dispatch = useDispatch();
 
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : "";
+  const isDarkTheme = theme === "dark";
 
   const [searchParams] = useSearchParams();
 
@@ -86,20 +86,20 @@ export function TransactionSection({ type, title }) {
       <FilterSection
         type={type}
         title={title}
-        themeDark={themeDark}
+        isDarkTheme={isDarkTheme}
         criteria={getParamsToFilterFromURL()}
       />
       {transactionOnPage.map((transaction) => (
         <TransactionCard
           key={transaction.id}
           data={transaction}
-          themeDark={themeDark}
+          isDarkTheme={isDarkTheme}
         />
       ))}
       {!transactions.length && (
         <p
           className={`transaction-section__paragraph ${
-            themeDark && `transaction-section__paragraph--dark`
+            isDarkTheme && `transaction-section__paragraph--dark`
           }`}
         >
           Brak transakcji
@@ -109,7 +109,7 @@ export function TransactionSection({ type, title }) {
         cardNumber={transactions.length}
         perPage={perPage}
         paginate={paginate}
-        themeDark={themeDark}
+        isDarkTheme={isDarkTheme}
       />
     </section>
   );

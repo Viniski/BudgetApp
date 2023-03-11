@@ -2,14 +2,14 @@ import { useSelector } from "react-redux";
 
 export const SelectTypeInput = (onChange, value) => {
   const theme = useSelector((state) => state.theme.theme);
-  const themeDark = theme === "dark" ? true : "";
+  const isDarkTheme = theme === "dark";
 
   return (
     <select
       onChange={(e) => onChange(e.target.value)}
       defaultValue={value || ""}
       className={`inputs-section__input ${
-        themeDark && `inputs-section__input--dark`
+        isDarkTheme && `inputs-section__input--dark`
       }`}
       data-testid="select-type-input"
     >

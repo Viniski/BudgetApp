@@ -15,7 +15,7 @@ import { createFilterUrl } from "../../helpers/createFilterUrl";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-export function FilterSection({ type, title, criteria, themeDark }) {
+export function FilterSection({ type, title, criteria, isDarkTheme }) {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -26,19 +26,22 @@ export function FilterSection({ type, title, criteria, themeDark }) {
   const [endDate, setEndDate] = useState("");
 
   const getSelectedCategory = () => {
-    return location.pathname === "/"
-      ? [
-          "Dochód stały",
-          "Dochód dodatkowy",
-          "Koszty stałe",
-          "Jedzenie",
-          "Transport",
-          "Rozrywka",
-          "Inne",
-        ]
-      : location.pathname === "/wydatki"
-      ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
-      : ["Dochód stały", "Dochód dodatkowy", "Inne"];
+    if (location.pathname === "/") {
+      return [
+        "Dochód stały",
+        "Dochód dodatkowy",
+        "Koszty stałe",
+        "Jedzenie",
+        "Transport",
+        "Rozrywka",
+        "Inne",
+      ];
+    }
+    if (location.pathname === "/wydatki") {
+      return ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"];
+    }
+
+    return ["Dochód stały", "Dochód dodatkowy", "Inne"];
   };
 
   const [selectedCategory, setSelectedCategory] = useState(
@@ -221,7 +224,7 @@ export function FilterSection({ type, title, criteria, themeDark }) {
             filterSectionState.isFormActive
               ? `transaction-section__button-filter--disactive`
               : `transaction-section__button-filter ${
-                  themeDark && `transaction-section__button-filter--dark`
+                  isDarkTheme && `transaction-section__button-filter--dark`
                 }`
           }
         />
@@ -230,7 +233,7 @@ export function FilterSection({ type, title, criteria, themeDark }) {
           className={
             filterSectionState.isFormActive
               ? `transaction-section__button-filter ${
-                  themeDark && `transaction-section__button-filter--dark`
+                  isDarkTheme && `transaction-section__button-filter--dark`
                 }`
               : `transaction-section__button-filter--disactive`
           }
@@ -242,14 +245,14 @@ export function FilterSection({ type, title, criteria, themeDark }) {
             type="number"
             placeholder="Kwota minimalna"
             value={minAmount}
-            onChange={(value) => setMinAmount(value)}
+            onChange={setMinAmount}
             className="filter"
           />
           <Input
             type="number"
             placeholder="Kwota maksymalna"
             value={maxAmount}
-            onChange={(value) => setMaxAmount(value)}
+            onChange={setMaxAmount}
             className="filter"
           />
           <label className="inputs-filter__labelDate">Okres od:</label>
@@ -257,7 +260,7 @@ export function FilterSection({ type, title, criteria, themeDark }) {
             type="date"
             max={today}
             value={startDate}
-            onChange={(value) => setStartDate(value)}
+            onChange={setStartDate}
             className="filter"
           />
           <label className="inputs-filter__labelDate">Okres do:</label>
@@ -265,7 +268,7 @@ export function FilterSection({ type, title, criteria, themeDark }) {
             type="date"
             max={today}
             value={endDate}
-            onChange={(value) => setEndDate(value)}
+            onChange={setEndDate}
             className="filter"
           />
           <CheckboxCategoryInput
@@ -284,7 +287,7 @@ export function FilterSection({ type, title, criteria, themeDark }) {
         type={type}
         criteria={criteria}
         onFilter={deleteFilterCriteria}
-        themeDark={themeDark}
+        isDarkTheme={isDarkTheme}
       />
     </>
   );
