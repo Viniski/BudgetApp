@@ -9,11 +9,11 @@ export function IncomePage() {
   useWebsiteTitle("Dochody | BudgetApp by Viniski");
   return (
     <>
-      <Header title="Dochody" />
+      <Header title="Przychody" />
       <section className="cards">
         <IncomeCard className="cards__income--main-card" />
       </section>
-      <TransactionSection type="income" title="dochody" />
+      <TransactionSection type="income" title="wpływy" />
       <Link to="/dodaj-dochód">
         <AddButton />
       </Link>

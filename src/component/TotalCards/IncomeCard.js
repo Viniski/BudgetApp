@@ -29,7 +29,7 @@ export function IncomeCard(props) {
           />
         </svg>
       </div>
-      <h2>Bilans dochodów</h2>
+      <h2>Bilans przychodów</h2>
       <p>{calculateIncomeTransaction()} PLN</p>
     </div>
   );

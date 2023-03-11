@@ -15,7 +15,7 @@ export function Nav() {
               isDarkTheme && `navigation__item--dark`
             }`}
           >
-            Dochody
+            Przychody
           </li>
         </NavLink>
         <NavLink to={excomeUrl}>

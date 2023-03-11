@@ -175,37 +175,9 @@ export function FilterSection({ type, title, criteria, isDarkTheme }) {
           maxAmount,
           startDate,
           endDate,
-          selectedCategory: getCategoryToDelete(
-            location.pathname === "/"
-              ? [
-                  "Dochód stały",
-                  "Dochód dodatkowy",
-                  "Koszty stałe",
-                  "Jedzenie",
-                  "Transport",
-                  "Rozrywka",
-                  "Inne",
-                ]
-              : location.pathname === "/wydatki"
-              ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
-              : ["Dochód stały", "Dochód dodatkowy", "Inne"]
-          ),
+          selectedCategory: getCategoryToDelete(getSelectedCategory()),
         });
-        setSelectedCategory(
-          location.pathname === "/"
-            ? [
-                "Dochód stały",
-                "Dochód dodatkowy",
-                "Koszty stałe",
-                "Jedzenie",
-                "Transport",
-                "Rozrywka",
-                "Inne",
-              ]
-            : location.pathname === "/wydatki"
-            ? ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"]
-            : ["Dochód stały", "Dochód dodatkowy", "Inne"]
-        );
+        setSelectedCategory(getSelectedCategory());
         break;
       default:
         break;

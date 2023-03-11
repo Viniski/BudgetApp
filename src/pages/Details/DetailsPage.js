@@ -14,7 +14,6 @@ export function DetailsPage() {
         (transaction) => transaction.id === Number(id)
       )[0]
   );
-  console.log(tranasaction);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
