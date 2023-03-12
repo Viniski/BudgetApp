@@ -8,6 +8,7 @@ import { AddPage } from "./pages/Add/AddPage";
 import { DetailsPage } from "./pages/Details/DetailsPage";
 import { EditPage } from "./pages/Edit/EditPage";
 import { NotFound } from "./pages/NotFound/NotFound";
+import { ErrorBoundary } from "./hoc/ErrorBoundary";
 import "./styles/main.scss";
 
 export function App() {
@@ -15,25 +16,27 @@ export function App() {
 
   return (
     <body className={isDarkTheme && `body-dark`}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/dochody" element={<IncomePage />} />
-          <Route path="/wydatki" element={<ExpensePage />} />
-          <Route path="/transakcje/:id" element={<DetailsPage />} />
-          <Route path="/dodaj-transakcje" element={<SelectAddTypePage />} />
-          <Route
-            path="/dodaj-dochód"
-            element={<AddPage type="income" name="dochód" />}
-          />
-          <Route
-            path="/dodaj-wydatek"
-            element={<AddPage type="expense" name="wydatek" />}
-          />
-          <Route path="/edytuj-transakcje/:id" element={<EditPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
+      <ErrorBoundary>
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/dochody" element={<IncomePage />} />
+            <Route path="/wydatki" element={<ExpensePage />} />
+            <Route path="/transakcje/:id" element={<DetailsPage />} />
+            <Route path="/dodaj-transakcje" element={<SelectAddTypePage />} />
+            <Route
+              path="/dodaj-dochód"
+              element={<AddPage type="income" name="dochód" />}
+            />
+            <Route
+              path="/dodaj-wydatek"
+              element={<AddPage type="expense" name="wydatek" />}
+            />
+            <Route path="/edytuj-transakcje/:id" element={<EditPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+      </ErrorBoundary>
     </body>
   );
 }
