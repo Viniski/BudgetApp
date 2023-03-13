@@ -38,42 +38,26 @@ export function Header({ title }) {
       <header className={`header ${isDarkTheme && `header--dark`}`}>
         {location.pathname === "/" ? (
           <>
-            <OpenMenuButton
-              className={
-                isClicked
-                  ? `header__button-menu--disactive`
-                  : `header__button-menu ${
-                      isDarkTheme && `header__button-menu--dark`
-                    }`
-              }
-              onClick={handleMenuClick}
-            />
-            <CloseMenuButton
-              className={
-                isClicked
-                  ? `header__button-menu ${
-                      isDarkTheme && `header__button-menu--dark`
-                    }`
-                  : `header__button-menu--disactive`
-              }
-              onClick={handleMenuClick}
-            />
+            {isClicked ? (
+              <CloseMenuButton
+                onClick={handleMenuClick}
+                isDarkTheme={isDarkTheme}
+              />
+            ) : (
+              <OpenMenuButton
+                onClick={handleMenuClick}
+                isDarkTheme={isDarkTheme}
+              />
+            )}
           </>
         ) : (
           <UndoButton
             onClick={() => navigate(getUndoPage())}
-            className={`header__button-back ${
-              isDarkTheme && `header__button-back--dark`
-            }`}
+            isDarkTheme={isDarkTheme}
           />
         )}
         <h1>{title}</h1>
-        <ThemeButton
-          onClick={handleThemeClick}
-          className={`header__button-theme ${
-            isDarkTheme && `header__button-theme--dark`
-          }`}
-        />
+        <ThemeButton onClick={handleThemeClick} isDarkTheme={isDarkTheme} />
       </header>
       {isClicked && <HeaderNav />}
     </>

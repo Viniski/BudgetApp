@@ -1,8 +1,10 @@
-export const OpenMenuButton = ({ onClick, className }) => {
+export const OpenMenuButton = ({ onClick, isDarkTheme }) => {
   return (
     <button
       onClick={onClick}
-      className={className}
+      className={`header__button-menu ${
+        isDarkTheme && `header__button-menu--dark`
+      }`}
       data-testid="open-menu-button"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">

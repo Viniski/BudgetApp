@@ -1,9 +1,9 @@
-export const CloseFilterButton = ({ onClick, isDarkTheme }) => {
+export const DeleteActiveCriteriaButton = ({ onClick, isDarkTheme }) => {
   return (
     <button
       onClick={onClick}
-      className={`transaction-section__button-filter ${
-        isDarkTheme && `transaction-section__button-filter--dark`
+      className={`transaction-section__button-delete-criteria ${
+        isDarkTheme && `transaction-section__button-delete-criteria--dark`
       }`}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">

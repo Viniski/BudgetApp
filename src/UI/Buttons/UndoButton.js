@@ -1,6 +1,12 @@
-export const UndoButton = ({ onClick, className }) => {
+export const UndoButton = ({ onClick, isDarkTheme }) => {
   return (
-    <button onClick={onClick} className={className} data-testid="undo-button">
+    <button
+      onClick={onClick}
+      className={`header__button-back ${
+        isDarkTheme && `header__button-back--dark`
+      }`}
+      data-testid="undo-button"
+    >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
         <path
           fillRule="evenodd"

@@ -1,4 +1,4 @@
-import { CloseFilterButton } from "../../UI/Buttons/CloseFilterButton";
+import { DeleteActiveCriteriaButton } from "../../UI/Buttons/DeleteActiveCriteriaButton";
 
 export function ActiveFilterCriteria({
   criteria,
@@ -39,11 +39,9 @@ export function ActiveFilterCriteria({
           >
             Kwota minimalna: {minAmount} PLN
           </p>
-          <CloseFilterButton
-            className={`transaction-section__button-delete-criteria ${
-              isDarkTheme && `transaction-section__button-delete-criteria--dark`
-            }`}
+          <DeleteActiveCriteriaButton
             onClick={() => handleDeleteFilterCriteriaButton("minAmount")}
+            isDarkTheme={isDarkTheme}
           />
         </div>
       )}
@@ -58,11 +56,9 @@ export function ActiveFilterCriteria({
           >
             Kwota maksymalna: {maxAmount} PLN
           </p>
-          <CloseFilterButton
-            className={`transaction-section__button-delete-criteria ${
-              isDarkTheme && `transaction-section__button-delete-criteria--dark`
-            }`}
+          <DeleteActiveCriteriaButton
             onClick={() => handleDeleteFilterCriteriaButton("maxAmount")}
+            isDarkTheme={isDarkTheme}
           />
         </div>
       )}
@@ -77,11 +73,9 @@ export function ActiveFilterCriteria({
           >
             Okres od: {startDate}
           </p>
-          <CloseFilterButton
-            className={`transaction-section__button-delete-criteria ${
-              isDarkTheme && `transaction-section__button-delete-criteria--dark`
-            }`}
+          <DeleteActiveCriteriaButton
             onClick={() => handleDeleteFilterCriteriaButton("startDate")}
+            isDarkTheme={isDarkTheme}
           />
         </div>
       )}
@@ -96,11 +90,9 @@ export function ActiveFilterCriteria({
           >
             Okres do: {endDate}
           </p>
-          <CloseFilterButton
-            className={`transaction-section__button-delete-criteria ${
-              isDarkTheme && `transaction-section__button-delete-criteria--dark`
-            }`}
+          <DeleteActiveCriteriaButton
             onClick={() => handleDeleteFilterCriteriaButton("endDate")}
+            isDarkTheme={isDarkTheme}
           />
         </div>
       )}
@@ -115,11 +107,9 @@ export function ActiveFilterCriteria({
           >
             Liczba kategorii: {categoryNumber}
           </p>
-          <CloseFilterButton
-            className={`transaction-section__button-delete-criteria ${
-              isDarkTheme && `transaction-section__button-delete-criteria--dark`
-            }`}
+          <DeleteActiveCriteriaButton
             onClick={() => handleDeleteFilterCriteriaButton("selectedCategory")}
+            isDarkTheme={isDarkTheme}
           />
         </div>
       )}

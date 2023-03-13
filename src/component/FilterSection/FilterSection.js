@@ -190,26 +190,17 @@ export function FilterSection({ type, title, criteria, isDarkTheme }) {
         <h3>{`Twoje transakcje`}</h3>
       </div>
       <div className="transaction-section__filterButton">
-        <FilterButton
-          onClick={toogleFilterButton}
-          className={
-            filterSectionState.isFormActive
-              ? `transaction-section__button-filter--disactive`
-              : `transaction-section__button-filter ${
-                  isDarkTheme && `transaction-section__button-filter--dark`
-                }`
-          }
-        />
-        <CloseFilterButton
-          onClick={toogleFilterButton}
-          className={
-            filterSectionState.isFormActive
-              ? `transaction-section__button-filter ${
-                  isDarkTheme && `transaction-section__button-filter--dark`
-                }`
-              : `transaction-section__button-filter--disactive`
-          }
-        />
+        {filterSectionState.isFormActive ? (
+          <CloseFilterButton
+            onClick={toogleFilterButton}
+            isDarkTheme={isDarkTheme}
+          />
+        ) : (
+          <FilterButton
+            onClick={toogleFilterButton}
+            isDarkTheme={isDarkTheme}
+          />
+        )}
       </div>
       {filterSectionState.isFormActive && (
         <section className="inputs-filter">
@@ -218,14 +209,14 @@ export function FilterSection({ type, title, criteria, isDarkTheme }) {
             placeholder="Kwota minimalna"
             value={minAmount}
             onChange={setMinAmount}
-            className="filter"
+            variant="filter"
           />
           <Input
             type="number"
             placeholder="Kwota maksymalna"
             value={maxAmount}
             onChange={setMaxAmount}
-            className="filter"
+            variant="filter"
           />
           <label className="inputs-filter__labelDate">Okres od:</label>
           <Input
@@ -233,7 +224,7 @@ export function FilterSection({ type, title, criteria, isDarkTheme }) {
             max={today}
             value={startDate}
             onChange={setStartDate}
-            className="filter"
+            variant="filter"
           />
           <label className="inputs-filter__labelDate">Okres do:</label>
           <Input
@@ -241,13 +232,13 @@ export function FilterSection({ type, title, criteria, isDarkTheme }) {
             max={today}
             value={endDate}
             onChange={setEndDate}
-            className="filter"
+            variant="filter"
           />
           <CheckboxCategoryInput
             value={selectedCategory}
             onChange={changeCheckboxInput}
             type={type}
-            className="inputs-filter__label"
+            variant="inputs-filter__label"
           />
           <button
             onClick={() => handleFilterButton(objectToFilter)}

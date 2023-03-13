@@ -1,9 +1,9 @@
-export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
+export const CheckboxCategoryInput = ({ type, value, onChange, variant }) => {
   return (
     <>
       {type === "all" ? (
         <>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -14,7 +14,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Dochód stały
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -25,7 +25,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Dochód dodatkowy
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -36,7 +36,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Koszty stałe
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -47,7 +47,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Jedzenie
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -58,7 +58,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Transport
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -69,7 +69,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Rozrywka
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -83,7 +83,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
         </>
       ) : type === "expense" ? (
         <>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -94,7 +94,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Koszty stałe
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -105,7 +105,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Jedzenie
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -116,7 +116,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Transport
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -127,7 +127,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Rozrywka
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -141,7 +141,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
         </>
       ) : (
         <>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -152,7 +152,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Dochód stały
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -163,7 +163,7 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
               Dochód dodatkowy
             </label>
           </div>
-          <div className={className}>
+          <div className={variant}>
             <label>
               <input
                 type="checkbox"
@@ -181,5 +181,5 @@ export const CheckboxCategoryInput = ({ type, value, onChange, className }) => {
 };
 
 CheckboxCategoryInput.defaultProps = {
-  className: "section",
+  variant: "section",
 };

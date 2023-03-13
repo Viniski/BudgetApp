@@ -38,16 +38,10 @@ export function TransactionCard({ data, isDarkTheme }) {
       <div className="card__buttons">
         <DeleteButton
           onClick={handleDeleteTransaction}
-          className={`card__button-trash ${
-            isDarkTheme && `card__button-trash--dark`
-          }`}
+          isDarkTheme={isDarkTheme}
         />
         <EditTransactionLink id={data.id}>
-          <EditButton
-            className={`card__button-edit ${
-              isDarkTheme && `card__button-edit--dark`
-            }`}
-          />
+          <EditButton isDarkTheme={isDarkTheme} />
         </EditTransactionLink>
       </div>
     </div>
