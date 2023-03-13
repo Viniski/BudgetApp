@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { remove } from "../../redux/transactionsSlice";
 import { DeleteButton } from "../../UI/Buttons/DeleteButton";
 import { EditButton } from "../../UI/Buttons/EditButton";
+import { DetailsTransactionLink } from "../../navigation/components/DetailsTransactionLink/DetailsTransactionLink";
+import { EditTransactionLink } from "../../navigation/components/EditTransactionLink/EditTransactionLink";
 
 export function TransactionCard({ data, isDarkTheme }) {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export function TransactionCard({ data, isDarkTheme }) {
         isDarkTheme && `transaction-section__card--dark`
       }`}
     >
-      <Link to={`/transakcje/${data.id}`}>
+      <DetailsTransactionLink id={data.id}>
         <div
           className={`card__ammount ${isDarkTheme && `card__ammount--dark`}`}
         >
@@ -25,15 +26,15 @@ export function TransactionCard({ data, isDarkTheme }) {
             {data.type === "expense" ? `-${data.amount}` : `+${data.amount}`}
           </span>
         </div>
-      </Link>
-      <Link to={`/transakcje/${data.id}`}>
+      </DetailsTransactionLink>
+      <DetailsTransactionLink id={data.id}>
         <div className="card__description">
           <p className={`card__title ${isDarkTheme && `card__title--dark`}`}>
             {data.title}
           </p>
           <p className="card__category">{data.category}</p>
         </div>
-      </Link>
+      </DetailsTransactionLink>
       <div className="card__buttons">
         <DeleteButton
           onClick={handleDeleteTransaction}
@@ -41,13 +42,13 @@ export function TransactionCard({ data, isDarkTheme }) {
             isDarkTheme && `card__button-trash--dark`
           }`}
         />
-        <Link to={`/edytuj-transakcje/${data.id}`}>
+        <EditTransactionLink id={data.id}>
           <EditButton
             className={`card__button-edit ${
               isDarkTheme && `card__button-edit--dark`
             }`}
           />
-        </Link>
+        </EditTransactionLink>
       </div>
     </div>
   );

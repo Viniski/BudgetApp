@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { Header } from "../../component/Header/Header";
 import { IncomeCard } from "../../component/TotalCards/IncomeCard";
 import { AddButton } from "../../UI/Buttons/AddButton";
 import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
+import { AddTransactionLink } from "../../navigation/components/AddTransactionLink/AddTransactionLink";
 
 export function IncomePage() {
   useWebsiteTitle("Dochody | BudgetApp by Viniski");
@@ -15,9 +15,9 @@ export function IncomePage() {
         <IncomeCard className="cards__income--main-card" />
       </section>
       <TransactionSection type="income" title="wpływy" />
-      <Link to="/dodaj-dochód">
+      <AddTransactionLink>
         <AddButton />
-      </Link>
+      </AddTransactionLink>
     </>
   );
 }

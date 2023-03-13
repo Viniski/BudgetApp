@@ -4,6 +4,7 @@ import { Header } from "../../component/Header/Header";
 import { ExpenseCard } from "../../component/TotalCards/ExpenseCard";
 import { AddButton } from "../../UI/Buttons/AddButton";
 import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
+import { AddTransactionLink } from "../../navigation/components/AddTransactionLink/AddTransactionLink";
 
 export function ExpensePage() {
   useWebsiteTitle("Wydatki | BudgetApp by Viniski");
@@ -15,9 +16,9 @@ export function ExpensePage() {
         <ExpenseCard className="cards__expense--main-card" />
       </section>
       <TransactionSection type="expense" title="wydatki" />
-      <Link to="/dodaj-wydatek">
+      <AddTransactionLink>
         <AddButton />
-      </Link>
+      </AddTransactionLink>
     </>
   );
 }
