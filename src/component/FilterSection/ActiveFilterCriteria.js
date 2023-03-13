@@ -1,4 +1,4 @@
-import { CloseFilterButton } from "../Buttons/CloseFilterButton";
+import { CloseFilterButton } from "../../UI/Buttons/CloseFilterButton";
 
 export function ActiveFilterCriteria({
   criteria,

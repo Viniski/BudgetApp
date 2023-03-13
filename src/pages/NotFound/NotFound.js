@@ -7,6 +7,7 @@ export function NotFound() {
   const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
 
   useWebsiteTitle("Błąd | BudgetApp by Viniski");
+
   return (
     <>
       <Header title="Nie znaleziono strony" />

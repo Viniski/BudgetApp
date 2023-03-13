@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { remove } from "../../redux/transactionsSlice";
-import { DeleteButton } from "../Buttons/DeleteButton";
-import { EditButton } from "../Buttons/EditButton";
+import { DeleteButton } from "../../UI/Buttons/DeleteButton";
+import { EditButton } from "../../UI/Buttons/EditButton";
 
 export function TransactionCard({ data, isDarkTheme }) {
   const dispatch = useDispatch();

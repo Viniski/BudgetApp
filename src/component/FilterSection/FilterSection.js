@@ -5,12 +5,12 @@ import {
   updateExpenseURL,
   updateIncomeURL,
 } from "../../redux/urlSlice";
-import { Input } from "../Input/Input";
-import { CheckboxCategoryInput } from "../Input/CheckboxCategoryInput";
+import { Input } from "../../UI/Inputs/Input";
+import { CheckboxCategoryInput } from "../../UI/Inputs/CheckboxCategoryInput";
 import { ActiveFilterCriteria } from "./ActiveFilterCriteria";
 import { formatDate } from "../../helpers/formatDate";
-import { FilterButton } from "../Buttons/FilterButton";
-import { CloseFilterButton } from "../Buttons/CloseFilterButton";
+import { FilterButton } from "../../UI/Buttons/FilterButton";
+import { CloseFilterButton } from "../../UI/Buttons/CloseFilterButton";
 import { createFilterUrl } from "../../helpers/createFilterUrl";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";

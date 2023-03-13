@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ADD_TRANSACTION } from "../../CONSTANTS";
 
-export function Nav() {
+export function HeaderNav() {
   const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
   const incomeUrl = useSelector((state) => state.url.incomeLink);
   const excomeUrl = useSelector((state) => state.url.expenseLink);
@@ -27,7 +28,7 @@ export function Nav() {
             Wydatki
           </li>
         </NavLink>
-        <NavLink to="/dodaj-transakcje">
+        <NavLink to={ADD_TRANSACTION}>
           <li
             className={`navigation__item ${
               isDarkTheme && `navigation__item--dark`

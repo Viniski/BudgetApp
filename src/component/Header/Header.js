@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toogle } from "../../redux/themeSlice";
-import { Nav } from "../Nav/Nav";
-import { UndoButton } from "../Buttons/UndoButton";
-import { OpenMenuButton } from "../Buttons/OpenMenuButton";
-import { CloseMenuButton } from "../Buttons/CloseMenuButton";
-import { ThemeButton } from "../Buttons/ThemeButton";
+import { HeaderNav } from "../../navigation/components/HeaderNav";
+import { UndoButton } from "../../UI/Buttons/UndoButton";
+import { OpenMenuButton } from "../../UI/Buttons/OpenMenuButton";
+import { CloseMenuButton } from "../../UI/Buttons/CloseMenuButton";
+import { ThemeButton } from "../../UI/Buttons/ThemeButton";
 
 export function Header({ title }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -75,7 +75,7 @@ export function Header({ title }) {
           }`}
         />
       </header>
-      {isClicked && <Nav />}
+      {isClicked && <HeaderNav />}
     </>
   );
 }

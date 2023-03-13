@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import { add } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { Header } from "../../component/Header/Header";
-import { Input } from "../../component/Input/Input";
-import { SelectCategoryInput } from "../../component/Input/SelectCategoryInput";
+import { Input } from "../../UI/Inputs/Input";
+import { SelectCategoryInput } from "../../UI/Inputs/SelectCategoryInput";
 import { formatDate } from "../../helpers/formatDate";
 
 export function AddPage({ type, name }) {
