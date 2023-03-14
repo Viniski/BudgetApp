@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
-export const SelectTypeInput = (onChange, value) => {
+export const SelectTypeInput = ({ onChange, value }) => {
   const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-
+  console.log(value, value === "income", value === "expense");
   return (
     <select
       onChange={(e) => onChange(e.target.value)}

@@ -5,6 +5,7 @@ import { edit } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { Header } from "../../component/Header/Header";
 import { Input } from "../../UI/Inputs/Input";
+import { SectionInputLabel } from "../../UI/Labels/SectionInputLabel";
 import { SelectCategoryInput } from "../../UI/Inputs/SelectCategoryInput";
 import { SelectTypeInput } from "../../UI/Inputs/SelectTypeInput";
 
@@ -27,6 +28,7 @@ export function EditPage() {
   });
   const [category, setCategory] = useState(transaction.category);
   const [type, setType] = useState(transaction.type);
+  console.log(category, type);
   const [date, setDate] = useState({
     value: transaction.date,
     valid: true,
@@ -60,28 +62,41 @@ export function EditPage() {
     <>
       <Header title="Edytuj transakcje" />
       <section className="inputs-section">
+        <SectionInputLabel value={title.value} title="Tytuł transakcji:" />
         <Input
           type="text"
-          placeholder="Tytuł"
+          placeholder="Tytuł transakcji"
           value={title.value}
           onChange={(value) => setTitle({ value, valid: Boolean(value) })}
         />
+        <SectionInputLabel value={amount.value} title="Kwota transakcji:" />
         <Input
           type="text"
-          placeholder="Wartość"
+          placeholder="Kwota transakcji"
           value={amount.value}
           onChange={(value) => setAmount({ value, valid: Boolean(value) })}
         />
+        <SectionInputLabel value={date.value} title="Data transakcji:" />
         <Input
           type="date"
           value={date.value}
           onChange={(value) => setDate({ value, valid: Boolean(value) })}
         />
-        <SelectTypeInput value={type} onChange={(value) => setType(value)} />
+        <SectionInputLabel value={type} title="Typ transakcji:" />
+        <SelectTypeInput
+          value={type}
+          onChange={(value) => {
+            setType(value);
+            setCategory("");
+          }}
+        />
+        <SectionInputLabel value={category} title="Kategoria:" />
         <SelectCategoryInput
+          type={type}
           value={category}
           onChange={(value) => setCategory(value)}
         />
+        <SectionInputLabel value={note} title="Notatki:" />
         <Input
           type="text"
           placeholder="Notatki"
