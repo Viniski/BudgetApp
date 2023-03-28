@@ -1,7 +1,7 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { TotalCard } from "../../component/TotalCards/TotalCard";
+import { TotalCard } from "../../component/TotalCards/TotalCard/TotalCard";
 import { ExpenseCard } from "../../component/TotalCards/ExpenseCard";
-import { IncomeCard } from "../../component/TotalCards/IncomeCard";
+import { IncomeCard } from "../../component/TotalCards/IncomeCard/IncomeCard";
 import { AddButton } from "../../UI/Buttons/AddButton";
 import { Header } from "../../component/Header/Header";
 import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";

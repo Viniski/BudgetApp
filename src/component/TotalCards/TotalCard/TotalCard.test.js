@@ -1,25 +1,25 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { ExpenseCard } from "./ExpenseCard";
+import { TotalCard } from "./TotalCard";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import mockStore from "../../__mocks__/mockStore/store";
+import mockStore from "../../../__mocks__/mockStore/store";
 
 const MockComponent = () => {
   return (
     <Provider store={mockStore}>
       <MemoryRouter>
-        <ExpenseCard />
+        <TotalCard />
       </MemoryRouter>
     </Provider>
   );
 };
 
-describe("Expense card", () => {
-  it("should display correct amount of expense transactions", () => {
+describe("Total card", () => {
+  it("should display correct amount of total transactions", () => {
     render(<MockComponent />);
 
-    const paragraph = screen.getByText(/-2647 PLN/i);
+    const paragraph = screen.getByText(/1703 PLN/i);
     expect(paragraph).toBeInTheDocument();
   });
 });

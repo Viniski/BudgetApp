@@ -3,7 +3,7 @@ import React from "react";
 import { IncomeCard } from "./IncomeCard";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import mockStore from "../../__mocks__/mockStore/store";
+import mockStore from "../../../__mocks__/mockStore/store";
 
 const MockComponent = () => {
   return (
