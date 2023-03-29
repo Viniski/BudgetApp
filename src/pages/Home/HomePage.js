@@ -3,7 +3,7 @@ import { TotalCard } from "../../component/TotalCards/TotalCard";
 import { ExpenseCard } from "../../component/TotalCards/ExpenseCard";
 import { IncomeCard } from "../../component/TotalCards/IncomeCard";
 import { AddButton } from "../../UI/Buttons/AddButton";
-import { Header } from "../../component/Header/Header";
+import { Header } from "../../component/Header";
 import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
 import { AddTransactionLink } from "../../navigation/components/AddTransactionLink/AddTransactionLink";
 

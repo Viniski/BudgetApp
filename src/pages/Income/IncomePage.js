@@ -1,5 +1,5 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { Header } from "../../component/Header/Header";
+import { Header } from "../../component/Header";
 import { IncomeCard } from "../../component/TotalCards/IncomeCard";
 import { AddButton } from "../../UI/Buttons/AddButton";
 import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";

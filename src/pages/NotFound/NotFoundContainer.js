@@ -1,5 +1,4 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { Header } from "../../component/Header/Header";
 import { NotFoundView } from "./NotFoundView";
 
 export function NotFoundContainer() {
@@ -7,7 +6,6 @@ export function NotFoundContainer() {
 
   return (
     <>
-      <Header title="Nie znaleziono strony" />
       <NotFoundView />
     </>
   );
