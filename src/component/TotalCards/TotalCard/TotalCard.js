@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
-import { TotalCardView } from "./TotalCardView";
 
-export function TotalCardContainer({ variant }) {
+export function TotalCard() {
   const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
   const transactions = useSelector((state) => state.transactions);
 
@@ -22,9 +21,9 @@ export function TotalCardContainer({ variant }) {
   };
 
   return (
-    <TotalCardView
-      isDarkTheme={isDarkTheme}
-      totalAmount={calculateTotalTransaction()}
-    />
+    <div className={`cards__total ${isDarkTheme && `cards__total--dark`}`}>
+      <h2 className="cards__h2">Bilans transakcji</h2>
+      <p className="cards__p">{calculateTotalTransaction()} PLN</p>
+    </div>
   );
 }

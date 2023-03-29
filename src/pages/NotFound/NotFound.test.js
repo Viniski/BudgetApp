@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import mockStore from "../../__mocks__/mockStore/store";
-import { NotFound } from "../NotFound";
+import { NotFound } from "./NotFound";
 
 describe("Not Found component", () => {
   test("renders heading element", () => {

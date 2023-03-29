@@ -1,6 +1,6 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { Header } from "../../component/Header";
-import { ExpenseCard } from "../../component/TotalCards/ExpenseCard";
+import { Header } from "../../component/Header/Header";
+import { ExpenseCard } from "../../component/TotalCards/ExpenseCard/ExpenseCard";
 import { AddButton } from "../../UI/Buttons/AddButton";
 import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
 import { AddTransactionLink } from "../../navigation/components/AddTransactionLink/AddTransactionLink";

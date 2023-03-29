@@ -1,7 +1,9 @@
+import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { NotFoundLink } from "../../navigation/components/NotFoundLink/NotFoundLink";
-import { Header } from "../../component/Header";
+import { Header } from "../../component/Header/Header";
 
-export function NotFoundView() {
+export function NotFound() {
+  useWebsiteTitle("Błąd | BudgetApp by Viniski");
   return (
     <>
       <Header title="Nie znaleziono strony" />

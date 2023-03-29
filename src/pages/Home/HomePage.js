@@ -1,9 +1,9 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { TotalCard } from "../../component/TotalCards/TotalCard";
-import { ExpenseCard } from "../../component/TotalCards/ExpenseCard";
-import { IncomeCard } from "../../component/TotalCards/IncomeCard";
+import { TotalCard } from "../../component/TotalCards/TotalCard/TotalCard";
+import { ExpenseCard } from "../../component/TotalCards/ExpenseCard/ExpenseCard";
+import { IncomeCard } from "../../component/TotalCards/IncomeCard/IncomeCard";
 import { AddButton } from "../../UI/Buttons/AddButton";
-import { Header } from "../../component/Header";
+import { Header } from "../../component/Header/Header";
 import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
 import { AddTransactionLink } from "../../navigation/components/AddTransactionLink/AddTransactionLink";
 
