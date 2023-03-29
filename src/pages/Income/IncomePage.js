@@ -1,5 +1,5 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { Header } from "../../component/Header/Header";
+import { Header } from "../../component/Header";
 import { IncomeCard } from "../../component/TotalCards/IncomeCard";
 import { AddButton } from "../../UI/Buttons/AddButton";
 import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
@@ -12,7 +12,7 @@ export function IncomePage() {
     <>
       <Header title="Przychody" />
       <section className="cards">
-        <IncomeCard className="cards__income--main-card" />
+        <IncomeCard variant="main" />
       </section>
       <TransactionSection type="income" title="wpływy" />
       <AddTransactionLink>

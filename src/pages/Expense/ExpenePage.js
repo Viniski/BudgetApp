@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { Header } from "../../component/Header/Header";
+import { Header } from "../../component/Header";
 import { ExpenseCard } from "../../component/TotalCards/ExpenseCard";
 import { AddButton } from "../../UI/Buttons/AddButton";
 import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
@@ -13,7 +12,7 @@ export function ExpensePage() {
     <>
       <Header title="Wydatki" />
       <section className="cards">
-        <ExpenseCard className="cards__expense--main-card" />
+        <ExpenseCard variant="main" />
       </section>
       <TransactionSection type="expense" title="wydatki" />
       <AddTransactionLink>

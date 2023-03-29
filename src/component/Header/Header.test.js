@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
-import { Header } from "./Header";
+import { Header } from "../Header";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import mockStore from "../../redux/store";
