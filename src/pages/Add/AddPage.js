@@ -5,7 +5,6 @@ import { add } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { Header } from "../../component/Header/Header";
 import { Input } from "../../UI/Inputs/Input";
-import { SectionInputLabel } from "../../UI/Labels/SectionInputLabel";
 import { SelectCategoryInput } from "../../UI/Inputs/SelectCategoryInput";
 import { formatDate } from "../../helpers/formatDate";
 
@@ -47,34 +46,29 @@ export function AddPage({ type, name }) {
     <>
       <Header title={`Dodaj ${name}`} />
       <section className="inputs-section">
-        <SectionInputLabel value={title.value} title="Tytuł transakcji:" />
         <Input
           type="text"
-          placeholder="Tytuł transakcji"
+          placeholder="Tytuł"
           value={title.value}
           onChange={(value) => setTitle({ value, valid: Boolean(value) })}
         />
-        <SectionInputLabel value={amount.value} title="Kwota transakcji:" />
         <Input
           type="number"
-          placeholder="Kwota transakcji"
+          placeholder="Wartość"
           value={amount.value}
           onChange={(value) => setAmount({ value, valid: Boolean(value) })}
         />
-        <SectionInputLabel value={category.value} title="Kategoria:" />
         <SelectCategoryInput
           type={type}
           value={category.value}
           onChange={(value) => setCategory({ value, valid: Boolean(value) })}
         />
-        <SectionInputLabel value title="Data transakcji:" />
         <Input
           type="date"
           max={today}
           value={date.value}
           onChange={(value) => setDate({ value, valid: Boolean(value) })}
         />
-        <SectionInputLabel value={note} title="Notatki:" />
         <Input
           type="text"
           placeholder="Notatki"

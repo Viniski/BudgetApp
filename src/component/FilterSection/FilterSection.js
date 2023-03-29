@@ -6,7 +6,6 @@ import {
   updateIncomeURL,
 } from "../../redux/urlSlice";
 import { Input } from "../../UI/Inputs/Input";
-import { FilterInputLabel } from "../../UI/Labels/FilterInputLabel";
 import { CheckboxCategoryInput } from "../../UI/Inputs/CheckboxCategoryInput";
 import { ActiveFilterCriteria } from "./ActiveFilterCriteria";
 import { formatDate } from "../../helpers/formatDate";
@@ -205,7 +204,6 @@ export function FilterSection({ type, title, criteria, isDarkTheme }) {
       </div>
       {filterSectionState.isFormActive && (
         <section className="inputs-filter">
-          <FilterInputLabel value={minAmount} title="Kwota minimalna:" />
           <Input
             type="number"
             placeholder="Kwota minimalna"
@@ -213,7 +211,6 @@ export function FilterSection({ type, title, criteria, isDarkTheme }) {
             onChange={setMinAmount}
             variant="filter"
           />
-          <FilterInputLabel value={maxAmount} title="Kwota maksymalna:" />
           <Input
             type="number"
             placeholder="Kwota maksymalna"
@@ -221,7 +218,7 @@ export function FilterSection({ type, title, criteria, isDarkTheme }) {
             onChange={setMaxAmount}
             variant="filter"
           />
-          <FilterInputLabel value title="Okres od:" />
+          <label className="inputs-filter__labelDate">Okres od:</label>
           <Input
             type="date"
             max={today}
@@ -229,7 +226,7 @@ export function FilterSection({ type, title, criteria, isDarkTheme }) {
             onChange={setStartDate}
             variant="filter"
           />
-          <FilterInputLabel value title="Okres do:" />
+          <label className="inputs-filter__labelDate">Okres do:</label>
           <Input
             type="date"
             max={today}

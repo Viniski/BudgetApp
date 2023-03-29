@@ -21,23 +21,6 @@
       color-scheme: dark;
     }
   }
-
-  &__labelDate {
-    color: $grayBackground-dark;
-    width: 80vw;
-    padding: 0 14px;
-    text-align: left;
-
-    &--dark {
-      color: $color-dark;
-    }
-  }
-
-  &__labelNone {
-    width: 80vw;
-    height: 21px;
-    padding: 0 14px;
-  }
 }
 
 .inputs-filter {
@@ -82,20 +65,9 @@
   }
 
   &__labelDate {
-    color: $grayBackground-dark;
     width: 60vw;
     padding: 0 14px;
     text-align: left;
-
-    &--dark {
-      color: $color-dark;
-    }
-  }
-
-  &__labelNone {
-    width: 60vw;
-    height: 21px;
-    padding: 0 14px;
   }
 }
 
