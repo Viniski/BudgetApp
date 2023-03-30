@@ -1,6 +1,6 @@
 import { TransactionCard } from "../TransactionCard/TransactionCard";
 import { FilterSection } from "../FilterSection/FilterSection";
-import { Pagination } from "../../component/Pagination/Pagination";
+import { Pagination } from "../Pagination/Pagination";
 import { useTransactionSection } from "./hooks/useTransactionSection";
 
 export function TransactionSection({ type, title }) {

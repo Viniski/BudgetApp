@@ -17,7 +17,7 @@ import {
   ADD_EXPENSE,
   EDIT_TRANSACTION,
   ALL_PATH,
-} from "../navigation/CONSTANTS";
+} from "./CONSTANTS";
 
 export const RouterConfig = () => {
   return (
