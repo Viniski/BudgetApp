@@ -1,8 +1,7 @@
-import { useSelector } from "react-redux";
+import { useTheme } from "../../hooks/useTheme";
 
 export const Input = (props) => {
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-
+  const isDarkTheme = useTheme();
   return (
     <input
       placeholder={props?.placeholder}

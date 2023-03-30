@@ -1,6 +1,7 @@
 .card {
   &__ammount {
     width: 20vw;
+    padding: 20px 0;
     font-size: 20px;
     font-weight: bold;
 
@@ -29,6 +30,7 @@
   &__title {
     font-weight: bold;
     font-size: 18px;
+    padding-top: 18px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -41,6 +43,7 @@
   &__category {
     text-transform: uppercase;
     font-size: 15px;
+    padding-bottom: 15px;
     color: gray;
   }
 

@@ -1,7 +1,7 @@
 import { TransactionCard } from "../TransactionCard/TransactionCard";
 import { FilterSection } from "../FilterSection/FilterSection";
 import { Pagination } from "../../component/Pagination/Pagination";
-import { useTransactionSection } from "./useTransactionSection";
+import { useTransactionSection } from "./hooks/useTransactionSection";
 
 export function TransactionSection({ type, title }) {
   const {

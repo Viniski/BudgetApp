@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toogle } from "../../redux/themeSlice";
+import { useTheme } from "../../hooks/useTheme";
 import { HeaderNav } from "../../navigation/components/HeaderNav/HeaderNav";
 import { UndoButton } from "../../UI/Buttons/UndoButton";
 import { OpenMenuButton } from "../../UI/Buttons/OpenMenuButton";
@@ -11,7 +12,7 @@ import { ThemeButton } from "../../UI/Buttons/ThemeButton";
 
 export function Header({ title }) {
   const [isClicked, setIsClicked] = useState(false);
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
+  const isDarkTheme = useTheme();
   const homeUrl = useSelector((state) => state.url.homeLink);
   const dispatch = useDispatch();
   const location = useLocation();

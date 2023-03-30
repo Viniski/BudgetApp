@@ -111,7 +111,7 @@ export function useFilterSection() {
 
   const handleDeleteCriteria = (params) => {
     const newUrl = createFilterUrl(location.pathname, params);
-    setFilterSectionState({ activeCriteria: params, isFormActive: false }); //why?
+    setFilterSectionState({ activeCriteria: params, isFormActive: false });
     dispatch(
       location.pathname === "/"
         ? updateHomeURL(newUrl)
