@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
+import { useTheme } from "../../../hooks/useTheme";
 
 export function TotalCard() {
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
+  const isDarkTheme = useTheme();
   const transactions = useSelector((state) => state.transactions);
 
   const calculateTotalTransaction = () => {

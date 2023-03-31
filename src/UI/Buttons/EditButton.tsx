@@ -1,4 +1,9 @@
-export const EditButton = ({ isDarkTheme }) => {
+type Props = {
+  onClick: () => void;
+  isDarkTheme: boolean;
+};
+
+export const EditButton = ({ isDarkTheme }: Props) => {
   return (
     <button
       className={`card__button-edit ${

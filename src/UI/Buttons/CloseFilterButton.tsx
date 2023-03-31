@@ -1,4 +1,9 @@
-export const CloseFilterButton = ({ onClick, isDarkTheme }) => {
+type Props = {
+  onClick: () => void;
+  isDarkTheme: boolean;
+};
+
+export const CloseFilterButton = ({ onClick, isDarkTheme }: Props) => {
   return (
     <button
       onClick={onClick}

@@ -1,4 +1,9 @@
-export const FilterButton = ({ onClick, isDarkTheme }) => {
+type Props = {
+  onClick: () => void;
+  isDarkTheme: boolean;
+};
+
+export const FilterButton = ({ onClick, isDarkTheme }: Props) => {
   return (
     <button
       data-testid="filter-button"

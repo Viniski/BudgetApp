@@ -1,4 +1,16 @@
-export const CheckboxCategoryInput = ({ type, value, onChange, variant }) => {
+type Props = {
+  type: string;
+  onChange: (value: string) => void;
+  value: string[];
+  variant: string;
+};
+
+export const CheckboxCategoryInput = ({
+  type,
+  value,
+  onChange,
+  variant,
+}: Props) => {
   return (
     <>
       {type === "all" ? (

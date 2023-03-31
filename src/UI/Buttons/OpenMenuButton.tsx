@@ -1,4 +1,9 @@
-export const OpenMenuButton = ({ onClick, isDarkTheme }) => {
+type Props = {
+  onClick: () => void;
+  isDarkTheme: boolean;
+};
+
+export const OpenMenuButton = ({ onClick, isDarkTheme }: Props) => {
   return (
     <button
       onClick={onClick}

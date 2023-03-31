@@ -1,6 +1,15 @@
 import { useTheme } from "../../hooks/useTheme";
 
-export const Input = (props) => {
+type Props = {
+  placeholder: string;
+  type: string;
+  max: number | string;
+  onChange: (value: string) => void;
+  value: string[];
+  variant: string;
+};
+
+export const Input = (props: Props) => {
   const isDarkTheme = useTheme();
   return (
     <input

@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import React from "react";
 import { IncomeCard } from "./IncomeCard";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";

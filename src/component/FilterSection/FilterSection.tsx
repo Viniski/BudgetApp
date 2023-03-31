@@ -5,7 +5,14 @@ import { FilterButton } from "../../UI/Buttons/FilterButton";
 import { CloseFilterButton } from "../../UI/Buttons/CloseFilterButton";
 import { useFilterSection } from "./useFilterSection";
 
-export function FilterSection({ type, title, criteria, isDarkTheme }) {
+type Props = {
+  criteria: string;
+  title: string;
+  type: string;
+  isDarkTheme: boolean;
+};
+
+export function FilterSection({ type, title, criteria, isDarkTheme }: Props) {
   const {
     minAmount,
     setMinAmount,

@@ -1,7 +1,12 @@
-import { useSelector } from "react-redux";
+import { useTheme } from "../../hooks/useTheme";
 
-export const SelectTypeInput = (onChange, value) => {
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
+type Props = {
+  onChange: (value: string) => void;
+  value: string;
+};
+
+export const SelectTypeInput = ({ onChange, value }: Props) => {
+  const isDarkTheme = useTheme();
 
   return (
     <select

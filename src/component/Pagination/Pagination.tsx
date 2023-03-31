@@ -1,4 +1,16 @@
-export function Pagination({ cardNumber, paginate, perPage, isDarkTheme }) {
+type Props = {
+  cardNumber: number;
+  paginate: () => void;
+  perPage: string;
+  isDarkTheme: boolean;
+};
+
+export function Pagination({
+  cardNumber,
+  paginate,
+  perPage,
+  isDarkTheme,
+}: Props) {
   const paginationPages = Math.ceil(cardNumber / perPage);
   const arrayPagination = [...Array(paginationPages).keys()].map((i) => i + 1);
 

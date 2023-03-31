@@ -5,7 +5,18 @@ import { EditButton } from "../../UI/Buttons/EditButton";
 import { DetailsTransactionLink } from "../../navigation/components/DetailsTransactionLink/DetailsTransactionLink";
 import { EditTransactionLink } from "../../navigation/components/EditTransactionLink/EditTransactionLink";
 
-export function TransactionCard({ data, isDarkTheme }) {
+type Props = {
+  data: {
+    id: number;
+    type: string;
+    amount: number;
+    title: string;
+    category: string;
+  };
+  isDarkTheme: boolean;
+};
+
+export function TransactionCard({ data, isDarkTheme }: Props) {
   const dispatch = useDispatch();
 
   const handleDeleteTransaction = () => {

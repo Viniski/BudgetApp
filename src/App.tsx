@@ -1,11 +1,11 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useTheme } from "./hooks/useTheme";
 import { ErrorBoundary } from "./hoc/ErrorBoundary";
 import { RouterConfig } from "./navigation/RouterConfig";
 import "./styles/main.scss";
 
 export function App() {
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
+  const isDarkTheme = useTheme();
 
   return (
     <body className={isDarkTheme && `body-dark`}>

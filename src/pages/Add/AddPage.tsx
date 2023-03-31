@@ -8,7 +8,12 @@ import { Input } from "../../UI/Inputs/Input";
 import { SelectCategoryInput } from "../../UI/Inputs/SelectCategoryInput";
 import { formatDate } from "../../helpers/formatDate";
 
-export function AddPage({ type, name }) {
+type Props = {
+  type: string;
+  name: string;
+};
+
+export function AddPage({ type, name }: Props) {
   const [amount, setAmount] = useState({ value: "", valid: false });
   const [title, setTitle] = useState({ value: "", valid: false });
   const [category, setCategory] = useState({ value: "", valid: false });

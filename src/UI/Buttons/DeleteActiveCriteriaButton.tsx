@@ -1,4 +1,9 @@
-export const DeleteActiveCriteriaButton = ({ onClick, isDarkTheme }) => {
+type Props = {
+  onClick: () => void;
+  isDarkTheme: boolean;
+};
+
+export const DeleteActiveCriteriaButton = ({ onClick, isDarkTheme }: Props) => {
   return (
     <button
       onClick={onClick}

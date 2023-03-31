@@ -3,7 +3,12 @@ import { FilterSection } from "../FilterSection/FilterSection";
 import { Pagination } from "../Pagination/Pagination";
 import { useTransactionSection } from "./hooks/useTransactionSection";
 
-export function TransactionSection({ type, title }) {
+type Props = {
+  type: string;
+  title: string;
+};
+
+export function TransactionSection({ type, title }: Props) {
   const {
     isDarkTheme,
     transactions,

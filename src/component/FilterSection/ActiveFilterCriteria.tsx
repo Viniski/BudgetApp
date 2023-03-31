@@ -1,11 +1,18 @@
 import { DeleteActiveCriteriaButton } from "../../UI/Buttons/DeleteActiveCriteriaButton";
 
+type Props = {
+  criteria: string;
+  onFilter: () => void;
+  type: string;
+  isDarkTheme: boolean;
+};
+
 export function ActiveFilterCriteria({
   criteria,
   onFilter,
   type,
   isDarkTheme,
-}) {
+}: Props) {
   const { maxAmount } = criteria;
   const { minAmount } = criteria;
   const { endDate } = criteria;

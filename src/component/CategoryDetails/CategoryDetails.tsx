@@ -1,4 +1,9 @@
-export function CategoryDetails({ category, value }) {
+type Props = {
+  category: string;
+  value: string;
+};
+
+export function CategoryDetails({ category, value }: Props) {
   return (
     <div className="details-div">
       <p className="details-div__category">{category}</p>

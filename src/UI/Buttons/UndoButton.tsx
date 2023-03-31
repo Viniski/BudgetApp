@@ -1,4 +1,9 @@
-export const UndoButton = ({ onClick, isDarkTheme }) => {
+type Props = {
+  onClick: () => void;
+  isDarkTheme: boolean;
+};
+
+export const UndoButton = ({ onClick, isDarkTheme }: Props) => {
   return (
     <button
       onClick={onClick}

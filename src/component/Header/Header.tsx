@@ -10,7 +10,11 @@ import { OpenMenuButton } from "../../UI/Buttons/OpenMenuButton";
 import { CloseMenuButton } from "../../UI/Buttons/CloseMenuButton";
 import { ThemeButton } from "../../UI/Buttons/ThemeButton";
 
-export function Header({ title }) {
+type Props = {
+  title: string;
+};
+
+export function Header({ title }: Props) {
   const [isClicked, setIsClicked] = useState(false);
   const isDarkTheme = useTheme();
   const homeUrl = useSelector((state) => state.url.homeLink);

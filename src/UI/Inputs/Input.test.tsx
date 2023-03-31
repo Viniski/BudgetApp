@@ -1,5 +1,4 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import React from "react";
 import { Input } from "./Input";
 import { Provider } from "react-redux";
 import mockStore from "../../__mocks__/mockStore/store";
