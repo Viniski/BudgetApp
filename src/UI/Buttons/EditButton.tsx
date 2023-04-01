@@ -1,5 +1,4 @@
 type Props = {
-  onClick: () => void;
   isDarkTheme: boolean;
 };
 

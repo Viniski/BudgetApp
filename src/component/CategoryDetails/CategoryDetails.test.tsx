@@ -4,7 +4,7 @@ import { CategoryDetails } from "./CategoryDetails";
 
 describe("Details div", () => {
   const expectedCategory = "Transport";
-  const expectedValue = 100;
+  const expectedValue = "100";
 
   it("should render same text passed into category prop", () => {
     render(

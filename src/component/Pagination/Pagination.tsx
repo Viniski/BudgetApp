@@ -1,7 +1,7 @@
 type Props = {
   cardNumber: number;
   paginate: () => void;
-  perPage: string;
+  perPage: number;
   isDarkTheme: boolean;
 };
 
@@ -12,7 +12,9 @@ export function Pagination({
   isDarkTheme,
 }: Props) {
   const paginationPages = Math.ceil(cardNumber / perPage);
-  const arrayPagination = [...Array(paginationPages).keys()].map((i) => i + 1);
+  const arrayPagination: number[] = [...Array(paginationPages).keys()].map(
+    (i) => i + 1
+  );
 
   return (
     <div className="transaction-section__pagination">

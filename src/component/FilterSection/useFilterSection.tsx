@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../redux/hooks";
 import {
   updateHomeURL,
   updateExpenseURL,
@@ -10,10 +10,19 @@ import { createFilterUrl } from "../../helpers/createFilterUrl";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
+export type Params = {
+  page?: string | number;
+  minAmount: string;
+  maxAmount: string;
+  startDate: string;
+  endDate: string;
+  selectedCategory: string[];
+};
+
 export function useFilterSection() {
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [minAmount, setMinAmount] = useState("");
   const [maxAmount, setMaxAmount] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -54,7 +63,7 @@ export function useFilterSection() {
     },
   });
 
-  const getCategoryToDelete = (selectedCategory) => {
+  const getCategoryToDelete = (selectedCategory: string[]) => {
     let arrayAllCategories = getSelectedCategory();
 
     for (let i = 0; i < selectedCategory.length; i++) {
@@ -81,7 +90,7 @@ export function useFilterSection() {
     });
   };
 
-  const changeCheckboxInput = (e) => {
+  const changeCheckboxInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     const isChecked = e.target.checked;
 
@@ -96,33 +105,29 @@ export function useFilterSection() {
     }
   };
 
-  const handleFilterButton = (params) => {
+  const chooseReducerByPathname = (newUrl: string) => {
+    return location.pathname === "/"
+      ? updateHomeURL(newUrl)
+      : location.pathname === "/wydatki"
+      ? updateExpenseURL(newUrl)
+      : updateIncomeURL(newUrl);
+  };
+
+  const handleFilterButton = (params: Params) => {
     const newUrl = createFilterUrl(location.pathname, params);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
-    dispatch(
-      location.pathname === "/"
-        ? updateHomeURL(newUrl)
-        : location.pathname === "/wydatki"
-        ? updateExpenseURL(newUrl)
-        : updateIncomeURL(newUrl)
-    );
+    dispatch(chooseReducerByPathname(newUrl));
     navigate(newUrl);
   };
 
-  const handleDeleteCriteria = (params) => {
+  const handleDeleteCriteria = (params: Params) => {
     const newUrl = createFilterUrl(location.pathname, params);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
-    dispatch(
-      location.pathname === "/"
-        ? updateHomeURL(newUrl)
-        : location.pathname === "/wydatki"
-        ? updateExpenseURL(newUrl)
-        : updateIncomeURL(newUrl)
-    );
+    dispatch(chooseReducerByPathname(newUrl));
     navigate(newUrl);
   };
 
-  const deleteFilterCriteria = (criteriaToDelete) => {
+  const deleteFilterCriteria = (criteriaToDelete: string) => {
     switch (criteriaToDelete) {
       case "minAmount":
         handleDeleteCriteria({

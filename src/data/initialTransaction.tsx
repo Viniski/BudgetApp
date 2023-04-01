@@ -1,4 +1,4 @@
-type initialStateType = Array<{
+export type initialStateType = Array<{
   type: string;
   date: string;
   amount: string;

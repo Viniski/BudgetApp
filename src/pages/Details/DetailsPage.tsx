@@ -1,22 +1,18 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch } from "../../redux/hooks";
 import { remove } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
+import { useTransactionById } from "../../hooks/useTransactionById";
 import { Header } from "../../component/Header/Header";
 import { CategoryDetails } from "../../component/CategoryDetails/CategoryDetails";
 
 export function DetailsPage() {
   useWebsiteTitle("Szczegóły transakcji | BudgetApp by Viniski");
   const { id } = useParams();
-  const tranasaction = useSelector(
-    (state) =>
-      state.transactions.filter(
-        (transaction) => transaction.id === Number(id)
-      )[0]
-  );
+  const tranasaction = useTransactionById(id);
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleDeleteTransaction = () => {
     dispatch(remove(Number(id)));

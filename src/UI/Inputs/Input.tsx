@@ -5,7 +5,7 @@ type Props = {
   type: string;
   max?: number | string;
   onChange: (value: string) => void;
-  value?: string[];
+  value?: string | string[];
   variant: string;
 };
 

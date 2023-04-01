@@ -1,5 +1,5 @@
 import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../redux/hooks";
 import {
   updateHomeURL,
   updateExpenseURL,
@@ -10,11 +10,12 @@ import { useGetTransactions } from "./useGetTransactions";
 import { useGetParamsFromURL } from "./useGetParamsFromURL";
 import { useTheme } from "../../../hooks/useTheme";
 import { createPaginationUrl } from "../../../helpers/createPaginationUrl";
+import type { initialStateType } from "../../../data/initialTransaction";
 
-export function useTransactionSection(type) {
+export function useTransactionSection(type: string) {
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
   const isDarkTheme = useTheme();
   const allTransactions = useGetTransactions(type);
@@ -25,13 +26,16 @@ export function useTransactionSection(type) {
     filterParams
   );
 
-  const currentPage = searchParams.get("strona") || 1;
+  const currentPage = Number(searchParams.get("strona")) || 1;
   const perPage = 5;
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = currentPage * perPage - 1;
-  let transactionOnPage = filtredTransactions.slice(startIndex, endIndex + 1);
+  let transactionOnPage: initialStateType = filtredTransactions.slice(
+    startIndex,
+    endIndex + 1
+  );
 
-  const paginate = (number) => {
+  const paginate = (number: number) => {
     const newUrl = createPaginationUrl(location.pathname, filterParams, number);
     dispatch(
       location.pathname === "/"

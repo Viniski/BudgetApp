@@ -3,10 +3,10 @@ import { CheckboxCategoryInput } from "../../UI/Inputs/CheckboxCategoryInput";
 import { ActiveFilterCriteria } from "./ActiveFilterCriteria";
 import { FilterButton } from "../../UI/Buttons/FilterButton";
 import { CloseFilterButton } from "../../UI/Buttons/CloseFilterButton";
-import { useFilterSection } from "./useFilterSection";
+import { Params, useFilterSection } from "./useFilterSection";
 
 type Props = {
-  criteria: string;
+  criteria: Params;
   title: string;
   type: string;
   isDarkTheme: boolean;

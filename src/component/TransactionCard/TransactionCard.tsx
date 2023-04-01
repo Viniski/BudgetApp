@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../redux/hooks";
 import { remove } from "../../redux/transactionsSlice";
 import { DeleteButton } from "../../UI/Buttons/DeleteButton";
 import { EditButton } from "../../UI/Buttons/EditButton";
@@ -17,7 +17,7 @@ type Props = {
 };
 
 export function TransactionCard({ data, isDarkTheme }: Props) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleDeleteTransaction = () => {
     dispatch(remove(data.id));

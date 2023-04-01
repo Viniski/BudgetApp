@@ -1,8 +1,9 @@
 import { DeleteActiveCriteriaButton } from "../../UI/Buttons/DeleteActiveCriteriaButton";
+import type { Params } from "./useFilterSection";
 
 type Props = {
-  criteria: string;
-  onFilter: () => void;
+  criteria: Params;
+  onFilter: (criteria: string) => void;
   type: string;
   isDarkTheme: boolean;
 };
@@ -23,7 +24,7 @@ export function ActiveFilterCriteria({
     return selectedCategory.length ? true : false;
   };
 
-  const handleDeleteFilterCriteriaButton = (criteria) => {
+  const handleDeleteFilterCriteriaButton = (criteria: string) => {
     onFilter(criteria);
   };
 

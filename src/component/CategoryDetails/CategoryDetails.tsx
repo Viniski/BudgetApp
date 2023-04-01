@@ -1,6 +1,6 @@
 type Props = {
   category: string;
-  value: string;
+  value: string | number;
 };
 
 export function CategoryDetails({ category, value }: Props) {

@@ -1,3 +1,5 @@
+import type { Params } from "../component/FilterSection/useFilterSection";
+
 export function createSearch({
   page,
   minAmount,
@@ -5,7 +7,7 @@ export function createSearch({
   startDate,
   endDate,
   selectedCategory,
-}) {
+}: Params) {
   let search = "";
   if (page) {
     if (search) {

@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../../redux/hooks";
 
-export function useGetTransactions(type) {
-  let allTransactions = useSelector((state) => state.transactions);
+export function useGetTransactions(type: string) {
+  let allTransactions = useAppSelector((state) => state.transactions);
 
   const getTransactionsFilteredByType = () => {
     if (type === "expense") {

@@ -1,7 +1,6 @@
-import React from "react";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { toogle } from "../../redux/themeSlice";
 import { useTheme } from "../../hooks/useTheme";
 import { HeaderNav } from "../../navigation/components/HeaderNav/HeaderNav";
@@ -17,8 +16,8 @@ type Props = {
 export function Header({ title }: Props) {
   const [isClicked, setIsClicked] = useState(false);
   const isDarkTheme = useTheme();
-  const homeUrl = useSelector((state) => state.url.homeLink);
-  const dispatch = useDispatch();
+  const homeUrl = useAppSelector((state) => state.url.homeLink);
+  const dispatch = useAppDispatch();
   const location = useLocation();
   const navigate = useNavigate();
 
