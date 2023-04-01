@@ -14,10 +14,10 @@ describe("createSearch function helper", () => {
 
   it("should return empty correct string if params object is with filters criteria", () => {
     const result = createSearch({
-      minAmount: 50,
-      maxAmount: 1000,
-      startDate: 500,
-      endDate: 10,
+      minAmount: "50",
+      maxAmount: "1000",
+      startDate: "500",
+      endDate: "10",
       selectedCategory: ["przykład"],
     });
     expect(result).toBe(

@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../../redux/hooks";
 import { useTheme } from "../../../hooks/useTheme";
 
 type Props = {
-  variant: string;
+  variant?: string;
 };
 
 export function IncomeCard({ variant }: Props) {
   const isDarkTheme = useTheme();
-  const transactions = useSelector((state) => state.transactions);
+  const transactions = useAppSelector((state) => state.transactions);
 
   const calculateIncomeTransaction = () => {
     const income = transactions.filter((el) => el.type === "income");

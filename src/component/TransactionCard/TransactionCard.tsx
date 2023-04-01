@@ -8,10 +8,12 @@ import { EditTransactionLink } from "../../navigation/components/EditTransaction
 type Props = {
   data: {
     id: number;
+    date: string;
     type: string;
     amount: number;
     title: string;
     category: string;
+    note: string;
   };
   isDarkTheme: boolean;
 };

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ADD_EXPENSE } from "../../CONSTANTS";
 
 type Props = {
-  children: any;
+  children: React.ReactNode;
 };
 
 export function AddExpenseLink({ children }: Props) {

@@ -1,17 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { initialState } from "../../data/initialUrl";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { initialState } from "../data/initialUrl";
 
 export const urlSlice = createSlice({
   name: "url",
   initialState,
   reducers: {
-    updateHomeURL(state, action) {
+    updateHomeURL(state, action: PayloadAction<string>) {
       state.homeLink = action.payload;
     },
-    updateExpenseURL(state, action) {
+    updateExpenseURL(state, action: PayloadAction<string>) {
       state.expenseLink = action.payload;
     },
-    updateIncomeURL(state, action) {
+    updateIncomeURL(state, action: PayloadAction<string>) {
       state.incomeLink = action.payload;
     },
   },

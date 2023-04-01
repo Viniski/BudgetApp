@@ -1,12 +1,12 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../../redux/hooks";
+import { useTheme } from "../../../hooks/useTheme";
 import { ADD_TRANSACTION } from "../../CONSTANTS";
 
 export function HeaderNav() {
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-  const incomeUrl = useSelector((state) => state.url.incomeLink);
-  const excomeUrl = useSelector((state) => state.url.expenseLink);
+  const isDarkTheme = useTheme();
+  const incomeUrl = useAppSelector((state) => state.url.incomeLink);
+  const excomeUrl = useAppSelector((state) => state.url.expenseLink);
 
   return (
     <nav className="navigation ">

@@ -3,10 +3,10 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { TransactionSection } from "./TransactionsSection";
 import { Provider } from "react-redux";
-import mockStore from "../../__mocks__/mockStore/store";
+import mockStore from "../../__mocks__/store";
 import { MemoryRouter } from "react-router-dom";
 
-const MockedFilterSection = () => {
+const MockedFilterSection = ({ criteria: {} }) => {
   const route = "/";
 
   return (

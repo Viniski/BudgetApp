@@ -1,10 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useTheme } from "../../../hooks/useTheme";
 import { ROOT } from "../../CONSTANTS";
 
 export function NotFoundLink() {
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
+  const isDarkTheme = useTheme();
 
   return (
     <Link to={ROOT}>

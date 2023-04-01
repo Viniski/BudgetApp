@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { SelectCategoryInput } from "./SelectCategoryInput";
 import { Provider } from "react-redux";
-import mockStore from "../../__mocks__/mockStore/store";
+import mockStore from "../../__mocks__/store";
 
 const mockedOnChange = jest.fn();
 

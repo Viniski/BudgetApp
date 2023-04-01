@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { Header } from "./Header";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import mockStore from "../../redux/store";
+import mockStore from "../../__mocks__/store";
 
 const MockHeader = () => {
   return (

@@ -2,8 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
-import mockStore from "../../../__mocks__/mockStore/store";
-import React from "react";
+import mockStore from "../../../__mocks__/store";
 import { App } from "../../../App";
 
 describe("Nav", () => {

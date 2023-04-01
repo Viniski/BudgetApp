@@ -1,6 +1,6 @@
 type Props = {
   cardNumber: number;
-  paginate: () => void;
+  paginate: (number: number) => void;
   perPage: number;
   isDarkTheme: boolean;
 };
