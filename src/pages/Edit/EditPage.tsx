@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch } from "../../redux/hooks";
 import { edit } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
+import { useTransactionById } from "../../hooks/useTransactionById";
 import { Header } from "../../component/Header/Header";
 import { Input } from "../../UI/Inputs/Input";
 import { SelectCategoryInput } from "../../UI/Inputs/SelectCategoryInput";
@@ -10,12 +11,7 @@ import { SelectTypeInput } from "../../UI/Inputs/SelectTypeInput";
 
 export function EditPage() {
   const { id } = useParams();
-  const transaction = useSelector(
-    (state) =>
-      state.transactions.filter(
-        (transaction) => transaction.id === Number(id)
-      )[0]
-  );
+  const transaction = useTransactionById(id);
 
   const [amount, setAmount] = useState({
     value: transaction.amount,
@@ -32,7 +28,7 @@ export function EditPage() {
     valid: true,
   });
   const [note, setNote] = useState(transaction.note);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const invalidButton = Boolean(
@@ -79,6 +75,7 @@ export function EditPage() {
         />
         <SelectTypeInput value={type} onChange={(value) => setType(value)} />
         <SelectCategoryInput
+          type={type}
           value={category}
           onChange={(value) => setCategory(value)}
         />

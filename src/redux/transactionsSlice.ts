@@ -1,20 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "../data/initialTransaction";
+import type { initialStateElement } from "../data/initialTransaction";
 
 export const transactionsSlice = createSlice({
   name: "transactions",
   initialState,
   reducers: {
-    add(state, action) {
+    add(state, action: PayloadAction<initialStateElement>) {
       state.push(action.payload);
     },
-    edit(state, action) {
+    edit(state, action: PayloadAction<initialStateElement>) {
       let index = state.findIndex(
         (tranasaction) => tranasaction.id === action.payload.id
       );
       state[index] = action.payload;
     },
-    remove(state, action) {
+    remove(state, action: PayloadAction<number>) {
       return state.filter((tranasaction) => tranasaction.id !== action.payload);
     },
   },

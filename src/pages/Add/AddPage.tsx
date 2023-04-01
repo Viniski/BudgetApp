@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../redux/hooks";
 import { add } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { Header } from "../../component/Header/Header";
@@ -20,7 +20,7 @@ export function AddPage({ type, name }: Props) {
   const today = formatDate(new Date());
   const [date, setDate] = useState({ value: today, valid: true });
   const [note, setNote] = useState("");
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const invalidButton = Boolean(

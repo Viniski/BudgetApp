@@ -19,6 +19,10 @@ const reducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, reducer);
 
-export default configureStore({
+const store = configureStore({
   reducer: persistedReducer,
 });
+
+export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

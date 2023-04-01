@@ -1,4 +1,24 @@
-export const initialState = [
+type initialStateType = Array<{
+  type: string;
+  date: string;
+  amount: string;
+  title: string;
+  category: string;
+  id: number;
+  note: string;
+}>;
+
+export type initialStateElement = {
+  type: string;
+  date: string;
+  amount: string;
+  title: string;
+  category: string;
+  id: number;
+  note: string;
+};
+
+export const initialState: initialStateType = [
   {
     type: "expense",
     date: "2022-12-13",
