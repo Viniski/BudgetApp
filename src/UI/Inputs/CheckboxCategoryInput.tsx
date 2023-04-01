@@ -1,6 +1,6 @@
 type Props = {
   type: string;
-  onChange: (value: string) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string[];
   variant: string;
 };
@@ -20,7 +20,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Dochód stały"
-                checked={value.find((x) => x === "Dochód stały") || ""}
+                checked={Boolean(value.find((x) => x === "Dochód stały"))}
                 onChange={(e) => onChange(e)}
               />
               Dochód stały
@@ -31,7 +31,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Dochód dodatkowy"
-                checked={value.find((x) => x === "Dochód dodatkowy") || ""}
+                checked={Boolean(value.find((x) => x === "Dochód dodatkowy"))}
                 onChange={(e) => onChange(e)}
               />
               Dochód dodatkowy
@@ -42,7 +42,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Koszty stałe"
-                checked={value.find((x) => x === "Koszty stałe") || ""}
+                checked={Boolean(value.find((x) => x === "Koszty stałe"))}
                 onChange={(e) => onChange(e)}
               />
               Koszty stałe
@@ -53,7 +53,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Jedzenie"
-                checked={value.find((x) => x === "Jedzenie") || ""}
+                checked={Boolean(value.find((x) => x === "Jedzenie"))}
                 onChange={(e) => onChange(e)}
               />
               Jedzenie
@@ -64,7 +64,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Transport"
-                checked={value.find((x) => x === "Transport") || ""}
+                checked={Boolean(value.find((x) => x === "Transport"))}
                 onChange={(e) => onChange(e)}
               />
               Transport
@@ -75,7 +75,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Rozrywka"
-                checked={value.find((x) => x === "Rozrywka") || ""}
+                checked={Boolean(value.find((x) => x === "Rozrywka"))}
                 onChange={(e) => onChange(e)}
               />
               Rozrywka
@@ -86,7 +86,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Inne"
-                checked={value.find((x) => x === "Inne") || ""}
+                checked={Boolean(value.find((x) => x === "Inne"))}
                 onChange={(e) => onChange(e)}
               />
               Inne
@@ -100,7 +100,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Koszty stałe"
-                checked={value.find((x) => x === "Koszty stałe") || ""}
+                checked={Boolean(value.find((x) => x === "Koszty stałe"))}
                 onChange={(e) => onChange(e)}
               />
               Koszty stałe
@@ -111,7 +111,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Jedzenie"
-                checked={value.find((x) => x === "Jedzenie") || ""}
+                checked={Boolean(value.find((x) => x === "Jedzenie"))}
                 onChange={(e) => onChange(e)}
               />
               Jedzenie
@@ -122,7 +122,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Transport"
-                checked={value.find((x) => x === "Transport") || ""}
+                checked={Boolean(value.find((x) => x === "Transport"))}
                 onChange={(e) => onChange(e)}
               />
               Transport
@@ -133,7 +133,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Rozrywka"
-                checked={value.find((x) => x === "Rozrywka") || ""}
+                checked={Boolean(value.find((x) => x === "Rozrywka"))}
                 onChange={(e) => onChange(e)}
               />
               Rozrywka
@@ -144,7 +144,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Inne"
-                checked={value.find((x) => x === "Inne") || ""}
+                checked={Boolean(value.find((x) => x === "Inne"))}
                 onChange={(e) => onChange(e)}
               />
               Inne
@@ -158,7 +158,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Dochód stały"
-                checked={value.find((x) => x === "Dochód stały") || ""}
+                checked={Boolean(value.find((x) => x === "Dochód stały"))}
                 onChange={(e) => onChange(e)}
               />
               Dochód stały
@@ -169,7 +169,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Dochód dodatkowy"
-                checked={value.find((x) => x === "Dochód dodatkowy") || ""}
+                checked={Boolean(value.find((x) => x === "Dochód dodatkowy"))}
                 onChange={(e) => onChange(e)}
               />
               Dochód dodatkowy
@@ -180,7 +180,7 @@ export const CheckboxCategoryInput = ({
               <input
                 type="checkbox"
                 value="Inne"
-                checked={value.find((x) => x === "Inne") || ""}
+                checked={Boolean(value.find((x) => x === "Inne"))}
                 onChange={(e) => onChange(e)}
               />
               Inne

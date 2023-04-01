@@ -2,7 +2,7 @@ import { useTheme } from "../../hooks/useTheme";
 
 type Props = {
   onChange: (value: string) => void;
-  value: string;
+  value?: string;
 };
 
 export const SelectTypeInput = ({ onChange, value }: Props) => {

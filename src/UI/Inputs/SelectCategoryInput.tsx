@@ -3,7 +3,7 @@ import { useTheme } from "../../hooks/useTheme";
 type Props = {
   type: string;
   onChange: (value: string) => void;
-  value: string;
+  value?: string;
   className: string;
 };
 

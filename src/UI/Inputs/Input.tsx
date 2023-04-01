@@ -1,11 +1,11 @@
 import { useTheme } from "../../hooks/useTheme";
 
 type Props = {
-  placeholder: string;
+  placeholder?: string;
   type: string;
-  max: number | string;
+  max?: number | string;
   onChange: (value: string) => void;
-  value: string[];
+  value?: string[];
   variant: string;
 };
 

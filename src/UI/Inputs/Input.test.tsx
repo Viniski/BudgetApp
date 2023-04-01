@@ -22,7 +22,7 @@ describe("Input", () => {
         <Input type="number" onChange={mockedOnChange} placeholder={"Od"} />
       </Provider>
     );
-    const input = screen.getByPlaceholderText(/od/i);
+    const input = screen.getByPlaceholderText(/od/i) as HTMLInputElement;
     fireEvent.change(input, { target: { value: 100 } });
     expect(input.value).toBe("100");
   });
@@ -33,7 +33,7 @@ describe("Input", () => {
         <Input type="number" onChange={mockedOnChange} placeholder={"Od"} />
       </Provider>
     );
-    const input = screen.getByPlaceholderText(/od/i);
+    const input = screen.getByPlaceholderText(/od/i) as HTMLInputElement;
     fireEvent.change(input, { target: { value: "lorem ipsum" } });
     expect(input.value).toBe("");
   });
