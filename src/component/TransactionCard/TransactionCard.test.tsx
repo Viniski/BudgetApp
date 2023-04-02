@@ -3,9 +3,10 @@ import { TransactionCard } from "./TransactionCard";
 import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import mockStore from "../../__mocks__/store";
+import { ROOT } from "../../navigation/CONSTANTS";
 
 const MockTransactionCard = () => {
-  const route = "/";
+  const route = ROOT;
 
   return (
     <MemoryRouter initialEntries={[route]}>

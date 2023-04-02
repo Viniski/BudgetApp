@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../redux/hooks";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   updateHomeURL,
   updateExpenseURL,
@@ -7,15 +9,14 @@ import {
 } from "../../redux/urlSlice";
 import { formatDate } from "../../helpers/formatDate";
 import { createFilterUrl } from "../../helpers/createFilterUrl";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { ROOT, EXPENSE } from "../../navigation/CONSTANTS";
 
 export type Params = {
-  page?: string | number;
-  minAmount: string;
-  maxAmount: string;
-  startDate: string;
-  endDate: string;
+  page?: any;
+  minAmount: any;
+  maxAmount: any;
+  startDate: any;
+  endDate: any;
   selectedCategory: string[];
 };
 
@@ -30,7 +31,7 @@ export function useFilterSection() {
   const [endDate, setEndDate] = useState("");
 
   const getSelectedCategory = () => {
-    if (location.pathname === "/") {
+    if (location.pathname === ROOT) {
       return [
         "Dochód stały",
         "Dochód dodatkowy",
@@ -41,7 +42,7 @@ export function useFilterSection() {
         "Inne",
       ];
     }
-    if (location.pathname === "/wydatki") {
+    if (location.pathname === EXPENSE) {
       return ["Koszty stałe", "Jedzenie", "Transport", "Rozrywka", "Inne"];
     }
 
@@ -106,9 +107,9 @@ export function useFilterSection() {
   };
 
   const chooseReducerByPathname = (newUrl: string) => {
-    return location.pathname === "/"
+    return location.pathname === ROOT
       ? updateHomeURL(newUrl)
-      : location.pathname === "/wydatki"
+      : location.pathname === EXPENSE
       ? updateExpenseURL(newUrl)
       : updateIncomeURL(newUrl);
   };

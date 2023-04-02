@@ -8,7 +8,7 @@ export function App() {
   const isDarkTheme = useTheme();
 
   return (
-    <body className={isDarkTheme && `body-dark`}>
+    <body className={isDarkTheme ? `body-dark` : ""}>
       <ErrorBoundary>
         <Router>
           <RouterConfig />

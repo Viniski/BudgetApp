@@ -8,6 +8,7 @@ import { UndoButton } from "../../UI/Buttons/UndoButton";
 import { OpenMenuButton } from "../../UI/Buttons/OpenMenuButton";
 import { CloseMenuButton } from "../../UI/Buttons/CloseMenuButton";
 import { ThemeButton } from "../../UI/Buttons/ThemeButton";
+import { ROOT, EXPENSE, INCOME } from "../../navigation/CONSTANTS";
 
 type Props = {
   title: string;
@@ -30,17 +31,17 @@ export function Header({ title }: Props) {
   };
 
   const getUndoPage = () => {
-    if (location.pathname === "/dochody" || location.pathname === "/wydatki") {
+    if (location.pathname === EXPENSE || location.pathname === INCOME) {
       return homeUrl;
     } else if (title === "Nie znaleziono strony") {
       return homeUrl;
-    } else return -1;
+    } else return String(-1);
   };
 
   return (
     <>
       <header className={`header ${isDarkTheme && `header--dark`}`}>
-        {location.pathname === "/" ? (
+        {location.pathname === ROOT ? (
           <>
             {isClicked ? (
               <CloseMenuButton

@@ -1,4 +1,4 @@
-export function formatDate(date) {
+export function formatDate(date: Date) {
   let month = "" + (date.getMonth() + 1);
   let day = "" + date.getDate();
   let year = date.getFullYear();

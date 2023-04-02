@@ -3,6 +3,7 @@ import { createSearch } from "./createSearch";
 describe("createSearch function helper", () => {
   it("should return empty string if params object is without any filters criteria", () => {
     const result = createSearch({
+      page: "",
       minAmount: "",
       maxAmount: "",
       startDate: "",
@@ -14,6 +15,7 @@ describe("createSearch function helper", () => {
 
   it("should return empty correct string if params object is with filters criteria", () => {
     const result = createSearch({
+      page: "",
       minAmount: "50",
       maxAmount: "1000",
       startDate: "500",

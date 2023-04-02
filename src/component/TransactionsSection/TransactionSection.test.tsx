@@ -5,9 +5,10 @@ import { TransactionSection } from "./TransactionsSection";
 import { Provider } from "react-redux";
 import mockStore from "../../__mocks__/store";
 import { MemoryRouter } from "react-router-dom";
+import { ROOT } from "../../navigation/CONSTANTS";
 
 const MockedFilterSection = ({ criteria: {} }) => {
-  const route = "/";
+  const route = ROOT;
 
   return (
     <Provider store={mockStore}>

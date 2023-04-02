@@ -1,7 +1,7 @@
 export type initialStateType = Array<{
   type: string;
   date: string;
-  amount: string;
+  amount: any;
   title: string;
   category: string;
   id: number;
@@ -11,7 +11,7 @@ export type initialStateType = Array<{
 export type initialStateElement = {
   type: string;
   date: string;
-  amount: string;
+  amount: any;
   title: string;
   category: string;
   id: number;

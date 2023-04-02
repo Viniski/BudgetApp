@@ -11,6 +11,7 @@ import { useGetParamsFromURL } from "./useGetParamsFromURL";
 import { useTheme } from "../../../hooks/useTheme";
 import { createPaginationUrl } from "../../../helpers/createPaginationUrl";
 import type { initialStateType } from "../../../data/initialTransaction";
+import { ROOT, EXPENSE } from "../../../navigation/CONSTANTS";
 
 export function useTransactionSection(type: string) {
   const navigate = useNavigate();
@@ -38,9 +39,9 @@ export function useTransactionSection(type: string) {
   const paginate = (number: number) => {
     const newUrl = createPaginationUrl(location.pathname, filterParams, number);
     dispatch(
-      location.pathname === "/"
+      location.pathname === ROOT
         ? updateHomeURL(newUrl)
-        : type === "/wydatki"
+        : type === EXPENSE
         ? updateExpenseURL(newUrl)
         : updateIncomeURL(newUrl)
     );

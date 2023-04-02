@@ -5,7 +5,7 @@ export function useGetParamsFromURL() {
 
   const getParamsToFilterFromURL = () => {
     const objectParams = {
-      page: searchParams.get("strona"),
+      page: Number(searchParams.get("strona")) || "",
       minAmount: searchParams.get("min"),
       maxAmount: searchParams.get("max"),
       endDate: searchParams.get("do"),
