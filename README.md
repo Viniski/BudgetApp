@@ -1,6 +1,6 @@
 # Budget App by Viniski
 
-A complete budget application written in React.js.
+A complete budget application written in React.js and Type Script.
 
 ## :sunglasses: Descriptions
 
@@ -16,6 +16,7 @@ This project was bootstrapped with Create React App. The Redux Toolkit was used 
 
 - React.js
 - Create-react-app
+- Type Script
 - SASS
 - BEM metodology
 - React-Router
@@ -28,7 +29,7 @@ This project was bootstrapped with Create React App. The Redux Toolkit was used 
 
 https://budgetappbyviniski.netlify.app
 
-Unfortunately, Netifly which I used for deployment is on the public suffix list, which prevents cookies from working properly. Therefore, saving changes to the list of transactions, active filters and theme colors to the browser's memory is not supported.
+Unfortunately, page which I used for deployment is on the public suffix list, which prevents cookies from working properly. Therefore, saving changes to the list of transactions, active filters and theme colors to the browser's memory is not supported.
 
 I encourage you to run the project on your computer, to take advantage of this facility :)
 
