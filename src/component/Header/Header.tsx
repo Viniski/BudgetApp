@@ -32,10 +32,10 @@ export function Header({ title }: Props) {
 
   const getUndoPage = () => {
     if (location.pathname === EXPENSE || location.pathname === INCOME) {
-      return homeUrl;
+      return navigate(homeUrl);
     } else if (title === "Nie znaleziono strony") {
-      return homeUrl;
-    } else return String(-1);
+      return navigate(homeUrl);
+    } else return navigate(-1);
   };
 
   return (
@@ -56,10 +56,7 @@ export function Header({ title }: Props) {
             )}
           </>
         ) : (
-          <UndoButton
-            onClick={() => navigate(getUndoPage())}
-            isDarkTheme={isDarkTheme}
-          />
+          <UndoButton onClick={() => getUndoPage()} isDarkTheme={isDarkTheme} />
         )}
         <h1>{title}</h1>
         <ThemeButton onClick={handleThemeClick} isDarkTheme={isDarkTheme} />

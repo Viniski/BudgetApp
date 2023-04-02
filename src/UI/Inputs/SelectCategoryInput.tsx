@@ -4,14 +4,14 @@ type Props = {
   type: string;
   onChange: (value: string) => void;
   value?: string;
-  className: string;
+  variant: string;
 };
 
 export const SelectCategoryInput = ({
   type,
   onChange,
   value,
-  className,
+  variant,
 }: Props) => {
   const isDarkTheme = useTheme();
 
@@ -19,8 +19,8 @@ export const SelectCategoryInput = ({
     <select
       onChange={(e) => onChange(e.target.value)}
       defaultValue={value || ""}
-      className={`inputs-${className}__input ${
-        isDarkTheme && `inputs-${className}__input--dark`
+      className={`inputs-${variant}__input ${
+        isDarkTheme && `inputs-${variant}__input--dark`
       }`}
       data-testid="select-category-input"
     >
@@ -63,5 +63,5 @@ export const SelectCategoryInput = ({
 };
 
 SelectCategoryInput.defaultProps = {
-  className: "section",
+  variant: "section",
 };
