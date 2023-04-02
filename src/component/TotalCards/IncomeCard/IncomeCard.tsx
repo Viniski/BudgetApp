@@ -1,5 +1,5 @@
-import { useAppSelector } from "../../../redux/hooks";
 import { useTheme } from "../../../hooks/useTheme";
+import { useTransactions } from "../../../hooks/useTransactions";
 
 type Props = {
   variant?: string;
@@ -7,10 +7,9 @@ type Props = {
 
 export function IncomeCard({ variant }: Props) {
   const isDarkTheme = useTheme();
-  const transactions = useAppSelector((state) => state.transactions);
+  const income = useTransactions("income");
 
   const calculateIncomeTransaction = () => {
-    const income = transactions.filter((el) => el.type === "income");
     let totalIncome = 0;
 
     for (let i = 0; i < income.length; i++) {

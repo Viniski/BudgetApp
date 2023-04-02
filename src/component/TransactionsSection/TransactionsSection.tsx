@@ -4,7 +4,7 @@ import { Pagination } from "../Pagination/Pagination";
 import { useTransactionSection } from "./hooks/useTransactionSection";
 
 type Props = {
-  type: string;
+  type: "all" | "expense" | "income";
   title: string;
 };
 

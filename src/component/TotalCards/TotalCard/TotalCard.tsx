@@ -1,13 +1,12 @@
-import { useAppSelector } from "../../../redux/hooks";
 import { useTheme } from "../../../hooks/useTheme";
+import { useTransactions } from "../../../hooks/useTransactions";
 
 export function TotalCard() {
   const isDarkTheme = useTheme();
-  const transactions = useAppSelector((state) => state.transactions);
+  const income = useTransactions("income");
+  const expense = useTransactions("expense");
 
   const calculateTotalTransaction = () => {
-    const income = transactions.filter((el) => el.type === "income");
-    const expense = transactions.filter((el) => el.type === "expense");
     let totalAmount = 0;
 
     for (let i = 0; i < income.length; i++) {

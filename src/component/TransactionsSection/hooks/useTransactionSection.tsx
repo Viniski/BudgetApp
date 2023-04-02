@@ -6,20 +6,22 @@ import {
   updateIncomeURL,
 } from "../../../redux/urlSlice";
 import { getFilteredTransaction } from "../../../helpers/getFilteredTransaction";
-import { useGetTransactions } from "./useGetTransactions";
+import { useTransactions } from "../../../hooks/useTransactions";
 import { useGetParamsFromURL } from "./useGetParamsFromURL";
 import { useTheme } from "../../../hooks/useTheme";
 import { createPaginationUrl } from "../../../helpers/createPaginationUrl";
 import type { initialStateType } from "../../../data/initialTransaction";
 import { ROOT, EXPENSE } from "../../../navigation/CONSTANTS";
 
-export function useTransactionSection(type: string) {
+type Params = "all" | "expense" | "income";
+
+export function useTransactionSection(type: Params) {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
   const isDarkTheme = useTheme();
-  const allTransactions = useGetTransactions(type);
+  const allTransactions = useTransactions(type);
   const filterParams = useGetParamsFromURL();
 
   const filtredTransactions = getFilteredTransaction(
@@ -41,7 +43,7 @@ export function useTransactionSection(type: string) {
     dispatch(
       location.pathname === ROOT
         ? updateHomeURL(newUrl)
-        : type === EXPENSE
+        : location.pathname === EXPENSE
         ? updateExpenseURL(newUrl)
         : updateIncomeURL(newUrl)
     );
