@@ -27,7 +27,9 @@ describe("Select add type page", () => {
   test("should display income button", () => {
     render(<MockComponent />);
 
-    const buttonIncome = screen.getByRole("button", { name: /Dodaj dochód/i });
+    const buttonIncome = screen.getByRole("button", {
+      name: /Dodaj przychód/i,
+    });
     expect(buttonIncome).toBeInTheDocument();
   });
 

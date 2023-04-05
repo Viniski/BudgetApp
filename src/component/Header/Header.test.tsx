@@ -27,7 +27,7 @@ describe("Header nav", () => {
   test("inicialy on home page nav is hide ", () => {
     render(<MockHeader />);
 
-    const navLink = screen.queryByText("Dochody");
+    const navLink = screen.queryByText("Przychody");
     expect(navLink).toBeNull();
   });
 
@@ -35,7 +35,7 @@ describe("Header nav", () => {
     render(<MockHeader />);
     const button = screen.getByTestId("open-menu-button");
     userEvent.click(button);
-    const navLink = screen.getByRole("link", { name: "Dochody" });
+    const navLink = screen.getByRole("link", { name: "Przychody" });
     expect(navLink).toBeVisible();
   });
 
@@ -45,7 +45,7 @@ describe("Header nav", () => {
     userEvent.click(openButton);
     const closeButton = screen.getByTestId("close-menu-button");
     userEvent.click(closeButton);
-    const navLink = screen.queryByText("Dochody");
+    const navLink = screen.queryByText("Przychody");
     expect(navLink).toBeNull();
   });
 });

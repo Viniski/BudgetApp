@@ -20,11 +20,11 @@ describe("Nav", () => {
     userEvent.click(button);
 
     act(() => {
-      const navLink = screen.getByRole("link", { name: "Dochody" });
+      const navLink = screen.getByRole("link", { name: "Przychody" });
       userEvent.click(navLink);
     });
 
-    const headerName = screen.getByRole("heading", { name: "Dochody" });
+    const headerName = screen.getByRole("heading", { name: "Przychody" });
     expect(headerName).toBeInTheDocument();
   });
 
