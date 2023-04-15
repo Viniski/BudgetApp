@@ -1,6 +1,7 @@
 export const ROOT = `/`;
 export const INCOME = `/przychody`;
 export const EXPENSE = `/wydatki`;
+export const CHARTS = "/wykresy";
 export const TRANSACTION = `/transakcje/:id`;
 export const TRANSACTION_ID = (id: number) => `/transakcje/${id}`;
 export const ADD_TRANSACTION = `/dodaj-transakcje`;

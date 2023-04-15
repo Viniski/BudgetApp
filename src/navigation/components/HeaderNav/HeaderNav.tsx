@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../../../redux/hooks";
 import { useTheme } from "../../../hooks/useTheme";
-import { ADD_TRANSACTION } from "../../CONSTANTS";
+import { ADD_TRANSACTION, CHARTS } from "../../CONSTANTS";
 
 export function HeaderNav() {
   const isDarkTheme = useTheme();
@@ -27,6 +27,15 @@ export function HeaderNav() {
             }`}
           >
             Wydatki
+          </li>
+        </NavLink>
+        <NavLink to={CHARTS}>
+          <li
+            className={`navigation__item ${
+              isDarkTheme && `navigation__item--dark`
+            }`}
+          >
+            Wykresy
           </li>
         </NavLink>
         <NavLink to={ADD_TRANSACTION}>
