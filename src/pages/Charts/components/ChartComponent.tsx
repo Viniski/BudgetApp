@@ -27,13 +27,19 @@ export function ChartComponent({ type }: Props) {
   return (
     <Chart
       type="pie"
-      width={600}
+      width={400}
       height={250}
       series={createTransactionAmountArray()}
       options={{
         title: { text: "" },
-        noData: { text: "Empty Data" },
+        noData: { text: "Brak danych" },
         labels: createTransactionNameArray(),
+        responsive: [
+          {
+            breakpoint: undefined,
+            options: {},
+          },
+        ],
       }}
     />
   );

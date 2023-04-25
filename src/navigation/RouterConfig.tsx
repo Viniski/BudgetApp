@@ -32,7 +32,7 @@ export const RouterConfig = () => {
       <Route path={ADD_TRANSACTION} element={<SelectAddTypePage />} />
       <Route
         path={ADD_INCOME}
-        element={<AddPage type="income" name="dochód" />}
+        element={<AddPage type="income" name="przychód" />}
       />
       <Route
         path={ADD_EXPENSE}

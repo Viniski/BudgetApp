@@ -12,9 +12,15 @@ export function ChartsPage() {
     <>
       <Header title="Wykresy" />
       <section className="wrapper-404">
-        <button onClick={() => setType("all")}>Wszystko</button>
-        <button onClick={() => setType("expense")}>Wydatki</button>
-        <button onClick={() => setType("income")}>Przychody</button>
+        <button onClick={() => setType("all")} className="button-options">
+          Wszystko
+        </button>
+        <button onClick={() => setType("expense")} className="button-options">
+          Wydatki
+        </button>
+        <button onClick={() => setType("income")} className="button-options">
+          Przychody
+        </button>
         <ChartComponent type={type} />
       </section>
     </>
