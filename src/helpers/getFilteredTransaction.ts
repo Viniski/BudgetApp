@@ -1,3 +1,4 @@
+import { log } from "console";
 import type { initialStateType } from "../data/initialTransaction";
 
 type Params = {
@@ -10,14 +11,13 @@ type Params = {
 };
 
 export const getFilteredTransaction = (
-  newTransactions: initialStateType,
+  initTransactions: initialStateType,
   parameters: Params
 ) => {
-  const { minAmount } = parameters;
-  const { maxAmount } = parameters;
-  const { endDate } = parameters;
-  const { startDate } = parameters;
-  const { selectedCategory } = parameters;
+  const { minAmount, maxAmount, endDate, startDate, selectedCategory } =
+    parameters;
+
+  let newTransactions = [...initTransactions];
 
   if (minAmount) {
     newTransactions = newTransactions.filter(
@@ -45,9 +45,9 @@ export const getFilteredTransaction = (
 
   if (selectedCategory.length > 0) {
     for (let i = 0; i < selectedCategory.length; i++) {
-      newTransactions = newTransactions.filter(
-        (element, i: number) => element.category !== selectedCategory[i]
-      );
+      newTransactions = newTransactions.filter((element) => {
+        return element.category !== selectedCategory[i];
+      });
     }
   }
 

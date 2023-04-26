@@ -14,11 +14,8 @@ export function ActiveFilterCriteria({
   type,
   isDarkTheme,
 }: Props) {
-  const { maxAmount } = criteria;
-  const { minAmount } = criteria;
-  const { endDate } = criteria;
-  const { startDate } = criteria;
-  const { selectedCategory } = criteria;
+  const { maxAmount, minAmount, endDate, startDate, selectedCategory } =
+    criteria;
 
   const isCategoryButtonIsActive = () => {
     return selectedCategory.length ? true : false;
@@ -28,12 +25,16 @@ export function ActiveFilterCriteria({
     onFilter(criteria);
   };
 
+  const numberOfAllCategory = 7;
+  const numberOfExpenseCategory = 5;
+  const numberOfIncomeCategory = 3;
+
   const categoryNumber =
     type === "all"
-      ? 7 - selectedCategory.length
+      ? numberOfAllCategory - selectedCategory.length
       : type === "expense"
-      ? 5 - selectedCategory.length
-      : 3 - selectedCategory.length;
+      ? numberOfExpenseCategory - selectedCategory.length
+      : numberOfIncomeCategory - selectedCategory.length;
 
   return (
     <section>
