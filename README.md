@@ -27,11 +27,7 @@ This project was bootstrapped with Create React App. The Redux Toolkit was used 
 
 ## :rocket: Demo
 
-https://budgetappbyviniski.netlify.app
-
-Unfortunately, page which I used for deployment is on the public suffix list, which prevents cookies from working properly. Therefore, saving changes to the list of transactions, active filters and theme colors to the browser's memory is not supported.
-
-I encourage you to run the project on your computer, to take advantage of this facility :)
+https://budgetappbyviniski.vercel.app/
 
 #### If you want running on your computer:
 
