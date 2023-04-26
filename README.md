@@ -4,6 +4,8 @@ A complete budget application written in React.js and Type Script.
 
 ## :sunglasses: Descriptions
 
+Charts section - UNDER DEVELOPMENT.
+
 A budget app with all the useful features. Ability to add, edit and delete transactions. Several categories of expenses and income. Possibility to filter expenses, income and all transactions by amount, date and categories. Five transactions are displayed on the page, you can go to the next ones using the pagination buttons.
 
 Data on new transactions and the selected color theme (dark or light mode) are saved in localStorage, while filtering parameters are saved in the url address. So you can share selected, filtered transactions with your friends.
