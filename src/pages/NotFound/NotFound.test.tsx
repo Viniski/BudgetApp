@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import mockStore from "../../__mocks__/store";
 import { NotFound } from "./NotFound";
+import store from "../../redux/store";
 
 describe("Not Found component", () => {
   test("renders heading element", () => {
     render(
-      <Provider store={mockStore}>
+      <Provider store={store}>
         <MemoryRouter>
           <NotFound />
         </MemoryRouter>

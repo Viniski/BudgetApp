@@ -2,19 +2,19 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
-import mockStore from "./__mocks__/store";
+import store from "./redux/store";
 import { App } from "./App";
 
 describe("App - theme light/dark", () => {
   const MockApp = () => {
     return (
-      <Provider store={mockStore}>
+      <Provider store={store}>
         <App />
       </Provider>
     );
   };
 
-  it("render app in dark theme when click theme button", () => {
+  it("should render app in dark theme when click theme button", () => {
     render(<MockApp />);
 
     act(() => {
@@ -26,7 +26,7 @@ describe("App - theme light/dark", () => {
     expect(element).toHaveClass("transaction-section__button-filter--dark");
   });
 
-  it("render app in light theme when click theme button in dark theme app", () => {
+  it("should render app in light theme when click theme button in dark theme app", () => {
     render(<MockApp />);
 
     act(() => {

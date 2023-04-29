@@ -18,7 +18,7 @@ This project was bootstrapped with Create React App. The Redux Toolkit was used 
 
 - React.js
 - Create-react-app
-- Type Script
+- TypeScript
 - SASS
 - BEM metodology
 - React-Router

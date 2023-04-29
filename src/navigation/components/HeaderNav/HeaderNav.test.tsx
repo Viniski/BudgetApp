@@ -2,13 +2,13 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
-import mockStore from "../../../__mocks__/store";
 import { App } from "../../../App";
+import store from "../../../redux/store";
 
 describe("Nav", () => {
   const MockApp = () => {
     return (
-      <Provider store={mockStore}>
+      <Provider store={store}>
         <App />
       </Provider>
     );

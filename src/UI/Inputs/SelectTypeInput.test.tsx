@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { SelectTypeInput } from "./SelectTypeInput";
 import { Provider } from "react-redux";
-import mockStore from "../../__mocks__/store";
+import store from "../../redux/store";
 
 const mockedOnChange = jest.fn();
 
 describe("SelectTypeInput", () => {
   it("should render select type input element", () => {
     render(
-      <Provider store={mockStore}>
+      <Provider store={store}>
         <SelectTypeInput onChange={mockedOnChange} />
       </Provider>
     );

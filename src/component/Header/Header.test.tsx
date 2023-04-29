@@ -3,11 +3,11 @@ import userEvent from "@testing-library/user-event";
 import { Header } from "./Header";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import mockStore from "../../__mocks__/store";
+import store from "../../redux/store";
 
 const MockHeader = () => {
   return (
-    <Provider store={mockStore}>
+    <Provider store={store}>
       <MemoryRouter>
         <Header title="Strona główna" />
       </MemoryRouter>

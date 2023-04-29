@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { TransactionCard } from "./TransactionCard";
 import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import mockStore from "../../__mocks__/store";
+import store from "../../redux/store";
 import { ROOT } from "../../navigation/CONSTANTS";
 
 const MockTransactionCard = () => {
@@ -10,7 +10,7 @@ const MockTransactionCard = () => {
 
   return (
     <MemoryRouter initialEntries={[route]}>
-      <Provider store={mockStore}>
+      <Provider store={store}>
         <TransactionCard
           isDarkTheme={false}
           data={{

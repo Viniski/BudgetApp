@@ -2,11 +2,11 @@ import { render, screen } from "@testing-library/react";
 import { TotalCard } from "./TotalCard";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import mockStore from "../../../__mocks__/store";
+import store from "../../../redux/store";
 
 const MockComponent = () => {
   return (
-    <Provider store={mockStore}>
+    <Provider store={store}>
       <MemoryRouter>
         <TotalCard />
       </MemoryRouter>
