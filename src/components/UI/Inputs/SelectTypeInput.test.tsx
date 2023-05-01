@@ -1,17 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { SelectTypeInput } from "./SelectTypeInput";
-import { Provider } from "react-redux";
-import store from "../../../redux/store";
+import { renderWithProviders } from "../../../helpers/testUtils";
 
 const mockedOnChange = jest.fn();
 
 describe("SelectTypeInput", () => {
   it("should render select type input element", () => {
-    render(
-      <Provider store={store}>
-        <SelectTypeInput onChange={mockedOnChange} />
-      </Provider>
-    );
+    renderWithProviders(<SelectTypeInput onChange={mockedOnChange} />);
     const selectType = screen.getByTestId("select-type-input");
     expect(selectType).toBeInTheDocument();
   });

@@ -1,17 +1,14 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { Provider } from "react-redux";
 import { NotFound } from "./NotFound";
-import store from "../../redux/store";
+import { renderWithProviders } from "../../helpers/testUtils";
 
 describe("Not Found component", () => {
-  test("renders heading element", () => {
-    render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <NotFound />
-        </MemoryRouter>
-      </Provider>
+  test("should renders heading element", () => {
+    renderWithProviders(
+      <MemoryRouter>
+        <NotFound />
+      </MemoryRouter>
     );
     const headingElement = screen.getByRole("heading", { name: "404" });
 

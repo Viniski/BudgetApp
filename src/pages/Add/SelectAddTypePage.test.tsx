@@ -1,22 +1,19 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { SelectAddTypePage } from "./SelectAddTypePage";
-import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import store from "../../redux/store";
+import { renderWithProviders } from "../../helpers/testUtils";
 
 const MockComponent = () => {
   return (
-    <Provider store={store}>
-      <MemoryRouter>
-        <SelectAddTypePage />
-      </MemoryRouter>
-    </Provider>
+    <MemoryRouter>
+      <SelectAddTypePage />
+    </MemoryRouter>
   );
 };
 
 describe("Select add type page", () => {
   test("should display expense button", () => {
-    render(<MockComponent />);
+    renderWithProviders(<MockComponent />);
 
     const buttonExpense = screen.getByRole("button", {
       name: /Dodaj wydatek/i,
@@ -25,7 +22,7 @@ describe("Select add type page", () => {
   });
 
   test("should display income button", () => {
-    render(<MockComponent />);
+    renderWithProviders(<MockComponent />);
 
     const buttonIncome = screen.getByRole("button", {
       name: /Dodaj przychód/i,
@@ -33,8 +30,8 @@ describe("Select add type page", () => {
     expect(buttonIncome).toBeInTheDocument();
   });
 
-  test("display correct title page", () => {
-    render(<MockComponent />);
+  test("should display correct title page", () => {
+    renderWithProviders(<MockComponent />);
 
     const title = document.title;
     expect(title).toBe("Dodaj transakcje | BudgetApp by Viniski");

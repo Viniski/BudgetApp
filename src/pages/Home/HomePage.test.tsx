@@ -1,19 +1,9 @@
-import { render } from "@testing-library/react";
-import { Provider } from "react-redux";
 import { App } from "../../App";
-import store from "../../redux/store";
+import { renderWithProviders } from "../../helpers/testUtils";
 
 describe("Title page", () => {
-  const MockApp = () => {
-    return (
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-  };
-
-  test("display correct title page", () => {
-    render(<MockApp />);
+  test("should display correct title page", () => {
+    renderWithProviders(<App />);
 
     const title = document.title;
     expect(title).toBe("BudgetApp by Viniski");

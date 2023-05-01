@@ -1,9 +1,8 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { TransactionSection } from "./TransactionsSection";
-import { Provider } from "react-redux";
-import store from "../../redux/store";
+import { renderWithProviders } from "../../helpers/testUtils";
 import { MemoryRouter } from "react-router-dom";
 import { ROOT } from "../../navigation/CONSTANTS";
 
@@ -11,17 +10,15 @@ const MockedFilterSection = ({ criteria: {} }) => {
   const route = ROOT;
 
   return (
-    <Provider store={store}>
-      <MemoryRouter initialEntries={[route]}>
-        <TransactionSection type="expense" title="wydatki" />
-      </MemoryRouter>
-    </Provider>
+    <MemoryRouter initialEntries={[route]}>
+      <TransactionSection type="expense" title="wydatki" />
+    </MemoryRouter>
   );
 };
 
 describe("Transaction section", () => {
   it("should open a filter inputs section after click filter button", () => {
-    render(<MockedFilterSection criteria={{}} />);
+    renderWithProviders(<MockedFilterSection criteria={{}} />);
     const buttonElement = screen.getByTestId("filter-button");
     userEvent.click(buttonElement);
     const inputElementMin = screen.getByPlaceholderText(/Kwota minimalna/i);
@@ -33,7 +30,7 @@ describe("Transaction section", () => {
 
 describe("", () => {
   it("should add criteria to page after submit a filter form", () => {
-    render(<MockedFilterSection criteria={{}} />);
+    renderWithProviders(<MockedFilterSection criteria={{}} />);
     const buttonElement = screen.getByTestId("filter-button");
     userEvent.click(buttonElement);
 

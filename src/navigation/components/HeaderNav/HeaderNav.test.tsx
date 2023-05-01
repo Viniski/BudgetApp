@@ -1,20 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
-import { Provider } from "react-redux";
 import { App } from "../../../App";
-import store from "../../../redux/store";
+import { renderWithProviders } from "../../../helpers/testUtils";
 
 describe("Nav", () => {
-  const MockApp = () => {
-    return (
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-  };
-  it("navigates income when you click the link in nav", () => {
-    render(<MockApp />);
+  it("should navigates income when you click the link in nav", () => {
+    renderWithProviders(<App />);
 
     const button = screen.getByTestId("open-menu-button");
     userEvent.click(button);
@@ -28,8 +20,8 @@ describe("Nav", () => {
     expect(headerName).toBeInTheDocument();
   });
 
-  it("navigates home when you click undo button", () => {
-    render(<MockApp />);
+  it("should navigates home when you click undo button", () => {
+    renderWithProviders(<App />);
 
     act(() => {
       const backButton = screen.getByTestId("undo-button");
@@ -40,8 +32,8 @@ describe("Nav", () => {
     expect(headerName).toBeInTheDocument();
   });
 
-  it("navigates expense when you click the link in nav", () => {
-    render(<MockApp />);
+  it("should navigates expense when you click the link in nav", () => {
+    renderWithProviders(<App />);
 
     const button = screen.getByTestId("open-menu-button");
     userEvent.click(button);
