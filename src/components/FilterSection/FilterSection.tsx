@@ -1,8 +1,8 @@
-import { Input } from "../../UI/Inputs/Input";
-import { CheckboxCategoryInput } from "../../UI/Inputs/CheckboxCategoryInput";
+import { Input } from "../UI/Inputs/Input";
+import { CheckboxCategoryInput } from "../UI/Inputs/CheckboxCategoryInput";
 import { ActiveFilterCriteria } from "./ActiveFilterCriteria";
-import { FilterButton } from "../../UI/Buttons/FilterButton";
-import { CloseFilterButton } from "../../UI/Buttons/CloseFilterButton";
+import { FilterButton } from "../UI/Buttons/FilterButton";
+import { CloseFilterButton } from "../UI/Buttons/CloseFilterButton";
 import { Params, useFilterSection } from "./useFilterSection";
 
 type Props = {

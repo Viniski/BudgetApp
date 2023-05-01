@@ -1,7 +1,7 @@
 import { useAppDispatch } from "../../redux/hooks";
 import { remove } from "../../redux/transactionsSlice";
-import { DeleteButton } from "../../UI/Buttons/DeleteButton";
-import { EditButton } from "../../UI/Buttons/EditButton";
+import { DeleteButton } from "../UI/Buttons/DeleteButton";
+import { EditButton } from "../UI/Buttons/EditButton";
 import { DetailsTransactionLink } from "../../navigation/components/DetailsTransactionLink/DetailsTransactionLink";
 import { EditTransactionLink } from "../../navigation/components/EditTransactionLink/EditTransactionLink";
 

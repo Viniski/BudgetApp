@@ -1,4 +1,4 @@
-import { DeleteActiveCriteriaButton } from "../../UI/Buttons/DeleteActiveCriteriaButton";
+import { DeleteActiveCriteriaButton } from "../UI/Buttons/DeleteActiveCriteriaButton";
 import type { Params } from "./useFilterSection";
 
 type Props = {

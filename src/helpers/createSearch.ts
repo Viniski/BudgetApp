@@ -1,4 +1,4 @@
-import type { Params } from "../component/FilterSection/useFilterSection";
+import type { Params } from "../components/FilterSection/useFilterSection";
 
 export function createSearch({
   page,

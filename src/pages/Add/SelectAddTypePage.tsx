@@ -1,5 +1,5 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { Header } from "../../component/Header/Header";
+import { Header } from "../../components/Header/Header";
 import { AddIncomeLink } from "../../navigation/components/AddTransactionLink/AddIncomeLink";
 import { AddExpenseLink } from "../../navigation/components/AddTransactionLink/AddExpenseLink";
 

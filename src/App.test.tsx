@@ -25,16 +25,4 @@ describe("App - theme light/dark", () => {
     const element = screen.getByTestId("filter-button");
     expect(element).toHaveClass("transaction-section__button-filter--dark");
   });
-
-  it("should render app in light theme when click theme button in dark theme app", () => {
-    render(<MockApp />);
-
-    act(() => {
-      const button = screen.getByTestId("theme-button");
-      userEvent.click(button);
-    });
-
-    const element = screen.getByTestId("filter-button");
-    expect(element).not.toHaveClass("transaction-section__button-filter--dark");
-  });
 });

@@ -4,10 +4,10 @@ import { useAppDispatch } from "../../redux/hooks";
 import { edit } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { useTransactionById } from "../../hooks/useTransactionById";
-import { Header } from "../../component/Header/Header";
-import { Input } from "../../UI/Inputs/Input";
-import { SelectCategoryInput } from "../../UI/Inputs/SelectCategoryInput";
-import { SelectTypeInput } from "../../UI/Inputs/SelectTypeInput";
+import { Header } from "../../components/Header/Header";
+import { Input } from "../../components/UI/Inputs/Input";
+import { SelectCategoryInput } from "../../components/UI/Inputs/SelectCategoryInput";
+import { SelectTypeInput } from "../../components/UI/Inputs/SelectTypeInput";
 
 export function EditPage() {
   const { id } = useParams();

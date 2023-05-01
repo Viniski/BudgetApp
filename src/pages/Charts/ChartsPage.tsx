@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { ChartComponent } from "./components/ChartComponent";
-import { Header } from "../../component/Header/Header";
+import { Header } from "../../components/Header/Header";
 
 type Params = "all" | "expense" | "income";
 

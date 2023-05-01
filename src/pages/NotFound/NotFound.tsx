@@ -1,6 +1,6 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { NotFoundLink } from "../../navigation/components/NotFoundLink/NotFoundLink";
-import { Header } from "../../component/Header/Header";
+import { Header } from "../../components/Header/Header";
 
 export function NotFound() {
   useWebsiteTitle("Błąd | BudgetApp by Viniski");

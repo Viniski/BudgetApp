@@ -1,4 +1,3 @@
-import { log } from "console";
 import type { initialStateType } from "../data/initialTransaction";
 
 type Params = {

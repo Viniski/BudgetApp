@@ -1,8 +1,8 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { Header } from "../../component/Header/Header";
-import { IncomeCard } from "../../component/TotalCards/IncomeCard/IncomeCard";
-import { AddButton } from "../../UI/Buttons/AddButton";
-import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
+import { Header } from "../../components/Header/Header";
+import { IncomeCard } from "../../components/TotalCards/IncomeCard/IncomeCard";
+import { AddButton } from "../../components/UI/Buttons/AddButton";
+import { TransactionSection } from "../../components/TransactionsSection/TransactionsSection";
 import { AddTransactionLink } from "../../navigation/components/AddTransactionLink/AddTransactionLink";
 
 export function IncomePage() {

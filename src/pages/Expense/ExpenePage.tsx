@@ -1,8 +1,8 @@
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { Header } from "../../component/Header/Header";
-import { ExpenseCard } from "../../component/TotalCards/ExpenseCard/ExpenseCard";
-import { AddButton } from "../../UI/Buttons/AddButton";
-import { TransactionSection } from "../../component/TransactionsSection/TransactionsSection";
+import { Header } from "../../components/Header/Header";
+import { ExpenseCard } from "../../components/TotalCards/ExpenseCard/ExpenseCard";
+import { AddButton } from "../../components/UI/Buttons/AddButton";
+import { TransactionSection } from "../../components/TransactionsSection/TransactionsSection";
 import { AddTransactionLink } from "../../navigation/components/AddTransactionLink/AddTransactionLink";
 
 export function ExpensePage() {

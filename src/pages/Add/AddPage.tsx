@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/hooks";
 import { add } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
-import { Header } from "../../component/Header/Header";
-import { Input } from "../../UI/Inputs/Input";
-import { SelectCategoryInput } from "../../UI/Inputs/SelectCategoryInput";
+import { Header } from "../../components/Header/Header";
+import { Input } from "../../components/UI/Inputs/Input";
+import { SelectCategoryInput } from "../../components/UI/Inputs/SelectCategoryInput";
 import { formatDate } from "../../helpers/formatDate";
 
 type Props = {

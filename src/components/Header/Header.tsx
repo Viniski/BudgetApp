@@ -4,10 +4,10 @@ import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { toogle } from "../../redux/themeSlice";
 import { useTheme } from "../../hooks/useTheme";
 import { HeaderNav } from "../../navigation/components/HeaderNav/HeaderNav";
-import { UndoButton } from "../../UI/Buttons/UndoButton";
-import { OpenMenuButton } from "../../UI/Buttons/OpenMenuButton";
-import { CloseMenuButton } from "../../UI/Buttons/CloseMenuButton";
-import { ThemeButton } from "../../UI/Buttons/ThemeButton";
+import { UndoButton } from "../UI/Buttons/UndoButton";
+import { OpenMenuButton } from "../UI/Buttons/OpenMenuButton";
+import { CloseMenuButton } from "../UI/Buttons/CloseMenuButton";
+import { ThemeButton } from "../UI/Buttons/ThemeButton";
 import { ROOT, EXPENSE, INCOME } from "../../navigation/CONSTANTS";
 
 type Props = {

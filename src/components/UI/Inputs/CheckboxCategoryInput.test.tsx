@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { CheckboxCategoryInput } from "./CheckboxCategoryInput";
 import { Provider } from "react-redux";
-import store from "../../redux/store";
+import store from "../../../redux/store";
 
 const mockedOnChange = jest.fn();
 

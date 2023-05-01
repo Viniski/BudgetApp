@@ -3,8 +3,8 @@ import { useAppDispatch } from "../../redux/hooks";
 import { remove } from "../../redux/transactionsSlice";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { useTransactionById } from "../../hooks/useTransactionById";
-import { Header } from "../../component/Header/Header";
-import { CategoryDetails } from "../../component/CategoryDetails/CategoryDetails";
+import { Header } from "../../components/Header/Header";
+import { CategoryDetails } from "../../components/CategoryDetails/CategoryDetails";
 
 export function DetailsPage() {
   useWebsiteTitle("Szczegóły transakcji | BudgetApp by Viniski");
