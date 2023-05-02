@@ -1,16 +1,16 @@
 import { createSearch } from "./createSearch";
-import type { Params } from "../components/FilterSection/useFilterSection";
+import type { Params } from "./globalTypes";
 
 export function createPaginationUrl(
   pathname: string,
   currentParams: Params,
   number: number
 ) {
-  let objectParams = currentParams;
+  const objectParams = currentParams;
   objectParams.page = number;
 
   const search = createSearch(objectParams);
-  let newUrl = pathname + search;
+  const newUrl = pathname + search;
 
   return newUrl;
 }

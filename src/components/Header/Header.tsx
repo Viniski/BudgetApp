@@ -33,9 +33,11 @@ export function Header({ title }: Props) {
   const getUndoPage = () => {
     if (location.pathname === EXPENSE || location.pathname === INCOME) {
       return navigate(homeUrl);
-    } else if (title === "Nie znaleziono strony") {
+    }
+    if (title === "Nie znaleziono strony") {
       return navigate(homeUrl);
-    } else return navigate(-1);
+    }
+    return navigate(-1);
   };
 
   return (

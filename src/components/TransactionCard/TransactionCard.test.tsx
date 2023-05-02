@@ -1,26 +1,24 @@
+import { ComponentProps } from "react";
 import { screen } from "@testing-library/react";
 import { TransactionCard } from "./TransactionCard";
 import { MemoryRouter } from "react-router-dom";
 import { renderWithProviders } from "../../helpers/testUtils";
 import { ROOT } from "../../navigation/CONSTANTS";
 
+type Data = ComponentProps<typeof TransactionCard>["data"];
+
 const MockTransactionCard = () => {
   const route = ROOT;
+  const mockData = {
+    amount: 24,
+    category: "Jedzenie",
+    title: "Obiad w restauracji",
+    type: "expense",
+  } as Data;
 
   return (
     <MemoryRouter initialEntries={[route]}>
-      <TransactionCard
-        isDarkTheme={false}
-        data={{
-          amount: 24,
-          category: "Jedzenie",
-          date: "2022-12-13",
-          id: 3454319,
-          note: "Było całkiem smaczne, wróc tu",
-          title: "Obiad w restauracji",
-          type: "expense",
-        }}
-      />
+      <TransactionCard isDarkTheme={false} data={mockData} />
     </MemoryRouter>
   );
 };

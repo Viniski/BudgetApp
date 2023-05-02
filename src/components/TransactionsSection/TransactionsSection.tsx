@@ -2,6 +2,7 @@ import { TransactionCard } from "../TransactionCard/TransactionCard";
 import { FilterSection } from "../FilterSection/FilterSection";
 import { Pagination } from "../Pagination/Pagination";
 import { useTransactionSection } from "./hooks/useTransactionSection";
+import { useTheme } from "../../hooks/useTheme";
 
 type Props = {
   type: "all" | "expense" | "income";
@@ -9,14 +10,9 @@ type Props = {
 };
 
 export function TransactionSection({ type, title }: Props) {
-  const {
-    isDarkTheme,
-    transactions,
-    perPage,
-    transactionOnPage,
-    criteria,
-    paginate,
-  } = useTransactionSection(type);
+  const isDarkTheme = useTheme();
+  const { transactions, perPage, transactionOnPage, criteria, paginate } =
+    useTransactionSection(type);
 
   return (
     <section className="transaction-section">

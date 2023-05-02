@@ -1,5 +1,5 @@
 import { DeleteActiveCriteriaButton } from "../UI/Buttons/DeleteActiveCriteriaButton";
-import type { Params } from "./useFilterSection";
+import type { Params } from "../../helpers/globalTypes";
 
 type Props = {
   criteria: Params;
@@ -17,8 +17,8 @@ export function ActiveFilterCriteria({
   const { maxAmount, minAmount, endDate, startDate, selectedCategory } =
     criteria;
 
-  const isCategoryButtonIsActive = () => {
-    return selectedCategory.length ? true : false;
+  const isCategoryButtonActive = () => {
+    return Boolean(selectedCategory.length);
   };
 
   const handleDeleteFilterCriteriaButton = (criteria: string) => {
@@ -106,7 +106,7 @@ export function ActiveFilterCriteria({
         </div>
       )}
 
-      {isCategoryButtonIsActive() && (
+      {isCategoryButtonActive() && (
         <div className="transaction-section__active-criteria">
           <p
             className={`transaction-section__active-criteria-paragraph ${

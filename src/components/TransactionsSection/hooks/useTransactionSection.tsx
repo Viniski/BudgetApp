@@ -8,9 +8,8 @@ import {
 import { getFilteredTransaction } from "../../../helpers/getFilteredTransaction";
 import { useTransactions } from "../../../hooks/useTransactions";
 import { useGetParamsFromURL } from "./useGetParamsFromURL";
-import { useTheme } from "../../../hooks/useTheme";
 import { createPaginationUrl } from "../../../helpers/createPaginationUrl";
-import type { initialStateType } from "../../../data/initialTransaction";
+import type { initialTransactions } from "../../../data/initialTransaction";
 import { ROOT, EXPENSE } from "../../../navigation/CONSTANTS";
 
 type Params = "all" | "expense" | "income";
@@ -20,7 +19,6 @@ export function useTransactionSection(type: Params) {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
-  const isDarkTheme = useTheme();
   const allTransactions = useTransactions(type);
   const filterParams = useGetParamsFromURL();
 
@@ -33,7 +31,7 @@ export function useTransactionSection(type: Params) {
   const perPage = 5;
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = currentPage * perPage - 1;
-  let transactionOnPage: initialStateType = filtredTransactions.slice(
+  const transactionOnPage: initialTransactions = filtredTransactions.slice(
     startIndex,
     endIndex + 1
   );
@@ -51,7 +49,6 @@ export function useTransactionSection(type: Params) {
   };
 
   return {
-    isDarkTheme,
     transactions: filtredTransactions,
     perPage,
     transactionOnPage,

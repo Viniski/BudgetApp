@@ -1,5 +1,5 @@
 type initialState = {
-  isDarkTheme: Boolean;
+  isDarkTheme: boolean;
 };
 
 export const initialState = {

@@ -1,9 +1,9 @@
 import { createSearch } from "./createSearch";
-import type { Params } from "../components/FilterSection/useFilterSection";
+import type { Params } from "./globalTypes";
 
 export function createFilterUrl(pathname: string, params: Params) {
   const search = createSearch(params);
-  let newUrl = pathname + search;
+  const newUrl = pathname + search;
 
   return newUrl;
 }

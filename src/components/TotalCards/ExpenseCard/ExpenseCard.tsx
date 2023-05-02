@@ -5,6 +5,9 @@ type Props = {
   variant?: string;
 };
 
+//MEMO :)
+//reducer
+//najlepiej hooka zrobić ale z tym memo bym chcial - docs, doczytaj
 export function ExpenseCard({ variant }: Props) {
   const isDarkTheme = useTheme();
   const expense = useTransactions("expense");

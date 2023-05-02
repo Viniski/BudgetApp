@@ -3,7 +3,8 @@ import { CheckboxCategoryInput } from "../UI/Inputs/CheckboxCategoryInput";
 import { ActiveFilterCriteria } from "./ActiveFilterCriteria";
 import { FilterButton } from "../UI/Buttons/FilterButton";
 import { CloseFilterButton } from "../UI/Buttons/CloseFilterButton";
-import { Params, useFilterSection } from "./useFilterSection";
+import { useFilterSection } from "./useFilterSection";
+import type { Params } from "../../helpers/globalTypes";
 
 type Props = {
   criteria: Params;
@@ -35,7 +36,7 @@ export function FilterSection({ type, title, criteria, isDarkTheme }: Props) {
   return (
     <>
       <div className="transaction-section__title">
-        <h3>{`Twoje transakcje`}</h3>
+        <h3>Twoje transakcje</h3>
       </div>
       <div className="transaction-section__filterButton">
         {filterSectionState.isFormActive ? (

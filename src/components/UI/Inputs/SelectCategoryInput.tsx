@@ -4,14 +4,14 @@ type Props = {
   type: string;
   onChange: (value: string) => void;
   value?: string;
-  variant: string;
+  variant?: string;
 };
 
 export const SelectCategoryInput = ({
   type,
   onChange,
   value,
-  variant,
+  variant = "section",
 }: Props) => {
   const isDarkTheme = useTheme();
 
@@ -60,8 +60,4 @@ export const SelectCategoryInput = ({
       )}
     </select>
   );
-};
-
-SelectCategoryInput.defaultProps = {
-  variant: "section",
 };

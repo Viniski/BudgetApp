@@ -9,16 +9,8 @@ import {
 } from "../../redux/urlSlice";
 import { formatDate } from "../../helpers/formatDate";
 import { createFilterUrl } from "../../helpers/createFilterUrl";
+import { Params } from "../../helpers/globalTypes";
 import { ROOT, EXPENSE } from "../../navigation/CONSTANTS";
-
-export type Params = {
-  page?: any;
-  minAmount: any;
-  maxAmount: any;
-  startDate: any;
-  endDate: any;
-  selectedCategory: string[];
-};
 
 export function useFilterSection() {
   const navigate = useNavigate();
@@ -65,15 +57,16 @@ export function useFilterSection() {
   });
 
   const getCategoryToDelete = (selectedCategory: string[]) => {
-    let arrayAllCategories = getSelectedCategory();
+    let allCategories = getSelectedCategory();
 
+    //includes()
     for (let i = 0; i < selectedCategory.length; i++) {
-      arrayAllCategories = arrayAllCategories.filter(
+      allCategories = allCategories.filter(
         (element) => element !== selectedCategory[i]
       );
     }
 
-    return [...arrayAllCategories];
+    return [...allCategories];
   };
 
   const objectToFilter = {
@@ -96,9 +89,11 @@ export function useFilterSection() {
     const isChecked = e.target.checked;
 
     if (isChecked) {
+      //lepiej opcje z prevState bo mogą sie zdesynchronizować newSelectedCategory :O :)
       const newSelectedCategory = [...selectedCategory, value];
       setSelectedCategory(newSelectedCategory);
     } else {
+      //tutaj podobnie :)
       const newSelectedCategory = selectedCategory.filter(
         (category) => category !== value
       );

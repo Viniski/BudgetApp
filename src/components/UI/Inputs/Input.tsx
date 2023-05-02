@@ -6,25 +6,21 @@ type Props = {
   max?: number | string;
   onChange: (value: string) => void;
   value?: string | string[];
-  variant: string;
+  variant?: string;
 };
 
-export const Input = (props: Props) => {
+export const Input = ({ type, variant = "section", ...props }: Props) => {
   const isDarkTheme = useTheme();
   return (
     <input
       placeholder={props?.placeholder}
-      type={props.type}
+      type={type}
       value={props?.value}
       max={props?.max}
       onChange={(e) => props.onChange(e.target.value)}
-      className={`inputs-${props.variant}__input ${
-        isDarkTheme && `inputs-${props.variant}__input--dark`
+      className={`inputs-${variant}__input ${
+        isDarkTheme && `inputs-${variant}__input--dark`
       }`}
     />
   );
-};
-
-Input.defaultProps = {
-  variant: "section",
 };

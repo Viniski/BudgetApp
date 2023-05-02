@@ -2,14 +2,14 @@ type Props = {
   type: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string[];
-  variant: string;
+  variant?: string;
 };
 
 export const CheckboxCategoryInput = ({
   type,
   value,
   onChange,
-  variant,
+  variant = "section",
 }: Props) => {
   return (
     <>
@@ -190,8 +190,4 @@ export const CheckboxCategoryInput = ({
       )}
     </>
   );
-};
-
-CheckboxCategoryInput.defaultProps = {
-  variant: "section",
 };

@@ -1,4 +1,4 @@
-import type { initialStateType } from "../data/initialTransaction";
+import type { initialTransactions } from "../data/initialTransaction";
 
 type Params = {
   page: string | number;
@@ -10,7 +10,7 @@ type Params = {
 };
 
 export const getFilteredTransaction = (
-  initTransactions: initialStateType,
+  initTransactions: initialTransactions,
   parameters: Params
 ) => {
   const { minAmount, maxAmount, endDate, startDate, selectedCategory } =

@@ -6,6 +6,8 @@ export function TotalCard() {
   const income = useTransactions("income");
   const expense = useTransactions("expense");
 
+  //MEMO :)
+  //reducer
   const calculateTotalTransaction = () => {
     let totalAmount = 0;
 

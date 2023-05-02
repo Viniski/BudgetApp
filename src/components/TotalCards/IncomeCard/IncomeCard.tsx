@@ -9,6 +9,8 @@ export function IncomeCard({ variant }: Props) {
   const isDarkTheme = useTheme();
   const income = useTransactions("income");
 
+  //MEMO :)
+  //reducer
   const calculateIncomeTransaction = () => {
     let totalIncome = 0;
 
