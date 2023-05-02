@@ -59,7 +59,6 @@ export function useFilterSection() {
   const getCategoryToDelete = (selectedCategory: string[]) => {
     let allCategories = getSelectedCategory();
 
-    //includes()
     for (let i = 0; i < selectedCategory.length; i++) {
       allCategories = allCategories.filter(
         (element) => element !== selectedCategory[i]
@@ -89,15 +88,11 @@ export function useFilterSection() {
     const isChecked = e.target.checked;
 
     if (isChecked) {
-      //lepiej opcje z prevState bo mogą sie zdesynchronizować newSelectedCategory :O :)
-      const newSelectedCategory = [...selectedCategory, value];
-      setSelectedCategory(newSelectedCategory);
+      setSelectedCategory((selectedCategory) => [...selectedCategory, value]);
     } else {
-      //tutaj podobnie :)
-      const newSelectedCategory = selectedCategory.filter(
-        (category) => category !== value
+      setSelectedCategory((selectedCategory) =>
+        selectedCategory.filter((category) => category !== value)
       );
-      setSelectedCategory(newSelectedCategory);
     }
   };
 
