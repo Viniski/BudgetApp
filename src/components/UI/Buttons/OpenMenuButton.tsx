@@ -11,6 +11,7 @@ export const OpenMenuButton = ({ onClick, isDarkTheme }: Props) => {
         isDarkTheme && `header__button-menu--dark`
       }`}
       data-testid="open-menu-button"
+      aria-label="Otwórz menu nawigacji"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
         <path

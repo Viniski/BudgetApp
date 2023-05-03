@@ -11,6 +11,7 @@ export const UndoButton = ({ onClick, isDarkTheme }: Props) => {
         isDarkTheme && `header__button-back--dark`
       }`}
       data-testid="undo-button"
+      aria-label="Cofnij"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
         <path

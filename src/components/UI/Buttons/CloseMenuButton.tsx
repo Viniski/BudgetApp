@@ -11,6 +11,7 @@ export const CloseMenuButton = ({ onClick, isDarkTheme }: Props) => {
         isDarkTheme && `header__button-menu--dark`
       }`}
       data-testid="close-menu-button"
+      aria-label="Zamknij menu nawigacji"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
         <path

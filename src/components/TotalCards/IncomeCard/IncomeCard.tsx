@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useTheme } from "../../../hooks/useTheme";
 import { useTransactions } from "../../../hooks/useTransactions";
 
@@ -9,9 +10,7 @@ export function IncomeCard({ variant }: Props) {
   const isDarkTheme = useTheme();
   const income = useTransactions("income");
 
-  //MEMO :)
-  //reducer
-  const calculateIncomeTransaction = () => {
+  const calculateIncomeTransaction = useMemo(() => {
     let totalIncome = 0;
 
     for (let i = 0; i < income.length; i++) {
@@ -19,7 +18,7 @@ export function IncomeCard({ variant }: Props) {
     }
 
     return totalIncome;
-  };
+  }, [income]);
 
   return (
     <div
@@ -36,7 +35,7 @@ export function IncomeCard({ variant }: Props) {
         </svg>
       </div>
       <h2>Bilans przychodów</h2>
-      <p>{calculateIncomeTransaction()} PLN</p>
+      <p>{calculateIncomeTransaction} PLN</p>
     </div>
   );
 }

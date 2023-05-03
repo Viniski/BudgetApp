@@ -10,10 +10,14 @@ export function SelectAddTypePage() {
       <Header title="Dodaj transakcje" />
       <div className="select-container">
         <AddIncomeLink>
-          <button className="button-options">Dodaj przychód</button>
+          <button className="button-options" aria-label="Dodaj przychód">
+            Dodaj przychód
+          </button>
         </AddIncomeLink>
         <AddExpenseLink>
-          <button className="button-options">Dodaj wydatek</button>
+          <button className="button-options" aria-label="Dodaj wydatek">
+            Dodaj wydatek
+          </button>
         </AddExpenseLink>
       </div>
     </>

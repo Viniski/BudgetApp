@@ -89,6 +89,7 @@ export function EditPage() {
           onClick={handleEditButton}
           disabled={invalidButton}
           className="button-options"
+          aria-label="Edytuj transakcje"
         >
           Edytuj transakcje
         </button>

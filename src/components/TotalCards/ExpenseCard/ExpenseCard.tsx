@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useTheme } from "../../../hooks/useTheme";
 import { useTransactions } from "../../../hooks/useTransactions";
 
@@ -5,14 +6,11 @@ type Props = {
   variant?: string;
 };
 
-//MEMO :)
-//reducer
-//najlepiej hooka zrobić ale z tym memo bym chcial - docs, doczytaj
 export function ExpenseCard({ variant }: Props) {
   const isDarkTheme = useTheme();
   const expense = useTransactions("expense");
 
-  const calculateExpenseTransaction = () => {
+  const calculateExpenseTransaction = useMemo(() => {
     let totalExpense = 0;
 
     for (let i = 0; i < expense.length; i++) {
@@ -20,7 +18,7 @@ export function ExpenseCard({ variant }: Props) {
     }
 
     return totalExpense;
-  };
+  }, [expense]);
 
   return (
     <div
@@ -37,7 +35,7 @@ export function ExpenseCard({ variant }: Props) {
         </svg>
       </div>
       <h2 className="cards__h2">Bilans wydatków</h2>
-      <p className="cards__p">{calculateExpenseTransaction()} PLN</p>
+      <p className="cards__p">{calculateExpenseTransaction} PLN</p>
     </div>
   );
 }

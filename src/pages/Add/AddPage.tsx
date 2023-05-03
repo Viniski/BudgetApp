@@ -83,6 +83,7 @@ export function AddPage({ type, name }: Props) {
           onClick={handleAddTransaction}
           className="button-options"
           disabled={invalidButton}
+          aria-label="Dodaj transakcje"
         >{`Dodaj ${name}`}</button>
       </section>
     </>
