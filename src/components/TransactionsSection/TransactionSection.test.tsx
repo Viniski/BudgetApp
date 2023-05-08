@@ -29,7 +29,7 @@ describe("Transaction section", () => {
 });
 
 describe("", () => {
-  it("should add criteria to page after submit a filter form", () => {
+  it("should add criteria to page when submit a filter form", () => {
     renderWithProviders(<MockedFilterSection criteria={{}} />);
     const buttonElement = screen.getByTestId("filter-button");
     userEvent.click(buttonElement);
