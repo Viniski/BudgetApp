@@ -17,7 +17,7 @@ const MockedFilterSection = ({ criteria: {} }) => {
 };
 
 describe("Transaction section", () => {
-  it("should open a filter inputs section after click filter button", () => {
+  it("should open a filter inputs section when click filter button", () => {
     renderWithProviders(<MockedFilterSection criteria={{}} />);
     const buttonElement = screen.getByTestId("filter-button");
     userEvent.click(buttonElement);
