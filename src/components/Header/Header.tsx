@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { clsx } from "clsx";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { toogle } from "../../redux/themeSlice";
 import { useTheme } from "../../hooks/useTheme";
@@ -42,7 +43,7 @@ export function Header({ title }: Props) {
 
   return (
     <>
-      <header className={`header ${isDarkTheme && `header--dark`}`}>
+      <header className={clsx("header", isDarkTheme && "header--dark")}>
         {location.pathname === ROOT ? (
           <>
             {isClicked ? (

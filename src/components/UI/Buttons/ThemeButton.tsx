@@ -1,3 +1,5 @@
+import { clsx } from "clsx";
+
 type Props = {
   onClick: () => void;
   isDarkTheme: boolean;
@@ -7,9 +9,10 @@ export const ThemeButton = ({ onClick, isDarkTheme }: Props) => {
   return (
     <button
       onClick={onClick}
-      className={`header__button-theme ${
-        isDarkTheme && `header__button-theme--dark`
-      }`}
+      className={clsx(
+        "header__button-theme",
+        isDarkTheme && "header__button-theme--dark"
+      )}
       data-testid="theme-button"
       aria-label="Zmień motyw"
     >

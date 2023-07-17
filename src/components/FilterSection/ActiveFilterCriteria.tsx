@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import { DeleteActiveCriteriaButton } from "../UI/Buttons/DeleteActiveCriteriaButton";
 import type { Params } from "../../helpers/globalTypes";
 
@@ -41,10 +42,11 @@ export function ActiveFilterCriteria({
       {minAmount && (
         <div className="transaction-section__active-criteria">
           <p
-            className={`transaction-section__active-criteria-paragraph ${
+            className={clsx(
+              "transaction-section__active-criteria-paragraph",
               isDarkTheme &&
-              `transaction-section__active-criteria-paragraph--dark`
-            }`}
+                "transaction-section__active-criteria-paragraph--dark"
+            )}
           >
             Kwota minimalna: {minAmount} PLN
           </p>
@@ -58,10 +60,11 @@ export function ActiveFilterCriteria({
       {maxAmount && (
         <div className="transaction-section__active-criteria">
           <p
-            className={`transaction-section__active-criteria-paragraph ${
+            className={clsx(
+              "transaction-section__active-criteria-paragraph",
               isDarkTheme &&
-              `transaction-section__active-criteria-paragraph--dark`
-            }`}
+                "transaction-section__active-criteria-paragraph--dark"
+            )}
           >
             Kwota maksymalna: {maxAmount} PLN
           </p>
@@ -75,10 +78,11 @@ export function ActiveFilterCriteria({
       {startDate && (
         <div className="transaction-section__active-criteria">
           <p
-            className={`transaction-section__active-criteria-paragraph ${
+            className={clsx(
+              "transaction-section__active-criteria-paragraph",
               isDarkTheme &&
-              `transaction-section__active-criteria-paragraph--dark`
-            }`}
+                "transaction-section__active-criteria-paragraph--dark"
+            )}
           >
             Okres od: {startDate}
           </p>
@@ -92,10 +96,11 @@ export function ActiveFilterCriteria({
       {endDate && (
         <div className="transaction-section__active-criteria">
           <p
-            className={`transaction-section__active-criteria-paragraph ${
+            className={clsx(
+              "transaction-section__active-criteria-paragraph",
               isDarkTheme &&
-              `transaction-section__active-criteria-paragraph--dark`
-            }`}
+                "transaction-section__active-criteria-paragraph--dark"
+            )}
           >
             Okres do: {endDate}
           </p>
@@ -109,10 +114,11 @@ export function ActiveFilterCriteria({
       {isCategoryButtonActive() && (
         <div className="transaction-section__active-criteria">
           <p
-            className={`transaction-section__active-criteria-paragraph ${
+            className={clsx(
+              "transaction-section__active-criteria-paragraph",
               isDarkTheme &&
-              `transaction-section__active-criteria-paragraph--dark`
-            }`}
+                "transaction-section__active-criteria-paragraph--dark"
+            )}
           >
             Liczba kategorii: {categoryNumber}
           </p>

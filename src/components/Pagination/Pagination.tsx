@@ -1,3 +1,5 @@
+import { clsx } from "clsx";
+
 type Props = {
   cardNumber: number;
   paginate: (number: number) => void;
@@ -22,9 +24,10 @@ export function Pagination({
         ? paginationPages.map((number) => (
             <button
               key={number}
-              className={`button-pagination ${
-                isDarkTheme && `button-pagination--dark`
-              }`}
+              className={clsx(
+                "button-pagination",
+                isDarkTheme && "button-pagination--dark"
+              )}
               onClick={() => paginate(number)}
             >
               {number}

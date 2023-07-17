@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import { useTheme } from "../../../hooks/useTheme";
 
 type Props = {
@@ -19,9 +20,10 @@ export const SelectCategoryInput = ({
     <select
       onChange={(e) => onChange(e.target.value)}
       defaultValue={value || ""}
-      className={`inputs-${variant}__input ${
+      className={clsx(
+        `inputs-${variant}__input`,
         isDarkTheme && `inputs-${variant}__input--dark`
-      }`}
+      )}
       data-testid="select-category-input"
     >
       {type === "all" ? (

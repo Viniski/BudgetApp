@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import { useAppDispatch } from "../../redux/hooks";
 import { remove } from "../../redux/transactionsSlice";
 import { DeleteButton } from "../UI/Buttons/DeleteButton";
@@ -27,13 +28,17 @@ export function TransactionCard({ data, isDarkTheme }: Props) {
 
   return (
     <div
-      className={`transaction-section__card ${
-        isDarkTheme && `transaction-section__card--dark`
-      }`}
+      className={clsx(
+        "transaction-section__card",
+        isDarkTheme && "transaction-section__card--dark"
+      )}
     >
       <DetailsTransactionLink id={data.id}>
         <div
-          className={`card__ammount ${isDarkTheme && `card__ammount--dark`}`}
+          className={clsx(
+            "card__ammount",
+            isDarkTheme && "card__ammount--dark"
+          )}
         >
           <span className={data.type}>
             {data.type === "expense" ? `-${data.amount}` : `+${data.amount}`}
@@ -42,7 +47,9 @@ export function TransactionCard({ data, isDarkTheme }: Props) {
       </DetailsTransactionLink>
       <DetailsTransactionLink id={data.id}>
         <div className="card__description">
-          <p className={`card__title ${isDarkTheme && `card__title--dark`}`}>
+          <p
+            className={clsx("card__title", isDarkTheme && "card__title--dark")}
+          >
             {data.title}
           </p>
           <p className="card__category">{data.category}</p>

@@ -1,3 +1,5 @@
+import { clsx } from "clsx";
+
 type Props = {
   onClick: () => void;
   isDarkTheme: boolean;
@@ -7,9 +9,10 @@ export const OpenMenuButton = ({ onClick, isDarkTheme }: Props) => {
   return (
     <button
       onClick={onClick}
-      className={`header__button-menu ${
-        isDarkTheme && `header__button-menu--dark`
-      }`}
+      className={clsx(
+        "header__button-menu",
+        isDarkTheme && "header__button-menu--dark"
+      )}
       data-testid="open-menu-button"
       aria-label="Otwórz menu nawigacji"
     >

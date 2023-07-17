@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import { useTheme } from "../../../hooks/useTheme";
 
 type Props = {
@@ -12,9 +13,10 @@ export const SelectTypeInput = ({ onChange, value }: Props) => {
     <select
       onChange={(e) => onChange(e.target.value)}
       defaultValue={value || ""}
-      className={`inputs-section__input ${
-        isDarkTheme && `inputs-section__input--dark`
-      }`}
+      className={clsx(
+        "inputs-section__input",
+        isDarkTheme && "inputs-section__input--dark"
+      )}
       data-testid="select-type-input"
     >
       <option value="" disabled hidden>

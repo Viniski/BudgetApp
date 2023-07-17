@@ -1,3 +1,5 @@
+import { clsx } from "clsx";
+
 type Props = {
   isDarkTheme: boolean;
 };
@@ -5,9 +7,10 @@ type Props = {
 export const EditButton = ({ isDarkTheme }: Props) => {
   return (
     <button
-      className={`card__button-edit ${
-        isDarkTheme && `card__button-edit--dark`
-      }`}
+      className={clsx(
+        "card__button-edit",
+        isDarkTheme && "card__button-edit--dark"
+      )}
       aria-label="Edytuj transakcje"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">

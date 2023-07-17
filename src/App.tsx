@@ -1,5 +1,5 @@
-// WERSJA Z CV!!!!!!!!!!!!!!
 import { BrowserRouter as Router } from "react-router-dom";
+import { clsx } from "clsx";
 import { useTheme } from "./hooks/useTheme";
 import { ErrorBoundary } from "./hoc/ErrorBoundary";
 import { RouterConfig } from "./navigation/RouterConfig";
@@ -9,7 +9,7 @@ export function App() {
   const isDarkTheme = useTheme();
 
   return (
-    <body className={isDarkTheme ? `body-dark` : ""}>
+    <body className={clsx({ "body-dark": isDarkTheme })}>
       <ErrorBoundary>
         <Router>
           <RouterConfig />

@@ -1,8 +1,9 @@
+import { clsx } from "clsx";
+import { useTransactionSection } from "./hooks/useTransactionSection";
+import { useTheme } from "../../hooks/useTheme";
 import { TransactionCard } from "../TransactionCard/TransactionCard";
 import { FilterSection } from "../FilterSection/FilterSection";
 import { Pagination } from "../Pagination/Pagination";
-import { useTransactionSection } from "./hooks/useTransactionSection";
-import { useTheme } from "../../hooks/useTheme";
 
 type Props = {
   type: "all" | "expense" | "income";
@@ -31,9 +32,10 @@ export function TransactionSection({ type, title }: Props) {
       ))}
       {!transactions.length && (
         <p
-          className={`transaction-section__paragraph ${
-            isDarkTheme && `transaction-section__paragraph--dark`
-          }`}
+          className={clsx(
+            "transaction-section__paragraph",
+            isDarkTheme && "transaction-section__paragraph--dark"
+          )}
         >
           Brak transakcji
         </p>

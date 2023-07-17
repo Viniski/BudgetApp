@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import { useTheme } from "../../../hooks/useTheme";
 
 type Props = {
@@ -18,9 +19,10 @@ export const Input = ({ type, variant = "section", ...props }: Props) => {
       value={props?.value}
       max={props?.max}
       onChange={(e) => props.onChange(e.target.value)}
-      className={`inputs-${variant}__input ${
+      className={clsx(
+        `inputs-${variant}__input`,
         isDarkTheme && `inputs-${variant}__input--dark`
-      }`}
+      )}
     />
   );
 };

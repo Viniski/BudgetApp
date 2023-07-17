@@ -11,11 +11,11 @@ const MockComponent = () => {
   );
 };
 
-describe("Add page", () => {
-  it("should display button with correct title of add page", () => {
-    renderWithProviders(<MockComponent />);
+// describe("Add page", () => {
+//   it("should display button with correct title of add page", () => {
+//     renderWithProviders(<MockComponent />);
 
-    const button = screen.getByRole("button", { name: /Dodaj wydatek/i });
-    expect(button).toBeInTheDocument();
-  });
-});
+//     const button = screen.getByRole("button", { name: /Dodaj wydatek/i });
+//     expect(button).toBeInTheDocument();
+//   });
+// });

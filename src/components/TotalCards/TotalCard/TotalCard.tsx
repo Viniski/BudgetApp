@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { clsx } from "clsx";
 import { useTheme } from "../../../hooks/useTheme";
 import { useTransactions } from "../../../hooks/useTransactions";
 
@@ -22,7 +23,7 @@ export function TotalCard() {
   }, [income, expense]);
 
   return (
-    <div className={`cards__total ${isDarkTheme && `cards__total--dark`}`}>
+    <div className={clsx("cards__total", isDarkTheme && "cards__total--dark")}>
       <h2 className="cards__h2">Bilans transakcji</h2>
       <p className="cards__p">{calculateTotalTransaction} PLN</p>
     </div>

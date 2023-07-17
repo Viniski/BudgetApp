@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { clsx } from "clsx";
 import { useAppSelector } from "../../../redux/hooks";
 import { useTheme } from "../../../hooks/useTheme";
 import { ADD_TRANSACTION, CHARTS } from "../../CONSTANTS";
@@ -13,36 +14,40 @@ export function HeaderNav() {
       <ul>
         <NavLink to={incomeUrl}>
           <li
-            className={`navigation__item ${
-              isDarkTheme && `navigation__item--dark`
-            }`}
+            className={clsx(
+              "navigation__item",
+              isDarkTheme && "navigation__item--dark"
+            )}
           >
             Przychody
           </li>
         </NavLink>
         <NavLink to={excomeUrl}>
           <li
-            className={`navigation__item ${
-              isDarkTheme && `navigation__item--dark`
-            }`}
+            className={clsx(
+              "navigation__item",
+              isDarkTheme && "navigation__item--dark"
+            )}
           >
             Wydatki
           </li>
         </NavLink>
         <NavLink to={CHARTS}>
           <li
-            className={`navigation__item ${
-              isDarkTheme && `navigation__item--dark`
-            }`}
+            className={clsx(
+              "navigation__item",
+              isDarkTheme && "navigation__item--dark"
+            )}
           >
             Wykresy
           </li>
         </NavLink>
         <NavLink to={ADD_TRANSACTION}>
           <li
-            className={`navigation__item ${
-              isDarkTheme && `navigation__item--dark`
-            }`}
+            className={clsx(
+              "navigation__item",
+              isDarkTheme && "navigation__item--dark"
+            )}
           >
             Dodaj transakcje
           </li>

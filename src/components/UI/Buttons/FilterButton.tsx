@@ -1,3 +1,5 @@
+import { clsx } from "clsx";
+
 type Props = {
   onClick: () => void;
   isDarkTheme: boolean;
@@ -8,9 +10,10 @@ export const FilterButton = ({ onClick, isDarkTheme }: Props) => {
     <button
       data-testid="filter-button"
       onClick={onClick}
-      className={`transaction-section__button-filter ${
-        isDarkTheme && `transaction-section__button-filter--dark`
-      }`}
+      className={clsx(
+        "transaction-section__button-filter",
+        isDarkTheme && "transaction-section__button-filter--dark"
+      )}
       aria-label="Filtruj transakcje"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">

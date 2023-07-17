@@ -1,3 +1,5 @@
+import { clsx } from "clsx";
+
 type Props = {
   onClick: () => void;
   isDarkTheme: boolean;
@@ -7,9 +9,10 @@ export const DeleteButton = ({ onClick, isDarkTheme }: Props) => {
   return (
     <button
       onClick={onClick}
-      className={`card__button-trash ${
-        isDarkTheme && `card__button-trash--dark`
-      }`}
+      className={clsx(
+        "card__button-trash",
+        isDarkTheme && "card__button-trash--dark"
+      )}
       aria-label="Usuń transakcje"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">

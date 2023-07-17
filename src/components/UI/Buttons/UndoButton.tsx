@@ -1,3 +1,5 @@
+import { clsx } from "clsx";
+
 type Props = {
   onClick: () => void;
   isDarkTheme: boolean;
@@ -7,9 +9,10 @@ export const UndoButton = ({ onClick, isDarkTheme }: Props) => {
   return (
     <button
       onClick={onClick}
-      className={`header__button-back ${
-        isDarkTheme && `header__button-back--dark`
-      }`}
+      className={clsx(
+        "header__button-back",
+        isDarkTheme && "header__button-back--dark"
+      )}
       data-testid="undo-button"
       aria-label="Cofnij"
     >

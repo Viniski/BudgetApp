@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { clsx } from "clsx";
 import { useTheme } from "../../../hooks/useTheme";
 import { useTransactions } from "../../../hooks/useTransactions";
 
@@ -22,9 +23,11 @@ export function ExpenseCard({ variant }: Props) {
 
   return (
     <div
-      className={`cards__expense ${
-        variant === "main" ? "cards__expense--main-card" : ""
-      } ${isDarkTheme && `cards__expense--dark`}`}
+      className={clsx(
+        "cards__expense",
+        variant === "main" && "cards__expense--main-card",
+        isDarkTheme && "cards__expense--dark"
+      )}
     >
       <div className="cards__expense-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
