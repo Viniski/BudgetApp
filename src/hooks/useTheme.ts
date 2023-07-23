@@ -1,5 +1,7 @@
-import { useAppSelector } from "../redux/hooks";
+import { useThemeStore } from "../store/store";
 
 export function useTheme() {
-  return useAppSelector((state) => state.theme.isDarkTheme);
+  return useThemeStore((state) => state.theme);
+
+  // return useAppSelector((state) => state.theme.isDarkTheme);
 }

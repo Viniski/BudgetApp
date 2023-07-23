@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { clsx } from "clsx";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { toogle } from "../../redux/themeSlice";
+import { useAppSelector } from "../../redux/hooks";
+import { useThemeStore } from "../../store/store";
 import { useTheme } from "../../hooks/useTheme";
 import { HeaderNav } from "../../navigation/components/HeaderNav/HeaderNav";
 import { UndoButton } from "../UI/Buttons/UndoButton";
@@ -19,7 +19,7 @@ export function Header({ title }: Props) {
   const [isClicked, setIsClicked] = useState(false);
   const isDarkTheme = useTheme();
   const homeUrl = useAppSelector((state) => state.url.homeLink);
-  const dispatch = useAppDispatch();
+  const toogleTheme = useThemeStore((state) => state.toogleTheme);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ export function Header({ title }: Props) {
   };
 
   const handleThemeClick = () => {
-    dispatch(toogle());
+    toogleTheme();
   };
 
   const getUndoPage = () => {
