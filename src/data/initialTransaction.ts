@@ -1,13 +1,3 @@
-export type initialTransactions = Array<{
-  type: string;
-  date: string;
-  amount: any;
-  title: string;
-  category: string;
-  id: number;
-  note: string;
-}>;
-
 export type initialTransactionElement = {
   type: string;
   date: string;
@@ -17,6 +7,8 @@ export type initialTransactionElement = {
   id: number;
   note: string;
 };
+
+export type initialTransactions = Array<initialTransactionElement>;
 
 export const initialState: initialTransactions = [
   {

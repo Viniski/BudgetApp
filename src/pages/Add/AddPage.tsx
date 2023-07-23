@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
-import { add } from "../../redux/transactionsSlice";
+import { useTransactionStore } from "../../store/transactions";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { Header } from "../../components/Header/Header";
 import { Input } from "../../components/UI/Inputs/Input";
@@ -20,7 +19,6 @@ export function AddPage({ type, name }: Props) {
   const today = formatDate(new Date());
   const [date, setDate] = useState({ value: today, valid: true });
   const [note, setNote] = useState("");
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const invalidButton = Boolean(
@@ -41,7 +39,7 @@ export function AddPage({ type, name }: Props) {
       title: title.value,
       type,
     };
-    dispatch(add(newTransaction));
+    useTransactionStore((state) => state.add(newTransaction));
     navigate("/");
   };
 

@@ -1,9 +1,9 @@
-import { useAppSelector } from "../redux/hooks";
+import { useTransactionStore } from "../store/transactions";
 
 export function useTransactionById(id: string | undefined) {
-  return useAppSelector(
+  return useTransactionStore(
     (state) =>
-      state.transactions.filter(
+      state.initialState.filter(
         (transaction) => transaction.id === Number(id)
       )[0]
   );

@@ -1,15 +1,15 @@
-import { screen } from "@testing-library/react";
-import { AddPage } from "./AddPage";
-import { MemoryRouter } from "react-router-dom";
-import { renderWithProviders } from "../../helpers/testUtils";
+// import { screen } from "@testing-library/react";
+// import { AddPage } from "./AddPage";
+// import { MemoryRouter } from "react-router-dom";
+// import { renderWithProviders } from "../../helpers/testUtils";
 
-const MockComponent = () => {
-  return (
-    <MemoryRouter>
-      <AddPage type="expense" name="wydatek" />
-    </MemoryRouter>
-  );
-};
+// const MockComponent = () => {
+//   return (
+//     <MemoryRouter>
+//       <AddPage type="expense" name="wydatek" />
+//     </MemoryRouter>
+//   );
+// };
 
 // describe("Add page", () => {
 //   it("should display button with correct title of add page", () => {

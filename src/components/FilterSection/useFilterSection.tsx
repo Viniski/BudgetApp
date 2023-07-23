@@ -1,12 +1,7 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../redux/hooks";
+import { useUrlStore } from "../../store/url";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import {
-  updateHomeURL,
-  updateExpenseURL,
-  updateIncomeURL,
-} from "../../redux/urlSlice";
 import { formatDate } from "../../helpers/formatDate";
 import { createFilterUrl } from "../../helpers/createFilterUrl";
 import { Params } from "../../helpers/globalTypes";
@@ -15,7 +10,9 @@ import { ROOT, EXPENSE } from "../../navigation/CONSTANTS";
 export function useFilterSection() {
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch = useAppDispatch();
+  const updateHomeURL = useUrlStore((state) => state.updateHomeURL);
+  const updateIncomeURL = useUrlStore((state) => state.updateIncomeURL);
+  const updateExpenseURL = useUrlStore((state) => state.updateExpenseURL);
   const [minAmount, setMinAmount] = useState("");
   const [maxAmount, setMaxAmount] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -107,14 +104,14 @@ export function useFilterSection() {
   const handleFilterButton = (params: Params) => {
     const newUrl = createFilterUrl(location.pathname, params);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
-    dispatch(chooseReducerByPathname(newUrl));
+    chooseReducerByPathname(newUrl);
     navigate(newUrl);
   };
 
   const handleDeleteCriteria = (params: Params) => {
     const newUrl = createFilterUrl(location.pathname, params);
     setFilterSectionState({ activeCriteria: params, isFormActive: false });
-    dispatch(chooseReducerByPathname(newUrl));
+    chooseReducerByPathname(newUrl);
     navigate(newUrl);
   };
 

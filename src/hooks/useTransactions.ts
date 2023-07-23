@@ -1,9 +1,9 @@
-import { useAppSelector } from "../redux/hooks";
+import { useTransactionStore } from "../store/transactions";
 
 type Params = "all" | "expense" | "income";
 
 export function useTransactions(type: Params = "all") {
-  const transactions = useAppSelector((state) => state.transactions);
+  const transactions = useTransactionStore((state) => state.initialState);
   if (type === "all") {
     return transactions;
   } else if (type === "expense") {

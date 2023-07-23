@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { clsx } from "clsx";
-import { useAppSelector } from "../../../redux/hooks";
+import { useUrlStore } from "../../../store/url";
 import { useTheme } from "../../../hooks/useTheme";
 import { ADD_TRANSACTION, CHARTS } from "../../CONSTANTS";
 
 export function HeaderNav() {
   const isDarkTheme = useTheme();
-  const incomeUrl = useAppSelector((state) => state.url.incomeLink);
-  const excomeUrl = useAppSelector((state) => state.url.expenseLink);
+  const incomeUrl = useUrlStore((state) => state.incomeLink);
+  const expenseUrl = useUrlStore((state) => state.expenseLink);
 
   return (
     <nav className="navigation ">
@@ -22,7 +22,7 @@ export function HeaderNav() {
             Przychody
           </li>
         </NavLink>
-        <NavLink to={excomeUrl}>
+        <NavLink to={expenseUrl}>
           <li
             className={clsx(
               "navigation__item",

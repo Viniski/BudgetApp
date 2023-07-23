@@ -1,8 +1,8 @@
-type initialUrl = {
+interface initialUrl {
   homeLink: string;
   expenseLink: string;
   incomeLink: string;
-};
+}
 
 export const initialState: initialUrl = {
   homeLink: "/",

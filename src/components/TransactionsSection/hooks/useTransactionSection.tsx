@@ -1,10 +1,5 @@
 import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
-import { useAppDispatch } from "../../../redux/hooks";
-import {
-  updateHomeURL,
-  updateExpenseURL,
-  updateIncomeURL,
-} from "../../../redux/urlSlice";
+import { useUrlStore } from "../../../store/url";
 import { getFilteredTransaction } from "../../../helpers/getFilteredTransaction";
 import { useTransactions } from "../../../hooks/useTransactions";
 import { useGetParamsFromURL } from "./useGetParamsFromURL";
@@ -17,7 +12,9 @@ type Params = "all" | "expense" | "income";
 export function useTransactionSection(type: Params) {
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch = useAppDispatch();
+  const updateHomeURL = useUrlStore((state) => state.updateHomeURL);
+  const updateIncomeURL = useUrlStore((state) => state.updateIncomeURL);
+  const updateExpenseURL = useUrlStore((state) => state.updateExpenseURL);
   const [searchParams] = useSearchParams();
   const allTransactions = useTransactions(type);
   const filterParams = useGetParamsFromURL();
@@ -38,13 +35,11 @@ export function useTransactionSection(type: Params) {
 
   const paginate = (number: number) => {
     const newUrl = createPaginationUrl(location.pathname, filterParams, number);
-    dispatch(
-      location.pathname === ROOT
-        ? updateHomeURL(newUrl)
-        : location.pathname === EXPENSE
-        ? updateExpenseURL(newUrl)
-        : updateIncomeURL(newUrl)
-    );
+    location.pathname === ROOT
+      ? updateHomeURL(newUrl)
+      : location.pathname === EXPENSE
+      ? updateExpenseURL(newUrl)
+      : updateIncomeURL(newUrl);
     navigate(newUrl);
   };
 

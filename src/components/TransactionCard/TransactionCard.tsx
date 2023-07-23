@@ -1,6 +1,5 @@
 import { clsx } from "clsx";
-import { useAppDispatch } from "../../redux/hooks";
-import { remove } from "../../redux/transactionsSlice";
+import { useTransactionStore } from "../../store/transactions";
 import { DeleteButton } from "../UI/Buttons/DeleteButton";
 import { EditButton } from "../UI/Buttons/EditButton";
 import { DetailsTransactionLink } from "../../navigation/components/DetailsTransactionLink/DetailsTransactionLink";
@@ -20,10 +19,8 @@ type Props = {
 };
 
 export function TransactionCard({ data, isDarkTheme }: Props) {
-  const dispatch = useAppDispatch();
-
   const handleDeleteTransaction = () => {
-    dispatch(remove(data.id));
+    useTransactionStore((state) => state.remove(data.id));
   };
 
   return (

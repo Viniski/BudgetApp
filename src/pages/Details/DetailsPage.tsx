@@ -1,6 +1,5 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
-import { remove } from "../../redux/transactionsSlice";
+import { useTransactionStore } from "../../store/transactions";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { useTransactionById } from "../../hooks/useTransactionById";
 import { Header } from "../../components/Header/Header";
@@ -12,10 +11,8 @@ export function DetailsPage() {
   const tranasaction = useTransactionById(id);
   const navigate = useNavigate();
 
-  const dispatch = useAppDispatch();
-
   const handleDeleteTransaction = () => {
-    dispatch(remove(Number(id)));
+    useTransactionStore((state) => state.remove(Number(id)));
     navigate("/");
   };
 

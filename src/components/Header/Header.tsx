@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { clsx } from "clsx";
-import { useAppSelector } from "../../redux/hooks";
-import { useThemeStore } from "../../store/store";
+import { useUrlStore } from "../../store/url";
+import { useThemeStore } from "../../store/theme";
 import { useTheme } from "../../hooks/useTheme";
 import { HeaderNav } from "../../navigation/components/HeaderNav/HeaderNav";
 import { UndoButton } from "../UI/Buttons/UndoButton";
@@ -18,7 +18,7 @@ type Props = {
 export function Header({ title }: Props) {
   const [isClicked, setIsClicked] = useState(false);
   const isDarkTheme = useTheme();
-  const homeUrl = useAppSelector((state) => state.url.homeLink);
+  const homeUrl = useUrlStore((state) => state.homeLink);
   const toogleTheme = useThemeStore((state) => state.toogleTheme);
   const location = useLocation();
   const navigate = useNavigate();

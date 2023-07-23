@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
-import { edit } from "../../redux/transactionsSlice";
+import { useTransactionStore } from "../../store/transactions";
 import { useWebsiteTitle } from "../../hooks/useWebstiteTitle";
 import { useTransactionById } from "../../hooks/useTransactionById";
 import { Header } from "../../components/Header/Header";
@@ -28,7 +27,6 @@ export function EditPage() {
     valid: true,
   });
   const [note, setNote] = useState(transaction.note);
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const invalidButton = Boolean(
@@ -46,7 +44,7 @@ export function EditPage() {
       title: title.value,
       type,
     };
-    dispatch(edit(editTransaction));
+    useTransactionStore((state) => state.edit(editTransaction));
     navigate("/");
   };
 
