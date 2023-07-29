@@ -20,6 +20,7 @@ export function AddPage({ type, name }: Props) {
   const [date, setDate] = useState({ value: today, valid: true });
   const [note, setNote] = useState("");
   const navigate = useNavigate();
+  const addTransaction = useTransactionStore((state) => state.add);
 
   const invalidButton = Boolean(
     [amount.valid, title.valid, category.valid, date.valid].filter(
@@ -39,7 +40,7 @@ export function AddPage({ type, name }: Props) {
       title: title.value,
       type,
     };
-    useTransactionStore((state) => state.add(newTransaction));
+    addTransaction(newTransaction);
     navigate("/");
   };
 

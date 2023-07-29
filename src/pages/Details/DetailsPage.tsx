@@ -10,9 +10,10 @@ export function DetailsPage() {
   const { id } = useParams();
   const tranasaction = useTransactionById(id);
   const navigate = useNavigate();
+  const removeTransaction = useTransactionStore((state) => state.remove);
 
   const handleDeleteTransaction = () => {
-    useTransactionStore((state) => state.remove(Number(id)));
+    removeTransaction(Number(id));
     navigate("/");
   };
 

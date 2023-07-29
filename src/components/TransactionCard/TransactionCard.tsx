@@ -19,8 +19,10 @@ type Props = {
 };
 
 export function TransactionCard({ data, isDarkTheme }: Props) {
+  const removeTransaction = useTransactionStore((state) => state.remove);
+
   const handleDeleteTransaction = () => {
-    useTransactionStore((state) => state.remove(data.id));
+    removeTransaction(data.id);
   };
 
   return (

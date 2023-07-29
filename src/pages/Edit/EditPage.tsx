@@ -28,6 +28,7 @@ export function EditPage() {
   });
   const [note, setNote] = useState(transaction.note);
   const navigate = useNavigate();
+  const editTransaction = useTransactionStore((state) => state.edit);
 
   const invalidButton = Boolean(
     [amount.valid, title.valid, date.valid].filter((valid) => valid === false)
@@ -35,7 +36,7 @@ export function EditPage() {
   );
 
   const handleEditButton = () => {
-    const editTransaction = {
+    const editedTransaction = {
       amount: amount.value,
       category,
       date: date.value,
@@ -44,7 +45,7 @@ export function EditPage() {
       title: title.value,
       type,
     };
-    useTransactionStore((state) => state.edit(editTransaction));
+    editTransaction(editedTransaction);
     navigate("/");
   };
 
