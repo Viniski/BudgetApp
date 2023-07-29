@@ -1,13 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
-import { combineReducers } from "@reduxjs/toolkit";
-import themeReducer from "./themeSlice";
-import transactionsReducer from "./transactionsSlice";
-import urlReducer from "./urlSlice";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+import themeReducer from './theme-slice';
+import transactionsReducer from './transactions-slice';
+import urlReducer from './url-slice';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
 };
 

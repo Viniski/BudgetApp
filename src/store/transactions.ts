@@ -1,17 +1,16 @@
-import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
-import { initialState } from "../data/initialTransaction";
-import type { initialTransactions } from "../data/initialTransaction";
-import type { initialTransactionElement } from "../data/initialTransaction";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { initialState } from '@/data/initial-transaction';
+import type { InitialTransactionElement, InitialTransactions } from '@/data/initial-transaction';
 
-interface transactionState {
-  initialState: initialTransactions;
-  add: (transaction: initialTransactionElement) => void;
-  edit: (transaction: initialTransactionElement) => void;
+interface TransactionState {
+  initialState: InitialTransactions;
+  add: (transaction: InitialTransactionElement) => void;
+  edit: (transaction: InitialTransactionElement) => void;
   remove: (id: number) => void;
 }
 
-export const useTransactionStore = create<transactionState>()(
+export const useTransactionStore = create<TransactionState>()(
   persist(
     (set, get) => ({
       initialState,
@@ -21,27 +20,21 @@ export const useTransactionStore = create<transactionState>()(
         })),
       edit: (transaction) => {
         const state = get();
-        let index = state.initialState.findIndex(
-          (element) => element.id === transaction.id
+        const newState = state.initialState.filter(
+          (element: InitialTransactionElement) => element.id !== transaction.id,
         );
-        set({
-          initialState: [
-            ...state.initialState,
-            (state.initialState[index] = transaction),
-          ],
-        });
+        set(() => ({
+          initialState: [...newState, transaction],
+        }));
       },
       remove: (id) => {
         set((state) => ({
-          initialState: state.initialState.filter(
-            (element: initialTransactionElement) => element.id !== id
-          ),
+          initialState: state.initialState.filter((element: InitialTransactionElement) => element.id !== id),
         }));
       },
     }),
     {
-      name: "url-storage",
-      storage: createJSONStorage(() => sessionStorage),
-    }
-  )
+      name: 'url-storage',
+    },
+  ),
 );

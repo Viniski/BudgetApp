@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
+import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 interface ThemeState {
   theme: boolean;
@@ -13,8 +13,8 @@ export const useThemeStore = create<ThemeState>()(
       toogleTheme: () => set((state) => ({ theme: !state.theme })),
     }),
     {
-      name: "theme-storage",
+      name: 'theme-storage',
       storage: createJSONStorage(() => sessionStorage),
-    }
-  )
+    },
+  ),
 );
