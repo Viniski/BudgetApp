@@ -1,6 +1,6 @@
 # Budget App by Viniski
 
-A complete budget application written in React.js and Type Script.
+[Legacy project] A complete budget application written in React.js and Type Script.
 
 ## :sunglasses: Descriptions
 
